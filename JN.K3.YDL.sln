@@ -1,0 +1,154 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.YDL.Business.PlugIn", "Business\Src\JN.K3.YDL.Business.PlugIn\JN.K3.YDL.Business.PlugIn.csproj", "{FBBF6A0B-7F9C-4202-A4A6-E21BF160122A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.YDL.Report.PlugIn", "Business\Src\JN.K3.YDL.Report.PlugIn\JN.K3.YDL.Report.PlugIn.csproj", "{97CD7D94-80BF-4DC4-B5FA-DA7C507DAD82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.YDL.App.Core", "App\Src\JN.K3.YDL.App.Core\JN.K3.YDL.App.Core.csproj", "{A3F3319B-A5F0-4312-91F6-BF6DC6DC692B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.YDL.App.Report", "App\Src\JN.K3.YDL.App.Report\JN.K3.YDL.App.Report.csproj", "{E81EC4FB-98E2-4D3F-804B-97061A61877F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.YDL.App.ServicePlugIn", "App\Src\JN.K3.YDL.App.ServicePlugIn\JN.K3.YDL.App.ServicePlugIn.csproj", "{6F7A368A-FB55-4BCE-A0B8-43D2481ECFC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.YDL.Common.BusinessEntity", "Common\Src\JN.K3.YDL.Common.BusinessEntity\JN.K3.YDL.Common.BusinessEntity.csproj", "{37A4EE38-5564-4B97-B3DF-CE4A61EF999B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.YDL.Contracts", "Common\Src\JN.K3.YDL.Contracts\JN.K3.YDL.Contracts.csproj", "{2F72B9D2-2658-4412-AE9D-FD7A7EF8C811}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.YDL.Core", "Common\Src\JN.K3.YDL.Core\JN.K3.YDL.Core.csproj", "{9EA6E1D0-DBF5-44D3-8D75-99C97ED347D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.YDL.ServiceHelper", "Common\Src\JN.K3.YDL.ServiceHelper\JN.K3.YDL.ServiceHelper.csproj", "{E784C9BF-F0B8-47D7-ABF3-FC3C5D4E3724}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{F878BE92-019D-49AD-B67E-DE4AAA897186}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{DE7D22BC-7501-46DC-8567-4E3E6CB6988B}"
+	ProjectSection(SolutionItems) = preProject
+		Business\Src\JN.K3.YDL.Business.PlugIn\SCM\MisDeliveryEdit.cs = Business\Src\JN.K3.YDL.Business.PlugIn\SCM\MisDeliveryEdit.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{47993697-30DC-4913-89BB-807EC6204EA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTR.K3.Bill.PlugIn", "Business\Src\VTR.K3.Bill.PlugIn\VTR.K3.Bill.PlugIn.csproj", "{EF63BEE1-FD29-4730-9165-E14DD9B1E012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YDL.K3.App.Report", "App\Src\YDL.K3.App.Report\YDL.K3.App.Report.csproj", "{C79FC50E-B79D-4E1A-9962-D052637B60DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBBF6A0B-7F9C-4202-A4A6-E21BF160122A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBF6A0B-7F9C-4202-A4A6-E21BF160122A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBF6A0B-7F9C-4202-A4A6-E21BF160122A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBF6A0B-7F9C-4202-A4A6-E21BF160122A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97CD7D94-80BF-4DC4-B5FA-DA7C507DAD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97CD7D94-80BF-4DC4-B5FA-DA7C507DAD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97CD7D94-80BF-4DC4-B5FA-DA7C507DAD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97CD7D94-80BF-4DC4-B5FA-DA7C507DAD82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3F3319B-A5F0-4312-91F6-BF6DC6DC692B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F3319B-A5F0-4312-91F6-BF6DC6DC692B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F3319B-A5F0-4312-91F6-BF6DC6DC692B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3F3319B-A5F0-4312-91F6-BF6DC6DC692B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E81EC4FB-98E2-4D3F-804B-97061A61877F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E81EC4FB-98E2-4D3F-804B-97061A61877F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E81EC4FB-98E2-4D3F-804B-97061A61877F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E81EC4FB-98E2-4D3F-804B-97061A61877F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F7A368A-FB55-4BCE-A0B8-43D2481ECFC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F7A368A-FB55-4BCE-A0B8-43D2481ECFC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F7A368A-FB55-4BCE-A0B8-43D2481ECFC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F7A368A-FB55-4BCE-A0B8-43D2481ECFC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37A4EE38-5564-4B97-B3DF-CE4A61EF999B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37A4EE38-5564-4B97-B3DF-CE4A61EF999B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37A4EE38-5564-4B97-B3DF-CE4A61EF999B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37A4EE38-5564-4B97-B3DF-CE4A61EF999B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F72B9D2-2658-4412-AE9D-FD7A7EF8C811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F72B9D2-2658-4412-AE9D-FD7A7EF8C811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F72B9D2-2658-4412-AE9D-FD7A7EF8C811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F72B9D2-2658-4412-AE9D-FD7A7EF8C811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EA6E1D0-DBF5-44D3-8D75-99C97ED347D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA6E1D0-DBF5-44D3-8D75-99C97ED347D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA6E1D0-DBF5-44D3-8D75-99C97ED347D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EA6E1D0-DBF5-44D3-8D75-99C97ED347D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E784C9BF-F0B8-47D7-ABF3-FC3C5D4E3724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E784C9BF-F0B8-47D7-ABF3-FC3C5D4E3724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E784C9BF-F0B8-47D7-ABF3-FC3C5D4E3724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E784C9BF-F0B8-47D7-ABF3-FC3C5D4E3724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF63BEE1-FD29-4730-9165-E14DD9B1E012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF63BEE1-FD29-4730-9165-E14DD9B1E012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF63BEE1-FD29-4730-9165-E14DD9B1E012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF63BEE1-FD29-4730-9165-E14DD9B1E012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C79FC50E-B79D-4E1A-9962-D052637B60DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C79FC50E-B79D-4E1A-9962-D052637B60DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C79FC50E-B79D-4E1A-9962-D052637B60DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C79FC50E-B79D-4E1A-9962-D052637B60DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FBBF6A0B-7F9C-4202-A4A6-E21BF160122A} = {47993697-30DC-4913-89BB-807EC6204EA4}
+		{97CD7D94-80BF-4DC4-B5FA-DA7C507DAD82} = {47993697-30DC-4913-89BB-807EC6204EA4}
+		{A3F3319B-A5F0-4312-91F6-BF6DC6DC692B} = {F878BE92-019D-49AD-B67E-DE4AAA897186}
+		{E81EC4FB-98E2-4D3F-804B-97061A61877F} = {F878BE92-019D-49AD-B67E-DE4AAA897186}
+		{6F7A368A-FB55-4BCE-A0B8-43D2481ECFC7} = {F878BE92-019D-49AD-B67E-DE4AAA897186}
+		{37A4EE38-5564-4B97-B3DF-CE4A61EF999B} = {DE7D22BC-7501-46DC-8567-4E3E6CB6988B}
+		{2F72B9D2-2658-4412-AE9D-FD7A7EF8C811} = {DE7D22BC-7501-46DC-8567-4E3E6CB6988B}
+		{9EA6E1D0-DBF5-44D3-8D75-99C97ED347D3} = {DE7D22BC-7501-46DC-8567-4E3E6CB6988B}
+		{E784C9BF-F0B8-47D7-ABF3-FC3C5D4E3724} = {DE7D22BC-7501-46DC-8567-4E3E6CB6988B}
+		{EF63BEE1-FD29-4730-9165-E14DD9B1E012} = {47993697-30DC-4913-89BB-807EC6204EA4}
+		{C79FC50E-B79D-4E1A-9962-D052637B60DE} = {F878BE92-019D-49AD-B67E-DE4AAA897186}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://115.28.0.167:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = App\\Src\\JN.K3.YDL.App.Core\\JN.K3.YDL.App.Core.csproj
+		SccProjectTopLevelParentUniqueName1 = JN.K3.YDL.sln
+		SccProjectName1 = App/Src/JN.K3.YDL.App.Core
+		SccLocalPath1 = App\\Src\\JN.K3.YDL.App.Core
+		SccProjectUniqueName2 = App\\Src\\JN.K3.YDL.App.Report\\JN.K3.YDL.App.Report.csproj
+		SccProjectTopLevelParentUniqueName2 = JN.K3.YDL.sln
+		SccProjectName2 = App/Src/JN.K3.YDL.App.Report
+		SccLocalPath2 = App\\Src\\JN.K3.YDL.App.Report
+		SccProjectUniqueName3 = Business\\Src\\JN.K3.YDL.Business.PlugIn\\JN.K3.YDL.Business.PlugIn.csproj
+		SccProjectTopLevelParentUniqueName3 = JN.K3.YDL.sln
+		SccProjectName3 = Business/Src/JN.K3.YDL.Business.PlugIn
+		SccLocalPath3 = Business\\Src\\JN.K3.YDL.Business.PlugIn
+		SccProjectUniqueName4 = Business\\Src\\JN.K3.YDL.Report.PlugIn\\JN.K3.YDL.Report.PlugIn.csproj
+		SccProjectTopLevelParentUniqueName4 = JN.K3.YDL.sln
+		SccProjectName4 = Business/Src/JN.K3.YDL.Report.PlugIn
+		SccLocalPath4 = Business\\Src\\JN.K3.YDL.Report.PlugIn
+		SccProjectUniqueName5 = Common\\Src\\JN.K3.YDL.Common.BusinessEntity\\JN.K3.YDL.Common.BusinessEntity.csproj
+		SccProjectTopLevelParentUniqueName5 = JN.K3.YDL.sln
+		SccProjectName5 = Common/Src/JN.K3.YDL.Common.BusinessEntity
+		SccLocalPath5 = Common\\Src\\JN.K3.YDL.Common.BusinessEntity
+		SccProjectUniqueName6 = Common\\Src\\JN.K3.YDL.Contracts\\JN.K3.YDL.Contracts.csproj
+		SccProjectTopLevelParentUniqueName6 = JN.K3.YDL.sln
+		SccProjectName6 = Common/Src/JN.K3.YDL.Contracts
+		SccLocalPath6 = Common\\Src\\JN.K3.YDL.Contracts
+		SccProjectUniqueName7 = Common\\Src\\JN.K3.YDL.Core\\JN.K3.YDL.Core.csproj
+		SccProjectTopLevelParentUniqueName7 = JN.K3.YDL.sln
+		SccProjectName7 = Common/Src/JN.K3.YDL.Core
+		SccLocalPath7 = Common\\Src\\JN.K3.YDL.Core
+		SccProjectUniqueName8 = Common\\Src\\JN.K3.YDL.ServiceHelper\\JN.K3.YDL.ServiceHelper.csproj
+		SccProjectTopLevelParentUniqueName8 = JN.K3.YDL.sln
+		SccProjectName8 = Common/Src/JN.K3.YDL.ServiceHelper
+		SccLocalPath8 = Common\\Src\\JN.K3.YDL.ServiceHelper
+		SccProjectUniqueName9 = App\\Src\\JN.K3.YDL.App.ServicePlugIn\\JN.K3.YDL.App.ServicePlugIn.csproj
+		SccProjectTopLevelParentUniqueName9 = JN.K3.YDL.sln
+		SccProjectName9 = App/Src/JN.K3.YDL.App.ServicePlugIn
+		SccLocalPath9 = App\\Src\\JN.K3.YDL.App.ServicePlugIn
+		SccProjectUniqueName10 = Business\\Src\\VTR.K3.Bill.PlugIn\\VTR.K3.Bill.PlugIn.csproj
+		SccProjectTopLevelParentUniqueName10 = JN.K3.YDL.sln
+		SccProjectName10 = Business/Src/VTR.K3.Bill.PlugIn
+		SccLocalPath10 = Business\\Src\\VTR.K3.Bill.PlugIn
+		SccProjectUniqueName11 = App\\Src\\YDL.K3.App.Report\\YDL.K3.App.Report.csproj
+		SccProjectTopLevelParentUniqueName11 = JN.K3.YDL.sln
+		SccProjectName11 = App/Src/YDL.K3.App.Report
+		SccLocalPath11 = App\\Src\\YDL.K3.App.Report
+	EndGlobalSection
+EndGlobal

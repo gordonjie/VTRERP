@@ -1,0 +1,5 @@
+C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\VTR.K3.YDL.ServicePlugIn.dll
+C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\VTR.K3.YDL.ServicePlugIn.pdb
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\VTR.K3.YDL.ServicePlugIn\VTR.K3.YDL.ServicePlugIn\obj\Debug\VTR.K3.YDL.ServicePlugIn.dll
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\VTR.K3.YDL.ServicePlugIn\VTR.K3.YDL.ServicePlugIn\obj\Debug\VTR.K3.YDL.ServicePlugIn.pdb
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\VTR.K3.YDL.ServicePlugIn\VTR.K3.YDL.ServicePlugIn\obj\Debug\VTR.K3.YDL.ServicePlugIn.csprojResolveAssemblyReference.cache

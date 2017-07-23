@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.YDL.Business.Plugin.Fin.Payable", "Payable_INVOICENO\JN.K3.YDL.Business.Plugin.Fin.Payable.csproj", "{C45B116B-1693-4374-A851-D084D8EB7173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JN.K3.VTR.Fin.ServicePlugIn", "ClassLibrary1\JN.K3.VTR.Fin.ServicePlugIn.csproj", "{465D1F72-6E93-499E-830D-5558F2C44D1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C45B116B-1693-4374-A851-D084D8EB7173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C45B116B-1693-4374-A851-D084D8EB7173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C45B116B-1693-4374-A851-D084D8EB7173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C45B116B-1693-4374-A851-D084D8EB7173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{465D1F72-6E93-499E-830D-5558F2C44D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{465D1F72-6E93-499E-830D-5558F2C44D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{465D1F72-6E93-499E-830D-5558F2C44D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{465D1F72-6E93-499E-830D-5558F2C44D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

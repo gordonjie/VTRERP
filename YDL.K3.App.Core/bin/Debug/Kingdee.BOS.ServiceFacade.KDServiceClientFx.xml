@@ -1,0 +1,448 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.ServiceFacade.KDServiceClientFx</name>
+    </assembly>
+    <members>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClientFx.IAbstractProxy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.IAbstractProxy.Invoke(System.String,System.Object[])">
+            <summary>
+            执行
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.IAbstractProxy.AgentInvoke(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            代理调用
+            </summary>
+            <param name="service"></param>
+            <param name="method"></param>
+            <param name="publiser"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.IAbstractProxy.HostURL">
+            <summary>
+            Host URL
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.IAbstractProxy.ServiceName">
+            <summary>
+            Service Name
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.IAbstractProxy.Mode">
+            <summary>
+            Router Mode
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterMode">
+            <summary>
+            模式
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterMode.None">
+            <summary>
+            直接访问
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterMode.Router">
+            <summary>
+            路由
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterMode.Agent">
+            <summary>
+            代理
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClientFx.Interface.ICRServiceProxy">
+            <summary>
+             向刚 2013-04-30
+             合并报表服务代理接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.Interface.ICRServiceProxy.GetSystemParamter(System.Int64,System.String)">
+            <summary>
+            获取某个合并方案下的系统参数
+            </summary>
+            <param name="scopeTypeId">合并方案Id</param>
+            <param name="key">系统参数Key</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClientFx.Interface.IGLServiceProxy">
+            <summary>
+             肖光雁 2012-11-12
+             总账服务代理接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.Interface.IGLServiceProxy.GetYearPeriodInfoByPolicy(System.Int64,System.Nullable{System.DateTime})">
+            <summary>
+            根据会计政策，获取当前会计期间的年度、期间、开始和结束日期
+            </summary>
+            <param name="policyID"></param>
+            <param name="date"></param>
+            <returns>FYear,FPeriod,FPeriodStartDate,FPeriodEndDate</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.Interface.IGLServiceProxy.GetPeriodDateByAcctPolicy(System.Int64,System.Int32,System.Int32)">
+            <summary>
+            按会计政策获取指定年期的开始和结束日期。Item1：开始日期；Item2：结束日期
+            </summary>
+            <param name="acctPolicyId">会计政策</param>
+            <param name="year">年</param>
+            <param name="period">期间</param>
+            <returns>开始、结束日期元组</returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClientFx.IServiceGatewayProxy">
+            <summary>
+            服务网关
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.IServiceGatewayProxy.GetRouteItem(System.String,System.String)">
+            <summary>
+            获取路由记录
+            </summary>
+            <param name="key"></param>
+            <param name="publisher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.IServiceGatewayProxy.GetServiceUri(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            获取服务Uri
+            </summary>
+            <param name="ctx"></param>
+            <param name="key"></param>
+            <param name="publisher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.IServiceGatewayProxy.AgentInvoke(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            代理执行
+            </summary>
+            <param name="service"></param>
+            <param name="method"></param>
+            <param name="args"></param>
+            <returns>
+            返回值一定是经过序列化的结果
+            </returns>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClient.KDBaseRequest.BaseHostURL">
+             <summary>
+            TODO: Get from config file
+             </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceFacade.KDServiceClient.KDRequestParaments.BeginMethod">
+            <summary>
+            服务端执行查的开始方法
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceFacade.KDServiceClient.KDRequestParaments.QueryMethod">
+            <summary>
+            服务端执行查询的方法
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.KDServiceClient.SignRequest(Kingdee.BOS.ServiceFacade.KDServiceClient.ParaDictionary)">
+            <summary>
+            Hamc签名
+            </summary>
+            <param name="txtParams"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback">
+            <summary>
+            查询执行回调
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClientFx.AbstractClientProxyFactory">
+            <summary>
+            Proxy Facotry
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.AbstractClientProxyFactory.RegisterService(Kingdee.BOS.ProxyContainer)">
+            <summary>
+            注册代理对象
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.AbstractClientProxyFactory.AgentInvoke(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="service"></param>
+            <param name="method"></param>
+            <param name="publiser"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.AbstractClientProxyFactory.RegisterProxy``1(System.String)">
+            <summary>
+            注册代理
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="typeName"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.AbstractClientProxyFactory.GetService(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="iabstractor"></param>
+            <param name="publisher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.AbstractClientProxyFactory.GetService``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="publisher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.AbstractClientProxyFactory.GetService``1(Kingdee.BOS.Context,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ctx"></param>
+            <param name="publisher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.AbstractClientProxyFactory.GetService``1(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            获取代码服务
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ctx"></param>
+            <param name="url"></param>
+            <param name="publisher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.AbstractClientProxyFactory.InternalRegProxy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.AbstractClientProxyFactory.Registered">
+            <summary>
+            是否已注册
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.BaseServiceProxy.ExecuteByQuery``1(System.String,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback,System.Object[])">
+            <summary>
+             Execute By Query Model(使用查询方式调用服务端方法）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="method"></param>
+            <param name="queryCallback"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.BaseServiceProxy.ExecuteByQuery``1(System.String,System.Action{Kingdee.BOS.ServiceFacade.KDServiceClient.AsyncResult{``0}},Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback,System.Object[])">
+            <summary>
+             Execute By Query Model(使用查询方式调用服务端方法）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="method">调用的方法</param>
+            <param name="queryCallback">回调</param>
+            <param name="args">参数</param>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“M:Kingdee.BOS.ServiceFacade.KDServiceClient.BaseServiceProxy.ExecuteByQuery``1(System.String,System.String,System.String,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback,System.Object[])”忽略有格式错误的 XML 注释 -->
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.BaseServiceProxy.InternalExcuteByQuery(System.String,System.String,System.String,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback,System.Object[])">
+             <summary>
+             
+             </summary>
+             <typeparam name="T"></typeparam>
+             <param name="beginMethod"></param>
+             <param name="queryMethod"></param>
+            <param name="doTaskMethod">真正调用的方法</param>
+             <param name="queryCallback"></param>
+             <param name="p"></param>
+             <param name="asnyRet"></param>
+             <param name="ret"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.BaseServiceProxy.InternalExcuteByQuery(System.String,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback,Kingdee.BOS.ServiceFacade.KDServiceEntity.QueryResultInfo)">
+            <summary>
+            
+            </summary>
+            <param name="queryMethod"></param>
+            <param name="queryCallback"></param>
+            <param name="asnyRet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.BaseServiceProxy.TimerCallback(System.Object)">
+            <summary>
+            回调
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.BaseServiceProxy.CreateQueryCallback``1(System.Action{Kingdee.BOS.ServiceFacade.KDServiceClient.AsyncResult{``0}},Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            
+            </summary>
+            <param name="callBack"></param>
+            <param name="userCallback"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ClientFactoryManager">
+            <summary>
+            工厂管理者
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ClientFactoryManager.LoadAllFactories">
+            <summary>
+            装载工厂
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ClientFactoryManager._mapServer">
+            <summary>
+            服务接口-实现类 映射关系
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ClientFactoryManager._factories">
+            <summary>
+            代理工厂库
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ClientFactoryManager.Current">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ClientFactoryManager.ProxyContainer">
+            <summary>
+            代理容器
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ClientFactoryManager.Factories">
+            <summary>
+            工厂库
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ClientProxyFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ClientProxyFactory.RegisterService(Kingdee.BOS.ProxyContainer)">
+            <summary>
+            注册服务
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ClientProxyFactory.GetService``1(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取服务代理接
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ctx"></param>
+            <param name="publisher"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterServiceProxy">
+            <summary>
+            服务网关代理
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterServiceProxy.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterServiceProxy.serviceName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterServiceProxy.OnSetServiceName">
+            <summary>
+            Set the Service Name
+            this._ServiceName="ServiceName"
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterServiceProxy.AgentInvoke(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="service"></param>
+            <param name="method"></param>
+            <param name="publiser"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterServiceProxy.Invoke(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="method"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterServiceProxy.ServiceName">
+            <summary>
+            服务名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterServiceProxy.Mode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.RouterServiceProxy.Kingdee#BOS#ServiceFacade#KDServiceClientFx#IAbstractProxy#ServiceName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.ServiceClientConfig.SetServiceSite(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ServiceGatewayProxy">
+            <summary>
+            服务网关代理
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ServiceGatewayProxy.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ServiceGatewayProxy.GetRouteItem(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="publisher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ServiceGatewayProxy.GetServiceUri(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ServiceGatewayProxy.AgentInvoke(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            代理执行
+            </summary>
+            <param name="service"></param>
+            <param name="method"></param>
+            <param name="args"></param>
+            <returns>
+            返回值一定是经过序列化的结果
+            </returns>
+        </member>
+        <member name="P:Kingdee.BOS.ServiceFacade.KDServiceClientFx.ServiceGatewayProxy.ServiceName">
+            <summary>
+            服务名称
+            </summary>
+        </member>
+    </members>
+</doc>

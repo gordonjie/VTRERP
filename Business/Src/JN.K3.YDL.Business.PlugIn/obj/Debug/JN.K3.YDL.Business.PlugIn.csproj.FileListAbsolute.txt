@@ -1,0 +1,6 @@
+E:\YDL\JN\JNApp\K3CloudServer\bin\JN.K3.YDL.Business.PlugIn.XML
+E:\YDL\JN\JNApp\K3CloudServer\bin\JN.K3.YDL.Business.PlugIn.dll
+E:\YDL\JN\JNApp\K3CloudServer\bin\JN.K3.YDL.Business.PlugIn.pdb
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\JN.K3.YDL.Business.PlugIn\obj\Debug\JN.K3.YDL.Business.PlugIn.dll
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\JN.K3.YDL.Business.PlugIn\obj\Debug\JN.K3.YDL.Business.PlugIn.pdb
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\JN.K3.YDL.Business.PlugIn\obj\Debug\JN.K3.YDL.Business.PlugIn.csprojResolveAssemblyReference.cache

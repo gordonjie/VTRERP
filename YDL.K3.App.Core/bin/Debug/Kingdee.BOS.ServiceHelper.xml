@@ -1,0 +1,3632 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.ServiceHelper</name>
+    </assembly>
+    <members>
+        <member name="M:Kingdee.BOS.ServiceHelper.AuthServiceHelper.VerifyDynamicPassword(Kingdee.BOS.Context,Kingdee.BOS.Authentication.DC.DynamicPasswordInfo)">
+            <summary>
+            验证动态密码卡
+            </summary>
+            <param name="ctx"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.AuthServiceHelper.SyncDynamicPasswordTime(Kingdee.BOS.Context,Kingdee.BOS.Authentication.DC.DynamicPasswordInfo)">
+            <summary>
+            同步密码卡的时间
+            </summary>
+            <param name="ctx"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BaseDataServiceHelper.GetBaseDataRefInfo(Kingdee.BOS.Context,System.String,System.Object[],System.Type,System.Collections.Generic.List{Kingdee.BOS.Core.Metadata.PreInsertData.DataType.ObjectTypeRef})">
+            <summary>
+            获得某些基础资料被哪些单据引用
+            </summary>
+            <param name="ctx"></param>
+            <param name="baseDataFromId">基础资料唯一标识</param>
+            <param name="ids">基础资料内码列表</param>
+            <param name="pkType">基础资料内码类型，可以通过form.GetPkFieldType()获得</param>
+            <param name="exceptItems">不需要检查的业务单据</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.BusinessChartServiceHelper">
+            <summary>
+            业务图表服务帮助
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessChartServiceHelper.GetMinChartDisplayIndex(Kingdee.BOS.Context)">
+            <summary>
+            获取最小的显示位置
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessChartServiceHelper.GetCurrentUserBusinessChartList(Kingdee.BOS.Context)">
+            <summary>
+            获取当前用户业务图表数据
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessChartServiceHelper.CopyBusinessChartForUser(Kingdee.BOS.Context,System.Boolean)">
+            <summary>
+            初始化当前用户业务图表数据
+            根据用户所在的角色
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessChartServiceHelper.GetBusinessChartData(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject,Kingdee.BOS.Core.Metadata.FormMetadata)">
+            <summary>
+            获取业务图表的数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessChartObj">业务图表信息数据</param>
+            <param name="formMetadata">业务图表数据源编程模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessChartServiceHelper.GetFilterString(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            获取过滤条件
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessChartObj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessChartServiceHelper.IsExistsSameName(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            是否存在相同的图表名字
+            </summary>
+            <param name="ctx"></param>
+            <param name="chartName"></param>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.DoNothing(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Object[],System.String,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            空操作调用
+            </summary>
+            <param name="ctx"></param>
+            <param name="info"></param>
+            <param name="objID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.LoadFromCache(Kingdee.BOS.Context,System.String,System.Collections.Generic.List{Kingdee.BOS.Core.Metadata.SelectorItemInfo},Kingdee.BOS.Core.Metadata.OQLFilter)">
+            <summary>
+            load from cache;
+            </summary>
+            <param name="ctx"></param>
+            <param name="formid"></param>
+            <param name="selector"></param>
+            <param name="ofilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.Load(Kingdee.BOS.Context,System.String,System.Collections.Generic.List{Kingdee.BOS.Core.Metadata.SelectorItemInfo},Kingdee.BOS.Core.Metadata.OQLFilter)">
+            <summary>
+            请求加载业务对象数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="formid">业务对象编码</param>
+            <param name="selector">需要输出的字段集合，通过限定输出字段，减少数据传输量</param>
+            <param name="ofilter">过滤条件；格式"字段Key = 比较值"</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.Load(Kingdee.BOS.Context,Kingdee.BOS.Orm.Metadata.DataEntity.DynamicObjectType,Kingdee.BOS.Core.SqlBuilder.QueryBuilderParemeter)">
+            <summary>
+            取业务数据，直接返回需要的属性，适合取被引用的基础资料数据包
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="type">业务对象动态模型</param>
+            <param name="queryParemeter">取内码SQL构建参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.LoadFromCache(Kingdee.BOS.Context,Kingdee.BOS.Orm.Metadata.DataEntity.DynamicObjectType,Kingdee.BOS.Core.SqlBuilder.QueryBuilderParemeter)">
+            <summary>
+            取业务数据，直接返回需要的属性，适合取被引用的基础资料数据包
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="type">业务对象动态模型</param>
+            <param name="queryParemeter">取内码SQL构建参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.Save(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Orm.DataEntity.DynamicObject[],System.String)">
+            <summary>
+            保存返回DynamicObject集合
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="dataObject"></param>
+            <param name="operationNumber">操作代码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.Save(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Orm.DataEntity.DynamicObject[],Kingdee.BOS.Orm.OperateOption,System.String)">
+            <summary>
+            返回标准的结果集合
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="dataObject"></param>
+            <param name="option">可以进行忽略操作，当校验提示信息是警告的时候</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.SetBillStatus(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.Object,System.Object}},System.Collections.Generic.List{System.Object},System.String,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            序时簿设置状态
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="dataObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.Delete(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Object[],Kingdee.BOS.Orm.OperateOption,System.String)">
+            <summary>
+            增加服务选项控制,是否忽略警告
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="Ids"></param>
+            <param name="option"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.Track(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject,System.String,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Boolean,System.Boolean)">
+            <summary>
+            单据上下查（根据状态迁移图）
+            </summary>
+            <param name="ctx"></param>
+            <param name="expandNode">需要展开的单据节点</param>
+            <param name="info">扩展单据元数据信息</param>        
+            <param name="isCrossSameState">是否根据状态名称找跨状态迁移图</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.TrackLinkCopy(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject,System.String,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Boolean)">
+            <summary>
+            关联复制单据上下查(根据关联表）
+            </summary>
+            <param name="ctx"></param>
+            <param name="expandNode">>需要展开的单据节点</param>
+            <param name="info">扩展单据元数据信息</param>
+            <param name="directTrack">仅查询直接关联上下查</param>
+            <returns></returns>         
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.TrackLinkCopy(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject,Kingdee.BOS.Orm.DataEntity.DynamicObject,System.String,Kingdee.BOS.Core.Metadata.BusinessInfo)">
+            <summary>
+            指定目标单进行关联上下查
+            </summary>
+            <param name="ctx"></param>
+            <param name="expandNode">需要上下查的单据节点</param>
+            <param name="targetNode">上下查目标单据</param>
+            <param name="info"></param>
+            <returns>需要上下查单据元数据信息</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.Allocate(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.Operation.AllocateParameter)">
+            <summary>
+            基础资料分配
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="pkIDs"></param>
+            <param name="orgIDs"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.Issue(Kingdee.BOS.Context,Kingdee.BOS.JSON.JSONObject)">
+            <summary>
+            基础资料下发
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="pkIDs"></param>
+            <param name="orgIDs"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.CancelIssue(Kingdee.BOS.Context,Kingdee.BOS.JSON.JSONObject)">
+            <summary>
+            基础资料取消下发
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="pkIDs"></param>
+            <param name="orgIDs"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.AddAssistData(Kingdee.BOS.Context,Kingdee.BOS.JSON.JSONObject)">
+            <summary>
+            新增辅助资料
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="pkIDs"></param>
+            <param name="orgIDs"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.GetBillNo(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Orm.DataEntity.DynamicObject[],System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+            获取单据编码
+            </summary>
+            <param name="ctx"></param>
+            <param name="info"></param>
+            <param name="dataEntities"></param>
+            <param name="codeTime">申请时机0:新增时；1:保存时 </param>
+            <param name="updateMaxnum">是否更新最大编码值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.GetBillNo(Kingdee.BOS.Context,System.String,Kingdee.BOS.Orm.DataEntity.DynamicObject[],System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+            获取单据编码
+            </summary>
+            <param name="ctx"></param>
+            <param name="formid"></param>
+            <param name="dataEntities"></param>
+            <param name="codeTime">申请时机0:新增时；1:保存时 </param>
+            <param name="updateMaxnum">是否更新最大编码值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.GetListBillNO(Kingdee.BOS.Context,System.String,System.Int32,System.String,System.Object)">
+            <summary>
+            获得单据编号批量接口
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <param name="listCount"></param>
+            <param name="sRuleID"></param>
+            <param name="oBillTypeValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.LoadBillTypePara(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.String,System.Boolean)">
+            <summary>
+            加载表单类型参数
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="businessInfo">参数的BusinessInfo</param>
+            <param name="billTypeId">表单类型ID</param>        
+            <param name="bRunTime">默认是运行时加载</param>
+            <returns>表单类型参数</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.LoadBillTypePara(Kingdee.BOS.Context,System.String,System.String,System.Boolean)">
+            <summary>
+            加载表单类型参数
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="FormId">参数BusinessInfo的ID</param>
+            <param name="billTypeId">表单类型ID</param>
+            <param name="bRunTime">默认是运行时加载</param>
+            <returns>表单类型参数</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.GetBillTypeInfos(Kingdee.BOS.Context,System.String,System.String,System.String,System.String)">
+            <summary>
+             根据formID和单据类型参数值获取对应的单据类型列表
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId">单据本身的formID,如应付单就用AP_payable</param>
+            <param name="fieldName">参数的字段名</param>
+            <param name="fieldvalue">参数值</param>
+            <param name="paraFormID">参数的FormID,动态表单的那个(继承于BOS_BILLTYPEPARAMODEL）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.SaveBillTypePara(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.String,Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            /// <param name="billTypeId"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.ClearCache(Kingdee.BOS.Context,Kingdee.BOS.Orm.Metadata.DataEntity.DynamicObjectType,System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            清除业务数据缓存
+            </summary>
+            <param name="ctx"></param>
+            <param name="dt"></param>
+            <param name="oids"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessDataServiceHelper.GetConsoleSubSystem(Kingdee.BOS.Context)">
+            <summary>
+            获取发布主控台的单据和基础资料对应的子系统Id列表
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.BusinessFlowDataServiceHelper">
+            <summary>
+            业务流程实例数据处理帮助类
+            </summary>
+        </member>
+        <!-- 对于成员“M:Kingdee.BOS.ServiceHelper.BusinessFlowDataServiceHelper.BuildBFTrackerTempTable(Kingdee.BOS.Context,Kingdee.BOS.Core.BusinessFlow.ServiceArgs.BuildBFTrackerTempTableArgs)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowDataServiceHelper.ChangeInstancesVersion(Kingdee.BOS.Context,Kingdee.BOS.Core.BusinessFlow.ServiceArgs.ChangeInstancesVersionArgs)">
+            <summary>
+            对指定的业务流程实例，切换到新版本
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowDataServiceHelper.LoadInstancesByEntityId(Kingdee.BOS.Context,Kingdee.BOS.Core.BusinessFlow.ServiceArgs.LoadInstancesByEntityIdArgs)">
+            <summary>
+            根据实体内码读取其所在的业务流程实例
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowDataServiceHelper.LoadSubFlowInstance(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            根据流程版本找出关联的流程实例
+            </summary>
+            <param name="flowVersionId">子流程版本Id</param>
+            <param name="fSourceId">来源流程实例</param>
+            <returns></returns>       
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowDataServiceHelper.PushBusinessFlow(Kingdee.BOS.Context,Kingdee.BOS.Core.BusinessFlow.ServiceArgs.PushBusinessFlowArgs)">
+            <summary>
+            推进单据的业务流程，发送推进消息
+            </summary>
+            <param name="ctx"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowDataServiceHelper.IsPush(Kingdee.BOS.Context,Kingdee.BOS.Core.BusinessFlow.ServiceArgs.IsPushArgs)">
+            <summary>
+            判断行数据是否已经下推其他单据
+            </summary>
+            <param name="ctx"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowDataServiceHelper.BackUpInstance(Kingdee.BOS.Context)">
+            <summary>
+            归档业务流程跟踪信息
+            </summary>
+            <param name="ctx">数据库上下文</param>
+            <remarks>
+            内置系统服务
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CloudAnalyseDataService.GetSendInfo(Kingdee.BOS.Context,Kingdee.BOS.Log.AnalyseLogConfigure,System.Boolean)">
+            <summary>
+            获取当前要发送的信息
+            </summary>
+            <param name="ctx">上下文</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CloudAnalyseDataService.SaveCouterInfo(Kingdee.BOS.Context,System.Collections.Generic.List{Kingdee.BOS.Log.CounterInfo})">
+            <summary>
+            保存用户行为分析数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="ueCounterInfoDic">用户行为分析数据</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CloudAnalyseDataService.GenSendParameters(Kingdee.BOS.Context)">
+            <summary>
+            保存用户行为分析数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="ueCounterInfoDic">用户行为分析数据</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.PushByRuleKey(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.ConvertElement.ServiceArgs.PushByRuleKeyArgs)">
+            <summary>
+            下推
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="pushByRuleKeyArgs">参数对象</param>
+            <returns>目标单数据包</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.Push(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.ConvertElement.ServiceArgs.PushArgs,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            下推服务；增加了业务流程图的控制
+            </summary>
+            <param name="ctx">连接上下文</param>
+            <param name="serviceArgs">服务参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.PushWithOutPermission(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.ConvertElement.ServiceArgs.PushArgs,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            下推服务；增加了业务流程图的控制
+            </summary>
+            <param name="ctx">连接上下文</param>
+            <param name="serviceArgs">服务参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.BeforeDraw(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.ConvertElement.ServiceArgs.BeforeDrawArgs)">
+            <summary>
+            上拉前的准备操作
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="beforeDrawArgs"></param>
+            <returns>查询Where子句</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.Draw(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.ConvertElement.ServiceArgs.DrawArgs,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            上拉
+            </summary>
+            <param name="ctx"></param>
+            <param name="drawArgs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetTrackerData(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject[],Kingdee.BOS.Core.Metadata.StateTracker.BillTrackerElement,System.String)">
+            <summary>
+            获取可钩稽数量
+            </summary>
+            <param name="ctx"></param>
+            <param name="linkObjs">关联关系集合</param>
+            <param name="billTracker">反写规则</param>
+            <param name="targetId">目标单的行Id，当前编辑行内码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetDefaultOrgId(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.ConvertElement.ConvertRuleElement,Kingdee.BOS.Core.List.ListSelectedRowCollection)">
+            <summary>
+            获取默认组织Id，单据下推时获取目标组织的默认Id
+            </summary>
+            <param name="rule">规则Id</param>
+            <param name="selectedRows">下推选择的数据行</param>
+            <returns>组织Id</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.IsOrgMapValueEmpty(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.ConvertElement.ConvertRuleElement,Kingdee.BOS.Core.List.ListSelectedRowCollection)">
+            <summary>
+            获取默认组织Id，单据下推时获取目标组织的默认Id
+            </summary>
+            <param name="rule">规则Id</param>
+            <param name="selectedRows">下推选择的数据行</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetBillNos(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject[])">
+            <summary>
+            获取源单编号
+            </summary>
+            <param name="ctx"></param>
+            <param name="linkObjs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetUnitTransQty(Kingdee.BOS.Context,System.Int64,System.Int64,System.Int64,System.Decimal)">
+            <summary>
+            根据源单位数量获得单位数量
+            </summary>
+            <param name="ctx">上下文信息</param>
+            <param name="materialId">物料ID</param>
+            <param name="sourceUnitId">源单位ID</param>
+            <param name="destUnitId">目标单位ID</param>
+            <param name="qty">源单位数量</param>
+            <returns>带精度格式的数量</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetDestUnitQtyByBaseQty(Kingdee.BOS.Context,System.Int64,System.Int64,System.Decimal)">
+            <summary>
+            根据基本单位数量获得单位数量
+            </summary>
+            <param name="ctx">上下文信息</param>
+            <param name="materialId">物料ID</param>
+            <param name="destunitId">目标单位ID</param>
+            <param name="baseqty">基本单位数量</param>
+            <returns>带精度格式的数量</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetBaseUnitQty(Kingdee.BOS.Context,System.Int64,System.Int64,System.Decimal)">
+            <summary>
+            根据单位数量获得基本单位数量
+            </summary>
+            <param name="ctx">上下文信息</param>
+            <param name="materialId">物料ID</param>
+            <param name="unitId">源单位ID</param>
+            <param name="qty">源单位数量</param>
+            <returns>带精度格式的数量</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetConvertRules(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            根据源单和目标单ID获取启用的转换规则
+            </summary>
+            <param name="ctx"></param>
+            <param name="sourceFormID"></param>
+            <param name="targetFormID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetConvertBills(Kingdee.BOS.Context,Kingdee.BOS.Core.DynamicForm.FormOperationEnum,System.String,System.Boolean)">
+            <summary>
+            根据一个单据ID获取单据转换流程中的源单或目标单
+            </summary>
+            <param name="ctx"></param>
+            <param name="op">操作类型，ConvertPush:下推/ ConvertDraw:上拉</param>
+            <param name="formID">源/目标单据ID，如果类型为下推，则formID为源单据，否则为目标单据</param>
+            <param name="isOnlyDefault">是否仅包含默认规则启动的单据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetConvertBusinessFlows(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.ConvertElement.ServiceArgs.GetConvertBusinessFlowsArgs)">
+            <summary>
+            根据单据ID, 单据的分录内码，获取适用的业务流程
+            </summary>
+            <param name="ctx"></param>
+            <param name="serviceArgs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetConvertRule(Kingdee.BOS.Context,System.String)">
+            <summary>
+            根据规则Id获取转换规则
+            </summary>
+            <param name="ctx"></param>
+            <param name="Id">转换规则Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.GetConvertFormIds(Kingdee.BOS.Context,Kingdee.BOS.Core.DynamicForm.FormOperationEnum,System.String)">
+            <summary>
+            获取转换规则（下推/选单）可见的单据列表
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="op">下推/选单</param>
+            <param name="formId">源单/目标单</param>
+            <returns>源单/目标单列表</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.IsExistConvertRuleID(Kingdee.BOS.Context,System.String)">
+            <summary>
+            判断单据转换规则是否存在
+            </summary>
+            <param name="ctx"></param>
+            <param name="convertRuleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.IsPush(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Core.DependencyRules.BOSDynamicRow)">
+            <summary>
+            是否有下推下游单据
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="dyRow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.IsDraw(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Core.DependencyRules.BOSDynamicRow)">
+            <summary>
+            是否有上拉（选单）上游单据
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="dyRow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ConvertServiceHelper.IsConvertLink(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Core.DependencyRules.BOSDynamicRow)">
+            <summary>
+            是否有单据转换关联关系
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <param name="dyRow"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper">
+            <summary>
+            业务流程元模型、元数据处理帮助类
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.SaveFlow(Kingdee.BOS.Context,Kingdee.BOS.Core.BusinessFlow.FlowElement)">
+            <summary>
+            保存流程，设计器专业
+            </summary>
+            <param name="ctx"></param>
+            <param name="flow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.LoadFlow(Kingdee.BOS.Context,System.String)">
+            <summary>
+            加载流程，设计器专业
+            </summary>
+            <param name="ctx"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.LoadVersionFlow(Kingdee.BOS.Context,System.String)">
+            <summary>
+            加载流程版本，设计器专业
+            </summary>
+            <param name="ctx"></param>
+            <param name="versionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.GetVersionSerialNumber(Kingdee.BOS.Context,System.String)">
+            <summary>
+            发布流程
+            </summary>
+            <param name="ctx"></param>
+            <param name="metadata"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.ValidateVersionNo(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            验证版本号是否重复
+            </summary>
+            <param name="ctx"></param>
+            <param name="metadata"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.IsFlowUsed(Kingdee.BOS.Context,System.String)">
+            <summary>
+            判断业务流程是否被引用
+            1、被业务流程配置引用；
+            2、被其他流程引用；
+            </summary>
+            <param name="ctx"></param>
+            <param name="procDefId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.GetUsedFlowIds(Kingdee.BOS.Context,System.String[])">
+            <summary>
+            判断业务流程是否被引用
+            1、被业务流程配置引用；
+            2、被其他流程引用；
+            </summary>
+            <param name="ctx"></param>
+            <param name="procDefId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.ValidateConvert(Kingdee.BOS.Context,Kingdee.BOS.Core.BusinessFlow.Extend.BusinessflowModel)">
+            <summary>
+            验证转换规则
+            </summary>
+            <param name="ctx"></param>
+            <param name="flow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.GetBusinessFlow(Kingdee.BOS.Context,System.String,System.String,System.Boolean)">
+            <summary>
+            获取与入口单据单据类型匹配的业务流程图版本；
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId">入口单据</param>
+            <param name="billTypeId">单据类型</param>
+            <returns>如果有多个流程图同时适合，则返回列表</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.SetVersionsStatus(Kingdee.BOS.Context,System.String[],System.Int32)">
+            <summary>
+            设置版本状态
+            </summary>
+            <param name="ctx"></param>
+            <param name="versionIds"></param>
+            <param name="status"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.SetDefaultVersion(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            设置默认版本
+            </summary>
+            <param name="ctx"></param>
+            <param name="procDefId"></param>
+            <param name="versionId"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.GetFlowVersionEntryFormId(Kingdee.BOS.Context,System.String)">
+            <summary>
+            根据流程版本Id获取入口单据
+            </summary>
+            <param name="ctx"></param>
+            <param name="flowVersoionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.LoadFlowVersionMetadata(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取流程版本元数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="versionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.LoadTableDefine(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            根据单据与实体，加载其表格定义对象；从而获知其表格使用的编码
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <param name="entityKey"></param>
+            <returns></returns>
+            <remarks>
+            如果单据与实体对应的表格定义对象不存在，则自动向数据库中插入一条定义
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.LoadTableDefine(Kingdee.BOS.Context,System.String)">
+            <summary>
+            根据表格编码（默认与表格名相同），加载其表格定义对象，从而获知其对应的单据与实体
+            </summary>
+            <param name="ctx"></param>
+            <param name="tableNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.AddFavouriteBFlow(Kingdee.BOS.Context,System.Int64[])">
+            <summary>
+            将业务流程配置，添加到我的收藏中
+            </summary>
+            <param name="publishEntryIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.DelFavouriteBFlow(Kingdee.BOS.Context,System.Int64[])">
+            <summary>
+            删除我收藏的业务流程
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.LoadALinkToBFlows(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            获取从A单据直接连到B单据的全部业务流程图，以及其连接的路线
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="sourceFormId">上游单据</param>
+            <param name="targetFormId">下游目标单据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.BusinessFlowServiceHelper.SaveModel(Kingdee.BOS.Context,Kingdee.BOS.Core.BusinessFlow.Extend.BusinessflowModel)">
+            <summary>
+            保存业务流程
+            </summary>
+            <param name="ctx"></param>
+            <param name="model">业务流程模型</param>
+            <returns>业务流程Id</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CustPortalServiceHelper.GetPersonalCustPortalInfo(Kingdee.BOS.Context,System.Int64)">
+            <summary>
+            获取客户门户公共信息（购物篮商品数量、我的收藏商品数量）
+            </summary>
+            <param name="ctx"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.FormMetaDataCache.GetFormRecordsCount(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取单据的记录数
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.FormMetaDataCache.NeedGetRecordsCount(Kingdee.BOS.Core.Metadata.FormMetadata)">
+            <summary>
+            业务对象是否需要检查记录数量：无业务数据关联的，如动态表单，无从检查
+            </summary>
+            <param name="formMetadata"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.FormMetaDataCache.GetFromIdById(System.String)">
+            <summary>
+            从ID中提取自定义动态FormId键值
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.FormMetaDataCache.GetFormInfoByFormId(Kingdee.BOS.Context,System.String)">
+            <summary>
+            根据窗体标识获得窗体简短信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ImportantNoticeServiceHelper.GetCurrentImportantNoticeList(Kingdee.BOS.Context)">
+            <summary>
+            常用功能列表
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MainConsoleServerHelper.GetMenuArray(Kingdee.BOS.Context,System.String)">
+            <summary>
+             根据节点ID取菜单
+            </summary>
+            <param name="strSubSystemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MainConsoleServerHelper.IsAuthorisedObjectItem(Kingdee.BOS.Context,System.String,Kingdee.BOS.Core.Objects.MainConsole.MainCFilterParameter)">
+            <summary>
+            是否授权的业务对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="objectId"></param>
+            <param name="permissionItemId"></param>
+            <param name="strSubSystemId"></param>
+            <param name="isOrgFilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MainConsoleServerHelper.IsAuthorisedObjectItem(Kingdee.BOS.Context,System.Data.DataRow,Kingdee.BOS.Core.Objects.MainConsole.MainCFilterParameter)">
+            <summary>
+            是否授权的业务对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="dr"></param>
+            <param name="permissionItemId"></param>
+            <param name="strSubSystemId"></param>
+            <param name="isOrgFilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PackageServiceHelper.GetCommonFileServer(Kingdee.BOS.Context)">
+            <summary>
+            获取公共文件服务器
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PackageServiceHelper.SetCommonFileServer(Kingdee.BOS.Context,Kingdee.BOS.BusinessEntity.FTPFileServer)">
+            <summary>
+            设置公共文件服务器
+            </summary>
+            <param name="ctx"></param>
+            <param name="commonFileServer"></param>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceHelper.DataCenterService.hsNotLicControl">
+            <summary>
+            如此做法是为了提高主控台登录后的性能，无需跑lic控制程序
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.NeedContinueSend(Kingdee.BOS.Context,System.Boolean)">
+            <summary>
+            是否需要继续验证
+            </summary>
+            <param name="force">是否强制</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.IsBoughtenUszhHK(Kingdee.BOS.Context)">
+            <summary>
+            是否购买了多语言特性
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetActitityCode(Kingdee.BOS.Context)">
+            <summary>
+            获取激活码
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetCloudValidatePara(Kingdee.BOS.Context)">
+            <summary>
+            获取云验证参数信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetDataCenterContextByNum(System.String)">
+            <summary>
+            根据数据中心Num获取数据中心上下文
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.BackupDataCenter(Kingdee.BOS.Context,Kingdee.BOS.DataCenterInfo.IBackupDataCenter,System.Boolean)">
+            <summary>
+            备份数据中心
+            </summary>
+            <param name="ctx"></param>
+            <param name="dc"></param>
+            <param name="overwrite">如果备份文件名称冲突，是否覆盖</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetManagementDataCenterContext(System.String)">
+            <summary>
+            获取管理类数据中心上下文
+            </summary>
+            <param name="ServerUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetMultiLanguageDataCenter(System.String)">
+            <summary>
+            获取多语言数据中心
+            </summary>
+            <param name="ServerUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetMultiLanguageDataCenterContext">
+            <summary>
+            获取多语言数据中心
+            </summary>
+            <param name="ServerUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetOrgList(Kingdee.BOS.Context)">
+            <summary>
+            获取组织机构信息
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetLangList(Kingdee.BOS.Context)">
+            <summary>
+            获取数据中心启用的语言
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.UpgradeDataCenter(Kingdee.BOS.DataCenterInfo.IUpgradeDataCenter)">
+            <summary>
+            升级升级中心
+            </summary>
+            <param name="dc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetAllAcctTypes(Kingdee.BOS.Context,System.Boolean)">
+            <summary>
+            获取帐套类型
+            </summary>
+            <param name="ctx"></param>
+            <param name="includeMC">是否包含MC类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.ValidateDataCenterProductVersion(Kingdee.BOS.Context)">
+            <summary>
+            获取数据中心的产品信息
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.EnableFTPService(Kingdee.BOS.DataCenterInfo.AbstarctDataCenterInfo)">
+            <summary>
+            启用数据库引擎的FTP服务
+            </summary>
+            <param name="dc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.FtpUploadFileFromDbServer(Kingdee.BOS.BusinessEntity.FTPFileServer,Kingdee.BOS.DataCenterInfo.AbstarctDataCenterInfo,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            从数据库服务器端上传文件至FTP
+            </summary>
+            <param name="ftpServer"></param>
+            <param name="dc"></param>
+            <param name="from_dir">数据库服务器端的目录</param>
+            <param name="from_file">数据库服务器端的文件</param>
+            <param name="to_file">上传文件至FTP的位置</param>
+            <param name="ftp_user">ftp用户</param>
+            <param name="ftp_password">ftp密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetUserRegistrationCode(Kingdee.BOS.Context,System.Boolean)">
+            <summary>
+            获取产品序列号
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.GetSoftwareUniqueCode(Kingdee.BOS.Context)">
+            <summary>
+            获取软件唯一码
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.ValidateKeyCode(Kingdee.BOS.Context)">
+            <summary>
+            检测数据库中存储的软件唯一码是否有效
+            1、如果不存在，则生成之，返回True；
+            2、如果存在，则校验，有效返回True，无效返回False；
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.DemoLicControl(Kingdee.BOS.Context,Kingdee.BOS.Verification.LinkedFormId,System.Func{Kingdee.BOS.Context,System.String,System.Int32})">
+            <summary>
+            演示版许可控制
+            </summary>
+            <param name="ctx"></param>
+            <param name="form"></param>
+            <param name="getRecordsFunc"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DataCenterService.IsLicControl(Kingdee.BOS.Context,System.String)">
+            <summary>
+            是否lic控制
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation">
+            <summary>
+            Excel操作帮助类
+            </summary>
+            <example>
+            导出Excel的示例
+            BeginExport();
+            ExportToExcel();
+            ExportToExcel();
+            EndExport();
+            Excel导出的格式。开始时必须先调用BeginExport（）方法，进行导出数据的初始化，然后可以多次填写数据到Excel中，
+            导出完毕后，调用EndExport()结束引出，并保存成excel文档。
+            </example>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation._businessInfo">
+            <summary>
+            下载引入模板的业务对象元数据,仅用于下载引入模板时   
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation._numbercell">
+            <summary>
+            数值型单元格
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.numTypeDict">
+            <summary>
+            缓存不同精度的数值型单元格类型实例，避免一个一个的new，耗费性能
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation._currencycell">
+            <summary>
+            金额货币型单元格
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation._numberFormat">
+            <summary>
+            当前环境数值格式化信息
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.#ctor(Kingdee.BOS.Core.DynamicForm.IDynamicFormView)">
+            <summary>
+            列表和账表导出的构造函数
+            </summary>
+            <param name="view"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.#ctor(Kingdee.BOS.Core.Metadata.BusinessInfo)">
+            <summary>
+            下载引入模板 的构造函数
+            </summary>
+            <param name="businessInfo"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.AddSheet(System.String)">
+            <summary>
+            增加表
+            </summary>
+            <param name="sheetName"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.ExportToFile(System.Collections.Generic.List{Kingdee.BOS.Core.List.ListHeader},System.Data.DataTable,System.String)">
+            <summary>
+            导出需要按列顺序
+            </summary>
+            <param name="listHeaders"></param>
+            <param name="dataTable"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.ExportToExcel(System.Collections.Generic.List{Kingdee.BOS.Core.Report.ExcelField},System.Data.DataTable,System.Boolean,System.String)">
+            <summary>
+            表体输出（可选边框）
+            by Leoz_Huang 4/25/2012
+            </summary>
+            <param name="listHeaders"></param>
+            <param name="dataTable"></param>
+            <param name="isNeedBorder"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.FillMergeHeaders(System.Collections.Generic.List{Kingdee.BOS.Core.Report.ExcelField},System.Int32)">
+            <summary>
+            构造多级表头
+            by Leoz_huang 4/25/2012
+            </summary>
+            <param name="columnNames"></param>
+            <param name="rowIndex"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.ExportToFile(System.Data.DataTable,System.String,System.Int32)">
+            <summary>
+            此方法不合适，需要重构，方法见上
+            </summary>
+            <param name="dataTable"></param>
+            <param name="message"></param>
+            <param name="startRow">除去列头后数据的起始行,默认为0,如果dataTable中包含列表表头，则需要设置</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.BuildTable(FarPoint.Win.Spread.SheetView,System.Int32,System.Boolean)">
+            <summary>
+            构建包含有单据头和关键单据体页签的dataTable，单据头和关键单据体分开存放在不同的dataTable
+            </summary>
+            <param name="view"></param>
+            <param name="startRow"></param>
+            <param name="isMulti"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.SetNumberValue(FarPoint.Win.Spread.SheetView@,System.Object,System.Int32,System.Int32)">
+            <summary>
+            设置数值单元格，并填值
+            </summary>
+            <param name="sv">表格控件</param>
+            <param name="value">设置的值</param>
+            <param name="row">行</param>
+            <param name="col">列</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.SetAmountValue(FarPoint.Win.Spread.SheetView@,System.Object,System.Int32,System.Int32,Kingdee.BOS.Core.DynamicForm.IDynamicFormView)">
+            <summary>
+            设置货币单元格，并填值
+            </summary>
+            <param name="sv"></param>
+            <param name="value"></param>
+            <param name="row"></param>
+            <param name="col"></param>
+            <param name="view"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.SheetNameToTableName(System.String)">
+            <summary>
+            工作表名转换为DataTable名，用#号过滤掉业务对象名
+            </summary>
+            <param name="sheetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Excel.ExcelOperation.isNumber(System.String,System.Boolean@)">
+            <summary>
+            格式化后为“- 123”、“- 1,234”,"12,345"的数据，可转换为数值。这样的数据用IsNumeric()判断为非数值。所以特殊判断一下，依然当作数值型数据
+            </summary>
+            <param name="value"></param>
+            <param name="isNegative">输出参数：是否为“- 123”、“- 1,234”这样的负数，普通格式“-123”的负数不用管</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.FlexServiceHelper">
+            <summary>
+            弹性域客户端帮助类 
+            科目核算维度
+            物料辅助属性
+            仓库辅助属性
+            </summary>
+        </member>
+        <!-- 对于成员“M:Kingdee.BOS.ServiceHelper.FlexServiceHelper.GetAuxPropIdInAllOrgs(Kingdee.BOS.Context)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.BuildDynamicFromDataSet(Kingdee.BOS.Context,Kingdee.BOS.Core.InputOutput.InputOutputParameter,Kingdee.BOS.Core.DynamicForm.IOperationResult@)">
+            <summary>
+            构建实体
+            </summary>
+            <param name="dataSet">Excel中获取到的数据</param>
+            <param name="businessInfo">业务元数据</param>
+            <param name="ctx">上下文</param>
+            <returns>返回构造出来的扩展实体，增加了与Excel中序号的映射关系</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.CheckDataTable(System.Data.DataSet,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Core.DynamicForm.IOperationResult@,Kingdee.BOS.Context)">
+            <summary>
+            校验模板中获取的数据的合法性 
+            </summary>
+            <param name="dataSet">获取到的数据</param>
+            <param name="businessInfo">业务元数据</param>
+            <param name="result">校验的结果集</param>
+            <returns>校验结果</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.LoadTemplateWithDefault(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取对象的默认值
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.CheckDynamicObject(Kingdee.BOS.Core.ExtendedDataEntitySet,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Core.DynamicForm.IOperationResult@,Kingdee.BOS.Context)">
+            <summary>
+            校验构造出来的实体合法性
+            </summary>
+            <param name="extendedDataEntitySet">构造出来的实体</param>
+            <param name="businessInfo">业务元数据</param>
+            <param name="result">加盐的结果集</param>
+            <returns>校验结果</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.GetExportData(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Orm.DataEntity.DynamicObject[],System.Boolean)">
+            <summary>
+            按引出模板引出数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="businessInfo">元数据</param>
+            <param name="collection">引出的数据包对象</param>
+            <param name="isControl">权限控制</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.GetExportDataByImportTemplate(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Orm.DataEntity.DynamicObject[],System.Boolean)">
+            <summary>
+            按引入模板引出数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="businessInfo">元数据</param>
+            <param name="collection">引出的数据包</param>
+            <param name="isControl">权限控制</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.GetImportTemplateData(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo)">
+            <summary>
+            获取引入模板数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="businessInfo">元数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.BuildTempTable(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject[],Kingdee.BOS.Core.Metadata.FormMetadata,System.Int32,System.Int32)">
+            <summary>
+            根据Excel建立临时表，并将数据存入临时表
+            </summary>
+            <param name="ctx"></param>
+            <param name="entityDatas">数据</param>
+            <param name="meta">业务对象</param>
+            <param name="pageCount">总页数,默认为一页</param>
+            <param name="pageIndex">当前页索引,从0开始</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.ImportDataFromTempTable(Kingdee.BOS.Context,Kingdee.BOS.Core.InputOutput.ImportDataFromTempTableEventArg)">
+             <summary>
+             将临时表中的数据存入到正式业务表中
+             </summary>
+             <param name="ctx">上下文</param>
+            <param name="e">参数包</param>
+             <param name="result"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.CustomUpgradeData(Kingdee.BOS.Context,Kingdee.BOS.Context,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+             自定义升级数据
+            </summary>
+            <param name="ctx">当前上下文</param>
+            <param name="source">源库(</param>
+            <param name="plugName">插件</param>
+            <param name="result">结果</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.LoadDataSet(Kingdee.BOS.Context,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            获取DataSet，仅限升级工具相关模块使用
+            </summary>
+            <param name="ctx"></param>
+            <param name="commandText"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.GetMaxASSISTANTDATASeq(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取辅助资料类别的最大显示序号
+            </summary>
+            <param name="ctx"></param>
+            <param name="categoryNumber">类别编号</param>
+            <returns>仅当反回值大于0时表示有意义</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.ClearDataMigrationTempTable(Kingdee.BOS.Context)">
+            <summary>
+            清除数据迁移相关的临时表
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.InOutDataServiceHelper.UpdateMaxSerialNo(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Collections.Generic.List{Kingdee.BOS.Orm.DataEntity.DynamicObject})">
+            <summary>
+            更新编码规则流水号最大值
+            </summary>
+            <param name="ctx">Context</param>
+            <param name="formId">FormId</param>
+            <param name="billCodes">编码</param>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetRptDimensionAndFlexItemNumberMap(Kingdee.BOS.Context,System.Int32[])">
+            <summary>
+            获取报告维度与核算维度的编码映射
+            </summary>
+            <param name="ctx"></param>
+            <param name="dimensionIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.Share(Kingdee.BOS.Context,Kingdee.BOS.KDSContext,System.String[],System.Int64,System.Collections.Generic.IList{Kingdee.BOS.Orm.DataEntity.DynamicObject})">
+            <summary>
+            共享报表
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="sourceRptIds">源报表ID集</param>
+            <param name="acctSysId">目标核算体系</param>
+            <param name="lstOrgs">目标组织集</param>
+            <returns>共享生成的报表ID集</returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.Share(Kingdee.BOS.Context,Kingdee.BOS.KDSContext,System.String[],System.Int64,System.Int64,System.Collections.Generic.IList{Kingdee.BOS.Orm.DataEntity.DynamicObject})">
+            <summary>
+            共享报表
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="sourceRptIds">源报表ID集</param>
+            <param name="acctSysId">目标核算体系</param>
+            <param name="orgId">目标核算组织</param>
+            <param name="lstProfitCenters">目标利润中心集</param>
+            <returns>共享生成的报表ID集</returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.ClearFormula(Kingdee.BOS.Context,Kingdee.BOS.KDSContext,System.Guid)">
+            <summary>
+            清除报表的公式
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="reportId">报表ID</param>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.UpdateCreateStyle(Kingdee.BOS.Context,Kingdee.BOS.KDSContext,System.Guid,System.Int32)">
+            <summary>
+            更新报表创建方式
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="reportId">报表ID</param>
+            <param name="style">创建方式</param>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.CheckUpSharedSample(Kingdee.BOS.Context,Kingdee.BOS.KDSContext,System.Guid)">
+            <summary>
+            检查共享生成的报表模板
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="reportId">报表ID</param>
+            <returns>检查结果信息；为空则表示检查通过</returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.UpdateVerificationFromSample(Kingdee.BOS.Context,Kingdee.BOS.KDSContext,Kingdee.BOS.KDSReportEntity.Entity.EKDReport)">
+            <summary>
+            从模板中更新报表检查公式
+            </summary>
+            <param name="ctx"></param>
+            <param name="report"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetCustomFuncAdapters(Kingdee.BOS.Context,Kingdee.BOS.KDSContext)">
+            <summary>
+            获取全部自定义函数
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetCustomFuncAdapter(Kingdee.BOS.Context,System.Int64)">
+            <summary>
+            获取单个自定义函数
+            </summary>
+            <param name="ctx"></param>
+            <param name="funcId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetCustomFuncDatas(Kingdee.BOS.Context,Kingdee.BOS.KDSContext)">
+            <summary>
+            全部自定义函数数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetCustomFormulas(Kingdee.BOS.Context,System.String,System.String,System.String,System.Int64)">
+            <summary>
+            自定义项目取数公式
+            </summary>
+            <param name="ctx"></param>
+            <param name="itemIds">项目内码集</param>
+            <param name="itemDataTypeIds">项目数据类型内码集</param>
+            <param name="useType">适用报表类型</param>
+            <param name="orgIdOrPorfitCenterId">组织内码/利润中心内码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetDefaultAcctBookId(Kingdee.BOS.Context,System.Int64,System.Int64)">
+            <summary>
+            获取默认取数账簿
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="acctSysId">核算体系</param>
+            <param name="acctOrgId">核算组织</param>
+            <returns>默认取数账簿ID</returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetDigitByCurrencyId(Kingdee.BOS.Context,System.Int64)">
+            <summary>
+            币别的金额精度
+            </summary>
+            <param name="ctx"></param>
+            <param name="currencyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.IsRootScope(Kingdee.BOS.Context,System.Int64)">
+            <summary>
+            是否为最顶层合并范围
+            </summary>
+            <param name="ctx"></param>
+            <param name="scopeId">合并范围内码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.IsReportHasBeforeAdjustEntry(Kingdee.BOS.Context,System.Guid)">
+            <summary>
+             报表是否包含报前调整分录
+            </summary>
+            <param name="ctx"></param>
+            <param name="rptid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.IsDistributeRptAllowEdit(Kingdee.BOS.Context,System.String)">
+            <summary>
+            报表模板分发后是否允许编辑
+            </summary>
+            <param name="ctx"></param>
+            <param name="rptSampleId">分发后的报表模板内码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.CreateReport(Kingdee.BOS.Context,Kingdee.BOS.KDSContext,Kingdee.BOS.KDSReportEntity.BusinessClass.AutoCreateReportParameter,System.Boolean)">
+            <summary>
+            自动生成报表
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="schemeParam">方案执行参数集</param>
+            <param name="isManul">手动</param>
+            <returns>操作结果集</returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.CreateReport(Kingdee.BOS.Context,Kingdee.BOS.KDSContext,System.Collections.Generic.IList{Kingdee.BOS.KDSReportEntity.BusinessClass.AutoCreateReportParameter},System.Boolean)">
+            <summary>
+            自动生成报表
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="lstSchemeParam">方案执行参数集</param>
+            <param name="isManul">手动</param>
+            <returns>操作结果集</returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.CreateReportWithProgress(Kingdee.BOS.Context,Kingdee.BOS.KDSContext,System.Collections.Generic.IList{Kingdee.BOS.KDSReportEntity.BusinessClass.AutoCreateReportParameter})">
+            <summary>
+            带进度的自动生成报表,只适用于立即执行时
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="lstSchemeParam">方案执行参数集</param>
+            <returns>任务执行ID</returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetComputeTask(Kingdee.BOS.Context,System.String)">
+            <summary>
+            基于任务id查询一条特定的任务并返回
+            </summary>
+            <param name="ctx"></param>
+            <param name="taskId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetProfitCenterIdByRptId(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取阿米巴报表模板对应的利润中心
+            </summary>
+            <param name="ctx"></param>
+            <param name="RptId">报表模板Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetYearPeriodByDate(Kingdee.BOS.Context,System.Int64,System.Int32,System.DateTime)">
+            <summary>
+            根据日期获取年度期间
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="acctPolicyId">会计政策ID</param>
+            <param name="rptCycle">报表周期</param>
+            <param name="date">日期</param>
+            <returns>年度期间</returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetDateByYearAndPeriod(Kingdee.BOS.Context,System.Int64,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取指定年度期间的起始日期和结束日期
+            </summary>
+            <param name="ctx">环境变量</param>
+            <param name="acctPolicyId">会计政策ID</param>
+            <param name="rptCycle">报表周期</param>
+            <param name="year">年度</param>
+            <param name="period">期间</param>
+            <returns>起始日期、结束日期</returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetReportPermissionFilter(Kingdee.BOS.Context)">
+            <summary>
+            获取报表权限过滤SQL
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.GetRptSamplePemissionFilter(Kingdee.BOS.Context)">
+            <summary>
+            获取报表模板权限过滤SQL
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.HaveRptSamplePermission(Kingdee.BOS.Context,System.Guid)">
+            <summary>
+            是否有报表模板权限
+            </summary>
+            <param name="ctx"></param>
+            <param name="sampleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.KDSServiceHelper.KDSServiceHelper.IsRptPermissionSetting(Kingdee.BOS.Context)">
+            <summary>
+            是否启用了报表数据授权
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper">
+            <summary>
+            多语言工具服务帮助类
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.CommitToCommonWordBank(Kingdee.BOS.Context,System.Collections.Generic.List{Kingdee.BOS.Orm.DataEntity.DynamicObject})">
+            <summary>
+            提交词条至公共词库
+            </summary>
+            <param name="ctx"></param>
+            <param name="words"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.CommitToDomainWordBank(Kingdee.BOS.Context,System.Collections.Generic.List{Kingdee.BOS.Orm.DataEntity.DynamicObject},System.String,System.String)">
+            <summary>
+            提交词条至领域词库
+            </summary>
+            <param name="ctx"></param>
+            <param name="words">词条</param>
+            <param name="topSystemId">领域ID</param>
+            <param name="subSystemId">子系统ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetFormMultiLangMetaData(Kingdee.BOS.Context,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取指定Form的多语言元数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="formID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.UpdateCommonWordBank(Kingdee.BOS.Context,System.Collections.Generic.List{Kingdee.BOS.Orm.DataEntity.DynamicObject})">
+            <summary>
+            更改公共词库
+            </summary>
+            <param name="ctx"></param>
+            <param name="words"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.UpdateDomainWordBank(Kingdee.BOS.Context,System.Collections.Generic.List{Kingdee.BOS.Orm.DataEntity.DynamicObject})">
+            <summary>
+            更改领域词库
+            </summary>
+            <param name="ctx"></param>
+            <param name="words"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.UpdateMedadataVersion(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            更新业务对象元数据版本号(多语言专用，用于在保存翻译结果后还原版本号)
+            </summary>
+            <param name="ctx"></param>
+            <param name="objectId"></param>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetTableID(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取SYSOBJECTS中表ID
+            </summary>
+            <param name="ctx"></param>
+            <param name="tableName">表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetFieldID(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            获取SYSCOLUMNS中字段ID
+            </summary>
+            <param name="ctx"></param>
+            <param name="fieldName">字段名</param>
+            <param name="tableName">表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetCommonBankWord(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            返回公共词库数据，只包含源语言、目标语言
+            </summary>
+            <param name="ctx"></param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetDomainBankWord(Kingdee.BOS.Context,System.String,System.String,System.String)">
+            <summary>
+            返回领域词库数据，只包含源语言、目标语言
+            </summary>
+            <param name="ctx"></param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetWISEBankWord(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            返回公共词库数据，只包含源语言、目标语言
+            </summary>
+            <param name="ctx"></param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.CreateTempTable(Kingdee.BOS.Context,System.String)">
+            <summary>
+            创建多语言临时表
+            </summary>
+            <param name="ctx"></param>
+            <param name="TmpTableName">临时表名</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.InsertCodeStringTempData(Kingdee.BOS.Context,System.String,System.String,System.String)">
+            <summary>
+            向临时表插入多语言提示语词条
+            </summary>
+            <param name="ctx"></param>
+            <param name="TmpTableName"></param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.InsertInitDataTempData(Kingdee.BOS.Context,System.String,System.String,System.String)">
+            <summary>
+            向临时表插入多语言预插数据词条
+            </summary>
+            <param name="ctx"></param>
+            <param name="TmpTableName"></param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.TranCodeStringFromCommonWordBank(Kingdee.BOS.Context,System.String,System.String,System.String)">
+            <summary>
+            从公共词库翻译程序提示语
+            </summary>
+            <param name="ctx"></param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+            <param name="SubSysId">程序提示语子系统ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.TranCodeStringFromDomainWordBank(Kingdee.BOS.Context,System.String,System.String,System.String,System.String)">
+            <summary>
+            从领域词库翻译程序提示语
+            </summary>
+            <param name="ctx"></param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+            <param name="SubSysId">子系统ID</param>
+            <param name="topClsId">业务领域Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.TranInitDataFromCommonWordBank(Kingdee.BOS.Context,System.String,System.String,System.String)">
+            <summary>
+            从公共词库翻译预插数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+            <param name="SubSysId">子系统ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetCodeStringSubSystemData(Kingdee.BOS.Context)">
+            <summary>
+            获取多语言程序提示语分组树
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetInitDataSubSystemData(Kingdee.BOS.Context)">
+            <summary>
+            获取预插数据分组树
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetSearchData(Kingdee.BOS.Context,System.String,System.String,System.String)">
+            <summary>
+            获取搜索结果
+            </summary>
+            <param name="ctx"></param>
+            <param name="searchText">搜索文本</param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetObject(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="objectId">对象ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetDomainWordBankData(Kingdee.BOS.Context,Kingdee.BOS.Core.CommonFilter.FilterParameter,System.String,System.String)">
+            <summary>
+            获取领域词库待翻译数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="filterParam">过滤对象</param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetCommonWordBankData(Kingdee.BOS.Context,Kingdee.BOS.Core.CommonFilter.FilterParameter,System.String,System.String)">
+            <summary>
+            获取公共词库待翻译数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="filterParam">过滤对象</param>
+            <param name="SourceLocaleID">源语言</param>
+            <param name="DestLocaleID">目标语言</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetCodeStringData(Kingdee.BOS.Context,System.String,Kingdee.BOS.Core.CommonFilter.FilterParameter,System.String)">
+            <summary>
+            获取程序提示语待翻译数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="TmpTableName">临时表名</param>
+            <param name="filterParam">过滤对象</param>
+            <param name="SelectedNodeID">节点ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MultiLangToolServiceHelper.GetInitDataBankData(Kingdee.BOS.Context,System.String,Kingdee.BOS.Core.CommonFilter.FilterParameter,System.String)">
+            <summary>
+            获取预插数据待翻译数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="TmpTableName">临时表名</param>
+            <param name="filterParam">过滤对象</param>
+            <param name="SelectedNodeID">节点ID</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.NetworkCtrlServiceHelper">
+            <summary>
+            提供网络控制服务
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.NetworkCtrlServiceHelper.AddNetCtrlObj(Kingdee.BOS.Context,Kingdee.BOS.LocaleValue,System.String,System.String,Kingdee.BOS.Core.NetworkCtrl.NetworkCtrlType,Kingdee.BOS.LocaleValue,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            创建网控对象，如果已经存则返回已经存在的对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="Name"></param>
+            <param name="Number"></param>
+            <param name="metaObject"></param>
+            <param name="description"></param>
+            <param name="operation"></param>
+            <param name="isStart"></param>
+            <param name="isDefault"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.NetworkCtrlServiceHelper.AddMutexNetCtrlObj(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            创建互斥对象,如果存在则返回已经创建好的互斥对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="NetCtrlObj1"></param>
+            <param name="NetCtrlObj2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.CustomLayoutServiceHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CustomLayoutServiceHelper.Delete(Kingdee.BOS.Context,System.String,Kingdee.BOS.Core.Metadata.BusinessInfo)">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CustomLayoutServiceHelper.Update(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CustomLayoutServiceHelper.Save(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <param name="layoutBusinessInfo"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CustomLayoutServiceHelper.LoadDefaultLayout(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <param name="billTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.PasswordPolicyServiceHelper">
+            <summary>
+            密码策略服务帮助类
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PasswordPolicyServiceHelper.CheckPassword(Kingdee.BOS.Context,System.Int64,System.String,System.String,Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            验证密码是否符合策略规则
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="userId">用户ID</param>
+            <param name="password">密码</param>
+            <returns>验证是否通过</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PasswordPolicyServiceHelper.UnlockAllUser(Kingdee.BOS.Context)">
+            <summary>
+            对所有用户解锁
+            </summary>
+            <param name="ctx">上下文</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PasswordPolicyServiceHelper.CheckPassword(Kingdee.BOS.Context,System.String)">
+            <summary>
+            验证密码是否符合策略规则
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="password">密码</param>
+            <returns>验证是否通过</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PasswordPolicyServiceHelper.GetPolicyLabel(Kingdee.BOS.Context)">
+            <summary>
+            获取密码策略标签
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PasswordPolicyServiceHelper.GetPolicyDefaultPwd(Kingdee.BOS.Context)">
+            <summary>
+            获取默认密码
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PasswordPolicyServiceHelper.GetAlertInfo(Kingdee.BOS.Context)">
+            <summary>
+            密码获取过期预警信息
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DBServiceHelper.BulkInserts(Kingdee.BOS.Context,System.String,System.String,System.Data.DataTable)">
+            <summary>
+            创建临时表，并批量插入数据：大小写敏感
+            </summary>
+            <param name="ctx"></param>
+            <param name="InsertstrSql">向临时表插入数据的SQL: INSERT INTO ?table Values (@F1,@F2,...) </param>
+            <param name="CreateSql">创建临时表的SQL: Create table ?table(F1 nvarchar(100),F2...)</param>
+            <param name="dt">包含了需要插入到临时表的数据，字段名与临时表字段名一致，大小写敏感</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DBServiceHelper.GetSequenceInt64(Kingdee.BOS.Context,System.String,System.Int32)">
+            <summary>
+            获取指定物理表的可用主键
+            </summary>
+            <param name="ctx"></param>
+            <param name="key">序列的键，一般为表的名称</param>
+            <param name="count">返回主键的个数；常用为1，返回一个主键值；在批量操作时，可能需要返回多个值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DBServiceHelper.CreateTemporaryTableName(Kingdee.BOS.Context)">
+            <summary>
+            获取临时表名
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DBServiceHelper.CreateTemporaryTableName(Kingdee.BOS.Context,System.Int32)">
+            <summary>
+            生成指定数目的临时表,并以数组的方式返回，如果ctx对象为空或者执行出错将返回空对象
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="count">需要获取临时表的个数</param>
+            <returns>返回生成的临时表数组</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DBServiceHelper.CreateTemporaryTableName(Kingdee.BOS.Context,System.String[])">
+            <summary>
+            通过指定前缀申请临时表名，注意前缀长度不得超过3位
+            </summary>
+            <param name="ctx"></param>
+            <param name="prefixItems"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DBServiceHelper.DeleteTemporaryTableName(Kingdee.BOS.Context,System.String[])">
+            <summary>
+            删除指定的临时表，如果ctx为null，tablenames为空集合，返回为true，执行SQL出错时将返回false
+            但实际上并不进行临时表的删除操作，只是将可以删除的临时表打上标记
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="tablenames">需要删除的临时表集合</param>
+            <returns>执行成功和ctx为null，tablenames为空集合，返回为true</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DBServiceHelper.DeleteTemporaryTableName(Kingdee.BOS.Context)">
+            <summary>
+            删除临时表服务，只是打上需要删除的标志；
+            后台服务会实际去删除
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.DBServiceHelper.IsExistTableField(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            检测帐套是否存在某个物理表的某个字段列
+            </summary>
+            <param name="ctx"></param>
+            <param name="tableName"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.ListDataServiceHelper">
+            <summary>
+            序时薄数据服务帮助类
+            <see cref="T:Kingdee.BOS.Contracts.IListDataServices"/>
+            <seealso cref="!:Kingdee.BOS.Contracts.ListDataServices"/>
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetData(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取序时薄数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="sql">SQL语句</param>
+            <returns>返回数据集合</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetData(Kingdee.BOS.Context,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            获取序时薄数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="tableName">数据表名</param>
+            <param name="startRow">开始行</param>
+            <param name="endRow">结束行</param>
+            <returns>返回数据集合</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetData(Kingdee.BOS.Context,System.String,System.Int32,System.Int32,Kingdee.BOS.Orm.Metadata.DataEntity.DynamicObjectType,System.String)">
+            <summary>
+            获取序时薄数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="tableName">数据表名</param>
+            <param name="startRow">开始行</param>
+            <param name="endRow">结束行</param>
+            <returns>返回数据集合</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetRowCount(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取序时薄总行数
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="tableName">数据表名</param>
+            <returns>返回行数</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetAllRecordsCount(Kingdee.BOS.Context,System.String)">
+            <summary>
+            读取原始业务表格中，符合条件的列表全部记录数
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="fromAndWhereSQL">读取原始表格的From + Where子句</param>
+            <returns></returns>
+            <remarks>避免传入完整的SQL，防止SQL攻击</remarks>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.TryDropTable(Kingdee.BOS.Context,System.String)">
+            <summary>
+            删除序时薄创建的临时表
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="tableName">表名</param>
+            <returns>删除的过程没有异常返回True</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.TryDropAllTable(Kingdee.BOS.Context,System.Collections.Generic.List{System.String})">
+            <summary>
+            删除所有的临时表（不抛出错误信息）
+            </summary>
+            <param name="tableNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.DropTable(Kingdee.BOS.Context,System.String)">
+            <summary>
+            删除序时薄创建的临时表
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="tableName">表名</param>
+            <returns>删除的过程没有异常返回True</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.DropAllTable(Kingdee.BOS.Context,System.Collections.Generic.List{System.String})">
+            <summary>
+            删除所有的临时表
+            </summary>
+            <param name="tableNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.ExecuteBatch(Kingdee.BOS.Context,System.Collections.Generic.List{System.String})">
+            <summary>
+            批量执行SQL语句
+            </summary>
+            <param name="sqlArray">SQL列表</param>        
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetRowCount(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            返回序时薄总行数和单据记录数
+            </summary>
+            <param name="ctx">上下文件</param>
+            <param name="tableName">表名</param>
+            <param name="pk">主键字段：ex：FID</param>
+            <returns>totalrowcount：总行数；billrowcount：单据行数</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetGroupNodes(Kingdee.BOS.Context,System.String,System.String,System.String)">
+            <summary>
+            到分组表格中根据过滤条件读取分组信息
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="tableName">分组表格</param>
+            <param name="filter">过滤条件；一般会根据父节点信息进行过滤</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetTreeViewChildNodes(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.String)">
+            <summary>
+            获取树形结构的下级节点信息
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="businessInfo">树形结构业务对象元数据信息</param>
+            <param name="currentId">当前节点id</param>
+            <returns>当前节点的下级节点列表</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.FastLocate(Kingdee.BOS.Context,System.String,System.String,System.Object)">
+            <summary>
+            根据指定的字段KEY值进行快速定位，返回对应的行号集合
+            </summary>
+            <param name="ctx"></param>
+            <param name="tablename"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetFormateInfo(Kingdee.BOS.Context,System.String)">
+            <summary>
+            返回格式化信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="formid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.DeleteTableRows(Kingdee.BOS.Context,System.String,System.String,System.String[])">
+            <summary>
+            删除单据中的记录，目前该方法已经不再调用
+            </summary>
+            <param name="ctx"></param>
+            <param name="tableName"></param>
+            <param name="primaryKey"></param>
+            <param name="primaryKeyValue"></param>       
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetIds(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            获取序事簿的所有内码Id
+            </summary>
+            <param name="ctx"></param>
+            <param name="tableName"></param>
+            <param name="primaryKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetObjData(Kingdee.BOS.Context,System.String,Kingdee.BOS.Core.Metadata.BusinessInfo,System.String)">
+            <summary>
+            获取序事簿的完整业务对象数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="tableName"></param>
+            <param name="businessInfo"></param>
+            <param name="primaryKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ListDataServiceHelper.GetGroupNodeInfo(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.FormElement.FormGroup,System.Object[])">
+            <summary>
+            获得分组节点数据信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="group"></param>
+            <param name="nodeIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CommonFilterServiceHelper.GetSchemeList(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取页面（窗体）的方案列表
+            </summary>
+            <param name="ctx"></param>
+            <param name="formID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CommonFilterServiceHelper.GetSchemeData(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取具体的某个方案的详细信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="schemeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CommonFilterServiceHelper.SaveScheme(Kingdee.BOS.Context,Kingdee.BOS.Core.CommonFilter.SchemeEntity)">
+            <summary>
+            保存方案信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="scheme"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CommonFilterServiceHelper.UpdateScheme(Kingdee.BOS.Context,Kingdee.BOS.Core.CommonFilter.SchemeEntity)">
+            <summary>
+            更新方案信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="scheme"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CommonFilterServiceHelper.DeleteScheme(Kingdee.BOS.Context,System.String)">
+            <summary>
+            删除方案信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="schemeID"></param>
+            <returns></returns> 
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CommonFilterServiceHelper.GetFilterMetaData(Kingdee.BOS.Context,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CommonFilterServiceHelper.UpdateSchemeAutoFilterIn(Kingdee.BOS.Context,System.String,System.String,System.Boolean)">
+            <summary>
+            更新方案的自动进入信息
+            </summary>
+            <param name="context"></param>
+            <param name="schemeId"></param>
+            <param name="bAutoFilterIn"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.CommonFilterServiceHelper.UpdateFilterSchemeSeq(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            更新用户过滤方案的显示顺序
+            </summary>
+            <param name="ctx"></param>
+            <param name="strFormId"></param>
+            <param name="strSchemeId"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.LogServiceHelper.WriteLog(Kingdee.BOS.Context,Kingdee.BOS.Core.Log.LogObject)">
+            <summary>
+            写上机操作日志
+            </summary>
+            <param name="ctx">登录上下文环境</param>
+            <param name="logObject">日志对象实体</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.LogServiceHelper.BatchWriteLog(Kingdee.BOS.Context,System.Collections.Generic.List{Kingdee.BOS.Core.Log.LogObject})">
+            <summary>
+            写批量日至
+            </summary>
+            <param name="ctx"></param>
+            <param name="logObjects"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.LogServiceHelper.BackupLog(Kingdee.BOS.Context)">
+            <summary>
+            备份上机操作日志
+            </summary>
+            <param name="ctx">登录上下文环境</param>
+            <param name="ids">需要备份的日志记录内码集合</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.LogServiceHelper.GetProudctInfo(Kingdee.BOS.Context)">
+            <summary>
+            获取产品相关信息
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.LoginServiceHelper.IsModifyPwd(Kingdee.BOS.Context,System.String,System.Int32,System.String)">
+            <summary>
+            判断当前数据中心，此用户是否存在？
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.LoginServiceHelper.CheckCPUserExists(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            判断当前数据中心，此用户是否存在？
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.LoginServiceHelper.RecordUserLoginSituation(Kingdee.BOS.Context,System.String)">
+            <summary>
+            记录登陆情况
+            </summary>
+            <param name="ctx"></param>
+            <param name="serverUrl"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.LoginServiceHelper.LoginForMobileDevice(Kingdee.BOS.Performance.Common.PerformanceContext,System.String,System.String,System.String,System.String,Kingdee.BOS.BusinessEntity.MobileAppInfo,System.Int32)">
+            <summary>
+            移动终端登录
+            </summary>
+            <param name="ctx"></param>
+            <param name="serverUrl"></param>
+            <param name="acctID"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="appInfo">移动应用信息</param>
+            <param name="lcid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.LoginServiceHelper.Login(Kingdee.BOS.Performance.Common.PerformanceContext,System.String,Kingdee.BOS.Authentication.LoginInfo)">
+            <summary>
+            K/3Cloud登录
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="serverUrl"></param>
+            <param name="loginInfo">登陆信息</param>
+            <returns>返回信息</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.LoginServiceHelper.CheckLoginInfo(Kingdee.BOS.Context,Kingdee.BOS.Authentication.LoginInfo)">
+            <summary>
+            二次身份认证
+            </summary>
+            <param name="loginInfo"></param>
+            <param name="ctxValidate"></param>
+            <param name="user"></param>
+            <param name="weiboInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.LoadBaseObjectMetaData(Kingdee.BOS.Context,System.String,System.Boolean)">
+            <summary>
+            加载基对象的元数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="baseObjectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.UpdateFormMetadataTable(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.FormMetadata)">
+            <summary>
+            创建/更新业务单据使用的物理表格；
+            在保存模板时会自动创建表格，本函数，是给不需保存模板，仅更新表格的特殊场景使用；
+            </summary>
+            <param name="ctx">上下文环境</param>
+            <param name="metadata">业务单据模板</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.Merge(Kingdee.BOS.Context,System.String,System.String[])">
+            <summary>
+            合并对象元数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="id"></param>
+            <param name="layoutViewId"></param>
+            <param name="bRuntime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.GetLookupObjects(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.LookUpObjectFilter)">
+            <summary>
+            获取系统里的查找类型对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="lstFormIDs">取指定的基础资料类型</param>
+            <param name="bGetAssistData">是否是取辅助资料类型数据</param>
+            <param name="sFilter">物理表过滤条件</param>
+            <returns></returns>
+            <remarks>如果获取全部数据则lstFormIDs传Count=0的实例就可以了。</remarks>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.GetFormValidationTypes(Kingdee.BOS.Context)">
+            <summary>
+            获取表单校验类型
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.GetMenuTemplates(Kingdee.BOS.Context,System.Int32)">
+            <summary>
+            根据类型（单据、过滤条件、基础资料等）取菜单模板
+            </summary>
+            <param name="ctx"></param>
+            <param name="type"></param>
+            <returns>datatable[0]模板baritem数据</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.GetEnumObjectList(Kingdee.BOS.Context)">
+            <summary>
+            获取枚举类型
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.SetPublishedDetailFuncVisible(Kingdee.BOS.Context,System.String,Kingdee.BOS.Core.Enums.BOSEnums.Enum_ConsoleVisible)">
+            <summary>
+            设置发布的详细功能菜单的可见性
+            </summary>
+            <param name="ctx"></param>
+            <param name="formID"></param>
+            <param name="visible">枚举值，如(如Enum_ConsoleVisible.FBCVisible|Enum_ConsoleVisible.FDCVisible)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.IsExistSubClass(Kingdee.BOS.Context,System.String)">
+            <summary>
+            当前对象是否存在子类
+            </summary>
+            <param name="ctx"></param>
+            <param name="id">业务对象唯一标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.IsExistMetaObjectType(Kingdee.BOS.Context,System.String,System.Int32)">
+            <summary>
+            当前元数据对象是否存在
+            </summary>
+            <param name="ctx"></param>
+            <param name="id">业务对象唯一标识</param>
+            <param name="modelTypeId">模型类型，不支持工作流和弹性域模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.IsExistMetaObjectType(Kingdee.BOS.Context,System.String)">
+            <summary>
+            当前元数据对象是否存在
+            </summary>
+            <param name="ctx"></param>
+            <param name="id">业务对象唯一标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.CanEdit(Kingdee.BOS.Context,System.String,Kingdee.BOS.ISV)">
+            <summary>
+            检测当前开发商标识是否能修改指定元数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="id">元数据唯一标识</param>
+            <param name="currentIsv">当前登录的开发商信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.GetConvertFlowID(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            根据源单和目标单ID获取流程ID
+            </summary>
+            <param name="ctx"></param>
+            <param name="sourceFormID"></param>
+            <param name="targetFormID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.GetConvertRules(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            根据源单和目标单ID获取启用的转换规则
+            </summary>
+            <param name="ctx"></param>
+            <param name="sourceFormID"></param>
+            <param name="targetFormID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.GetConvertBills(Kingdee.BOS.Context,Kingdee.BOS.Core.DynamicForm.FormOperationEnum,System.String)">
+            <summary>
+            根据一个单据ID获取单据转换流程中的源单或目标单
+            </summary>
+            <param name="ctx"></param>
+            <param name="op">操作类型，ConvertPush:下推/ ConvertDraw:上拉</param>
+            <param name="formID">源/目标单据ID，如果类型为下推，则formID为源单据，否则为目标单据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.GetWebServerImageKeyList(Kingdee.BOS.Context)">
+            <summary>
+            获得服务器端，图标键的列表
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.UpdateAllObjectTypeCache(Kingdee.BOS.Context)">
+            <summary>
+            更新元数据缓存[慎用此方法，会引起性能问题]
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.MetaDataServiceHelper.GetExtendObjectTypeId(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取指定父对象下所有扩展对象的标识
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper">
+            <summary>
+            组织提供 的相关服务
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetAllocateOrg(Kingdee.BOS.Context,System.String,System.Int64)">
+            <summary>
+            获取基础资料分配的下级组织。
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId">基础资料类型</param>
+            <param name="orgId">创建组织ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.IsRepeatDefaultBrType(Kingdee.BOS.Context,System.Int32,System.Int32,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            判断默认的组织业务关系是否有重复
+            </summary>
+            <param name="ctx"></param>
+            <param name="pk">组织业务关系Id</param>
+            <param name="srcOrgId">源组织ID</param>
+            <param name="srcOrgId">该组织业务关系下的业务类型</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetBDCtrlLockFieldList(Kingdee.BOS.Context,System.String,System.Int64,System.Int64)">
+            <summary>
+            获取基础资料控制策略的锁定字段列表
+            </summary>
+            <param name="ctx"></param>
+            <param name="createOrgId"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetBaseDataType(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取基础资料的策略类型
+            </summary>
+            <param name="ctx"></param>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.IsIssueData(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.String,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            判断在某个组织下该资料是否下发的资料  
+            </summary>
+            <param name="info"></param>
+            <param name="pkIdStrings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetAssistDataType(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取基础资料的策略类型
+            </summary>
+            <param name="ctx"></param>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.IsMulAssistData(Kingdee.BOS.Context,System.String)">
+            <summary>
+            判断是否存在多种辅助资料类型
+            </summary>
+            <param name="ctx"></param>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.IsAllocatedRecord(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.String)">
+            <summary>
+            判断该基础资料是否已经被分配
+            </summary>
+            <param name="formId"></param>
+            <param name="pk"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.IsCreateBaseData(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.String)">
+            <summary>
+            判断是否由创建组织创建的基础资料
+            </summary>
+            <param name="formId"></param>
+            <param name="pkIdStrings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetDefCurrencyIDByBizOrgID(Kingdee.BOS.Context,System.Int64)">
+            <summary>
+            根据业务组织ID找到所属核算体系的会计主体的主账簿的默认本位币
+            </summary>
+            <param name="ctx"></param>
+            <param name="bizOrgID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetDefCurrencyAndExchangeTypeByBizOrgID(Kingdee.BOS.Context,System.Int64)">
+            <summary>
+            根据业务组织ID找到所属核算体系的会计主体的主账簿的默认本位币和汇率类型
+            </summary>
+            <param name="ctx"></param>
+            <param name="bizOrgID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetFinStartInfoByBizOrgID(Kingdee.BOS.Context,System.Int64)">
+            <summary>
+            获得指定业务组织的当前会计期间数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="bizOrgID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetOrgByBizRelationship(Kingdee.BOS.Context,System.Int64,System.Int64,System.Boolean,System.Boolean)">
+            <summary>
+            获取与源组织有业务委托关系的组织Id
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="sourceOrgId">源组织</param>
+            <param name="bizRelationshipTypeId">业务关系类型编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.ReadOrgInfoByOrgId(Kingdee.BOS.Context,System.Int64)">
+            <summary>
+            根据组织id获取组织的信息
+            </summary>
+            <param name="orgId">组织Id</param>
+            <returns>组织</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetOrgFuncsInfo(Kingdee.BOS.Context)">
+            <summary>
+            获取组织职能所有信息
+            </summary>
+            <param name="ctx">上下文</param>
+            <returns>返回组织职能所有信息</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetOrgFilter(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.FieldElement.OrgField,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Int64,System.String)">
+            <summary>
+            获取到符合条件组织的过滤条件
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="orgField">当前的组织字段</param>
+            <param name="business"></param>
+            <param name="lngRefOrgId">当前的组织字段相关的内码</param>
+            <returns>符合条件过滤条件</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetOrgs(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.FieldElement.OrgField,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Int64,System.String)">
+            <summary>
+            获取到符合条件的组织
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="orgField">当前的组织字段</param>
+            <param name="business"></param>
+            <param name="refOrg">当前的组织字段相关的Org</param>
+            <returns>符合条件的组织</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetAllocatedRecord(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Object[])">
+            <summary>
+            返回已经分配的记录内码集合
+            </summary>
+            <param name="ctx"></param>
+            <param name="info"></param>
+            <param name="pkIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.ClearUserOrgRole(Kingdee.BOS.Context)">
+            <summary>
+            清除用户的组织角色关系；
+            当角色分配的组织改变之后需要调用此函数；
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetOrgIdsByFuncId(Kingdee.BOS.Context,System.String)">
+            <summary>
+            根据组织职能获取组织Id列表
+            </summary>
+            <param name="ctx"></param>
+            <param name="funcId">组织职能Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.GetAllocatedDestInfo(Kingdee.BOS.Context,System.Collections.Generic.List{Kingdee.BOS.BusinessEntity.Organizations.AllocateSourceInfo},System.Boolean)">
+            <summary>
+            根据基础资料的MasterId（即SourceId）+目标组织Id，返回目标组织下已经分配的记录内码集合
+            </summary>
+            <param name="ctx"></param>
+            <param name="sourceInfos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.SetContextMultiOrgProperty(Kingdee.BOS.Context)">
+            <summary>
+            设置上下文的多组织属性
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.FilterOrgsHasSubOrg(Kingdee.BOS.Context,System.Int64[])">
+            <summary>
+            筛选出有下级组织的组织
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="orgId">被筛选的集合</param>
+            <returns>筛选后的集合</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.ObtainOrgsAndSubOrgsName(Kingdee.BOS.Context,System.Int64[])">
+            <summary>
+            获取组织对应的名称
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="orgId">需要获取名字的组织</param>
+            <returns>组织及其名称</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.OrganizationServiceHelper.ClearOrgFilterCache(Kingdee.BOS.Context)">
+            <summary>
+            清除所有组织过滤条件缓存
+            </summary>
+            <param name="ctx"></param>
+            <param name="userid"></param>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper">
+            <summary>
+            提供权限服务，主要针对内部运行时授权使用；
+            外部使用请用PermissionServiceHelper
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.TakePermissionScope(Kingdee.BOS.Context)">
+            <summary>
+            获得当前用户可授权范围；
+            只针对子系统管理员，因为管理员可授权范围为最大集合；
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.SaveDataRule(Kingdee.BOS.Context,Kingdee.BOS.Core.Permission.DataRule)">
+            <summary>
+            保存数据规则
+            </summary>
+            <param name="dataRule"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.CalculatePermissionCollection(Kingdee.BOS.Context,Kingdee.BOS.Core.Permission.PermissionType)">
+            <summary>
+            计算所有用户的权限集合
+            </summary>
+            <param name="ctx"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.CopyRolePermission(Kingdee.BOS.Context,System.Int32,System.Int32)">
+            <summary>
+            复制角色明细功能权限（功能权限、数据范围）、字段权限、系统权限等
+            </summary>
+            <param name="SourceRoleID"></param>
+            <param name="CurrentlyRoleID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetPermissionActions(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取所有具体权限项数据，并按PermissionAction结构构造前置权限关系
+            </summary>
+            <param name="ctx"></param>
+            <param name="strFilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.LoadPermissionItemData(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取所有权限项
+            </summary>
+            <param name="ctx"></param>
+            <param name="strFilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetPermissionItemGroup(Kingdee.BOS.Context)">
+            <summary>
+            获得权限分组信息
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.TakeSubSystemData(Kingdee.BOS.Context)">
+            <summary>
+            获取子系统数据
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.TakeTopClassData(Kingdee.BOS.Context)">
+            <summary>
+            获取业务领域数据
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetPermissionItemsBySubSysID(Kingdee.BOS.Context,System.String)">
+            <summary>
+            取某些子系统下的权限项(按业务对象之权限项取)
+            </summary>
+            <param name="ctx"></param>
+            <param name="subSysIds">子系统ID，如'20','30'</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetPermissionItemsByTopClassID(Kingdee.BOS.Context,System.String)">
+            <summary>
+            取某些领域下的权限项(按业务对象之权限项取)
+            </summary>
+            <param name="ctx"></param>
+            <param name="topClassIds">领域ID，'20','30'</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetPremissionItemsByObjectID(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            取某些业务对象下的权限项
+            </summary>
+            <param name="ctx"></param>
+            <param name="objectsIds">业务对象ID，如'20','30'</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetAllPermissionControledBizObjects(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取启用权限管理的业务对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.AllocatePermissionByRole(Kingdee.BOS.Context,System.Int64[],Kingdee.BOS.Core.Permission.PermissionActionType)">
+            <summary>
+            按角色批量授权(全部)
+            </summary>
+            <param name="roleIds">角色列表</param>
+            <param name="allocateStatus">授权状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.AllocatePermissionByRole(Kingdee.BOS.Context,System.Int64[],System.Collections.Generic.Dictionary{System.String,Kingdee.BOS.Core.Permission.PermissionActionType},System.Collections.Generic.Dictionary{System.String,Kingdee.BOS.Core.Permission.PermissionActionType})">
+            <summary>
+            按角色批量授权(权限项组或者权限项)
+            </summary>
+            <param name="roleIds">角色列表</param>
+            <param name="permissionGroupIds">权限项组ID及授权状态字段,按权限项授权时可传空</param>
+            <param name="permissionItemIds">权限项ID及授权状态字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.AllocatePermissionByObject(Kingdee.BOS.Context,System.Int64[],System.Collections.Generic.Dictionary{System.String,Kingdee.BOS.Core.Permission.PermissionActionType})">
+            <summary>
+            按业务对象批量授权(全部)
+            </summary>
+            <param name="ctx"></param>
+            <param name="roleIds">角色列表</param>
+            <param name="objectStatus">业务对象状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.AllocatePermissionByObject(Kingdee.BOS.Context,System.Int64[],System.Collections.Generic.List{Kingdee.BOS.Core.Permission.BusinessObject},System.Collections.Generic.Dictionary{System.String,Kingdee.BOS.Core.Permission.PermissionActionType},System.Collections.Generic.Dictionary{System.String,Kingdee.BOS.Core.Permission.PermissionActionType},System.Boolean)">
+            <summary>
+            按业务对象批量授权(权限项组或者权限项)
+            </summary>
+            <param name="ctx"></param>
+            <param name="roleIds">角色列表</param>
+            <param name="objects">业务对象列表</param>
+            <param name="permissionGroupIds">权限项组ID及授权状态字段,按权限项授权时可传空</param>
+            <param name="permissionItemIds">权限项ID及授权状态字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.ImportFuncPermissionData(Kingdee.BOS.Context,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            导入权限数据，为excel服务
+            </summary>
+            <param name="ctx"></param>
+            <param name="strRoleId"></param>
+            <param name="strObjectTypeId"></param>
+            <param name="dctPermissionStatus"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetObjectType(Kingdee.BOS.Context,Kingdee.BOS.Core.Permission.PermissionScope,System.Boolean)">
+            <summary>
+            获取业务对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="permissionScope"></param>
+            <param name="bFieldControl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetAuthorizePermissionItems(Kingdee.BOS.Context,System.Collections.Generic.List{System.String})">
+            <summary>
+            根据角色ID获取已经授权的权限项
+            </summary>
+            <param name="ctx"></param>
+            <param name="roleids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetAuthorisedObjectTypes(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取指定授权的业务对象
+            </summary> 
+            <param name="ctx"></param>
+            <param name="strPerItemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.SyncPermissionItem(Kingdee.BOS.Context)">
+            <summary>
+            同步基类的权限项到子类，
+            从表T_SEC_PERMISSIONITEMSYN中获取；
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetSysPermissionInfo(Kingdee.BOS.Context,System.Int64,System.Boolean)">
+            <summary>
+            获得某个角色在所有子系统下的授权信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="roleId"></param>
+            <param name="showAll"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.SaveSubSystemPermission(Kingdee.BOS.Context,System.Int64,System.String)">
+            <summary>
+            子系统授权调用；保存子系统授权信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="lngRoleId"></param>
+            <param name="strSubSystemId"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetPermissionObjectScript(Kingdee.BOS.Context,System.String)">
+            <summary>
+            权限对象及其相关的权限项转为SQL脚本 add by leo 20130725
+            </summary>
+            <param name="ctx"></param>
+            <param name="lngRoleId"></param>
+            <param name="strSubSystemId"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetPermissionItemScript(Kingdee.BOS.Context,System.String)">
+            <summary>
+            权限项转为SQL脚本 add by leo 20130729
+            </summary>
+            <param name="ctx"></param>
+            <param name="strPermissionItemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionInnerServiceHelper.GetFieldBaseDataInfo(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获得当前业务对象中基础资料字段对应的objectid与字段名称
+            </summary>
+            <param name="ctx"></param>
+            <param name="strObjectTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.PermissionServiceHelper">
+            <summary>
+            提供权限服务，包含用户组织关系、组织角色关系、
+            功能、数据、字段等的权限验证；
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.ClearPermissionCache(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            清除以角色为中心的权限缓存数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="roleIds"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.ClearAllPermissionCache(Kingdee.BOS.Context)">
+            <summary>
+            清除所有缓存的权限数据
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetUserOrg(Kingdee.BOS.Context)">
+            <summary>
+            获取当前登陆用户的用户组织关系
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetUserAdminOrg(Kingdee.BOS.Context)">
+            <summary>
+            获取当前登陆用户的有管理员角色的组织
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetUserRole(Kingdee.BOS.Context,System.Boolean)">
+            <summary>
+            获取当前组织的组织用户关系
+            </summary>
+            <param name="ctx"></param>
+            <param name="bOnlyInCurrOrg"></param>
+            <returns></returns>
+            获取用户的所有角色，默认取当前组织下的
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.AbtainUserType(Kingdee.BOS.Context)">
+            <summary>
+            获取用户类别：管理员\子管理员\普通用户
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetUserInRole(Kingdee.BOS.Context,Kingdee.BOS.Core.Permission.Role)">
+            <summary>
+            传入角色，过滤出该角色下所有组织的用户
+            </summary>
+            <param name="ctx"></param>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetAllowFieldList(Kingdee.BOS.Context,Kingdee.BOS.Core.Permission.BusinessObject,Kingdee.BOS.Core.Permission.FieldInv)">
+            <summary>
+            获取单据可以查看/编辑的字段列表
+            </summary>
+            <param name="ctx"></param>
+            <param name="bussinessObject">业务对象信息</param>
+            <param name="fieldInv">查看/编辑</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetAllowFieldList(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{Kingdee.BOS.Core.Permission.BusinessObject},Kingdee.BOS.Core.Permission.FieldInv)">
+            <summary>
+            获取单据可以查看/编辑的字段列表
+            </summary>
+            <param name="lstBizObjects"></param>
+            <param name="fieldInv"></param>
+            <returns>key:业务对象内码；value:有权限的列的标识集合</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetNotAllowFieldList(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{Kingdee.BOS.Core.Permission.BusinessObject},Kingdee.BOS.Core.Permission.FieldInv)">
+            <summary>
+            获取单据查看/编辑无权或禁止的字段列表
+            </summary>
+            <param name="lstBizObjects"></param>
+            <param name="fieldInv"></param>
+            <returns>key:业务对象内码；value:有权限的列的标识集合</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.IsJoinFieldPermission(Kingdee.BOS.Context,Kingdee.BOS.Core.Permission.BusinessObject)">
+            <summary>
+            指定的业务对象是否参与字段授权
+            </summary>
+            <param name="ctx"></param>
+            <param name="bussinessObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.FuncPermissionAuth(Kingdee.BOS.Context,Kingdee.BOS.Core.Permission.BusinessObject,System.String)">
+            <summary>
+            功能权限判断
+            </summary>
+            <param name="ctx"></param>
+            <param name="bizObject">业务对象信息</param>
+            <param name="strPerItemNumber">权限项标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.FuncPermissionAuth(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{Kingdee.BOS.Core.Permission.BusinessObject},System.String)">
+            <summary>
+            功能权限判断
+            </summary>
+            <param name="ctx"></param>
+            <param name="lstBizObjects">业务对象信息集合</param>
+            <param name="strPerItemId">权限项标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetPermissionOrg(Kingdee.BOS.Context,Kingdee.BOS.Core.Permission.BusinessObject,System.String)">
+            <summary>
+            返回当前用户拥有某个权限的所有组织信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="bizObject">业务对象信息</param>
+            <param name="strPerItemNumber">权限项标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetAllowFuncList(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{Kingdee.BOS.Core.Permission.ObjectPermissionAction},System.Int64)">
+            <summary>
+            获得有权的功能明细列表
+            </summary>
+            <param name="ctx"></param>
+            <param name="objectActions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.IsJoinFuncPermission(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{Kingdee.BOS.Core.Permission.BusinessObject})">
+            <summary>
+            业务对象是否参与功能权限控制;
+            返回参与权限控制的集合
+            </summary>
+            <param name="lstObjectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.IsJoinFuncPermission(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            业务对象是否参与功能权限控制;
+            返回参与权限控制的集合
+            </summary>
+            <param name="ctx"></param>
+            <param name="objecttypes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetDataRule(Kingdee.BOS.Context,Kingdee.BOS.Core.Permission.DataRule)">
+            <summary>
+            获取数据规则
+            </summary>
+            <param name="ctx"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetDataRuleInfo(Kingdee.BOS.Context,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            获取数据规则，根据数据规则id集合
+            </summary>
+            <param name="ctx"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetBaseDataDataRuleInfo(Kingdee.BOS.Context,System.String,System.String,System.Collections.Generic.HashSet{System.Int64})">
+            <summary>
+            获得用户在当前业务对象上的某个基础资料的所有的数据范围数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="strObjectTypeId"></param>
+            <param name="strBaseDataObjectTypeID"></param>
+            <param name="lngRoles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.ClearUserCache(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            clear user cache
+            </summary>
+            <param name="ctx"></param>
+            <param name="user"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.ClearOrganizationCache(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            clear user cache
+            </summary>
+            <param name="ctx"></param>
+            <param name="user"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.ClearRoleCache(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            clear user cache
+            </summary>
+            <param name="ctx"></param>
+            <param name="user"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.LoadDataRuleFilter(Kingdee.BOS.Context,Kingdee.BOS.Core.Permission.Objects.DataRuleFilterParamenter)">
+            <summary>
+            获得列表上，由数据规则解析出来的过滤
+            </summary>
+            <param name="ctx"></param>
+            <param name="dataRuleFilterParamenter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetBaseDataTempTable(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获得基础资料根据数据规则构建的临时表
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.PermissionServiceHelper.GetRoleInfo(Kingdee.BOS.Context,System.Collections.Generic.IEnumerable{Kingdee.BOS.Core.Permission.Role})">
+            <summary>
+            获得角色信息，信息中包含角色名称、禁用状态和是否被删除等信息
+            </summary>
+            <param name="ctx"></param>
+            <param name="roles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.QueryServiceHelper.GetMemberwiseDynamicObject(Kingdee.BOS.Context,Kingdee.BOS.Core.SqlBuilder.QueryBuilderParemeter,System.Collections.Generic.List{Kingdee.BOS.SqlParam})">
+            <summary>
+            深度获取动态列集合数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="para"></param>
+            <param name="paramList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.QueryServiceHelper.GetQuickLookupList(Kingdee.BOS.Context,Kingdee.BOS.Core.SqlBuilder.QuickLookupParemeter,System.Collections.Generic.List{Kingdee.BOS.SqlParam})">
+            <summary>
+            获取指定基础资料快速列表查询数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="para"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.Report.DevReportServiceHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Report.DevReportServiceHelper.GetReportDetail(Kingdee.BOS.Context,System.String)">
+            <summary>
+            万能报表元数据存储表明细
+            </summary>
+            <param name="ctx"></param>
+            <param name="reportID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Report.DevReportServiceHelper.GetReports(Kingdee.BOS.Context,System.String[],Kingdee.BOS.Core.Enums.BOSEnums.Enu_DevReportType)">
+            <summary>
+            获取万能报表记录
+            </summary>
+            <param name="ctx"></param>
+            <param name="SubSystemIDs">子系统</param>
+            <param name="ReporType">报表类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Report.DevReportServiceHelper.SaveReport(Kingdee.BOS.Context,System.Data.DataSet)">
+            <summary>
+            保存万能报表
+            </summary>
+            <param name="ctx"></param>
+            <param name="ds"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Report.DevReportServiceHelper.DeleteReport(Kingdee.BOS.Context,System.String)">
+            <summary>
+            删除万能报表
+            </summary>
+            <param name="ctx"></param>
+            <param name="reportId"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Report.DevReportServiceHelper.GetBillReportTemplate(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获得单据标准打印模板
+            </summary>
+            <param name="ctx"></param>
+            <param name="bilFormId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Report.DevReportServiceHelper.GetBusinessObjectData(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Object)">
+            <summary>
+            万能报表单据类报表数据接口
+            </summary>
+            <param name="ctx"></param>
+            <param name="info"></param>
+            <param name="billId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Report.DevReportServiceHelper.GetSchemaData(Kingdee.BOS.Context,System.String)">
+            <summary>
+            设计时信息-表结构、字典
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="formId">源单内码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Report.DevReportServiceHelper.GetBillData(Kingdee.BOS.Context,System.String,System.String,System.Object[])">
+            <summary>
+            单据类取数
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="formId">源单内码</param>
+            <param name="reportId">报表内码</param>
+            <param name="pkArray">单据内码列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Report.DevReportServiceHelper.GetReportIdByBillFormId(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取 单据类标准报表Id（依源单据FormId)
+            </summary>
+            <param name="ctx"></param>
+            <param name="BillFormId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.ScheduleBusinessServiceHelper">
+            <summary>
+            后台服务业务帮组类
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ScheduleBusinessServiceHelper.GetSchedule(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取指定后台服务
+            </summary>
+            <param name="ctx"></param>
+            <param name="scheduleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ScheduleBusinessServiceHelper.UpdateSchedule(Kingdee.BOS.Context,Kingdee.BOS.Core.Schedule)">
+            <summary>
+            更新指定后台服务
+            </summary>
+            <param name="ctx"></param>
+            <param name="schedule"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ScheduleBusinessServiceHelper.InsertSchedule(Kingdee.BOS.Context,Kingdee.BOS.Core.Schedule)">
+            <summary>
+            新增后台服务
+            </summary>
+            <param name="ctx"></param>
+            <param name="schedule"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.ScheduleBusinessServiceHelper.DeleteSchedule(Kingdee.BOS.Context,System.String)">
+            <summary>
+            删除指定后台服务
+            </summary>
+            <param name="ctx"></param>
+            <param name="scheduleId"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SMSServiceHelper.SendMessage(Kingdee.BOS.Context,Kingdee.BOS.Msg.IMessageSendWithBillInfo{Kingdee.BOS.Msg.IMsgUser},System.Boolean)">
+            <summary>
+            发送消息
+            -供预警平台、工作流平台调用
+            </summary>
+            <param name="ctx">上下文本</param>
+            <param name="msgSendInfo">发件信息</param>
+            <param name="outboxToo">是在在发件箱中存档</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SMSServiceHelper.SendMessage(Kingdee.BOS.Context,Kingdee.BOS.Msg.IMessageSendInfo{Kingdee.BOS.Msg.IMsgUser},System.Boolean)">
+            <summary>
+            发送消息
+            -供预警平台、工作流平台调用
+            </summary>
+            <param name="ctx">上下文本</param>
+            <param name="msgSendInfo">发件信息</param>
+            <param name="outboxToo">是在在发件箱中存档</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SQLScriptServiceHelper.GetBusinessObjectMetaData(Kingdee.BOS.Context,System.String,System.Int32[])">
+            <summary>
+            获取业务对象元数据及依赖项数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="strBusinessObjectID">业务对象Id</param>
+            <param name="localeIDs">语言Id，如果为空，默认返回2052的多语言数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SQLScriptServiceHelper.CreateMenuScriptByBO(Kingdee.BOS.Context,System.String[])">
+            <summary>
+            Create Menu Script By Business Object
+            Include:TopClass\SubSystem\SubFunc\SubFuncDetail
+            </summary>
+            <param name="ctx"></param>
+            <param name="objIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SQLScriptServiceHelper.GetDataFromStoredProc(Kingdee.BOS.Context,Kingdee.BOS.DatabaseType,System.String,System.Collections.Generic.List{Kingdee.BOS.SqlParam})">
+            <summary>
+            获取存储过程返回的数据集
+            </summary>
+            <param name="ctx"></param>
+            <param name="dbType"></param>
+            <param name="storedProcStr"></param>
+            <param name="paramList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.SysReportServiceHelper">
+            <summary>
+            系统报表服务
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SysReportServiceHelper.GetData(Kingdee.BOS.Context,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            获取自定义报表数据
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="tableName">数据表名</param>
+            <param name="startRow">开始行</param>
+            <param name="endRow">结束行</param>
+            <returns>返回数据集合</returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper">
+            <summary>
+            系统参数服务帮助类
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.Save(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Orm.DataEntity.DynamicObject,System.Int64,System.Int64,System.Boolean,System.Int64,System.String)">
+            <summary>
+            保存系统参数对象
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="info">业务对象元数据</param>
+            <param name="obj">参数对象</param>
+            <param name="ignoreWarning">是否忽略警告信息</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.CopyTo(Kingdee.BOS.Context,System.Int64,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            把一个组织下的系统参数的拷贝到选定的组织下
+            </summary>
+            <param name="ctx"></param>
+            <param name="sourceOrgId"></param>
+            <param name="targetOrgIds"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.Load(Kingdee.BOS.Context,System.Int64,System.Int64,System.String,System.Int64,System.Boolean)">
+            <summary>
+            加载系统参数对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="orgId"></param>
+            <param name="acctBookId"></param>
+            <param name="parameterObjId"></param>
+            <param name="acctpolicyID"></param>
+            <param name="bIsRunTime">运行时从缓存中加载，设计时直接从数据库中获取</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.GetParamter(Kingdee.BOS.Context,System.Int64,System.Int64,System.String,System.String,System.Int64)">
+            <summary>
+            获取参数值
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="orgId">组织内码</param>
+            <param name="acctBookId">账簿内码</param>
+            <param name="parameterObjId">业务对象内码</param>
+            <param name="parameterName">参数名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.GetParamter(Kingdee.BOS.Context,System.Collections.Generic.List{System.Int64},System.Int64,System.String,System.String)">
+            <summary>
+            获得多个组织系统指定属性值参数
+            </summary>
+            <param name="ctx"></param>
+            <param name="orgIds"></param>
+            <param name="acctBookId"></param>
+            <param name="parameterObjId"></param>
+            <param name="parameterName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.GetAllowUseOrgList(Kingdee.BOS.Context,System.String,System.Boolean,System.String)">
+            <summary>
+            获得某个系统参数可用的组织列表
+            </summary>
+            <param name="ctx"></param>
+            <param name="formid"></param>
+            <param name="IsAcctBook"></param>
+            <param name="strOrgFilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.IsUseTaxCombination(Kingdee.BOS.Context)">
+            <summary>
+             获取是否启用税组合
+            </summary>
+            <param name="ctx"></param>
+            <returns>true为启用了税组合</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.GetEnterpriseMBPara(Kingdee.BOS.Context)">
+            <summary>
+            获取企业微博信息
+            </summary>
+            <param name="ctx">上下文</param>
+            <returns>企业微博信息</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.DeleteParametersByOrg(Kingdee.BOS.Context,System.Int64)">
+            <summary>
+            删除组织时，删除系统参数
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="orgId">组织内码</param>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.DeleteParametersByAcctBook(Kingdee.BOS.Context,System.Int64)”忽略有格式错误的 XML 注释 -->
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.InitParametersByAcctBook(Kingdee.BOS.Context,System.Int64,System.Int64)">
+            <summary>
+            创建账簿时，创建系统参数
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="orgId">组织内码</param>
+            <param name="acctBookId">账簿内码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.LoadBillGlobalParameter(Kingdee.BOS.Context,System.String[])">
+            <summary>
+            加载 单据参数配置 信息 (app端做了缓存)
+            </summary>
+            <param name="ctx"></param>
+            <param name="formIds">FormID(基础资料或单据)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.SystemParameterServiceHelper.ClearCacheOfBillGlobalParameter(Kingdee.BOS.Context,System.String[])">
+            <summary>
+            清除缓存 -- 单据参数配置 信息(单据参数配置维护时调用)
+            </summary>
+            <param name="ctx"></param>
+            <param name="formIds">FormID(基础资料或单据)</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.TimeServiceHelper.GetDateTime(Kingdee.BOS.Context,Kingdee.BOS.KDTimeZone)">
+            <summary>
+            获取指定时区时间
+            </summary>
+            <param name="ctx"></param>
+            <param name="timezone"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.TimeServiceHelper.GetSystemDateTime(Kingdee.BOS.Context)">
+            <summary>
+            获得系统时区时间
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.TimeServiceHelper.GetTimeZones(Kingdee.BOS.Context)">
+            <summary>
+            获取所有时区信息
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.TimeServiceHelper.GetUserDateTime(Kingdee.BOS.Context)">
+            <summary>
+            获取用户时区时间
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserOftenFuncServiceHelper.GetCurrentUserOftenFuncList(Kingdee.BOS.Context)">
+            <summary>
+            常用功能列表
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserOftenFuncServiceHelper.DeleteOftenFunc(Kingdee.BOS.Context,System.Object[])">
+            <summary>
+            删除常用功能
+            </summary>
+            <param name="ctx"></param>
+            <param name="Ids"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserOftenFuncServiceHelper.NewOftenFunc(Kingdee.BOS.Context,System.String,System.Int32)">
+            <summary>
+            新增一个常用功能
+            </summary>
+            <param name="ctx"></param>
+            <param name="detailFuncId"></param>
+            <param name="seq"></param>
+            <returns>还是返回一个OftenFuncDetail比较适用一些</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserOftenFuncServiceHelper.GetMinUnUsedSeq(Kingdee.BOS.Context)">
+            <summary>
+            取得未使用最小的号
+            </summary>
+            <param name="ctx"></param>
+            <param name="seq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserOftenFuncServiceHelper.InitCurUserOftenFuncListFromRole(Kingdee.BOS.Context)">
+            <summary>
+            根据角色初始化当前用户的常用功能
+            </summary>
+            <param name="ctx">当前上下文</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserOftenFuncServiceHelper.GetCurrentCloudAppList(Kingdee.BOS.Context,System.String)">
+            <summary>
+            云应用列表
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="CloudAppType">云应用类型（0.URL；1.本地应用）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserOftenFuncServiceHelper.GetMinUnUsedSeqForCloud(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取未被占用的最小号（云应用）
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="CloudAppType">云应用类型（0.URL；1.本地应用）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserOftenFuncServiceHelper.DeleteCloudApp(Kingdee.BOS.Context,System.Object[])">
+            <summary>
+            删除云应用
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="Ids"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserOftenFuncServiceHelper.EditCloudApp(Kingdee.BOS.Context,System.String,System.String,System.String)">
+            <summary>
+            编辑云应用
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="Name">名称</param>
+            <param name="Path">路径</param>
+            <param name="id">选择的云应用ID</param>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper">
+            <summary>
+            用户参数服务帮助类
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.SaveFormParameter(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            保存用户界面参数
+            </summary>
+            <param name="ctx"></param>
+            <param name="userId"></param>
+            <param name="parameterObjId"></param>
+            <param name="sContent"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.LoadFormParameter(Kingdee.BOS.Context,System.String)">
+            <summary>
+            加载用户界面参数
+            </summary>
+            <param name="ctx"></param>
+            <param name="userId"></param>
+            <param name="parameterObjId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.Save(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Orm.DataEntity.DynamicObject,System.String,System.Int64,System.String)">
+            <summary>
+            保存用户参数对象
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="info">业务对象元数据</param>
+            <param name="obj">参数对象</param>
+            <param name="parameterObjId">业务对象内码</param>
+            <param name="userId">用户内码</param>
+            <param name="sKey">键值名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.Save(Kingdee.BOS.Context,System.String,System.Int64,System.String,System.String,System.Boolean)">
+            <summary>
+            保存用户参数对象
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="parameterObjId">业务对象内码</param>
+            <param name="userId">用户内码</param>
+            <param name="xml">保存内容</param>
+            <param name="sKey">键值名称</param>
+            <param name="bFormatXml">是否要对xml添加Root</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.Load(Kingdee.BOS.Context,System.String,System.Int64,System.String)">
+            <summary>
+            加载用户参数对象
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="parameterObjId">业务对象内码</param>
+            <param name="userId">用户内码</param>
+            <param name="sKey">键值名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.Load(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Int64,System.String,System.String)">
+            <summary>
+            加载用户参数对象
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="info">业务对象元数据</param>
+            <param name="userId">用户内码</param>
+            <param name="parameterObjId">业务对象内码</param>
+            <param name="sKey">键值名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.GetParamter(Kingdee.BOS.Context,System.Int64,System.String,System.String)">
+            <summary>
+            获取用户参数值
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="userId">用户内码</param>
+            <param name="parameterObjId">业务对象内码</param>
+            <param name="parameterName">用户参数名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.Save(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Orm.DataEntity.DynamicObject,System.String,System.String,System.Int64)">
+            <summary>
+            保存用户参数对象(提供给业务系统用)
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="info">业务对象元数据</param>
+            <param name="obj">参数对象</param>
+            <param name="parameterObjId">业务对象内码</param>
+            <param name="sId">主键内码</param>
+            <param name="userId">用户内码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.Load(Kingdee.BOS.Context,System.String)">
+            <summary>
+            加载用户参数对象(提供给业务系统用)
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="sId">主键内码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.Delete(Kingdee.BOS.Context,System.String)">
+            <summary>
+            删除用户参数对象(提供给业务系统用)
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="sId">主键内码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.GetNextEntrySchemeId(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取下次进入方案ID
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.UpdateNextEntrySchemeId(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            更新或者插入下次进入方案ID
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <param name="nextEntrySchemeId"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserParamterServiceHelper.InsertNewUserParammter(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,System.String,System.Int64,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            更新或者插入下次进入方案ID
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <param name="nextEntrySchemeId"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserXunTongServiceHelper.GetXunTongUser(Kingdee.BOS.Context,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            获取已导入讯通的Cloud用户
+            </summary>
+            <param name="userIds">cloud用户ID</param>
+            <returns>已导入讯通的Cloud用户</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.UserXunTongServiceHelper.AddImportHistory(Kingdee.BOS.Context,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            添加导入讯通的历史记录
+            </summary>
+            <param name="userIds">已导入讯通的Cloud用户</param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.WarnServiceHelper.DeleteWarnExecuteResult(Kingdee.BOS.Context,System.String)">
+            <summary>
+            删除预警执行结果
+            </summary>
+            <param name="ctx"></param>
+            <param name="warnExecuteResultid"></param> 
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.WarnServiceHelper.Run(Kingdee.BOS.Context,System.String,Kingdee.BOS.Core.Warn.Enums.WarnEnums.ExecuteType)">
+            <summary>
+            立即执行预警计划
+            </summary>
+            <param name="ctx"></param>
+            <param name="warnId"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.WarnServiceHelper.TestRun(Kingdee.BOS.Context,System.String,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            测试
+            </summary>
+            <param name="ctx"></param>
+            <param name="warnId"></param>
+            <param name="userids"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.WarnServiceHelper.GetWarnMessageSetting(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取消息设置
+            </summary>
+            <param name="ctx"></param>
+            <param name="warnMsgId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.WarnServiceHelper.GetWarnScheduleById(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取预警任务
+            </summary>
+            <param name="ctx"></param>
+            <param name="warnId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.WarnServiceHelper.DeleteWarnSet(Kingdee.BOS.Context,System.Collections.Generic.List{System.String})">
+            <summary>
+            删除预警方案设置
+            注：预警方案列表中删除预警方案时调用
+            </summary>
+            <param name="ctx"></param>
+            <param name="warnIds"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.WarnServiceHelper.UpdateProcessStatus(Kingdee.BOS.Context,System.Collections.Generic.List{System.String})">
+            <summary>
+            更新处理状态
+            </summary>
+            <param name="ctx"></param>
+            <param name="ids"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.WarnServiceHelper.WarnLicControl(Kingdee.BOS.Context,System.Nullable{Kingdee.BOS.Core.Warn.Enums.WarnEnums.ExecuteType})">
+            <summary>
+            Warn Lic Control
+            </summary>
+            <param name="ctx"></param>
+            <param name="executeType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceHelper.WeiboServiceHelper">
+            <summary>
+            微博服务类
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.WeiboServiceHelper.LoginWeibo(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            微博登陆
+            </summary>
+            <param name="ctx">当前登陆K3Cloud用户的上下文</param>
+            <param name="userName">用户名</param>
+            <param name="passWord">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceHelper.Workflow.WarnVeriableServiceHelper.GetVeriables(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Core.Metadata.BusinessInfo,System.Collections.Generic.List{Kingdee.BOS.Core.Warn.Message.WarnMessageVeriable},System.String[])">
+            <summary>
+            获取业务预警变量集合
+            </summary>
+            <param name="ctx"></param>
+            <param name="warnSolInfo">预警方案业务模型</param>
+            <param name="warnDSInfo">预警数据源业务模型</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

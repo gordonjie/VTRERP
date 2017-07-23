@@ -1,0 +1,2797 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.Workflow</name>
+    </assembly>
+    <members>
+        <member name="P:Kingdee.BOS.Workflow.ActionEventTypeAttribute.ActionEventType">
+            <summary>
+            动作类型：交互/自动
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.ActionEventTypeAttribute.CanCancel">
+            <summary>
+            动作是否允许撤销，默认为允许；调用服务的动作，不允许撤销
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.ActionEventType.Interactive">
+            <summary>
+            交互式
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.ActionEventType.Automatic">
+            <summary>
+            自动
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WorkflowAttributeHelper">
+            <summary>
+            工作流属性读取帮助类
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowAttributeHelper.HasInteractiveActionEvent(Kingdee.BOS.Workflow.Elements.Wrappers.ActivityWrap,Kingdee.BOS.Workflow.Elements.ActionEvent@)">
+            <summary>
+            扩展函数：判断节点是否有交互式的动作
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowAttributeHelper.HasInteractiveActionEvent(Kingdee.BOS.Workflow.Elements.Activity,Kingdee.BOS.Workflow.Elements.ActionEvent@)">
+            <summary>
+            扩展函数：判断节点是否有交互式的动作
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowAttributeHelper.CanCancel(Kingdee.BOS.Workflow.Elements.Wrappers.ActivityWrap,Kingdee.BOS.Workflow.Elements.ActionEvent@)">
+            <summary>
+            扩展函数：判断节点是否具有不允许撤销的动作
+            </summary>
+            <returns>如果有不允许撤销的动作，则返回false</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowAttributeHelper.CanCancel(Kingdee.BOS.Workflow.Elements.Activity,Kingdee.BOS.Workflow.Elements.ActionEvent@)">
+            <summary>
+            扩展函数：判断节点是否具有不允许撤销的动作
+            </summary>
+            <returns>如果有不允许撤销的动作，则返回false</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowAttributeHelper.ActionEventIsInteractive(Kingdee.BOS.Workflow.Elements.ActionEvent)">
+            <summary>
+            判断动作是否标记了允许交互的特性
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowAttributeHelper.ActionEventCanCancel(Kingdee.BOS.Workflow.Elements.ActionEvent)">
+            <summary>
+            判断动作是否标记允许撤销标记
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFWrapper">
+            <summary>
+            工作流特殊变量解析器
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFWrapper.VAR_KEY">
+            <summary>
+            工作流特殊变量前缀："WF"
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFWrapper.KEY_ActionResult">
+            <summary>
+            审批结果采用的变量名
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFWrapper._context">
+            <summary>
+            当前动作的运行上下文
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFWrapper.#ctor(Kingdee.BOS.Workflow.Engine.ActionEventContext)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFWrapper.GetApprovalAssignItem(System.String)">
+            <summary>
+            获取审批项
+            </summary>
+            <param name="assignResultId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFWrapper.GetActivityName(System.Int32)">
+            <summary>
+            节点名称
+            </summary>
+            <param name="activityId">节点Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFWrapper.GetApprovalActionExecutor(System.Int32)">
+            <summary>
+            审批动作执行人
+            </summary>
+            <param name="activityId">节点Id</param>
+            <returns>名称</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFWrapper.GetLastInteractiveActInstId(System.Int32@)">
+            <summary>
+            获取最近的交互节点实例内码；从历史节点，由后往前寻找，找出最靠近的交互节点
+            </summary>
+            <param name="activityId">同步输出交互节点的顺序</param>
+            <returns>节点实例</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFWrapper.ActivityHasInteractive(System.Int32)">
+            <summary>
+            判断节点是否为交互式的节点
+            </summary>
+            <param name="activityId">节点的顺序号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFWrapper.GetApprovalActionExecutorPost(System.Int32)">
+            <summary>
+            获取审批动作执行人以什么岗位处理流程
+            </summary>
+            <param name="activityId">节点Id</param>
+            <returns>内码</returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapper.CurrentDate">
+            <summary>
+            当前日期
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapper.ProcName">
+            <summary>
+            流程名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapper.CurrentActivityName">
+            <summary>
+            当前活动名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapper.Originator">
+            <summary>
+            发起人名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapper.OriginatorPost">
+            <summary>
+            发起人发起岗位名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapper.OriginatorOrg">
+            <summary>
+            发起人组织名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapper.PreviousApprover">
+            <summary>
+            上一步处理人名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapper.PreviousApproverPost">
+            <summary>
+            上一步处理人岗位
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapper.AssignResultName">
+            <summary>
+            审批结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapper.ActionResult">
+            <summary>
+            审批结果
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFWapperForDynamicText">
+            <summary>
+            为动态文本准备的工作流特殊变量解析器：输出文本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWapperForDynamicText.AssignResultName">
+            <summary>
+            审批结果名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWapperForDynamicText.ActionResult">
+            <summary>
+            基类返回审批结果的编码，重载以返回审批结果的名称；
+            : 如果本节点找不到审批结果名称；则，往前寻找上一个交互节点的审批结果
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFWrapperForExpression">
+            <summary>
+            为表达式计算准备的工作流特殊变量解析器：输出内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFWrapperForExpression.ActionResult">
+            <summary>
+            审批结果，返回类似于"01"的结果内码，用于条件判断;
+            如果本节点是交互节点，则读取本节点的审批结果；否则，往前寻找上一个交互节点结果返回
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFWrapperForParticipant">
+            <summary>
+            为解析参与人准备的工作流特殊变量解析器：输出内码
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WorkflowDynamicContext">
+            <summary>
+            工作流动态文本表达式解析上下文；
+            通过持有工作流运行时上下文，解析表达式中的变量
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WorkflowDynamicContext._workflowContext">
+            <summary>
+            工作流动作运行时上下文：动作->节点->流程，层层持有
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WorkflowDynamicContext._wfWrapper">
+            <summary>
+            工作流特殊变量解析对象，如发起人、上一步处理人等，这些变量没有固定值，需要动态计算；
+            工作流特殊变量，以"WF."为前缀
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowDynamicContext.CreateWFWrapper(Kingdee.BOS.Workflow.Engine.ActionEventContext)">
+            <summary>
+            构建特殊变量解析对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowDynamicContext.TryGetBillFieldValue(System.String,System.Object@,System.Int32)">
+            <summary>
+            取单据字段内容
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WorkflowParticipantContext">
+            <summary>
+            工作流参与人解析上下文；
+            通过持有工作流运行时上下文，解析表达式中的参与人
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowParticipantContext.CreateWFWrapper(Kingdee.BOS.Workflow.Engine.ActionEventContext)">
+            <summary>
+            构建特殊变量解析对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.EnvironmentConfiguration">
+            <summary>
+            引擎环境配置
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Enums.ValidateLevel">
+            <summary>
+            流程元素配置校验等级
+            </summary>
+            <remarks>
+            1. 在不同的场景下，需要校验的等级不同；
+            2. 增加新等级时，等级越严格，对应的数值越低；
+            </remarks>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.ValidateLevel.PublishLevel">
+            <summary>
+            发布等级：适用发布流程版本，最严格，任何配置不完整，都必须提示
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.ValidateLevel.ModelLevel">
+            <summary>
+            模板级别：适用于流程模板存储检查，比较宽松，允许部分属性以后再配置
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Enums.MessageSendMode">
+            <summary>
+            消息发送模式
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.MessageSendMode.Sync">
+            <summary>
+            同步
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.MessageSendMode.Async">
+            <summary>
+            异步
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.MessageSendMode.MSMQ">
+            <summary>
+            MSMQ
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs">
+            <summary>
+            流程引擎运行参数
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs.variables">
+            <summary>
+            流程变量
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs.nextActHandler">
+            <summary>
+            下一步处理人
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Providers.IBillService">
+            <summary>
+            工作流于外围单据交互接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.ILogService.WriteTestActionEventExecuteLog(Kingdee.BOS.Context,System.String,System.Int32,System.String,System.String)">
+            <summary>
+            写测试动作的执行日志
+            <p>应用背景</p>
+            测试流程图时，其动作的执行日志，需单独存在在测试表
+            </summary>
+            <param name="ctx">数据库上下文</param>
+            <param name="actInstId">节点</param>
+            <param name="actionEventId">动作</param>
+            <param name="log">日志内容</param>
+            <param name="logTableName">日志存储的表格</param>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Providers.IWorkflowDataService">
+            <summary>
+            表达式初始化内部变量接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetUserNameByUserId(Kingdee.BOS.Context,System.Int32)">
+            <summary>
+            获取用户名称
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="userId">用户Id</param>
+            <returns>用户名称</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetOriginatorPost(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取流程发起人以什么岗位发起流程
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="procInstId">流程实例Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetOriginatorPostName(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取流程发起人岗位名称
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="procInstId">流程实例Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetOriginatorPostNumber(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取流程发起人岗位编码
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="procInstId">流程实例Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetActivityApprovalActionExecutorId(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取节点审批动作执行人Id
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="procInstId">流程实例Id</param>
+            <param name="actInstId">节点实例Id</param>
+            <returns>执行人Id</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetActivityApprovalActionExecutorName(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取节点审批动作执行人名称
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="procInstId">流程实例Id</param>
+            <param name="actInstId">节点实例Id</param>
+            <returns>执行人名称</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetActivityApprovalActionExecutorPost(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取节点审批动作执行人以什么岗位处理流程
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="actInstId">节点实例Id</param>
+            <returns>执行人岗位Id</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetActivityApprovalActionExecutorPostName(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取节点审批动作执行人以什么岗位处理流程
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="actInstId">节点实例Id</param>
+            <returns>执行人岗位名称</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetActivityApprovalActionExecutorPostNumber(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取节点审批动作执行人以什么岗位处理流程
+            </summary>
+            <param name="ctx"></param>
+            <param name="actInstId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetActivityApprovalActionResult(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取节点的审核结果编码，如"Consent"
+            </summary>
+            <param name="ctx"></param>
+            <param name="actInstId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetActivityApprovalActionResultName(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取节点的审核结果名称, 如"同意"
+            </summary>
+            <param name="ctx"></param>
+            <param name="actInstId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetProcessName(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取流程定义名称
+            </summary>
+            <param name="ctx"></param>
+            <param name="procInstId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IWorkflowDataService.GetApprovalAssignItem(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            获取审批项对应名称
+            </summary>
+            <param name="ctx"></param>
+            <param name="assignId">审批项Id</param>
+            <param name="acinstId">节点实例Id</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Providers.IParticipant">
+            <summary>
+            引擎内部参与人调用接口
+            由基础实现
+            实现路径：Kingdee.K3.BD.App.Core.WorkflowParticipantService
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Providers.IParticipant.IsHRDepartment(Kingdee.BOS.Context,System.String)">
+            <summary>
+            是否HR部门
+            </summary>
+            <param name="ctx"></param>
+            <param name="departmentId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.ActionEvent">
+            <summary>
+            动作元素基类。
+            提供节点动作的基础信息。
+            <remarks>
+            <para>
+            此类不应该被外部直接继承，而是通过其两个派生类：
+            ClientActionEvent和ServerActionEvent来实现针对交互动作和系统动作的抽象。
+            所有业务动作的实现也应该是根据自身的特点继承自这两个类之一。
+            </para>
+            </remarks>
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WorkflowElementWithParent">
+            <summary>
+            拥有父对象的工作流元素基类。
+            <remarks>
+            <para>
+            注意：父对象不会被持久化，且需要和
+            <see cref="!:WorkflowElementCollectionWithParent"/>配合使用，才有效果。
+            </para>
+            </remarks>
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WorkflowElement">
+            <summary>
+            工作流元素基类。此对象主要用来提供属性值改变通知，元素验证等功能。
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.BindableObject">
+            <summary>
+            Implements the INotifyPropertyChanged interface and 
+            exposes a RaisePropertyChanged method for derived 
+            classes to raise the PropertyChange event.  The event 
+            arguments created by this class are cached to prevent 
+            managed heap fragmentation.
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.BindableObject.GetPropertyChangedEventArgs(System.String)">
+            <summary>
+            Returns an instance of PropertyChangedEventArgs for 
+            the specified property name.
+            </summary>
+            <param name="propertyName">
+            The name of the property to create event args for.
+            </param>		
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.BindableObject.AfterPropertyChanged(System.String)">
+            <summary>
+            Derived classes can override this method to
+            execute logic after a property is set. The 
+            base implementation does nothing.
+            </summary>
+            <param name="propertyName">
+            The property which was changed.
+            </param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.BindableObject.RaisePropertyChanged(System.String)">
+            <summary>
+            Attempts to raise the PropertyChanged event, and 
+            invokes the virtual AfterPropertyChanged method, 
+            regardless of whether the event was raised or not.
+            </summary>
+            <param name="propertyName">
+            The property which was changed.
+            </param>
+        </member>
+        <member name="E:Kingdee.BOS.Workflow.BindableObject.PropertyChanged">
+            <summary>
+            Raised when a public property of this object is set.
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.IValidate.Validate(Kingdee.BOS.Workflow.Elements.ValidationStream)">
+            <summary>
+            验证元素，并将验证的结果写入到ValidationStream中
+            </summary>
+            <param name="stream">验证信息流</param>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WorkflowElement.BOSContext">
+            <summary>
+            BOS 上下文环境
+            </summary>
+            <remarks>
+            添加目的：非必须属性，据此读取当前数据中心支持的语言
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowElement.Validate(Kingdee.BOS.Workflow.Elements.ValidationStream)">
+            <summary>
+            验证元素，并将验证的结果写入到ValidationStream中
+            </summary>
+            <param name="stream">验证信息流</param>
+            <param name="isPublishValidate">是否为发布检测</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowElement.Assign(Kingdee.BOS.Workflow.WorkflowElement)">
+             <summary>
+            根据参照元素 重置当前元素属性
+             </summary>
+             <param name="consultElement">参照元素</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowElement.InitDefault">
+            <summary>
+            创建时赋默认值
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WorkflowElement.NewElementDefault">
+            <summary>
+            新增元素赋默认值，支持旧数据兼容
+            （升级客户数据可能没有新增加的属性，这些属性又与InitDefault冲突）
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WorkflowElementWithParent.Parent">
+            <summary>
+            元素的父对象
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ActionEvent.GetExecuteLog(Kingdee.BOS.Workflow.Engine.ActionEventContext)">
+            <summary>
+            动作执行期间需要纪录的信息
+            便于流程图展示
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ActionEvent.WriteActionEventExecuteLog(Kingdee.BOS.Workflow.Engine.ActionEventContext,Kingdee.BOS.JSON.JSONObject)">
+            <summary>
+            调用引擎，写动作执行日志到数据库
+            </summary>
+            <param name="ctx"></param>
+            <param name="log"></param>
+            <remarks>
+            可被派生类重载，调整日志存储位置
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ActionEvent.CreateTestElement">
+            <summary>
+            创建测试流程图时使用的活动
+            </summary>
+            <param name="testType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ActionEvent.CreateBlankTestElement">
+            <summary>
+            创建一个空白的测试元素；可被派生类重载，各自创建对应的元素
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ActionEvent.CopyPropertyToTestElement(Kingdee.BOS.Workflow.Elements.ActionEvent)">
+            <summary>
+            创建测试参与人时使用的活动, 虚函数，派生类需重载
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ActionEvent.Equals(System.Object)">
+            <summary>
+            ActionEvent对相等判断进行了重载，如果ActionEventId相同，
+            亦认为两个ActionEvent相等。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ActionEvent.GetHashCode">
+            <summary>
+            ActionEvent对GetHashCode进行了重载，直接返回其ActionEventId
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ActionEvent.ImportValidate(Kingdee.BOS.Context,Kingdee.BOS.Workflow.Elements.ValidationStream)">
+            <summary>
+            引入(部署)校验（部署参与人有部分可能按编码名称匹配）
+            </summary>
+            <param name="ctx"></param>
+            <param name="stream"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ActionEvent.ActionEventId">
+            <summary>
+            动作内码。
+            <para>注意：此内码应该是由ActionEvent被加入到一个Activity的时候自动生成。</para>
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ActionEvent.DisplayName">
+            <summary>
+            动作显示名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ActionEvent.Description">
+            <summary>
+            动作描述
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.Argument">
+            <summary>
+            参数对象的基类。
+            参数模型是用来提供给ActionEvent进行动作参数的定义。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Argument.Expression">
+            <summary>
+            获取或设置参数表达式。用来定义此参数的数据源如何获取
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Argument.Direction">
+            <summary>
+            获取参数的数据流向
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Argument.ArgumentType">
+            <summary>
+            获取参数内数据的数据类型
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.Argument`1">
+            <summary>
+            Argument的泛型版本。通常不直接使用，而是使用其三个泛型派生类：
+            InArgument, OutArgument, InOutArgument。
+            它也是用来提供给ActionEvent进行动作参数的定义
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Argument`1.ArgumentType">
+            <summary>
+            获取参数内数据的数据类型
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.Expression">
+            <summary>
+            参数表达式。主要为Argument提供对外部数据源的引用。
+            同时在节点条件，线规则上提供表达式支持。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Expression.CanWriteback">
+            <summary>
+            表明此表达式是否支持数据回写
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.ScriptExpression">
+            <summary>
+            脚本表达式。通过承载的脚本来描述对数据源的引用。
+            当前的实现下脚本表达式是不支持回写的。后续可以尝试通过
+            词法分析的方式来检测脚本是否支持回写（左值判断）
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ScriptExpression.#ctor">
+            <summary>
+            默认构造器，序列化需要。
+            正常使用时请不要通过此构造器来实例化对象
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ScriptExpression.#ctor(System.String)">
+            <summary>
+            根据一个脚本字符串构造一个脚本表达式
+            </summary>
+            <param name="compliedScript"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ScriptExpression.CanWriteback">
+            <summary>
+            表明此表达式是否支持数据回写
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ScriptExpression.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ScriptExpression.CompiledExpression">
+            <summary>
+            运行时表达式字符串 = 过滤表格表达式 + 自定义表达式
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ScriptExpression.FilterExpression">
+            <summary>
+            过滤表格表达式字符串（json格式）
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ScriptExpression.ConditionExpression">
+            <summary>
+            自定义表达式字符串
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.ConstExpression">
+            <summary>
+            常量表达式。通过定义一个常量，来提供给参数使用。
+            此表达是不支持回写。
+            <remarks>
+            <para>
+            注意：请通过常量表达式的有参构造器来使用。其午餐构造器和
+            ConstStorage是为了序列化框架的需要而公开出来。
+            </para>
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ConstExpression.#ctor">
+            <summary>
+            默认构造器，序列化需要。
+            正常使用时请不要通过此构造器来实例化对象
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ConstExpression.#ctor(System.Object)">
+            <summary>
+            根据给定的常量来构造一个常量表达式
+            </summary>
+            <param name="constValue"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ConstExpression.CanWriteback">
+            <summary>
+            表明此表达式是否支持数据回写
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ConstExpression.ConstStorage">
+            <summary>
+            常量包装器。此属性主要是配合序列化框架使用，
+            请不要直接访问和修改。
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.VariableExpression">
+            <summary>
+            变量表达式。此表达式主要是将流程变量和节点变量与ActionEvent进行双向沟通。
+            ActionEvent可以通过它获取外部变量，也可以将数据写入到变量中。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.VariableExpression.#ctor">
+            <summary>
+            默认构造器，序列化需要。
+            正常使用时请不要通过此构造器来实例化对象
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.VariableExpression.#ctor(Kingdee.BOS.Workflow.Elements.VariableScope,System.String)">
+            <summary>
+            根据给定要访问的变量范围和名称来构造一个变量表达式
+            </summary>
+            <param name="scope">变量范围</param>
+            <param name="variableName">变量名称</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.VariableExpression.CanWriteback">
+            <summary>
+            表明此表达式是否支持数据回写
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.VariableExpression.Scope">
+            <summary>
+            变量范围
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.VariableExpression.VariableName">
+            <summary>
+            变量名称
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.Wrappers.ProcessWrap">
+            <summary>
+            运行时使用的流程图元数据对象
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.Wrappers.ProcessWrap._process">
+            <summary>
+            流程图设计时使用的元数据对象，偏重于展示运行时直接采用的关键元素
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Wrappers.ProcessWrap.#ctor(Kingdee.BOS.Workflow.Elements.Process)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="p">流程图设计成果</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Wrappers.ProcessWrap.EntryStateId">
+            <summary>
+            入口状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Wrappers.ProcessWrap.MapId">
+            <summary>
+            流程图标识，GUID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Wrappers.ProcessWrap.MapStates">
+            <summary>
+            流程包含的状态集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Wrappers.ProcessWrap.Transitions">
+            <summary>
+            流程包含的连线集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Wrappers.ProcessWrap.Variables">
+            <summary>
+            流程包含的变量集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Wrappers.ProcessWrap.Process">
+            <summary>
+            流程图设计成果
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.Activity">
+            <summary>
+            流程节点元素。
+            提供了流程节点基本的属性。
+            <remarks>
+            <para>
+            此类不应该被外部直接继承，而是通过其派生类：
+            NativeActivity来实现对业务的抽象。
+            所有业务动作的实现也应该是根据自身的特点继承自这个类之一。
+            </para>
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.CreateTestElement">
+            <summary>
+            创建测试流程图时使用的活动
+            </summary>
+            <param name="testType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.GetPreActivities(Kingdee.BOS.Workflow.Elements.Process,Kingdee.BOS.Workflow.Elements.ProcessTreeNode)">
+            <summary>
+            读取前置节点
+            </summary>
+            <param name="process"></param>
+            <param name="routeTree">开始节点为起点，按连线推进的流程树</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.SetPreActivities(Kingdee.BOS.Workflow.Elements.Process,Kingdee.BOS.Workflow.Elements.ProcessTreeNode,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            设置前置节点
+            </summary>
+            <param name="process"></param>
+            <param name="routeTree">开始节点为起点，按连线推进的流程树</param>
+            <param name="preActivities"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.GetFollowActivities(Kingdee.BOS.Workflow.Elements.Process,Kingdee.BOS.Workflow.Elements.ProcessTreeNode)">
+            <summary>
+            读取后置节点
+            </summary>
+            <param name="process"></param>
+            <param name="routeTree">开始节点为起点，按连线推进的流程树</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.SetFollowActivities(Kingdee.BOS.Workflow.Elements.Process,Kingdee.BOS.Workflow.Elements.ProcessTreeNode,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            设置后置节点
+            </summary>
+            <param name="process"></param>
+            <param name="routeTree">开始节点为起点，按连线推进的流程树</param>
+            <param name="followActivities"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.GetDirectPrevInteractiveActivities(Kingdee.BOS.Workflow.Elements.Process)">
+            <summary>
+            获取当前节点的前置人工节点
+            </summary>
+            <param name="process"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.GetDirectFollowInteractiveActivities(Kingdee.BOS.Workflow.Elements.Process)">
+            <summary>
+            获取当前节点的后续人工节点
+            </summary>
+            <param name="process"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.CopyPropertyToTestElement(Kingdee.BOS.Workflow.Elements.NativeActivity)">
+            <summary>
+            复制本对象的属性到测试元素上
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.CreateBlankTestElement">
+            <summary>
+            创建一个空白的节点；虚函数，以便派生类重载
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.ReadPreActivities(Kingdee.BOS.Workflow.Elements.Process,Kingdee.BOS.Workflow.Elements.ProcessTreeNode)">
+            <summary>
+            从流程图中，读取本节点的前置节点：
+            前置节点：从开始节点到结束节点之间，开始节点到本节点路线上的全部节点；
+            </summary>
+            <param name="process"></param>
+            <param name="singleLineProcessList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.ReadFollowActivities(Kingdee.BOS.Workflow.Elements.Process,Kingdee.BOS.Workflow.Elements.ProcessTreeNode)">
+            <summary>
+            从流程图中，读取本节点的后置节点：
+            后置节点：从本节点开始，到结束节点，所经过的路径上的节点
+            </summary>
+            <param name="process"></param>
+            <param name="singleLineProcessList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.SearchEndActivityIds(Kingdee.BOS.Workflow.Elements.Process)">
+            <summary>
+            寻找流程的结束节点：没有输出线
+            </summary>
+            <param name="process"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.SearchLastNodes(Kingdee.BOS.Workflow.Elements.ProcessTreeNode,System.Collections.Generic.List{Kingdee.BOS.Workflow.Elements.ProcessTreeNode}@)">
+            <summary>
+            寻找结束节点
+            </summary>
+            <param name="startNode"></param>
+            <param name="lastNodes"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Activity.SyncAddDeleteIds(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Int32}@,System.Collections.Generic.List{System.Int32}@)">
+            <summary>
+            对比标准列表与配置的结果，获得增加与删除的列表
+            </summary>
+            <param name="generalList">标准列表</param>
+            <param name="configList">配置结果</param>
+            <param name="addList">追加的列表</param>
+            <param name="delList">删除的列表</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.ActivityId">
+            <summary>
+            节点内码
+            <para>注意：此内码应该是由Activity被加入到Process的时候自动生成。</para>
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.DisplayName">
+            <summary>
+            节点显示名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.Description">
+            <summary>
+            节点描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.Variables">
+            <summary>
+            节点变量集合
+            <para>注意：此集合在对象初始化时也将被初始化</para>
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.ActionEvents">
+            <summary>
+            节点包含动作集合
+            <para>注意：此集合在对象初始化时也将被初始化</para>
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.PreCondition">
+            <summary>
+            节点前置条件
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.PostCondition">
+            <summary>
+            节点后置条件
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.InModel">
+            <summary>
+            聚合节点，流入模式；默认为串行模式=0
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.PreActivitiesAdd">
+            <summary>
+            前置节点：明确添加进来的前置节点：List(int) 类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.PreActivitiesDelete">
+            <summary>
+            前置节点：明确被排除的前置节点：List(int) 类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.OutModel">
+            <summary>
+            聚合节点，流入模式；默认为串行模式=0
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.FollowActivitiesAdd">
+            <summary>
+            后置节点：明确添加进来的后置节点：List(int) 类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Activity.FollowActivitiesDelete">
+            <summary>
+            后置节点：明确被排除的后置节点：List(int) 类型
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.ArgumentDirection">
+            <summary>
+            参数的数据流向
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.ArgumentDirection.In">
+            <summary>
+            可以从数据源读取数据
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.ArgumentDirection.Out">
+            <summary>
+            可以向数据源写入数据
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.ArgumentDirection.InOut">
+            <summary>
+            可以和数据源读取和写入数据
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.InArgument`1">
+            <summary>
+            从数据源中获取数据并传递给ActionEvent
+            </summary>
+            <typeparam name="T">数据的类型</typeparam>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.InArgument`1.Direction">
+            <summary>
+            获取参数的数据流向
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.OutArgument`1">
+            <summary>
+            在ActionEvent中将数据写回到数据源里
+            </summary>
+            <typeparam name="T">数据的类型</typeparam>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.OutArgument`1.Direction">
+            <summary>
+            获取参数的数据流向
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.InOutArgument`1">
+            <summary>
+            实现ActionEvent和数据源的双向数据交流
+            </summary>
+            <typeparam name="T">数据的类型</typeparam>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.InOutArgument`1.Direction">
+            <summary>
+            获取参数的数据流向
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.ActionEventCollection">
+            <summary>
+            动作集合。
+            <para>注意：集合不允许动作内码相同的元素存在</para>
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.WorkflowElementCollectionWithParent`1">
+            <summary>
+            有用父对象的工作流元素集合的基类。其继承自ObservableCollection，
+            因此具有元素变动通知的能力。
+            </summary>
+            <typeparam name="T">继承自WorkflowElementWithParent的流程元素类型</typeparam>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.WorkflowElementCollection`1">
+            <summary>
+            工作流元素集合的基类。其继承自ObservableCollection，
+            因此具有元素变动通知的能力
+            </summary>
+            <typeparam name="T">流程元素类型</typeparam>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.ActivityCollection">
+            <summary>
+            节点集合。
+            <para>注意：集合不允许节点内码相同或者的节点名称相同的元素存在</para>
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.LineCollection">
+            <summary>
+            连接线集合。
+            <para>注意：集合不允许连接线内码相同或者连入连出节点相同的元素存在</para>
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.VariableCollection">
+            <summary>
+            变量集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.VariableCollection.Item(System.String)">
+            <summary>
+            根据变量名称获取变量
+            </summary>
+            <param name="name">变量名称</param>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.VariableScope">
+            <summary>
+            变量范围
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.VariableScope.Process">
+            <summary>
+            流程级别变量
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.VariableScope.Activity">
+            <summary>
+            节点级别变量
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.BooleanVariable">
+            <summary>
+            布尔型变量
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.Variable">
+            <summary>
+            变量定义类。为流程或者节点提供变量支持。
+            如果需要扩展变量类型，请继承自此类。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Variable.#ctor">
+            <summary>
+            默认构造器，初始化属性
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Variable.CreateVariable(System.String,System.Type,Kingdee.BOS.LocaleValue,Kingdee.BOS.LocaleValue,System.Object)">
+            <summary>
+            根据给定的名称类型等创建变量
+            </summary>
+            <param name="name">变量名称</param>
+            <param name="type">变量类型</param>
+            <param name="description">描述</param>
+            <param name="defaultValue">默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Variable.CreateVariable(Kingdee.BOS.Workflow.RequiredVariableAttribute)">
+            <summary>
+            根据给定的RequiredVariableAttribute创建一个变量。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Variable.SetDefaultValue(System.Object)">
+            <summary>
+            设置变量的默认值
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Variable.GetDefaultValue">
+            <summary>
+            获取变量的默认值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Variable.TryParse(System.Object,System.Object@)">
+            <summary>
+            尝试节点给定数据到变量支持的数据类型中
+            </summary>
+            <param name="obj">给定的数据</param>
+            <param name="targeObj">类型转换后的数据</param>
+            <returns>是否解析成功</returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Variable.Name">
+            <summary>
+            变量名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Variable.DisplayName">
+            <summary>
+            变量显示名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Variable.Description">
+            <summary>
+            变量描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Variable.DefaultValueWrapper">
+            <summary>
+            变量默认值存放属性，请不要直接对此属性进行获取或赋值操作。
+            而是通过SetDefautValue和GetDefaultValue代替。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Variable.IsMultiple">
+            <summary>
+            表明此变量是否为多值变量。如果是多值变量。
+            则在运行期其内部存储的是此变量的一组数据。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Variable.ControlLevel">
+            <summary>
+            表明此变量的控制级别:可见可编辑、可见不可编辑、不可见不可编辑
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Variable.VariableType">
+            <summary>
+            获取变量的实际数据类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Variable.TypeName">
+            <summary>
+            获取变量类型的显示名称
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.DateTimeVariable">
+            <summary>
+            日期变量
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.NativeActivity">
+            <summary>
+            原生节点。如果需要对节点进行扩展，请继承自此类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.NativeActivity.InsertActionEvent``1(Kingdee.BOS.LocaleValue)">
+            <summary>
+            为当前节点创建一个动作，并加入到节点的动作列表中
+            </summary>
+            <typeparam name="T">动作类型</typeparam>
+            <param name="displayName">动作显示名称</param>
+            <param name="localeId">多语言内码</param>
+            <returns>动作对象</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.NativeActivity.InitDisplayName">
+            <summary>
+            初始化节点的显示名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.NativeActivity.InModel">
+            <summary>
+            聚合节点，流入模式；默认为串行模式=0
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.NativeActivity.PreActivitiesAdd">
+            <summary>
+            前置节点：明确添加进来的前置节点：List(int) 类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.NativeActivity.PreActivitiesDelete">
+            <summary>
+            前置节点：明确被排除的前置节点：List(int) 类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.NativeActivity.OutModel">
+            <summary>
+            聚合节点，流入模式；默认为串行模式=0
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.NativeActivity.FollowActivitiesAdd">
+            <summary>
+            后置节点：明确添加进来的后置节点：List(int) 类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.NativeActivity.FollowActivitiesDelete">
+            <summary>
+            后置节点：明确被排除的后置节点：List(int) 类型
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.NumberVariable">
+            <summary>
+            日期变量
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.StartActivity">
+            <summary>
+            开始节点
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.TextVariable">
+            <summary>
+            文本变量
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.Line">
+            <summary>
+            节点连接线。用来表明两个节点的迁移关系
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Line.#ctor">
+            <summary>
+            默认构造器，初始化属性
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.Line._canHide">
+            <summary>
+            连接线是否支持隐藏
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Line.CreateTestElement">
+            <summary>
+            创建测试流程图时使用的路线
+            </summary>
+            <param name="testType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Line.CreateBlankTestElement">
+            <summary>
+            创建一个空白的节点；虚函数，以便派生类重载
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Line.CopyPropertyToTestElement(Kingdee.BOS.Workflow.Elements.Line)">
+            <summary>
+            把本元素需测试的属性复制到测试元素上
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Line.LineId">
+            <summary>
+            连接线内码，此内码由系统自动生成。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Line.DisplayName">
+            <summary>
+            连接线显示名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Line.Description">
+            <summary>
+            连接线描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Line.TransitionCondition">
+            <summary>
+            迁移条件
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Line.SourceId">
+            <summary>
+            连出节点（源节点）内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Line.TargetId">
+            <summary>
+            连入节点（目标节点）内码
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.Process">
+            <summary>
+            流程图设计时使用的元数据对象。它定义了流程所包含的节点，连接线以及它们的关系。
+            同时给出了一系列方法用来进行元素的增减和查询
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.#ctor">
+            <summary>
+            默认构造器，初始化流程属性
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.InsertActivity(System.String,System.Int32)">
+            <summary>
+            通过给定的特定语言下的显示名称，创建一个节点并插入到
+            流程节点结合中。同时返回新创建的节点对象。
+            </summary>
+            <param name="displayName">显示名称</param>
+            <param name="localeId">多语言内码</param>
+            <returns>新创建的节点</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.InsertActivity``1(System.String,System.Int32)">
+            <summary>
+            通过给定的特定语言下的显示名称，创建一个节点并插入到
+            流程节点结合中。同时返回新创建的节点对象。
+            <para>
+            注意：T必须继承自NativeActivity
+            </para>
+            </summary>
+            <param name="displayName">显示名称</param>
+            <param name="localeId">多语言内码</param>
+            <returns>新创建的节点</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.InsertLine(Kingdee.BOS.Workflow.Elements.Activity,Kingdee.BOS.Workflow.Elements.Activity,Kingdee.BOS.LocaleValue,Kingdee.BOS.Workflow.Elements.RuleExpression)">
+            <summary>
+            创建一条从源节点到目标节点的连接线并把线加入到流程的连接线列表中
+            </summary>
+            <param name="source">源节点</param>
+            <param name="target">目标节点</param>
+            <param name="displayName">连接线名称</param>
+            <param name="condition">迁移条件表达式</param>
+            <returns>新建的连接线对象</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.InsertLine``1(Kingdee.BOS.Workflow.Elements.Activity,Kingdee.BOS.Workflow.Elements.Activity,Kingdee.BOS.LocaleValue,Kingdee.BOS.Workflow.Elements.RuleExpression)">
+            <summary>
+            创建一条从源节点到目标节点的连接线并把线加入到流程的连接线列表中
+            <para>
+            注意：T必须继承自Line对象
+            </para>
+            </summary>
+            <param name="source">源节点</param>
+            <param name="target">目标节点</param>
+            <param name="displayName">连接线名称</param>
+            <param name="condition">迁移条件表达式</param>
+            <returns>新建的连接线对象</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.CloneActivity(Kingdee.BOS.Workflow.Elements.Activity)">
+            <summary>
+            克隆一个节点，并把克隆出的新节点加入到流程节点列表中
+            </summary>
+            <param name="act">被克隆的节点</param>
+            <returns>克隆出的新节点</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.CreateTestElement">
+            <summary>
+            创建测试使用的流程图；
+            流程图测试通常需要单线推进，因此，为了完整覆盖，需构建出各条路线的测试图
+            </summary>
+            <param name="testType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.CreateAllSingleLineProcess">
+            <summary>
+            分析流程图的全部路线，对每条路线构建出一个新的流程图
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.BuildProcessRouteTree">
+            <summary>
+            构建流程推进树，开始节点为起始点，依次往后按连线推进；
+            如果流程图有回路，在重复点自动切开，避免循环
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.ValidateProcessStructure(Kingdee.BOS.Workflow.Elements.ValidationStream)">
+            <summary>
+            验证流程的结构完整性
+            </summary>
+            <param name="stream">验证流</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.Validate(Kingdee.BOS.Workflow.Elements.ValidationStream)">
+            <summary>
+            对流程的数据完整性进行验证
+            </summary>
+            <param name="stream"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.OnDeserialized(System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            反序列化事件，重置集合的父对象
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.SearchForwardNode(Kingdee.BOS.Workflow.Elements.ProcessTreeNode)">
+            <summary>
+            根据路线，找后续节点；支持递归，逐层往后寻找
+            </summary>
+            <param name="startNode"></param>
+            <param name="tempLines"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.SearchLastNodes(Kingdee.BOS.Workflow.Elements.ProcessTreeNode,System.Collections.Generic.List{Kingdee.BOS.Workflow.Elements.ProcessTreeNode}@)">
+            <summary>
+            寻找最终节点
+            </summary>
+            <param name="startNode"></param>
+            <param name="lastNodes"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.ReverseProcessTreeNode(Kingdee.BOS.Workflow.Elements.ProcessTreeNode)">
+            <summary>
+            根据终点，反转出正向的流程树，仅有一条唯一的路线
+            </summary>
+            <param name="lastNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.CreateTestProcess(Kingdee.BOS.Workflow.Elements.ProcessTreeNode)">
+            <summary>
+            根据节点推进层次树，构建测试流程；仅关注测试点
+            </summary>
+            <param name="startNode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.CreateBlankTestProcess">
+            <summary>
+            构建空白测试流程图: 虚函数，派生类重载，构建自身的类
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.CopyLineToTargetActivity(Kingdee.BOS.Workflow.Elements.ProcessTreeNode,Kingdee.BOS.Workflow.Elements.Process,Kingdee.BOS.Workflow.Elements.Activity,Kingdee.BOS.Workflow.Elements.Activity@)">
+            <summary>
+            复制开始节点到目标节点的路线，以及目标节点
+            </summary>
+            <param name="nextNode"></param>
+            <param name="processTest"></param>
+            <param name="sourceActivity"></param>
+            <param name="targetActivity"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.Process.EndInit">
+            <summary>
+            序列化结束，取反序列化出来的开始节点，如果没有开始节点，则创建一个
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Process.Activities">
+            <summary>
+            获取流程的节点集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Process.Lines">
+            <summary>
+            获取流程的连接线集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Process.Variables">
+            <summary>
+            获取流程变量集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Process.ProcessId">
+            <summary>
+            流程Id，实际对应流程版本Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Process.StartActivity">
+            <summary>
+            流程开始节点
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Process.CanHideLinesVisible">
+            <summary>
+            支持隐藏的连线是否可见
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.Process.AutoExecute">
+            <summary>
+            下一节点任务处理人相同时，自动执行；
+            本属性暂只支持审批流，工作流此属性为false
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.ProcessTreeNode">
+            <summary>
+            流程图按照层次展开的节点树；后续节点作为树的子节点;
+            </summary>
+            <remarks>仅供测试流程图，分析流程图路线时使用</remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.ProcessTreeNode.#ctor(System.Int32,Kingdee.BOS.Workflow.Elements.ProcessTreeNode,Kingdee.BOS.Workflow.Elements.Line)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="activityId"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ProcessTreeNode.ActivityId">
+            <summary>
+            对应的节点序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ProcessTreeNode.Parent">
+            <summary>
+            前续节点
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ProcessTreeNode.Children">
+            <summary>
+            后续节点
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.ValidationStream.ValidateLevel">
+            <summary>
+            流程配置校验级别：默认为发布等级，最严格；某些特殊情况下，可以调低等级
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.VarCtlLevel">
+            <summary>
+            对用户来说，变量的操作级别
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.VarCtlLevel.Full">
+            <summary>
+            完全控制
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.VarCtlLevel.OnlyVisible">
+            <summary>
+            可见不可编辑
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.VarCtlLevel.None">
+            <summary>
+            不可见不可编辑
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.WrapType">
+            <summary>
+            【内部使用】MixObject包装的对象本体类型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.WrapType.Primitive">
+            <summary>
+            原生类型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.WrapType.Enumeration">
+            <summary>
+            枚举
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.WrapType.Collection">
+            <summary>
+            集合
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Elements.WrapType.Complex">
+            <summary>
+            复杂对象类型
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Elements.MixObjectWrapper">
+            <summary>
+            混合对象。主要用来代替object类型的对象属性。
+            <remarks>
+            <para>
+            当前的BOS序列化框架出于差量化得考虑，对object类型的对象属性支持度不够完全。
+            针对这种需求，产生了MixObject对象类型。其原理是通过对几类对象类型进行分别存储，
+            转换为BOS序列化框架可以处理的类型。其本质可以理解为一个包装器模型。
+            </para>
+            <para>
+            【注意1】由于序列化框架的限制，MixObject将其针对各种类型的独立存储属性都暴露了出来，
+            并实现了getter和setter。请使用者不要直接访问或者修改这些属性，更不要将其纳入程序的逻辑体系中。
+            </para>
+            <para>
+            【注意2】针对集合类型，MixObject无法还原最初的集合类型，亦即MixObject会造成对集合类型的类型丢失。
+            所有的集合类型在返回时都将以IList（及其泛型版本）的方式返回。
+            </para>
+            <para>
+            【注意3】如果传入的对象为Null，MixObject会将其识别为复杂类型，并在返回的时候同样返回null。
+            </para>
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.#ctor">
+            <summary>
+            默认构造器
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.#ctor(System.Object)">
+            <summary>
+            基于给定的被包装对象构造一个MixObject
+            </summary>
+            <param name="wrappedObject">被包装对象</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.SetValue(System.Object)">
+            <summary>
+            将期望被包装的对象赋给MixObject
+            </summary>
+            <param name="value">被包装对象</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.GetValue">
+            <summary>
+            获取MixObject包装的对象
+            <para>
+            注意：如果是集合类型，则将丢失最初的集合类型信息，而转换为IList[object]返回
+            </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.GetSingleValue``1">
+            <summary>
+            返回MixObject包装的特定类型的单值
+            </summary>
+            <typeparam name="T">被返回的类型</typeparam>
+            <returns>返回的单值</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.GetMultipleValues``1">
+            <summary>
+            返回MixObject包装的特定类型的集合
+            </summary>
+            <typeparam name="T">被返回的集合中元素的类型</typeparam>
+            <returns>返回的IList集合</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.GetHashCode">
+            <summary>
+            根据MixObject包装的特定类型来返回其对应的HashCode
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.Equals(System.Object)">
+            <summary>
+            MixObject重载了相等判断。如果其包装的对象相等，则MixObject就相等。
+            <para>
+            注意：对于集合类型，则是针对集合中的每个元素是否一一对等来进行判断。
+            </para>
+            </summary>
+            <param name="obj">被判断的对象</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.UnifiedIdentifier">
+            <summary>
+            <para>
+            注意：请勿访问或者修改此属性
+            </para>
+            MixObject的唯一标识符。
+            用来在差量化框架中支持集合元素
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.WrapType">
+            <summary>
+            <para>
+            注意：请勿访问或者修改此属性
+            </para>
+            被包装的目标对象的类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.TypeCode">
+            <summary>
+            <para>
+            注意：请勿访问或者修改此属性
+            </para>
+            被包装的目标对象的.net类型码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.Description">
+            <summary>
+            <para>
+            注意：请勿访问或者修改此属性
+            </para>
+            如果类型是枚举，则枚举的值会被转换为其定义时的继承类型（默认Int32）
+            的值存储在SimpleObject属性中。而其实际的名称则在此属性中描述。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.SimpleObject">
+            <summary>
+            <para>
+            注意：请勿访问或者修改此属性
+            </para>
+            基元类型和枚举类型的存储属性
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.CollectionObject">
+            <summary>
+            <para>
+            注意：请勿访问或者修改此属性
+            </para>
+            集合类型的存储属性
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Elements.MixObjectWrapper.ComplexObject">
+            <summary>
+            <para>
+            注意：请勿访问或者修改此属性
+            </para>
+            复杂类型的存储属性
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Engine.ElementInstance">
+            <summary>
+            实例的基类
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Engine.ElementInstance._properties">
+            <summary>
+            属性字典
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Engine.ElementInstance._variableInstances">
+            <summary>
+            变量的实例集合
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.ElementInstance.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.ElementInstance.Load(Kingdee.BOS.Workflow.Elements.Wrappers.ElementWrap)">
+            <summary>
+            初始化变量的实例集合
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.ElementInstance.TryGetMember(System.String,System.Object@)">
+            <summary>
+            获取变量或者属性值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.ElementInstance.TrySetMember(System.String,System.Object)">
+            <summary>
+            设置变量或者属性值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ElementInstance.VariableInstances">
+            <summary>
+            变量的实例集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ElementInstance.VariableInstancesXml">
+            <summary>
+            序列化实例数据，以便持久存储到数据库
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ActivityInstance.StateInstanceId">
+            <summary>
+            节点实例Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ActivityInstance.LastActionEventId">
+            <summary>
+            最后一个执行的动作id，在唤醒流程的时候，执行的action从这个动作id开始执行
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ActivityInstance.MapStateId">
+            <summary>
+            节点id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ActivityInstance.Result">
+            <summary>
+            节点扭转结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ActivityInstance.BackActivityInstanceIds">
+            <summary>
+            前驱节点实例，结构示例： actInstId1:actid1,actInstId2:actId
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ActivityInstance.ActivityName">
+            <summary>
+            节点名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ActivityInstance.CreatedTime">
+            <summary>
+            实例创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ActivityInstance.CompletedTime">
+            <summary>
+            实例完成时间
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.ProcessContext.GetCompletedItems">
+            <summary>
+            获取已经执行完的节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.ProcessContext.TryGetValue(System.String,System.Object@)">
+            <summary>
+            获取值（供表达式解析时使用）
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.ProcessContext.TrySetValue(System.String,System.Object)">
+            <summary>
+            设置值（供表达式赋值时使用）
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Engine.ProcessContext._bosBill">
+            <summary>
+            当前流程关联的单据信息
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessContext.BOSContext">
+            <summary>
+            BOS上下文
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessContext.BOSBill">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessInstance.TempleteId">
+            <summary>
+            流程模版Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessInstance.TempDetailId">
+            <summary>
+            流程模版明细Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessInstance.ProcDefId">
+            <summary>
+            流程定义Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessInstance.VersionId">
+            <summary>
+            流程定义版本Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessInstance.Number">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessInstance.Modifier">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessInstance.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessInstance.OriginatorId">
+            <summary>
+            发起人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.ProcessInstance.OriginatorPostId">
+            <summary>
+            发起人岗位
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Engine.ProcessStateType">
+            <summary>
+            流程实例状态：同Kingdee.BOS.Workflow.Kernel.MapResult;
+            </summary>
+            <remarks>
+            重复定义，只是有部分代码已经引用，不好删除；
+            增加枚举值时，必须同步增加MapResult枚举
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.ProcessTracker.MargeBackActInstIds(System.String,System.String)">
+            <summary>
+            融合历史路线：聚合节点，陆续会有多条路线到达，在每条路线到达时，需要及时合并新到达路线的历史进来
+            </summary>
+            <param name="oldBackActInstIds">节点已经记录的历史路线</param>
+            <param name="newBackActInstIds">本次到达路线，携带的历史</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Engine.VariableInstance">
+            <summary>
+            变量实例
+            <remarks>
+            变量实例是基于其给定的变量而创建的。变量实例不关心变量的具体类型，
+            其Value属性通过给定变量的三个抽象方法来或者和设置特定的值，并以值字符串的形式存储在内容。
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.VariableInstance.#ctor(Kingdee.BOS.Workflow.Elements.Variable)">
+            <summary>
+            根据给定的变量定义，实例化一个变量实例
+            </summary>
+            <param name="var">变量定义</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.VariableInstance.Name">
+            <summary>
+            变量的名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.VariableInstance.Value">
+            <summary>
+            设置或获取变量实例的值
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Engine.VariableInstanceCollection">
+            <summary>
+            变量实例的集合
+            <remarks>
+            变量实例集合是一个只读集合。不允许再添加或者删除变量。
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.VariableInstanceCollection.#ctor(System.Collections.Generic.IEnumerable{Kingdee.BOS.Workflow.Elements.Variable})">
+            <summary>
+            根据给定的变量定义集合实例化出变量实例集合
+            </summary>
+            <param name="varibaleCollection">变量定义集合</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Engine.VariableInstanceCollection.GetInstances(System.Collections.Generic.IEnumerable{Kingdee.BOS.Workflow.Elements.Variable})">
+            <summary>
+            根据给定的变量定义集合创建变量实例集合
+            </summary>
+            <param name="varCollection">变量定义集合</param>
+            <returns>变量实例集合</returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Engine.VariableInstanceCollection.Item(System.String)">
+            <summary>
+            根据变量名称获取一个变量实例
+            </summary>
+            <param name="name">变量名</param>
+            <returns>变量实例</returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Engine.VariableInstanceCollection.IngoreCaseStringComparer">
+            <summary>
+            提供给字典用的忽略大小写的字符串比较器
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Enums.ActivityInModel">
+            <summary>
+            聚合节点流入模式
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.ActivityInModel.SerialModel">
+            <summary>
+            串行模式，任意前置路线到达后即启动
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.ActivityInModel.ParallelModel">
+            <summary>
+            并行模式，必须等待所有前置路线均到达后才启动
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.ActivityInModel.MixModel">
+            <summary>
+            混合模式，可以指定任意路线到达后即启动
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Enums.ActivityOutModel">
+            <summary>
+            拆分节点流出模式
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.ActivityOutModel.ResetModel">
+            <summary>
+            重置模式，节点重新启动后，后置节点任务自动舍弃
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.ActivityOutModel.KeepModel">
+            <summary>
+            保留模式，节点重新启动后，后置节点任务依然保留
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Enums.FlowTimeoutStrategy">
+            <summary>
+            流程超时策略
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.FlowTimeoutStrategy.AutoApproval">
+            <summary>
+            自动审批
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Enums.FlowTimeoutStrategy.DesignatedRealWith">
+            <summary>
+            指定处理人
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Hosting.IBOSFlowRepository">
+            <summary>
+            流程实例持久化功能定义接口；实现类：Kingdee.BOS.Workflow.App.Core.Repositories.Hosting.BOSFlowRepository
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.IBOSFlowRepository.CreateProcessInstance(Kingdee.BOS.Workflow.Engine.ProcessInstance)">
+            <summary>
+            初次持久化实例：流程启动时调用，仅有流程实例没有节点实例信息
+            </summary>
+            <param name="pi"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.IBOSFlowRepository.ReadProcInstByWakeup(System.String)">
+            <summary>
+            流程唤醒时调用，节点实例列表中仅查询当前钝化的节点实例，查询完成后删除
+            </summary>
+            <param name="activityInstanceId">状态实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.IBOSFlowRepository.ReadProcInstByRecover(System.String)">
+            <summary>
+            流程异常恢复时调用，节点实例列表中仅查询failure和ready状态的节点实例，查询完成后删除
+            </summary>
+            <param name="processInstanceId">流程实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.IBOSFlowRepository.UpdateProcessInstance(Kingdee.BOS.Workflow.Engine.ProcessInstance,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            更新数据库中流程实例及其节点实例的信息
+            </summary>
+            <param name="pi">流程实例</param>
+            <param name="existActInstIds">已存在的节点实例</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.CreateProcessInstance">
+            <summary>
+            创建流程实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.StartNew(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            发起新流程，该方法在3.0后将废止，请使用 StartNew(WorkflowEngineRunArgs args)
+            </summary>
+            <param name="variables"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.StartNew(Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs)">
+            <summary>
+            发起新流程
+            </summary>
+            <param name="args">流程参数</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.Start(Kingdee.BOS.Workflow.Engine.ProcessInstance,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            发起流程，该方法在3.0后将废止，请使用 Start(ProcessInstance pi, WorkflowEngineRunArgs args)
+            </summary>
+            <param name="pi"></param>
+            <param name="variables"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.Start(Kingdee.BOS.Workflow.Engine.ProcessInstance,Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs)">
+            <summary>
+            发起流程
+            </summary>
+            <param name="pi">流程实例</param>
+            <param name="args">流程参数</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.Wakeup(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.IList{Kingdee.BOS.WorkflowMember.UserMember}})">
+            <summary>
+            唤醒流程，该方法在3.0后将废止，请使用 Wakeup(string activityInstanceId, WorkflowEngineRunArgs args)
+            </summary>
+            <param name="activityInstanceId"></param>
+            <param name="variables"></param>
+            <param name="nextActHandler"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.Wakeup(System.String,Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs)">
+            <summary>
+            唤醒流程
+            </summary>
+            <param name="activityInstanceId">活动(节点)实例Id</param>
+            <param name="args">流程参数</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.PreWakeUp(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            流程预执行，该方法在3.0后将废止，请使用 PreWakeUp(string activityInstanceId, WorkflowEngineRunArgs args)
+            </summary>
+            <param name="activityInstanceId"></param>
+            <param name="variables"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.PreWakeUp(System.String,Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs)">
+            <summary>
+            流程预执行
+            </summary>
+            <param name="activityInstanceId">活动(节点)实例Id</param>
+            <param name="args">流程参数</param>
+            <returns>流程实例</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.JumpFromIdle(System.String,System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.IList{Kingdee.BOS.WorkflowMember.UserMember}})">
+            <summary>
+            流程跳转（适用于无连线跳转的流程），该方法在3.0后将废止，请使用 JumpFromIdle(string idleActivityInsitanceId, int tartgetKey, WorkflowEngineRunArgs args)
+            </summary>
+            <param name="idleActivityInsitanceId"></param>
+            <param name="tartgetKey"></param>
+            <param name="variables"></param>
+            <param name="NextHandler"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.JumpFromIdle(System.String,System.Int32,Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs)">
+            <summary>
+            流程跳转（适用于无连线跳转的流程）
+            </summary>
+            <param name="idleActivityInsitanceId">当前节点实例</param>
+            <param name="tartgetKey">将要跳转到的目标节点序号</param>
+            <param name="args">流程参数</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.PreJumpFromIdle(System.String,System.Int32,Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs)">
+            <summary>
+            流程预跳转（适用于无连线跳转的流程）
+            </summary>
+            <param name="idleActivityInsitanceId">当前节点实例</param>
+            <param name="tartgetKey">将要跳转到的目标节点序号</param>
+            <param name="args">流程参数</param>
+        </member>
+        <!-- 对于成员“M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.JumpFromDiscard(System.Collections.Generic.List{System.String},System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.IList{Kingdee.BOS.WorkflowMember.UserMember}})”忽略有格式错误的 XML 注释 -->
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.JumpFromDiscard(System.Collections.Generic.List{System.String},System.Int32,Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs)">
+            <summary>
+            舍弃当前节点并跳转
+            </summary>
+            <param name="actInstIds">将要被舍弃的当前节点实例</param>
+            <param name="tartgetKey">将要跳转到的目标节点序号</param>
+            <param name="args">流程运行参数</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.Recover(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            流程恢复，该方法在3.0后将废止，请使用 Recover(string processInstanceId, WorkflowEngineRunArgs args)
+            </summary>
+            <param name="processInstanceId"></param>
+            <param name="variables"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.Recover(System.String,Kingdee.BOS.Workflow.Hosting.WorkflowEngineRunArgs)">
+            <summary>
+            流程恢复
+            </summary>
+            <param name="processInstanceId">流程实例</param>
+            <param name="args">流程运行参数</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.Transit(Kingdee.BOS.Workflow.Engine.ProcessInstance,System.Action{Kingdee.BOS.Workflow.Kernel.MapTransitor},System.String[])">
+            <summary>
+            推进流程执行
+            </summary>
+            <param name="pi">流程实例</param>
+            <param name="transitAction">实际推进过程；不同的场景，其推进过程可能或有不同，但是，其推进前后的持久化处理，是相同的，故封装了此函数</param>
+            <param name="existActInstIds">在唤醒流程时，已经存在的节点实例；持久化时，据此判断仅需要Update, 而不是Insert</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.GetContext(System.String,System.Int32,System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.IList{Kingdee.BOS.WorkflowMember.UserMember}})">
+            <summary>
+            执行流转返回节点上下文（根据当前节点获取下一节点流程上下文时调用）
+            </summary>
+            <param name="activityInstanceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Hosting.WorkflowEngine.CreateProcessContext">
+            <summary>
+            构建流程实例上下文对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.IWorkflowTestDataService">
+            <summary>
+            工作流测试数据服务接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.IWorkflowTestDataService.GetExecutorIdForMemberTest(Kingdee.BOS.Context,System.String)">
+            <summary>
+            参与人测试，获取某节点的执行人
+            </summary>
+            <param name="ctx">数据库上下文</param>
+            <param name="actInstId">节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.IWorkflowTestDataService.GetExecutorNameForMemberTest(Kingdee.BOS.Context,System.String)">
+            <summary>
+            参与人测试，获取某节点的执行人名称
+            </summary>
+            <param name="ctx">数据库上下文</param>
+            <param name="actInstId">节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.IWorkflowTestDataService.GetExecutorPostForMemberTest(Kingdee.BOS.Context,System.String)">
+            <summary>
+            参与人测试，获取某节点的执行人岗位
+            </summary>
+            <param name="ctx">数据库上下文</param>
+            <param name="actInstId">节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.IWorkflowTestDataService.GetExecutorPostNameForMemberTest(Kingdee.BOS.Context,System.String)">
+            <summary>
+            参与人测试，获取某节点的执行人岗位
+            </summary>
+            <param name="ctx">数据库上下文</param>
+            <param name="actInstId">节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.IWorkflowTestDataService.GetProcessName(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取流程的名称
+            </summary>
+            <param name="ctx">数据库上下文</param>
+            <param name="testProcInstId">测试产生的流程实例</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestActionEvent">
+            <summary>
+            参与人测试动作基类
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEvent.Execute(Kingdee.BOS.Workflow.Engine.ActionEventContext)">
+            <summary>
+            执行动作
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEvent.WriteActionEventExecuteLog(Kingdee.BOS.Workflow.Engine.ActionEventContext,Kingdee.BOS.JSON.JSONObject)">
+            <summary>
+            写日志，重载此方法，以调整日志存储位置
+            </summary>
+            <param name="ctx"></param>
+            <param name="log"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEvent.GetApprovalItemList(Kingdee.BOS.Workflow.Elements.Process)">
+            <summary>
+            返回测试动作全部可选的审批项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog">
+            <summary>
+            工作流动作测试时产生的日志
+            </summary>
+            <remarks>
+            主要用于把对日志进行序列化及还原
+            </remarks>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_ActiveName">
+            <summary>
+            动作名称
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_UserMemberConfig">
+            <summary>
+            参与人配置信息：usermemberconfig
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_ExecutorId">
+            <summary>
+            执行人：executorid
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_ExecutorName">
+            <summary>
+            执行人名称：executorname
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_Title">
+            <summary>
+            任务主题：title
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_ReceiverNames">
+            <summary>
+            多个任务接收人名称: receivernames
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_Receivers">
+            <summary>
+            任务接收人列表：receivers
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_ExecutorPostId">
+            <summary>
+            执行人岗位内码：executorpostid
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_ExecutorPostName">
+            <summary>
+            执行人岗位名称：executorpostname
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_ExecutorPostNames">
+            <summary>
+            执行人多个岗位名称：executorpostnames
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_ExecutorPosts">
+            <summary>
+            执行人的多个岗位：executorposts
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_Id">
+            <summary>
+            内码: userid
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_Name">
+            <summary>
+            名称：name
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_AssignResult">
+            <summary>
+            审批结果：assignresult
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_AssignResultName">
+            <summary>
+            审批结果名称：assignresultname
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_Properties">
+            <summary>
+            需输出的属性列表
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_PropName">
+            <summary>
+            属性名
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.KEY_PropDesc">
+            <summary>
+            属性描述
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.#ctor">
+            <summary>
+            构造函数，用于创建日志：动作执行时，生成日志
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.#ctor(System.String)">
+            <summary>
+            构造函数，用于还原日志：从数据库读取日志内容后，还原为强命名对象
+            </summary>
+            <param name="logString"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.InitVariables">
+            <summary>
+            初始化本地的关键变量
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.Deserialize(System.String)">
+            <summary>
+            反序列化
+            </summary>
+            <param name="logString"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.ToJSONObject">
+            <summary>
+            把属性组合起来，输出为JSON对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.AddCustomerProperty(System.String,System.String,System.Object,System.Boolean)">
+            <summary>
+            添加自定义的属性及值
+            </summary>
+            <param name="propName">属性名，如rulecondition</param>
+            <param name="propDesc">属性描述,如"条件表达式"</param>
+            <param name="propValue">属性值，如" ActionResult = '01' "</param>
+            <param name="canExport">如果属性需要在测试结果展示，设置为true</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.GetPropertys">
+            <summary>
+            输出属性Key，属性Caption, 属性Value
+            </summary>
+            <returns>属性集合，每个属性的 item1=PropKey, item2 = PropCaption, item3 = PropValue </returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.ToString">
+            <summary>
+            序列化日志...
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog._dctCanOutputProps">
+            <summary>
+            允许输出描述的属性列表
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog._dctCustomerProps">
+            <summary>
+            自定义属性
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.InitCanOutputProps">
+            <summary>
+            列出允许输出的属性及其中文含义
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.ActionName">
+            <summary>
+            动作名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.UserMemberConfig">
+            <summary>
+            参与人配置信息
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.ExecutorId">
+            <summary>
+            审批动作执行人：特别用于记录审批动作执行人，其他动作，如果有用户，采用其他变量
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.ExecutorName">
+            <summary>
+            审批动作执行人名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.Title">
+            <summary>
+            任务主题，消息主题...
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.ReceiverNames">
+            <summary>
+            任务、消息接收人名称：对于审批动作，为解析出来的可选处理人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.Receivers">
+            <summary>
+            任务、消息接收人列表: key = userId, value = userName
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.ExecutorPostId">
+            <summary>
+            审批动作执行人的岗位内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.ExecutorPostName">
+            <summary>
+            审批动作执行人岗位名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.ExecutorPostNames">
+            <summary>
+            审批动作执行人全部的岗位名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.ExecutorPosts">
+            <summary>
+            审批动作执行人对应的全部岗位集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.AssignResult">
+            <summary>
+            用户选择的审批项内码：如"01",同意
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestActionEventLog.AssignResultName">
+            <summary>
+            用户选择的审批项标题：如"同意"
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestDynamicContext">
+            <summary>
+            工作流测试，动态文本解析上下文
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestDynamicContext.CreateWFWrapper(Kingdee.BOS.Workflow.Engine.ActionEventContext)">
+            <summary>
+            重载方法，构建解析流程执行人的对象
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestEngine">
+            <summary>
+            工作流测试，流程执行驱动引擎
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestEngine.#ctor(Kingdee.BOS.Workflow.Elements.Process,Kingdee.BOS.Context,Kingdee.BOS.Workflow.Hosting.IBOSFlowRepository)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="p"></param>
+            <param name="bosContext"></param>
+            <param name="repository"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestEngine.BillData">
+            <summary>
+            测试单据数据包
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestEngine.PreApprovalItems">
+            <summary>
+            各人工节点选择的审批项
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestParticipantContext">
+            <summary>
+            工作流测试：流程执行人变量解析上下文
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestParticipantContext.CreateWFWrapper(Kingdee.BOS.Workflow.Engine.ActionEventContext)">
+            <summary>
+            重载方法，构建解析流程执行人的对象
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestPreApprovalItem">
+            <summary>
+            工作流测试，预选择的的审批节点审批项
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestPreApprovalItem.ActivityId">
+            <summary>
+            节点序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestPreApprovalItem.ApprovalItem">
+            <summary>
+            预选择的审批项
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestPreApprovalItem.ApprovalItemName">
+            <summary>
+            审批项名称
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestPreApprovalItemCollection">
+            <summary>
+            工作流测试，预选择的各节点审批项集合
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestPreApprovalItemCollection.GetApprovalItem(System.Int32)">
+            <summary>
+            从集合中，读取某个节点的预选审批项
+            </summary>
+            <param name="activityId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestProcessContext">
+            <summary>
+            测试工作流，流程运行上下文
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestProcessContext.#ctor(Kingdee.BOS.Workflow.Elements.Wrappers.ProcessWrap,Kingdee.BOS.Context)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="p"></param>
+            <param name="bosContext"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestProcessContext.BillData">
+            <summary>
+            单据数据包
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestProcessContext.BOSBill">
+            <summary>
+            结构化的单据数据包；
+            覆盖基类的实现，根据原始数据包构建；
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestProcessContext.PreApprovalItems">
+            <summary>
+            各人工节点选择的审批项
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestRuleAction">
+            <summary>
+            解析条件表达式的动作
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestRuleAction._ruleString">
+            <summary>
+            条件表达式
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.WFTest.WFTestRuleAction._logMessage">
+            <summary>
+            日志输出的内容
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestRuleAction.GetExecuteLog(Kingdee.BOS.Workflow.Engine.ActionEventContext)">
+            <summary>
+            构建执行日志的内容，输出为JSON对象，方便序列化
+            </summary>
+            <param name="ctx">动作上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestRuleAction.EvaluateRuleCondition(Kingdee.BOS.Workflow.Engine.ActionEventContext)">
+            <summary>
+            计算规则表达式，返回结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestRuleAction.RuleCondition">
+            <summary>
+            条件
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant">
+            <summary>
+            工作流测试：流程执行人变量解析对象
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.GetApprovalAssignItem(System.String)">
+            <summary>
+            获取审批项
+            </summary>
+            <param name="assignResultId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.GetApprovalActionExecutor(System.Int32)">
+            <summary>
+            某一节点执行人
+            </summary>
+            <param name="activityId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.GetApprovalActionExecutorPost(System.Int32)">
+            <summary>
+            某一节点执行人岗位
+            </summary>
+            <param name="activityId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.ParseBackActInstId">
+            <summary>
+            解析出当前节点的历史节点实例列表: 按后往前排，方便找出最近的历史节点
+            </summary>
+            <returns>数据字典：Key = 历史节点实例内码，Value = 历史节点顺序号 </returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.AssignResultName">
+            <summary>
+            审批结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.Originator">
+            <summary>
+            发起人：返回内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.OriginatorOrg">
+            <summary>
+            发起人的组织：返回内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.OriginatorPost">
+            <summary>
+            发起人岗位
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.ProcName">
+            <summary>
+            流程名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.PreviousApprover">
+            <summary>
+            前一执行人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForParticipant.PreviousApproverPost">
+            <summary>
+            前一执行人岗位
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForText">
+            <summary>
+            工作流测试，动态文本特殊函数解析对象：适用于输出文本
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForText.GetApprovalActionExecutor(System.Int32)">
+            <summary>
+            返回节点执行者的名称
+            </summary>
+            <param name="activityId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForText.GetApprovalActionExecutorPost(System.Int32)">
+            <summary>
+            返回节点执行者的岗位
+            </summary>
+            <param name="activityId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForText.GetApprovalAssignItem(System.String)">
+            <summary>
+            返回审批项的名称：如审批项"Cancel"对应"撤销"
+            </summary>
+            <param name="assignResultId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForText.ParseBackActInstId">
+            <summary>
+            解析出当前节点的历史节点实例列表: 按后往前排，方便找出最近的历史节点
+            </summary>
+            <returns>数据字典：Key = 历史节点实例内码，Value = 历史节点顺序号 </returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForText.Originator">
+            <summary>
+            返回发起人的名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForText.OriginatorOrg">
+            <summary>
+            返回发起人的组织
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForText.OriginatorPost">
+            <summary>
+            返回发起人的岗位
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForText.PreviousApprover">
+            <summary>
+            前一执行人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.WFTest.WFTestWrapperForText.ProcName">
+            <summary>
+            流程名称
+            </summary>
+        </member>
+    </members>
+</doc>

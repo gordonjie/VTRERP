@@ -1,0 +1,6 @@
+E:\YDL\JN\JNApp\K3CloudServer\Bin\JN.K3.YDL.App.Core.xml
+E:\YDL\JN\JNCode\K3\Other\YDL\App\Src\JN.K3.YDL.App.Core\obj\Debug\JN.K3.YDL.App.Core.dll
+E:\YDL\JN\JNCode\K3\Other\YDL\App\Src\JN.K3.YDL.App.Core\obj\Debug\JN.K3.YDL.App.Core.pdb
+E:\YDL\JN\JNApp\K3CloudServer\Bin\JN.K3.YDL.App.Core.dll
+E:\YDL\JN\JNApp\K3CloudServer\Bin\JN.K3.YDL.App.Core.pdb
+E:\YDL\JN\JNCode\K3\Other\YDL\App\Src\JN.K3.YDL.App.Core\obj\Debug\JN.K3.YDL.App.Core.csprojResolveAssemblyReference.cache

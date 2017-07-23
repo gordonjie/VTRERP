@@ -1,0 +1,727 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.ProductModel</name>
+    </assembly>
+    <members>
+        <member name="T:Kingdee.BOS.ProductModel.DualListValueDictionary`3">
+            <summary>
+            带排序列表值的双重字典
+            </summary>
+            <typeparam name="TKey1"></typeparam>
+            <typeparam name="TKey2"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.ReadOnlyCollection`1">
+            <summary>
+            只读集合
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.ReadOnlyDictonary`2">
+            <summary>
+            只读集合
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.FormPackage.FormPackageMap">
+            <summary>
+            目前未使用
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.FormPackage.SwitchFormPackage">
+            <summary>
+            目前未使用
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.KDComponent.ResourceId">
+            <summary>
+            多语言资源标识
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProductComponent.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.KDProductComponent.IsDemoVersion">
+            <summary>
+            是否为演示版
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.PackageId">
+            <summary>
+            扩展包Id
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.BOS_UsageTermBeginDate">
+            <summary>
+            有效期开始日期
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.BOS_UsageTermEndDate">
+            <summary>
+            有效期截止日期
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.BOS_OrganizationFeatureRule">
+            <summary>
+            多组织特性
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.BOS_WorkFlowFeatureRule">
+            <summary>
+            工作流特性
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.BOS_RunTimeUsersAmountRule">
+            <summary>
+            BOS运行时许可数
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.LicensingModel">
+            <summary>
+            授权模式
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.LargeConcurrentGroup">
+            <summary>
+            大并发分组许可数
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.BusinessDomainGroup">
+            <summary>
+            领域分组许可数
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.Subsystem">
+            <summary>
+            子系统
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.MobileApp">
+            <summary>
+            移动应用
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.BWFeatureRule">
+            <summary>
+            业务预警平台
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.MLSimplifiedTraditional">
+            <summary>
+            英文+繁体包
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.RunTimeProductComponent">
+            <summary>
+            运行平台产品
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.EncryptionUnitType.FeatureRule">
+            <summary>
+            特性规则
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.Enum_LicenseType.DEMO">
+            <summary>
+            演示版
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.Enum_LicenseType.Normal">
+            <summary>
+            正式版
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.Enum_LicenseType.Template">
+            <summary>
+            模板文件
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.CloudValidity.RequestID">
+            <summary>
+            请求编号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.CloudValidity.IsGenuine">
+            <summary>
+            是否正版
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.ProductRegNO">
+            <summary>
+            产品序列号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.LicExpireDate">
+            <summary>
+            Lic过期时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.LicName">
+            <summary>
+            Lic名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.LicMD5">
+            <summary>
+            Lic文件MD5
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.CellsMD5">
+            <summary>
+            加密单元MD5
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.AdditionalInfo">
+            <summary>
+            特征码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.Mode">
+            <summary>
+            加密模式
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.Type">
+            <summary>
+            许可证类型	
+            正式许可证:1
+            试用许可证:2
+            限时许可证:3
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.Period">
+            <summary>
+            统计区间
+            Y+[4位年份]+M+[2位月份]+W+[1位周数]
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.Accounts">
+            <summary>
+            帐套
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.GenuineValidity.CustomName">
+            <summary>
+            客户名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.Account.AccountName">
+            <summary>
+            帐套名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.Account.ProductVer">
+            <summary>
+            产品版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.Account.CustomName">
+            <summary>
+            客户名称
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.LoggedOnUserInfo">
+            <summary>
+            登陆的用户信息
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.LoggedOnUserInfo.IPAddress">
+            <summary>
+            登陆用户所在机器Ip
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.LoggedOnUserInfo.BusinessSiteHost">
+            <summary>
+            业务站点Host
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.LoggedOnUserInfo.ClientType">
+            <summary>
+            客户端类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.MobileDevice.DeviceId">
+            <summary>
+            移动设备Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.MobileDevice.DeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.MobileDevice.ClientVersion">
+            <summary>
+            客户端版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.MobileDevice.ClientOS">
+            <summary>
+            客户端操作系统
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.MobileDevice.Company">
+            <summary>
+            移动设备厂商
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.MobileDevice.DeviceModel">
+            <summary>
+            移动设备型号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.MobileDevice.EffectiveDate">
+            <summary>
+            生效日期
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.MobileDevice.ExpirationDate">
+            <summary>
+            失效日期
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.PDEnum.Enum_LicModel">
+            <summary>
+            授权模式
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.Enum_LicModel.Grouping">
+            <summary>
+            分组
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.Enum_LicModel.FullConcurrency">
+            <summary>
+            全并发
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.Enum_TreeNodeType.Package">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.Enum_TreeNodeType.BusinessDomain">
+            <summary>
+            业务领域
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.PDEnum.Enum_TreeNodeType.Subsystem">
+            <summary>
+            子系统
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.ProductModel.ProductComponents">
+            <summary>
+            产品分组，大并发形式存在；
+            如订货平台，其实bos也可以放入此分组；
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.ProductModel.Features">
+            <summary>
+            此处可以动态添加产品特性，避免来了不同的特性
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.ProductModelMapEncryptionUnit.EncryptionUnitType">
+            <summary>
+            加密单元类别
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.ProductModelMapEncryptionUnit.PMKey">
+            <summary>
+            许可模型的元素的Key
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.RunTime.CP">
+            <summary>
+            客户订货平台
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.ISV">
+            <summary>
+            独立软件开发商，含Kingdee和二次开发商
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProduct.AddProductModel(System.String)">
+            <summary>
+            添加扩展包的许可模型实例
+            </summary>
+            <param name="productModelXml"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProduct.getFormKey(System.String,System.String)">
+            <summary>
+            获得窗体在某个包中的唯一标识
+            </summary>
+            <param name="packageId"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProduct.AddProductModel(Kingdee.BOS.ProductModel.ProductModel)">
+            <summary>
+            添加扩展包的许可模型实例
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProduct.GetProductModel(System.String)">
+            <summary>
+            反序列化得到许可模型实例
+            </summary>
+            <param name="productModelXml"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProduct.CheckIsInProductRelation(System.String)">
+            <summary>
+            检查表单是否在验证的范围内
+            </summary>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProduct.FindSubSystem(System.String)">
+            <summary>
+            根据窗体标识，获得它所在的子系统信息
+            </summary>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProduct.FindSubSystems(System.String)">
+            <summary>
+            根据窗体标识，获得它所在的子系统集合
+            </summary>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProduct.FindSubSystemId(System.String)">
+            <summary>
+            根据窗体标识，获得它所在的子系统标识集合
+            </summary>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProduct.GetRelationItemByFormId(System.String)">
+            <summary>
+            根据窗体标识获得关联项
+            </summary>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProduct.FindSubSystem(System.String,System.String)">
+            <summary>
+            根据窗体标识和子系统标识，精确定位到它所在的子系统信息
+            </summary>
+            <param name="sysId"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.KDProduct.BOS">
+            <summary>
+            BOS运行平台分组
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.KDProduct.ProductComponents">
+            <summary>
+            产品分组，大并发形式存在；
+            如订货平台，其实bos也可以放入此分组；
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.KDProduct.Features">
+            <summary>
+            此处可以动态添加产品特性，避免来了不同的特性
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.KDProductRelation.AddRelation(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            添加一条关联关系
+            </summary>
+            <param name="formId">表单Id</param>
+            <param name="sysId">子系统Id</param>
+            <param name="domainId">分组Id</param>
+            <param name="pkgid">包Id</param>
+            <param name="sourcePackageId">窗体来源包id</param>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.KDProductRelationItem.SourcePackageId">
+            <summary>
+            业务对象来源包标识
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.BillOperationRule">
+            <summary>
+            订单操作限制类
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.VerificationBaseRule">
+            <summary>
+            产品使用限制验证基类
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationBaseRule.RuleId">
+            <summary>
+            规则Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationBaseRule.RuleName">
+            <summary>
+            规则名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationBaseRule.ResourceId">
+            <summary>
+            多语言资源标识
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationBaseRule.Owner">
+            <summary>
+            开发商ISVId
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationBaseRule.ServiceName">
+            <summary>
+            服务类名称，为空表示使用缺省验证服务
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.BillOperationRule.LimitedFormOperations">
+            <summary>
+            限制的操作
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.LimitedOperation">
+            <summary>
+            操作限制对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.LimitedOperation.OperationId">
+            <summary>
+            操作Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.LimitedOperation.Times">
+            <summary>
+            操作执行次数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.LimitedOperation.OperationStatusService">
+            <summary>
+            获取操作执行次数服务
+            </summary>
+            <remarks>
+            当限制的执行次数大于0时，比如实现获取操作次数接口(Kingdee.BOS.Contracts.BillOperationStatus)
+            并将该类的QualifyName注册到此
+            </remarks>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.VerificationRule.FeatureRule">
+            <summary>
+            特性规则；是否购买
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationRule.FeatureRule.Bought">
+            <summary>
+            是否已经购买
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationRule.BWFeatureRule.Bought">
+            <summary>
+            是否已经购买
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.ByBoughtRule">
+            <summary>
+            是否已经购买规则
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.ByBoughtRule.CaculateValidInternal(Kingdee.BOS.ProductModel.VerificationBaseRule)">
+            <summary>
+            返回未被购买的规则
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.CallServiceRule">
+             <summary>
+            服务调用验证规则 
+             </summary>
+        </member>
+        <!-- 对于成员“P:Kingdee.BOS.ProductModel.CallServiceRule.VerifyServiceName”忽略有格式错误的 XML 注释 -->
+        <member name="P:Kingdee.BOS.ProductModel.CallServiceRule.RuleProperties">
+            <summary>
+            相关参数
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.AllBillDataRecordsRule">
+            <summary>
+            适用于BOS运行平台的自定义数据记录数验证规则
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.AllBillDataRecordsRule.MaxRecord">
+            <summary>
+            最大记录数
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.GenuineValidationRule">
+            <summary>
+            云验证信息
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.ValidityStatus">
+            <summary>
+            产品验证状态
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.MCloudExpireRule">
+            <summary>
+            云验证信息
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.MCloudValidateDateRule">
+            <summary>
+            云验证信息
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationRule.MLSimplifiedTraditional.Bought">
+            <summary>
+            是否已经购买
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.MobileDevicesAmountRule">
+            <summary>
+            移动应用终端数量规则
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.MobileDevicesAmountRule.MaxMobileDevicesAmount">
+            <summary>
+            移动终端数量
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.WorkFlowFeatureRule">
+            <summary>
+            工作流特性规则
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.WorkFlowFeatureRule.CaculateValidInternal(Kingdee.BOS.ProductModel.VerificationBaseRule)">
+            <summary>
+            返回未被购买的规则
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.OrganizationFeatureRule.EnableMultiOrganization">
+            <summary>
+            是否启用多组织
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.VerificationRulesContainer">
+            <summary>
+            验证规则容器
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.DataRecordsRule">
+            <summary>
+            数据记录验证规则
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.DataRecordsRule.Initialize">
+            <summary>
+            序列化之前初始化
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.FormDataRecords.FormId">
+            <summary>
+            表单Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.FormDataRecords.DataRecordsCount">
+            <summary>
+            记录数
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.TotalUsersAmountRule">
+            <summary>
+            全并发用户数验证规则
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.UsageTermRule">
+            <summary>
+            使用期限验证规则
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.UsageTermSpan">
+            <summary>
+            使用期间间隔
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.UsageTermSpan.Intersect(Kingdee.BOS.ProductModel.UsageTermSpan)">
+            <summary>
+            求两个时间段的交集
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.UsageTermSpan.Include(System.DateTime)">
+            <summary>
+            判断时间是否在本期间内
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ProductModel.UsersAmountRule">
+            <summary>
+            用户数验证规则， 即分组加密
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ProductModel.UsersAmountRule.CaculateValidInternal(Kingdee.BOS.ProductModel.VerificationBaseRule)">
+            <summary>
+            需要分组校验
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.VerificationsType.Package">
+            <summary>
+            扩展包
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.VerificationsType.BusinessDomain">
+            <summary>
+            业务领域级
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.VerificationsType.SubSystem">
+            <summary>
+            子系统级
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.VerificationsType.Form">
+            <summary>
+            表单级
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.VerificationsType.BOS">
+            <summary>
+            BOS运行平台
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.VerificationsType.MobileApp">
+            <summary>
+            移动应用
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.ProductModel.VerificationsType.All">
+            <summary>
+            全部
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationsTypeAttribute.VerificationsType">
+            <summary>
+            验证规则作用的对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationsTypeAttribute.CanMixedWithOtherISV">
+            <summary>
+            是否可以与其他ISV的验证规则进行混合运算，缺省值是True
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.ProductModel.VerificationsTypeAttribute.NeedClassified">
+            <summary>
+            是否需要分组校验，缺省值是False
+            </summary>
+        </member>
+    </members>
+</doc>

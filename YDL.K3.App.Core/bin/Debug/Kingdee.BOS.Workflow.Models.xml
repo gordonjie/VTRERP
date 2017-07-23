@@ -1,0 +1,4361 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.Workflow.Models</name>
+    </assembly>
+    <members>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.AssignmentContext.NextActHandler">
+            <summary>
+            下一步处理人列表，Key 为节点Id，
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.ApprovalAssignmentContext.Target">
+            <summary>
+            跳转的节点Id，驳回时使用
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ApprovalAssignment.CancelAssignmentContext">
+            <summary>
+            撤销已办任务时，提交的任务上下文参数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.CancelAssignmentContext.DiscardedActivityInstanceIds">
+            <summary>
+            撤销已办任务时，需被舍弃的后续节点实例；
+            有的节点实例，并不一定有人工任务对应，因此，有必要把待舍弃的节点与任务区分开
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.ActivityHandles.ActivityId">
+            <summary>
+            节点Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.ActivityHandles.UserList">
+            <summary>
+            选中的节点处理人
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Assignment.ActivityNextDealWith">
+            <summary>
+            设计时活动的下一步处理人对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.ActivityNextDealWith.AssignResultId">
+            <summary>
+            处理结果ID(在工作流中由用户自定义，在审批流中为同意、驳回)
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.ActivityNextDealWith.NextActivitysList">
+            <summary>
+            下一步活动
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.ActivityNextDealWith.NextPersonModelsList">
+            <summary>
+            下一步处理人模型列表
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.Id">
+            <summary>返回/设置  实体 FBillHead (单据头)的集合。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FTitle">
+            <summary>返回/设置  字段 FTitle (主题)的值。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FContent">
+            <summary>返回/设置  字段 FContent (内容)的值。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FSenderId">
+            <summary>返回/设置  实体 FBillHead (单据头)的集合。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FSenderName">
+            <summary>返回/设置  实体 FBillHead (单据头)的集合。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FCreateTime">
+            <summary>返回/设置  字段 FCreateTime (接受时间)的值。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FNumber">
+            <summary>返回/设置  字段 FNumber (实例编号)的值。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FProcdefId">
+            <summary>返回/设置  字段 FProcdefId (流程定义Id)的值。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FProcdefName">
+            <summary>返回/设置  字段 FProcdefName (流程名称)的值。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FBillName">
+            <summary>返回/设置  字段 FBillName (单据名称)的值。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FPreResultName">
+            <summary>返回/设置  字段 FPreResultName (上一步处理项)的值。</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.IndexAssign.FPredisposition">
+            <summary>返回/设置  字段 FPredisposition (上一步处理意见)的值。</summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ParticipantSchemeType">
+            <summary>
+            参与人方案类型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.ParticipantSchemeType.Default">
+            <summary>
+            默认
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.ParticipantSchemeType.Combination">
+            <summary>
+            组合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.CombinationMemberRow.LeftBracket">
+            <summary>
+            左括号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.CombinationMemberRow.Participant">
+            <summary>
+            参与人类型，用户/角色/部门...
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.CombinationMemberRow.Member">
+            <summary>
+            明细内容，如某个部门
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.CombinationMemberRow.Remark">
+            <summary>
+            明细内容描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.CombinationMemberRow.RightBracket">
+            <summary>
+            右括号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.CombinationMemberRow.Logic">
+            <summary>
+            逻辑操作符，交集/并集
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.CombinationMemberRow.WrapperResult">
+            <summary>
+            解析后的参与人结果
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.CombinationLogic.And">
+            <summary>
+            交集
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.CombinationLogic.Or">
+            <summary>
+            并集
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.CombinationLogic.Ex">
+            <summary>
+            排除
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintActivityInstance">
+            <summary>
+            业务流程任务，关联的节点实例信息，强命名实体
+            <p>应用场景</p>
+            套打模板，需要读取单据的流程实例信息，
+            并根据业务流程查询已办的任务、处理人、处理结果、处理意见等
+            </summary>
+            <remarks>
+            1. Assign 1->1 ActivityInstance
+            </remarks>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintActivityInstance.ActivityInstanceType">
+            <summary>
+            实体模型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintActivityInstance.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintActivityInstance.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Models.NotePrint.NotePrintActivityInstance">
+            <summary>支持从DynamicObject隐式转化到AssignItem类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintActivityInstance.ActInstIdProperty">
+            <summary>
+            Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintActivityInstance.ActivityIdProperty">
+            <summary>
+            节点顺序属性描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintActivityInstance.ActInstId">
+            <summary>
+            任务Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintActivityInstance.ActivityId">
+            <summary>
+            流程实例Id
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign">
+            <summary>
+            业务流程任务处理策略与结果，强命名实体
+            <p>应用场景</p>
+            套打模板，需要读取单据的流程实例信息，
+            并根据业务流程查询已办的任务、处理人、处理结果、处理意见等
+            </summary>
+            <remarks>
+            1. ProcessInstance 1->n Assign 1->1 ApprovalAssign 1->n ApprovalItem
+            </remarks>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.ApprovalAssignType">
+            <summary>
+            审批策略动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.#ctor">
+            <summary>
+            构建函数
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign">
+            <summary>支持从DynamicObject隐式转化到ApprovalPolicy类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.ApprovalAssignIdProperty">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.AssignIdProperty">
+            <summary>
+            外键，关联的任务
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign._approvalItems">
+            <summary>
+            各任务处理人处理意见
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.ApprovalAssignId">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.AssignId">
+            <summary>
+            待办任务Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.Result">
+            <summary>
+            审批结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.ResultName">
+            <summary>
+            处理结果名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.Disposition">
+            <summary>
+            处理意见
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalAssign.ApprovalItems">
+            <summary>
+            各任务处理人处理意见
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem">
+            <summary>
+            业务流程实例各处理人处理意见，强命名实体
+            <p>应用场景</p>
+            套打模板，需要读取单据的流程实例信息，
+            并根据业务流程查询已办的任务、处理人、处理结果、处理意见等
+            </summary>
+            <remarks>
+            1. ProcessInstance 1->n Assign 1->1 ApprovalAssign 1->n ApprovalItem
+            </remarks>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ApprovalItemType">
+            <summary>
+            ReceiverItem动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem">
+            <summary>支持从DynamicObject隐式转化到ReceiverItem类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ApprovalItemIdProperty">
+            <summary>
+            Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ApprovalAssignIdProperty">
+            <summary>
+            待办任务Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.CompletedTimeProperty">
+            <summary>
+            完成时间属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.StatusProperty">
+            <summary>
+            处理状态属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ActionResultProperty">
+            <summary>
+            处理结果属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ReceiverIdProperty">
+            <summary>
+            处理人属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ReceiverProperty">
+            <summary>
+            节点实例，引用对象
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.DispositionProperty">
+            <summary>
+            处理意见
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ResultNameProperty">
+            <summary>
+            审批项名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ApprovalItemId">
+            <summary>
+            项目Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ApprovalAssignId">
+            <summary>
+            待办任务Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.CompletedTime">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.Status">
+            <summary>
+            处理状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ActionResult">
+            <summary>
+            处理结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ReceiverId">
+            <summary>
+            处理人Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ReceiverName">
+            <summary>
+            处理人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.Disposition">
+            <summary>
+            处理意见
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintApprovalItem.ResultName">
+            <summary>
+            处理结果名称
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintReceiver">
+            <summary>
+            业务流程任务，处理人
+            <p>应用场景</p>
+            套打模板，需要读取单据的流程实例信息，
+            并根据业务流程查询已办的任务、处理人、处理结果、处理意见等
+            </summary>
+            <remarks>
+            1. ApprovalItem 1->1 Receiver
+            </remarks>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintReceiver.ReceiverType">
+            <summary>
+            实体模型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintReceiver.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintReceiver.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Models.NotePrint.NotePrintReceiver">
+            <summary>支持从DynamicObject隐式转化到AssignItem类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintReceiver.ReceiverIdProperty">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintReceiver.ReceiverNameProperty">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintReceiver.ReceiverId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintReceiver.ReceiverName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign">
+            <summary>
+            业务流程实例的任务，强命名实体
+            <p>应用场景</p>
+            套打模板，需要读取单据的流程实例信息，
+            并根据业务流程查询已办的任务、处理人、处理结果、处理意见等
+            </summary>
+            <remarks>
+            1. ProcessInstance 1->n Assign 1->1 ApprovalAssign 1->n ApprovalItem
+            2. Assign 1->1 ActivityInstance
+            </remarks>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.AssignItemType">
+            <summary>
+            待办任务动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign">
+            <summary>支持从DynamicObject隐式转化到AssignItem类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的AssignItem对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.AssignIdProperty">
+            <summary>
+            待办任务Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ProcInstIdProperty">
+            <summary>
+            流程实例Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.CreateTimeProperty">
+            <summary>
+            创建时间属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.CompletedTimeProperty">
+            <summary>
+            完成时间属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.StatusProperty">
+            <summary>
+            状态属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ReceiverNamesProperty">
+            <summary>
+            状态属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ActivityInstanceIdProperty">
+            <summary>
+            节点实例内码，据此加载节点实例
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ActivityInstanceProperty">
+            <summary>
+            节点实例，引用对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.AssignId">
+            <summary>
+            任务Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ProcessInstanceId">
+            <summary>
+            流程实例Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.CompletedTime">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ActivityInstance">
+            <summary>
+            引用的节点流程实例详情
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ApprovalAssigns">
+            <summary>
+            参与人集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ActivityId">
+            <summary>
+            任务对应的节点索引
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ApprovalAssign">
+            <summary>
+            当前任务的审批策略、审批结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ReceiverNames">
+            <summary>
+            处理人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.ResultCode">
+            <summary>
+            任务处理结果编码，如Cancel
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.Result">
+            <summary>
+            任务的处理结果，如审批同意
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintAssign.Disposition">
+            <summary>
+            任务的处理意见
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance">
+            <summary>
+            业务流程实例，强命名实体
+            <p>应用场景</p>
+            套打模板，需要读取单据的流程实例信息，
+            并根据业务流程查询已办的任务、处理人、处理结果、处理意见等
+            </summary>
+            <remarks>
+            1. ProcessInstance 1->n Assign 1->1 ApprovalAssign 1->n ApprovalItem
+            </remarks>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.ProcessInstanceType">
+            <summary>
+            动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance">
+            <summary>支持从DynamicObject隐式转化到AssignItem类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.ProcInstIdProperty">
+            <summary>
+            Id属性描述
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.GetActivityAssigns(System.Int32)">
+            <summary>
+            读取节点对应的任务，可能为空
+            </summary>
+            <param name="activityId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.GetLastActivityAssign(System.Int32)">
+            <summary>
+            读取节点最后一次产生的任务，可能为空
+            </summary>
+            <param name="activityId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.IsAssigned(System.Int32)">
+            <summary>
+            节点最后的状态是否为[代办]
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.ProcessInstanceId">
+            <summary>
+            流程实例Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.ProcDefId">
+            <summary>
+            流程图Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.VersionId">
+            <summary>
+            流程图版本Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.NotePrint.NotePrintProcessInstance.Assigns">
+            <summary>
+            参与人集合
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst">
+            <summary>
+            工作流表格
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.ProcDef">
+            <summary>
+            工作流设计草图：t_WF_ProcDef；有多语言
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.DefVersion">
+            <summary>
+            工作流发布版本：t_WF_DefVersion；有多语言
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.ProcessType">
+            <summary>
+            工作流分组表格：t_WF_ProcessType
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.Template">
+            <summary>
+            流程配置模板主表：t_WF_Template；有多语言
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.TemplateDetail">
+            <summary>
+            流程配置模板从表，存储启动条件选用的流程图版本：t_WF_ProLaunchConfig
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.Draft">
+            <summary>
+            流程发起草稿箱：t_WF_Draft
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.MyFaverProcess">
+            <summary>
+            流程配置收藏夹：t_WF_MyFaverProcess
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.ProcessInstance">
+            <summary>
+            流程实例：t_WF_ProcInst
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.ProcInstBillMap">
+            <summary>
+            流程实例与单据对应表：t_WF_PiBiMap
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.ActivityInstance">
+            <summary>
+            节点实例：t_WF_ActInst；有多语言
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.ActionEventLog">
+            <summary>
+            动作执行日志：t_WF_ActionEventLog
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.TestCase">
+            <summary>
+            测试用例：t_WF_TestCase
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.TestProcessInstance">
+            <summary>
+            测试流程实例：t_WF_TestProcInst
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.TestActivityInstance">
+            <summary>
+            测试节点实例：t_WF_TestActInst；有多语言
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.TestActionEventLog">
+            <summary>
+            测试动作执行日志：t_WF_TestActionEventLog
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.Assign">
+            <summary>
+            待办任务：t_WF_Assign; 有多语言
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.Receiver">
+            <summary>
+            待办任务接收人：t_WF_Receiver
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.ApprovalAssign">
+            <summary>
+            待办任务审批策略，记录待办任务对应的单据与审批策略等，任务的详细信息：t_WF_ApprovalAssign；有多语言
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.ApprovalItem">
+            <summary>
+            待办任务处理明细，记录任务实际处理人与意见，方便追踪：t_WF_ApprovalItem；有多语言
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.Message">
+            <summary>
+            消息：t_WF_Message
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.MessageSetting">
+            <summary>
+            消息设置：t_WF_MessageSetting
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Const.WorkFlowTableConst.MessageDel">
+            <summary>
+            已删除的消息
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.EnumStatus.ApprovalAssignResult">
+            <summary>
+            审批流中审批项枚举
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ApprovalAssignResult.Consent">
+            <summary>
+            同意
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ApprovalAssignResult.Reject">
+            <summary>
+            驳回...
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ApprovalAssignResult.Dissent">
+            <summary>
+            终止流程
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ApprovalAssignResult.Cancel">
+            <summary>
+            被撤销
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Assignment.ApprovalAssign">
+            <summary>
+            审批策略
+            </summary>
+            <remarks>仅包括了</remarks>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.ApprovalAssignType">
+            <summary>
+            审批策略动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Assignment.ApprovalAssign">
+            <summary>支持从DynamicObject隐式转化到ApprovalPolicy类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的ApprovalPolicy对象</returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.ApprovalAssignId">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.AssignId">
+            <summary>
+            待办任务Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.Assign">
+            <summary>
+            待办任务详情
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.ObjectTypeId">
+            <summary>
+            业务对象Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.KeyValue">
+            <summary>
+            业务数据主键值
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.VariableName">
+            <summary>
+            变量名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.Result">
+            <summary>
+            审批结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.DefaultResult">
+            <summary>
+            默认审批结果,当全部审批完成,且策略不匹配时启用
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.PolicyXML">
+            <summary>
+            审批策略
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.ApprovalActionStr">
+            <summary>
+            审批选项
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.ResultName">
+            <summary>
+            处理结果名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.OperationNumber">
+            <summary>
+            审批时同步执行的操作编码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.OperationName">
+            <summary>
+            审批时同步执行的操作名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.Disposition">
+            <summary>
+            审核意见
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.IsAllowForward">
+            <summary>
+            是否能够转发任务
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.IsAllowBatchDeal">
+            <summary>
+            是否能够批量处理任务
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.CanSpecifyNext">
+            <summary>
+            允许指定下一步处理人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.CanAddParticipant">
+            <summary>
+            允许添加参与人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.IsAllowLock">
+            <summary>
+            是否允许审批时锁定任务
+            true：任务审批前锁定任务,审批完成后释放锁定,审批过程中,其他用户没有权限处理该任务。
+            fasle：任务审批过程不锁定任务
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.IsLocked">
+            <summary>
+            审批任务是否已被锁定
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.LockedUserId">
+            <summary>
+            任务锁定用户Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.CanTimeoutDeal">
+            <summary>
+            超时时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.TimeoutHours">
+            <summary>
+            超时时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.TimeoutStrategy">
+            <summary>
+            审批策略
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.AutoApproval">
+            <summary>
+            自动审批项
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalAssign.TimeOutDealWith">
+            <summary>
+            超时处理人
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Assignment.Assign">
+            <summary>
+            待办任务实体模型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.AssignItemType">
+            <summary>
+            待办任务动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.Assign.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.Assign.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Assignment.Assign">
+            <summary>支持从DynamicObject隐式转化到AssignItem类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的AssignItem对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.AssignIdProperty">
+            <summary>
+            待办任务Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.ProcInstIdProperty">
+            <summary>
+            流程实例Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.CreateTimeProperty">
+            <summary>
+            创建时间属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.CompletedTimeProperty">
+            <summary>
+            完成时间属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.SenderIdProperty">
+            <summary>
+            发送人属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.StatusProperty">
+            <summary>
+            状态属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.ActivityInstanceIdProperty">
+            <summary>
+            节点实例Id
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.ActionEventIdProperty">
+            <summary>
+            动作序号Id
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.PreApprovalAssignIdProperty">
+            <summary>
+            上一步处理处理结果
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.ReceiverNamesProperty">
+            <summary>
+            接收人名称（不超过3个）
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.ActivityNameProperty">
+            <summary>
+            节点名称ActName属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Assign.AssignNameProperty">
+            <summary>
+            待办任务名称AssignName属性描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.AssignId">
+            <summary>
+            任务Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.ProcessInstanceId">
+            <summary>
+            流程实例Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.CompletedTime">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.SenderId">
+            <summary>
+            发送人Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.ActivityInstanceId">
+            <summary>
+            节点实例Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.ActionEventId">
+            <summary>
+            任务对应的动作序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.PreApprovalAssignId">
+            <summary>
+            上一步任务处理结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.ReceiverNames">
+            <summary>
+            接收人名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.Receivers">
+            <summary>
+            参与人集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.ActivityName">
+            <summary>
+            节点名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Assign.AssignName">
+            <summary>
+            待办任务名称
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.AssignResult.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.AssignResult.Id">
+            <summary>
+            唯一标识
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.AssignResult.Name">
+            <summary>
+            选项
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.AssignResult.OperationKey">
+            <summary>
+            操作码
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Assignment.Bookmark">
+            <summary>
+            Bookmark是用来记录流程当前执行点的位置。通过此位置，
+            休眠的流程可以方便的恢复到之前的执行状态并继续执行。
+            (不进入数据库，仅用于消息传递时携带变量)
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo">
+            <summary>
+            信息中心个人信息
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo.WarnMergeMessageCount">
+            <summary>
+            业务预警数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo.UnCompletedAssignCount">
+            <summary>
+            未完成待办任务数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo.CompletedAssignCount">
+            <summary>
+            已完成待办任务数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo.MessageCount">
+            <summary>
+            收件箱未读消息数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo.CommonMessageCount">
+            <summary>
+            收件箱-普通消息 未读消息数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo.WFMessageCount">
+            <summary>
+            收件箱-工作流消息 未读消息数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo.SendMessageCount">
+            <summary>
+            发件箱未读消息数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo.CommonSendMessageCount">
+            <summary>
+            发件箱-普通消息 未读消息数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo.WFSendMessageCount">
+            <summary>
+            发件箱-工作流消息 未读消息数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Assignment.CenterInfo.DelMessageCount">
+            <summary>
+            废件箱未读消息数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.NextPersonModel.ActivityId">
+            <summary>
+            当前节点Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.NextPersonModel.ActivityInst">
+            <summary>
+            当前节点实例内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.NextPersonModel.ActHandlerList">
+            <summary>
+            驳回节点实际处理人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.NextPersonModel.RejectPolicy">
+            <summary>
+            驳回策略
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.NextPersonModel.ActivityName">
+            <summary>
+            节点名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.NextPersonModel.ActualParticipantsList">
+            <summary>
+            节点的实际参与人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.NextPersonModel.SelectUserList">
+            <summary>
+            选中的用户
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.NextPersonModel.UserList">
+            <summary>
+            可选的用户列表
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.NextPersonModel.ApprovalParticipantSchemeType">
+            <summary>
+            审批动作参与人方案类型（组合，非组合）
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ApprovalAssignment.ActualParticipants">
+            <summary>
+            实际参与人对象  
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.ActualParticipants.ParticipantsDefinition">
+            <summary>
+            参与人定义（设计器定义的参与人），未解析，值可能是表达式
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.ActualParticipants.ActualUserMember">
+            <summary>
+            实际解析参与人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.ActualParticipants.SchemeId">
+            <summary>
+            参与人方案Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.ActualParticipants.SchemeName">
+            <summary>
+            参与人方案名
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Assignment.Receiver">
+            <summary>
+            待办任务处理人
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Receiver.ReceiverType">
+            <summary>
+            待办任务动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.Receiver.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.Receiver.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Assignment.Receiver">
+            <summary>支持从DynamicObject隐式转化到Receiver类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的Receiver对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.Receiver.IdProperty">
+            <summary>
+            待办任务Id属性描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Receiver.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Receiver.ReceiverId">
+            <summary>
+            待办任务成员类型Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Receiver.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Receiver.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.Receiver.ReceiverPosts">
+            <summary>
+            参与人集合
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Assignment.ReceiverPost">
+            <summary>
+            待办任务处理人
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ReceiverPost.ReceiverPostType">
+            <summary>
+            待办任务动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.ReceiverPost.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.ReceiverPost.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Assignment.ReceiverPost">
+            <summary>支持从DynamicObject隐式转化到ReceiverPost类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的ReceiverPost对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ReceiverPost.DetailIdProperty">
+            <summary>
+            待办任务Id属性描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ReceiverPost.DetailId">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ReceiverPost.ReceiverPostId">
+            <summary>
+            待办任务任务接受人岗位Id
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Assignment.ApprovalItem">
+            <summary>
+            待办任务处理明细实体模型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ApprovalItemType">
+            <summary>
+            ReceiverItem动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.ApprovalItem.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Assignment.ApprovalItem.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Assignment.ApprovalItem">
+            <summary>支持从DynamicObject隐式转化到ReceiverItem类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的ReceiverItem对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ApprovalItemIdProperty">
+            <summary>
+            Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ApprovalAssignIdProperty">
+            <summary>
+            待办任务Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.OpenTimeProperty">
+            <summary>
+            打开时间属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.CompletedTimeProperty">
+            <summary>
+            完成时间属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ReadStatusProperty">
+            <summary>
+            可视状态属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.StatusProperty">
+            <summary>
+            处理状态属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ActionResultProperty">
+            <summary>
+            处理结果属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ReceiverIdProperty">
+            <summary>
+            处理人属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ReceiverPostIdProperty">
+            <summary>
+            处理人岗位属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.DispositionProperty">
+            <summary>
+            处理意见
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.ApprovalItem.AutomaticProperty">
+            <summary>
+            是否自动执行
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ApprovalItemId">
+            <summary>
+            项目Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ApprovalAssignId">
+            <summary>
+            待办任务Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.OpenTime">
+            <summary>
+            打开时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.CompletedTime">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ReadStatus">
+            <summary>
+            已读状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.Status">
+            <summary>
+            处理状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ActionResult">
+            <summary>
+            处理结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ReceiverId">
+            <summary>
+            处理人Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ReceiverPostId">
+            <summary>
+            处理人Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.Disposition">
+            <summary>
+            处理意见
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.ResultName">
+            <summary>
+            处理结果名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.Automatic">
+            <summary>
+            是否为自动执行
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.Actions">
+            <summary>
+            审批选项
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.AssignResult">
+            <summary>
+            该条审批任务完成时，待办任务的审批任务的结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.ApprovalItem.AssignId">
+            <summary>
+            待办任务Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.RejectActModel.ActivityId">
+            <summary>
+            节点Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.RejectActModel.ActInstId">
+            <summary>
+            节点实例Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.RejectActModel.ActivityDefine">
+            <summary>
+            节点定义
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ApprovalAssignment.RejectActModel.UserList">
+            <summary>
+            驳回的用户列表
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Assignment.VoteRule">
+            <summary>
+            投票策略
+            实例：
+            1、一票否决：
+            IsCountersign=true;VotingPattern=VoteType.OneVote;StaticOption="Option1";VotingResult="Option1"; 当待办任务审批结果等于StaticOption的值时,审批策略通过且审批结果为VotingResult
+            2、确定票数：
+            IsCountersign=true;VotingPattern=VoteType.DetermineVotes,VotingLines=10,StaticOption="Option1";VotingResult="Option1"; 当审批StaticOption的票数>=VotingLines时,审批策略通过且审批结果为VotingResult
+            3、比例票数：
+            IsCountersign=true;VotingPattern=VoteType.ProportionVotes,VotingLines=20%,StaticOption="Option1";VotingResult="Option1"; 当审批StaticOption票数比例>=VotingLines时,审批策略通过且审批结果为VotingResult
+            4、全部投票：
+            IsCountersign=true;VotingPattern=VoteType.AllVoting,VotingResult="Option1"; 当所有审批票数>=参与人（排除转发情况）时,审批策略通过且审批结果为VotingResult
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Assignment.VoteRule.IsCountersign">
+            <summary>
+            是否会签
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Assignment.VoteType">
+            <summary>
+            投票方式
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.VoteType.Determine">
+            <summary>
+            确定票数
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Assignment.VoteType.Percent">
+            <summary>
+            比例票数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActionInfo.ActInstId">
+            <summary>
+            对应节点实例Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActionInfo.Title">
+            <summary>
+            待办任务名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActionInfo.Receivers">
+            <summary>
+            接受人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActionInfo.ReceiverName">
+            <summary>
+            接收人名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActionInfo.ReceiveTime">
+            <summary>
+            接收时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActionInfo.CompleteTime">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActionInfo.ActionResult">
+            <summary>
+            审批项
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActionInfo.ActionResultId">
+            <summary>
+            审批项内码，如Consent,Reject,Cancel...
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActionInfo.DisPosition">
+            <summary>
+            审批意见
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActionInfo.IsCompleted">
+            <summary>
+            是否完成
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActivityInfo.ActInstId">
+            <summary>
+            节点实例Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActivityInfo.ActivityId">
+            <summary>
+            节点Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActivityInfo.ActivityName">
+            <summary>
+            节点名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActivityInfo.ActivityStateType">
+            <summary>
+            节点状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActivityInfo.SourceActivityId">
+            <summary>
+            源节点Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActivityInfo.SourceActivityName">
+            <summary>
+            源节点名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActivityInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Chart.ChartActivityInfo.ActionDetails">
+            <summary>
+            动作详细
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.AssignStatus.Assigned">
+            <summary>
+            初始状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.AssignStatus.Completed">
+            <summary>
+            完成
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.EnumStatus.DefinitionStatus">
+            <summary>
+            工作流模型定义的存储状态。
+            <para>
+            模型定义初始创建时为NotSaved状态。当保存后改为Draft状态。
+            如果需要启动或暂停此流程实例,则为Published和Unpublished状态。
+            </para>
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.DefinitionStatus.Draft">
+            <summary>
+            草稿状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.DefinitionStatus.Published">
+            <summary>
+            发布状态
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.EnumStatus.DefinitionVersionStatus">
+            <summary>
+            工作流模型定义的版本状态。
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.DefinitionVersionStatus.Activate">
+            <summary>
+            激活状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.DefinitionVersionStatus.Deactivate">
+            <summary>
+            未激活状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ParticipantType.UnKnow">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ParticipantType.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ParticipantType.Staff">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ParticipantType.Post">
+            <summary>
+            岗位
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ParticipantType.Contact">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ParticipantType.Department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ParticipantType.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ParticipantType.Operator">
+            <summary>
+            业务员
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ParticipantType.CustomerContact">
+            <summary>
+            客户联系人
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ParticipantType.SupplierContact">
+            <summary>
+            供应商联系人
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.EnumStatus.ProcInstanceStateType">
+            <summary>
+            流程实例状态修改操作
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.EnumStatus.ApprovalItemStatus">
+            <summary>
+            代办任务明细的处理状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ApprovalItemStatus.UnCompleted">
+            <summary>
+            未处理,待办任务明细被处理后的状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ApprovalItemStatus.Completed">
+            <summary>
+            待办任务被处理后的状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.ApprovalItemStatus.Forwarded">
+            <summary>
+            已转发
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.SendType">
+            <summary>
+            信息发送类型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.SendType.SMS">
+            <summary>
+            短信
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.SendType.Mail">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.SendType.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.SendType.MicroBlog">
+            <summary>
+            微博
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.EnumStatus.TemplateStatus">
+            <summary>
+            流程模板定义的状态枚举
+            <remarks>
+            流程模板保存后为起草状态，点击启用后为激活状态，
+            激活或者禁用后流程模板不能再次修改
+            </remarks>
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.WorkflowPermissionType.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.WorkflowPermissionType.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.WorkflowPermissionType.Org">
+            <summary>
+            组织
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.WorkflowPermissionType.Staff">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.WorkflowPermissionType.Post">
+            <summary>
+            岗位
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.EnumStatus.WorkflowPermissionType.Department">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.DepartmentMemeber.IdWarpper">
+            <summary>
+            根据参照物类型解析后的Id
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.DepartmentLatitude.PersonsResponsible">
+            <summary>
+            负责人
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.DepartmentLatitude.DirectlyUnder">
+            <summary>
+            直属员工
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.DepartmentLatitude.All">
+             <summary>
+            全部员工
+             </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Members.DepartmentMemeberType">
+            <summary>
+            参与人部门类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.ReportLineMemeber.IdWarpper">
+            <summary>
+            根据参照物类型解析后的Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.ReportLineMemeber.ReferenceName">
+            <summary>
+            参照物名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.ReportLineMemeber.ParticipantType">
+            <summary>
+            参照物类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.ReportLineMemeber.ReportTypeId">
+            <summary>
+            汇报类型Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.ReportLineMemeber.ReferenceLatitude">
+            <summary>
+            汇报纬度
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.ReferenceLatitude.DirectSuperior">
+            <summary>
+            直接上级
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.ReferenceLatitude.IndirectSuperior">
+            <summary>
+            间接上级
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.ReferenceLatitude.Self">
+            <summary>
+            本人
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.ReferenceLatitude.DirectSubordinates">
+            <summary>
+            直接下级
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Members.ReferenceLatitude.IndirectSubordinates">
+            <summary>
+            间接下级
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Members.VariableMember.IdWarpper">
+            <summary>
+            根据参照物类型解析后的Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Mobile.DealBillResult.NextDeal">
+            <summary>
+            保持接口一致性
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.Mobile.GetFieldValueHelper.GetValue(Kingdee.BOS.Core.DynamicForm.IDynamicFormModel,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Core.Metadata.FieldElement.Field,Kingdee.BOS.Orm.DataEntity.DynamicObject,System.Int32)">
+            <summary>
+            此处行号，应该所有方法都要加上的，但是这个地方取数比较特殊
+            直接从DynamicObject中获取暂时不加了，如果后续需要取关联属性时，再加
+            </summary>
+            <param name="model"></param>
+            <param name="info"></param>
+            <param name="field"></param>
+            <param name="dataObejct"></param>
+            <param name="iRow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.Mobile.GetFieldValueHelper.GetDocNo(System.String)">
+            <summary>
+            从流程实例编码中截取单据编码
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Mobile.ToDoData.WorkID">
+            <summary>
+            待办任务ID
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Msg.MessageSetting.MessageSettingType">
+            <summary>
+            执行计划动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Msg.MessageSetting.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Msg.MessageSetting.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Msg.MessageSetting">
+            <summary>支持从DynamicObject隐式转化到WorkflowModelVersion类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的WorkflowModelVersion对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Msg.MessageSetting.UserIdProperty">
+            <summary>
+            用户Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgPolicyStatusProperty">
+            <summary>
+            消息清除策略状态属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgPolicyProperty">
+            <summary>
+            消息清除策略属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgSaveDayProperty">
+            <summary>
+            消息保留天数属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgClearPolicyProperty">
+            <summary>
+            删除消息清除策略属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgClearPolicyStatusProperty">
+            <summary>
+            删除消息清除策略状态属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgClearRangeProperty">
+            <summary>
+            删除消息保留天数属性描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Msg.MessageSetting.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgPolicyStatus">
+            <summary>
+            消息清除策略状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgPolicy">
+            <summary>
+            消息清除策略
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgSaveDay">
+            <summary>
+            消息保留天数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgClearPolicy">
+            <summary>
+            删除消息清除策略
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgClearPolicyStatus">
+             <summary>
+            删除消息清除策略状态
+             </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Msg.MessageSetting.MsgClearRange">
+            <summary>
+            删除消息保留天数
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Runtime.ProcInstAssign">
+            <summary>
+            流程实例状态转换对象
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Runtime.ProcInstAssign.ChangeStatus(Kingdee.BOS.Workflow.Models.EnumStatus.ProcInstanceStateType,System.Boolean@)">
+            <summary>
+            判断是否允许进行指定状态的改变
+            </summary>
+            <param name="processType"></param>
+            <param name="needRecover">失败的流程，进行暂停时，输出true</param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Runtime.ProcInstAssign.Now">
+            <summary>
+            当前时间，需要取数据库服务器时间，由外界传入
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Runtime.VariableKeyValue">
+            <summary>
+            流程实例变量键值对对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Runtime.VariableKeyValue.VariableKey">
+            <summary>
+            变量名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Runtime.VariableKeyValue.VariableValue">
+            <summary>
+            变量值
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Runtime.VariableKeyValue.VariableType">
+            <summary>
+            变量类型（节点变量或流程变量）
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Authoring.WorkflowModel">
+            <summary>
+            工作流模型定义
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.WorkflowModelType">
+            <summary>
+            WorkflowModel动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Authoring.WorkflowModel.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Authoring.WorkflowModel.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Authoring.WorkflowModel">
+            <summary>支持从DynamicObject隐式转化到WorkflowModel类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的WorkflowModel对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.IdProperty">
+            <summary>
+            流程定义Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.IsCustomizedProperty">
+            <summary>
+            是否自定义IsCustomized属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.CreatorIdProperty">
+            <summary>
+            创建者属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.CreateTimeProperty">
+            <summary>
+            创建时间CreateTime属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.DisplayNameProperty">
+            <summary>
+            显示名称DisplayName属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.DescriptionProperty">
+            <summary>
+            描述Description属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.VersionIdProperty">
+            <summary>
+            默认版本VersionId属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.StatusProperty">
+            <summary>
+            发布状态Status属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.EnableStatusProperty">
+            <summary>
+            启用状态Status属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.NumberProperty">
+            <summary>
+            编码Code属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.ModifierIdProperty">
+            <summary>
+            修改人Modifier属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.ModifyTimeProperty">
+            <summary>
+            修改时间ModifyTime属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.DesignerXmlProperty">
+            <summary>
+            设计器xml属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.DefinitionXmlProperty">
+            <summary>
+            设计时流程定义属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModel.ObjectTypeIdProperty">
+            <summary>
+            入口单据Id属性描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.Id">
+            <summary>
+            流程定义Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.IsCustomized">
+            <summary>
+            是否为自定义
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.CreatorId">
+            <summary>
+            创建人Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.VersionId">
+            <summary>
+            默认版本Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.Status">
+            <summary>
+            发布状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.EnableStatus">
+            <summary>
+            启用状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.Number">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.ModifierId">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.ObjectTypeId">
+            <summary>
+            入口单据Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.DesignerXml">
+            <summary>
+            设计器xml
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.DefinitionXml">
+            <summary>
+            设计时流程定义xml
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModel.Versions">
+            <summary>
+            版本集合
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion">
+            <summary>
+            流程定义版本实体模型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.WorkflowModelVersionType">
+            <summary>
+            流程定义版本动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion">
+            <summary>支持从DynamicObject隐式转化到WorkflowModelVersion类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的WorkflowModelVersion对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.VersionIdProperty">
+            <summary>
+            版本Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.VersionCodeProperty">
+            <summary>
+            流程版本的版本属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.DefinitionXmlProperty">
+            <summary>
+            流程定义XML属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.DesignerXmlProperty">
+            <summary>
+            流程设计XML属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.CreatorIdProperty">
+            <summary>
+            创建者属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.CreateTimeProperty">
+            <summary>
+            创建时间属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.VersionProperty">
+            <summary>
+            版本属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.DescriptionProperty">
+            <summary>
+            描述Description属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.StatusProperty">
+            <summary>
+            状态属性描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.VersionId">
+            <summary>
+            版本Id
+            </summary>        
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.VersionCode">
+            <summary>
+            流程版本的版本
+            </summary>        
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.DefinitionXml">
+            <summary>
+            流程定义XML
+            </summary>        
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.DesignerXml">
+            <summary>
+            流程设计XML
+            </summary>        
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.CreatorId">
+            <summary>
+            创建人Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.CreateTime">
+            <summary>
+            创建时间
+            </summary>       
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.Version">
+            <summary>
+            版本号：如 0001
+            </summary>       
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Authoring.WorkflowModelVersion.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.GetBatchAssignIdsResult">
+            <summary>
+            读取批量处理任务时的返回结果
+            </summary>
+            <remarks>
+            对待处理任务，进行分批合并后返回
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.GetBatchAssignIdsResult.AddAssign(Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem)">
+            <summary>
+            增加任务，自动归纳到某一批次中
+            </summary>
+            <param name="versionId">任务的流程版本</param>
+            <param name="activityId">节点序号</param>
+            <param name="assignId">任务</param>
+            <param name="batchAssignDesc">简要描述任务的特征，如"采购审批流-主管审批"</param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetBatchAssignIdsResult.BatchAssignList">
+            <summary>
+            分批任务：每个节点包含了能够在同一批次执行的任务
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssign">
+            <summary>
+            能够在同一批次执行的任务
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssign.#ctor(Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="versionId">流程版本</param>
+            <param name="activityId">节点序号</param>
+            <param name="allowBatchDeal">是否允许批量处理</param>
+            <param name="desc">任务的描述：流程图-节点-任务主题</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssign.EqualsBatch(Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem)">
+            <summary>
+            判断目标任务的特性，是否符合本批次要求
+            </summary>
+            <param name="versionId">流程版本</param>
+            <param name="activityId">节点序号</param>
+            <param name="allowBatchDeal">是否允许批量处理</param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssign.HadDeal">
+            <summary>
+            是否已经处理
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssign.Assigns">
+            <summary>
+            任务
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssign.VersionId">
+            <summary>
+            任务对应的流程图版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssign.ActivityId">
+            <summary>
+            任务对应的节点序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssign.Description">
+            <summary>
+            简要描述任务的特征，如"采购审批流-主管审批"
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem">
+            <summary>
+            待办任务
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.#ctor(System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="assignId">任务内码</param>
+            <param name="versionId">流程版本</param>
+            <param name="activityId">节点序号</param>
+            <param name="allowBatchDeal">是否允许批量处理</param>
+            <param name="desc">任务的描述：流程图-节点-任务主题</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.AssignId">
+            <summary>
+            任务内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.ProcessType">
+            <summary>
+            流程类型：300 = 工作流；301 = 审批流
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.VersionId">
+            <summary>
+            流程版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.VersionCode">
+            <summary>
+            流程图版本编码：0001
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.ProcessName">
+            <summary>
+            流程名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.ActivityId">
+            <summary>
+            节点序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.ActivityName">
+            <summary>
+            节点名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.AllowBatchDeal">
+            <summary>
+            允许批量处理
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.Title">
+            <summary>
+            任务主题
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignItem.ProcInstNumber">
+            <summary>
+            流程实例编码
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignComparer">
+            <summary>
+            分批任务优先级比较器
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssignComparer.Compare(Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssign,Kingdee.BOS.Workflow.Models.ServiceArgs.BatchAssign)">
+            <summary>
+            比较两批任务的优先级：包含的任务最多的，排在前面
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs">
+            <summary>
+            接口参数对象：读取当前用户能够撤销的节点列表；
+            接口函数的输入、输出，都封装在此类中
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.GetByBill(System.String,System.String)">
+            <summary>
+            按单据读取允许撤销的节点列表：需根据单据->实例->待办任务->已办任务的线索，寻找当前用户已办的任务；
+            <p>应用场景：</p>
+            用户在单据列表上，选择某一单据，进行撤销工作流的提交...
+            </summary>
+            <param name="formId">单据</param>
+            <param name="pkValue">数据内码</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.GetByProcessInstance(System.String)">
+            <summary>
+            按流程实例读取允许撤销的节点列表：实例->待办任务->前一已办任务->匹配登陆用户->允许撤销的已办任务；
+            <p>应用场景：</p>
+            用户在在办流程列表上，选择某一本人发起的流程，进行撤销...
+            </summary>
+            <param name="procInstId">流程实例</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.GetByAssign(System.String)">
+            <summary>
+            按已处理任务读取允许撤销的节点列表：实际上是分析指定的已处理任务能否撤销；
+            <p>应用场景：</p>
+            用户在已办任务列表上，选择某一任务，进行撤销...
+            此时，需要检查这条任务是否刚发出，下一个任务处理人还未处理...
+            </summary>
+            <param name="assignId">已办任务</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.GetCancelAssignsType">
+            <summary>
+            检索依据：如何检索当前用户，可撤销任务
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.FormId">
+            <summary>
+            输入参数：单据类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.PKValue">
+            <summary>
+            输入参数：单据数据主键
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.ProcessInstanceId">
+            <summary>
+            输入参数：流程实例
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.AssignId">
+            <summary>
+            输入参数：待撤销的已办任务，入参，需要判断此任务是否允许撤销
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.ActivityInstanceId">
+            <summary>
+            输出参数：待撤销的已办任务对应的节点实例；需根据AssignId检索出来
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.Message">
+            <summary>
+            输出参数：提示信息
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsArgs.ProcInstCanCancelAssigns">
+            <summary>
+            输出参数: 描述各相关流程实例允许执行撤销的已办任务
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance">
+            <summary>
+            撤销已办任务: 流程实例整体信息
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="procInstId">流程实例</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.ProcessInstanceId">
+            <summary>
+            流程实例
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.TemplateId">
+            <summary>
+            流程实例对应的模板内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.TemplateDetailId">
+            <summary>
+            流程实例对应的模板明细内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.VersionId">
+            <summary>
+            流程实例采用的流程版本内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.OrgId">
+            <summary>
+            发起组织
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.OriginatorId">
+            <summary>
+            流程实例发起人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.FormId">
+            <summary>
+            实例对应的单据
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.KeyValue">
+            <summary>
+            实例对应的单据数据主键
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.Number">
+            <summary>
+            流程实例编码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.BillNo">
+            <summary>
+            单据编码，通过解析实例编码得来
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.CanAbortInstance">
+            <summary>
+            是否允许执行终止流程实例，即撤销提交：只有在没有任何人执行了本流程实例的任务时，才允许撤销提交
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.Message">
+            <summary>
+            消息；不允许撤销时，需要说明不允许撤销的理由...
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsProcessInstance.ActivityInstances">
+            <summary>
+            允许撤销的已办任务
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsActivityInstance">
+            <summary>
+            撤销已办任务：节点实例信息；记录本节点实例是否允许被撤销，以及撤销时，需舍弃的节点实例
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsActivityInstance.ActivityId">
+            <summary>
+            待撤销节点顺序
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsActivityInstance.ActivityName">
+            <summary>
+            待撤销节点名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsActivityInstance.ActivityInstanceId">
+            <summary>
+            待撤销已办任务对应的活动实例
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsActivityInstance.AssignId">
+            <summary>
+            待撤销已办任务内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsActivityInstance.CanCancel">
+            <summary>
+            是否允许被撤销
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsActivityInstance.Message">
+            <summary>
+            不允许撤销的理由
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.CancelAssignsActivityInstance.DiscardedActivityInstanceIds">
+            <summary>
+            撤销任务发生时，需要被舍弃的待处理节点实例
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsType">
+            <summary>
+            检索依据：检索当前用户，可撤销任务的进入方式
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsType.ByBillId">
+            <summary>
+            根据单据检索当前用户可撤销任务
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsType.ByProcessInstance">
+            <summary>
+            根据流程检索当前用户可撤销任务
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.ServiceArgs.GetCancelAssignsType.ByAssign">
+            <summary>
+            根据已办任务检索，实际上，是判断已办任务是否允许撤销，以及需要丢弃的节点实例
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.GetNextStateArgs">
+            <summary>
+            服务参数：获取下一步节点
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.GetNextStateArgs.#ctor(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="actInstId"></param>
+            <param name="variables"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetNextStateArgs.ActInstId">
+            <summary>
+            当前节点实例内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetNextStateArgs.Variables">
+            <summary>
+            流程执行时，需要额外传递的变量值：如当前节点的审批结果，引擎需要接受这些变量值，已确定流程走向
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.GetNextStateResult">
+            <summary>
+            服务结果：获取下一步节点
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.GetNextStateResult.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetNextStateResult.NextActivities">
+            <summary>
+            直接下一步节点
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetNextStateResult.Process">
+            <summary>
+            流程图
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.GetNextStateResult.NextActivitieStatus">
+            <summary>
+            预运行，各下游节点的预计状态: Dictionary(Activity.Id, Status)
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs">
+            <summary>
+            函数参数包：工作流测试
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.InitArgsForTestTemplate(System.String,System.String)">
+            <summary>
+            测试工作流模板时，需要初始化的变量
+            </summary>
+            <param name="formId">单据</param>
+            <param name="templateId">模板</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.InitArgsForTestDefine(System.String,System.String)">
+            <summary>
+            测试设计图时，需要初始化的变量
+            </summary>
+            <param name="formId">单据</param>
+            <param name="procDefId">流程图内码</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.InitArgsForTestVersion(System.String,System.String)">
+            <summary>
+            测试工作流版本时，需要初始化的变量
+            </summary>
+            <param name="formId">单据FormId, 可为""</param>
+            <param name="templateId">版本</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.FormId">
+            <summary>
+            单据FormId, 可选
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.BOSBill">
+            <summary>
+            单据数据包：可选，与PKValue任选其一
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.TemplateId">
+            <summary>
+            工作流模板: 测试模板时必选此项
+            </summary>
+            <remarks>
+            服务端需通过模板+单据数据，计算条件，搜索目标流程
+            </remarks>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.ProcDefId">
+            <summary>
+            工作流设计图：测试设计图时必选此项
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.ProcVersionId">
+            <summary>
+            工作流版本内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.Originator">
+            <summary>
+            发起人，必选参数
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.OriginatorPostId">
+            <summary>
+            发起人岗位，如发起人具有多个岗位，需要在调用前，选择其一
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.WorkFlowTestTarget">
+            <summary>
+            工作流测试方向，默认为测试流程设计草图
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ServiceArgs.WorkFlowTestArgs.TestCaseId">
+            <summary>
+            测试用例：输出参数
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.NotePrintActivity">
+            <summary>
+            为套打准备的工作流节点；
+            实际工作流程图的节选，仅包括编码、名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.NotePrintActivity.Id">
+            <summary>
+            顺序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.NotePrintActivity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.NotePrintProcess">
+            <summary>
+            为套打准备的工作流模型；
+            实际工作流程图的节选，仅包括编码、名称、审批节点等信息，不包括路线、条件等
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.NotePrintProcess.Id">
+            <summary>
+            内码：对应于流程图的内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.NotePrintProcess.Name">
+            <summary>
+            流程名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.NotePrintProcess.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.NotePrintProcess.Activities">
+            <summary>
+            包含的审批节点
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.PermissionResult">
+            <summary>
+            验证结果
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.PermissionResultType.Permission">
+            <summary>
+            有权限
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.PermissionResultType.Nonpermission">
+            <summary>
+            没有权限
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.PermissionResultType.NoTemplate">
+            <summary>
+            没有配置流程
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.TemplateParameter">
+            <summary>
+            模板参数结构类，验证流程模板启动条件时使用
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.TemplateParameter.TemplateModel">
+            <summary>
+            流程模板
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.TemplateParameter.BillBusinessInfo">
+            <summary>
+            单据业务元数据
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.TemplateParameter.OriginatorPost">
+            <summary>
+            发起人岗位
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthModel">
+            <summary>
+            Department Authority Model
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.Auth.IAuth">
+            <summary>
+            Lauch Process Authority Model Interface
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.Auth.IAuth.Id">
+            <summary>
+            Prime Key Property 
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthModel.DepartmentAuthType">
+            <summary>
+            Department Authority Model Type
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthModel.IdProperty">
+            <summary>
+            WorkflowTemplate Staff Authority Latitude Id Property Description
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthModel.DepartmentIdProperty">
+            <summary>
+            Department Property Description
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthModel.IsIncludeSubProperty">
+            <summary>
+            Inculde Sub Department Property Description
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthModel.LatitudeProperty">
+            <summary>
+            Latitude Property Description
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthModel.Id">
+            <summary>
+            PkValue
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthModel.DepartmentId">
+            <summary>
+            department id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthModel.IsIncludeSub">
+            <summary>
+            Incule Sub Department mark
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthModel.Latitude">
+            <summary>
+            department latitude
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthLautitude">
+            <summary>
+            department Authority Enum
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthLautitude.superintendent">
+            <summary>
+            responsible person
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthLautitude.DirectlyUnder">
+            <summary>
+            Directly under the Staff
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.DepartmentAuthLautitude.All">
+             <summary>
+            All Staff
+             </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.Auth.PostAuthModel">
+            <summary>
+            Process Launch Post Authority Lautitude Model
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.PostAuthModel.PostAuthModelType">
+            <summary>
+            Post Authority Model Type
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.PostAuthModel.IdProperty">
+            <summary>
+            WorkflowTemplate Post Authority Latitude Id Property Description
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.Auth.RoleAuthModel">
+            <summary>
+            Process Launch Role Authority Lautitude Model
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.Auth.StaffAuthModel">
+            <summary>
+            Process Launch Staff Authority Model
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.StaffAuthModel.IdProperty">
+            <summary>
+            流程员工维度Id属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.Auth.StaffAuthModel.StaffIdProperty">
+            <summary>
+            职员Id属性描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.Auth.StaffAuthModel.Id">
+            <summary>
+            流程员工维度Id属性
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.Auth.StaffAuthModel.StaffId">
+            <summary>
+            职员Id属性
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.Auth.UserAuthModel">
+            <summary>
+            Process Launch UserAuthority Lautitude Model
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.ActivityConfig">
+            <summary>
+            节点配置模型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.ActivityConfig.ActivityConfigType">
+            <summary>
+            AcitivityConfig动态实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ActivityConfig.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.ActivityConfig.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Models.ActivityConfig">
+            <summary>支持从DynamicObject隐式转化到ActivityConfig类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的ActivityConfig对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.ActivityConfig.IdProperty">
+            <summary>
+            节点控制ID属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.ActivityConfig.ActivityIDProperty">
+            <summary>
+            节点ID属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.ActivityConfig.ActivityConfigXMLProperty">
+            <summary>
+            节点单据控制属性描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ActivityConfig.Id">
+            <summary>
+            节点控制ID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ActivityConfig.ActivityID">
+            <summary>
+            节点ID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.ActivityConfig.ActivityConfigXML">
+            <summary>
+            节点单据控制
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.FindPrcResult">
+            <summary>
+            查找流程返回结果
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.FindPrcResult.ProcessIdList">
+            <summary>
+            找到的流程列表，若没找到为空
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.FindPrcResult.KeyValue">
+            <summary>
+            单据KeyValue
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.FindPrcResult.Result">
+            <summary>
+            返回结果类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.TemplateVer.ProcessType">
+            <summary>
+            流程类型：工作流/审批流
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.TemplateVer.TemplateID">
+            <summary>
+            模板Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.TemplateVer.TemplateDetailID">
+            <summary>
+            模板明细Id，模板流程列表Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.TemplateVer.VersionID">
+            <summary>
+            流程版本
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.IDProperty">
+            <summary>
+            流程模板明细ID
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.PrcIDProperty">
+            <summary>
+            流程ID属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.DefaultVerProperty">
+            <summary>
+            流程版本ID属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.IsDefaultPrcProperty">
+            <summary>
+            默认流程标识属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.LaunchDesProperty">
+            <summary>
+            流程启动条件描述属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.LaunchConditionProperty">
+            <summary>
+            流程启动条件属性描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.ID">
+            <summary>
+            流程模板明细ID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.PrcID">
+            <summary>
+            流程ID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.Version">
+            <summary>
+            流程版本ID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.IsDefaultPrc">
+            <summary>
+            默认流程标识
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.LaunchDes">
+            <summary>
+            流程启动条件描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.PrcLaunchConfigModel.LaunchCondition">
+            <summary>
+             流程启动条件
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel">
+            <summary>
+            流程模板模型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.WorkFlowTemplateModelType">
+            <summary>
+            WorkFlowTemplateModel 动态实体
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel">
+            <summary>支持从DynamicObject隐式转化到WorkFlowTemplateModel类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的WorkFlowTemplateModel对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.IDProperty">
+            <summary>
+            模板ID属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.CodeProperty">
+            <summary>
+            模板编码属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.DisplayNameProperty">
+            <summary>
+            模板名称属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.DescriptionProperty">
+            <summary>
+            模板描述属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.OrgIDProperty">
+            <summary>
+            组织属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.WithOutOrgProperty">
+            <summary>
+            适用于所有组织
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.FormIDProperty">
+            <summary>
+            关联单据属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.TemplateTypeProperty">
+            <summary>
+            模板类型属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.ProcessTypeProperty">
+            <summary>
+            流程定义类型属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.PolicyProperty">
+            <summary>
+            流程运行策略描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.StatusProperty">
+            <summary>
+            流程模板状态描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.CanInheritProperty">
+            <summary>
+            流程模板是否可继承
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.PrcLaunchConfigProperty">
+            <summary>
+            流程模板启动配置
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.CreatUserProperty">
+            <summary>
+            创建人属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.CreatTimeProperty">
+            <summary>
+            创建日期属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.ModifiedUserProperty">
+            <summary>
+            修改人属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.ModifiedTimeProperty">
+            <summary>
+            修改日期属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.UserAuthProperty">
+            <summary>
+            流程模板发起权限-用户
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.RoleAuthProperty">
+            <summary>
+            流程模板发起权限-角色
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.DepartmentAuthProperty">
+            <summary>
+            流程模板发起权限-部门
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.PostAuthProperty">
+            <summary>
+            流程模板发起权限-岗位
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.StaffAuthProperty">
+            <summary>
+            流程模板发起权限-职员
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.ID">
+            <summary>
+            模板ID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.Code">
+            <summary>
+            模板编码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.DisplayName">
+            <summary>
+            模板名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.Description">
+            <summary>
+            模板描述
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.OrgID">
+            <summary>
+            组织
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.WithOutOrg">
+            <summary>
+            不限组织，与组织无关
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.FormID">
+            <summary>
+            关联单据
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.TemplateType">
+            <summary>
+            模板分类
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.ProcessType">
+            <summary>
+            流程定义类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.Policy">
+            <summary>
+            运行策略
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.PrcLaunchConfig">
+            <summary>
+            启动条件配置
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.CreatUser">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.CreatTime">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.ModifiedUser">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.ModifiedTime">
+            <summary>
+            修改日期
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.UserAuth">
+            <summary>
+            UserAuthority
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.RoleAuth">
+            <summary>
+            Role Authority
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.PostAuth">
+            <summary>
+            Post Autority
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.DepartmentAuth">
+            <summary>
+            department Authority
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateModel.StaffAuth">
+            <summary>
+            staff Authority
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel">
+            <summary>
+            模板版本模型实体
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.op_Implicit(Kingdee.BOS.Orm.DataEntity.DynamicObject)~Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel">
+            <summary>支持从DynamicObject隐式转化到WorkFlowTemplateModel类型</summary>
+            <param name="obj">要隐式转换的动态实体</param>
+            <returns>新构建的WorkFlowTemplateVersionModel对象</returns>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.IDProperty">
+            <summary>
+            流程版本定制化ID属性描述
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.TmpDetailIDProperty">
+            <summary>
+            模板明细ID
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.TmpIDProperty">
+            <summary>
+            模板ID
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.VerIDProperty">
+            <summary>
+            流程版本
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.ActivityConfigCollectionPropterty">
+            <summary>
+            节点配置
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.CreatUserProperty">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.CreatTimeProperty">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.ModifiedUserProperty">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.ModifiedTimeProperty">
+            <summary>
+            修改日期
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.ID">
+             <summary>
+            流程版本定制化ID
+             </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.TmpDetail">
+            <summary>
+            模板明细
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.TmpID">
+            <summary>
+            模板ID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.VerID">
+            <summary>
+            流程版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.ActivityCollection">
+            <summary>
+            节点控制配置
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.CreatUser">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.CreatTime">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.ModifiedUser">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.Template.WorkFlowTemplateVersionModel.ModifiedTime">
+            <summary>
+            修改日期
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstance">
+            <summary>
+            工作流测试，节点实例
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstance._dt">
+            <summary>
+            采用的实体模型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstance.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstance.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstance.Status">
+            <summary>
+            节点状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstance.ActivityId">
+            <summary>
+            节点序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstance.BackActInstIds">
+            <summary>
+            经过的节点实例
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstance.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstance.CompleteTime">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstance.ActionEvnetLogs">
+            <summary>
+            节点包含的动作执行日志
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType">
+            <summary>
+            工作流测试，节点实例模型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.DEFAULTENTITYNAME">
+            <summary>
+            实体名称
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType._tableName">
+            <summary>
+            实体对应表格
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.CreateProperties">
+            <summary>
+            创建属性
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.OnDeserialization(System.Object)">
+            <summary>
+            反序列化时，给本地属性对象赋值
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.IdProperty">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.StatusProperty">
+            <summary>
+            节点状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.ActivityIdProperty">
+            <summary>
+            节点内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.BackActInstIdsProperty">
+            <summary>
+            经过的节点实例内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.CreateTimeProperty">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.CompletedTimeProperty">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.LastActionEventIdProperty">
+            <summary>
+            最后执行的动作
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.ActionEventLogType">
+            <summary>
+            动作日志采用的ORM模型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActivityInstanceType.ActionEventLogsProperty">
+            <summary>
+            动作日志
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance">
+            <summary>
+            流程测试用例ORM强命名对象
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance._dt">
+            <summary>
+            采用的实体模型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.TestTarget">
+            <summary>
+            测试标的
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.ProcDefId">
+            <summary>
+            流程设计图
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.VersionId">
+            <summary>
+            流程版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.TemplateId">
+            <summary>
+            模板
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.TemplateDetailId">
+            <summary>
+            模板条目
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.CompleteTime">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.DefinitionXML">
+            <summary>
+            流程定义xml
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.Definition">
+            <summary>
+            流程定义模型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.DesignerXML">
+            <summary>
+            流程定义xml
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstance.ProcInstances">
+            <summary>
+            测试用例所挂的实例
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.WFTest.WorkFlowTestTarget">
+            <summary>
+            工作流测试方向：设计图、版本、模板
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.WorkFlowTestTarget.Define">
+            <summary>
+            测试设计草图
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.WorkFlowTestTarget.Version">
+            <summary>
+            测试版本
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.WorkFlowTestTarget.Template">
+            <summary>
+            测试模板配置
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType">
+            <summary>
+            测试用例ORM模型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.DEFAULTENTITYNAME">
+            <summary>
+            实体名称
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType._tableName">
+            <summary>
+            实体对应表格
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.CreateProperties">
+            <summary>
+            创建属性
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.OnDeserialization(System.Object)">
+            <summary>
+            反序列化时，给本地属性对象赋值
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.IdProperty">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.TestTargetProperty">
+            <summary>
+            测试标的
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.ProcDefIdProperty">
+            <summary>
+            流程定义内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.VersionIdProperty">
+            <summary>
+            流程版本内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.TemplateIdProperty">
+            <summary>
+            流程模板内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.TemplateDetailIdProperty">
+            <summary>
+            流程模板行：每行配置一个启用条件，以及其采用的流程图版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.CreateTimeProperty">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.CompleteTimeProperty">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.DefinitionXMLProperty">
+            <summary>
+            定义图xml
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.DesignerXMLProperty">
+            <summary>
+            定义图xml
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.ProcInstanceType">
+            <summary>
+            流程实例采用的ORM模型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestCaseInstanceType.ProcInstancesProperty">
+            <summary>
+            流程实例
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType">
+            <summary>
+            测试流程实例ORM模型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.DEFAULTENTITYNAME">
+            <summary>
+            实体名称
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType._tableName">
+            <summary>
+            实体对应表格
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.CreateProperties">
+            <summary>
+            创建属性
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.OnDeserialization(System.Object)">
+            <summary>
+            反序列化时，给本地属性对象赋值
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.IdProperty">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.ProcDefIdProperty">
+            <summary>
+            流程定义内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.VersionIdProperty">
+            <summary>
+            流程版本内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.TemplateIdProperty">
+            <summary>
+            流程模板内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.TemplateDetailIdProperty">
+            <summary>
+            流程模板行：每行配置一个启用条件，以及其采用的流程图版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.CreateTimeProperty">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.CompleteTimeProperty">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.OriginatorIdProperty">
+            <summary>
+            发起人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.OriginatorPostIdProperty">
+            <summary>
+            发起人岗位
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.StatusProperty">
+            <summary>
+            流程状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.FailureMessageProperty">
+            <summary>
+            失败信息
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.FailureOutInfoProperty">
+            <summary>
+            异常信息展示
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.VarInstListProperty">
+            <summary>
+            流程变量
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.TestProcessProperty">
+            <summary>
+            测试图
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.ActivityInstanceType">
+            <summary>
+            节点实例采用的ORM模型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstanceType.ActivityInstancesProperty">
+            <summary>
+            节点实例
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLog">
+            <summary>
+            工作流测试动作日志
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLog._dt">
+            <summary>
+            采用的实体模型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLog.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLog.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLog.ActionEventId">
+            <summary>
+            动作序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLog.ExecutedTime">
+            <summary>
+            执行时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLog.ExecuteLog">
+            <summary>
+            动作执行日志
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLogType">
+            <summary>
+            测试流程动作执行日志ORM模型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLogType.DEFAULTENTITYNAME">
+            <summary>
+            实体名称
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLogType._TableName">
+            <summary>
+            实体对应表格
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLogType.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLogType.CreateProperties">
+            <summary>
+            创建属性
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLogType.OnDeserialization(System.Object)">
+            <summary>
+            反序列化时，给本地属性对象赋值
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLogType.IdProperty">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLogType.ActionEventIdProperty">
+            <summary>
+            动作定义内码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLogType.ExecutedTimeProperty">
+            <summary>
+            执行时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestActionEventLogType.ExecuteLogProperty">
+            <summary>
+            执行日志
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance">
+            <summary>
+            流程测试实例ORM强命名对象
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance._dt">
+            <summary>
+            采用的实体模型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.#ctor(Kingdee.BOS.Orm.DataEntity.DynamicObject)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.ProcDefId">
+            <summary>
+            流程设计图
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.VersionId">
+            <summary>
+            流程版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.TemplateId">
+            <summary>
+            模板
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.TemplateDetailId">
+            <summary>
+            模板条目
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.CompleteTime">
+            <summary>
+            完成时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.OriginatorId">
+            <summary>
+            发起人
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.OriginatorPostId">
+            <summary>
+            发起人岗位
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.Status">
+            <summary>
+            实例状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.FailureMessage">
+            <summary>
+            错误信息xml
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.FailureOutInfo">
+            <summary>
+            错误提示XML
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.VarInstList">
+            <summary>
+            变量
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.TestProcessXML">
+            <summary>
+            测试图XML
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.TestProcess">
+            <summary>
+            测试图定义模型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Models.WFTest.TestProcInstance.ActivityInstances">
+            <summary>
+            流程实例所挂的活动实例
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Model.WFTableConst">
+            <summary>
+            工作流表名常量
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFTableConst.MessageInbox">
+            <summary>
+            消息收件箱表
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFTableConst.MessageOutbox">
+            <summary>
+            消息发件箱表
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFTableConst.MessageTrash">
+            <summary>
+            消息废件箱表
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Model.WFBillConst">
+            <summary>
+            工作流相关单据名常量
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.MessageInboxView">
+            <summary>
+            信息中心：收件箱浏览视图
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.MessageInboxBill">
+            <summary>
+            信息中心：收件箱单据
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.MessageOutboxView">
+            <summary>
+            信息中心：发件箱浏览视图
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.MessageOutboxBill">
+            <summary>
+            信息中心：发件箱单据
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.MessageTrashView">
+            <summary>
+            信息中心：废件箱浏览视图
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.MessageTrashBill">
+            <summary>
+            信息中心：废件箱单据
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.Draft">
+            <summary>
+            信息中心：草稿箱
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.ApprovalBillList">
+            <summary>
+            信息中心：动态单据列表
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.AssignmentView">
+            <summary>
+            信息中心：待办任务浏览视图
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.AssignmentBill">
+            <summary>
+            信息中心：待办任务单据
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.AssignmentResultBill">
+            <summary>
+            信息中心：已处理环节单据
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.AssignmentHisView">
+            <summary>
+            信息中心：待办任务（已完成）浏览视图
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.AssignmentHisBill">
+            <summary>
+            信息中心：待办任务（已完成）浏览视图
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.TemplateList">
+            <summary>
+            消息中心：我的流程
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.ProcInstRunning">
+            <summary>
+            信心中心：在办流程
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.ProcInstSearch">
+            <summary>
+            信心中心：流程查询
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.ProcDef">
+            <summary>
+            流程定义基础资料
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.ProcManageProcInst">
+            <summary>
+            流程管理：流程实例
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.ProcManageAssign">
+            <summary>
+            流程管理：待办任务
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.ProcManageReceiverItem">
+            <summary>
+            流程管理：待办任务处理明细
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.ProcManageProcInstHis">
+            <summary>
+            流程管理：流程实例历史
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.ProcManageAssignHis">
+            <summary>
+            流程管理：待办任务历史
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.ProcManageReceiverItemHis">
+            <summary>
+            流程管理：待办任务处理明细历史
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFBillConst.Template">
+            <summary>
+            流程配置：流程模板
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Model.WFDynamicFormConst">
+            <summary>
+            工作流相关动态表单名常量
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.AssignmentManagerForm">
+            <summary>
+            信息中心：任务管理动态表单,作为任务列表和任务浏览页面的容器载体
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.MessageManagerForm">
+            <summary>
+            信息中心：消息管理动态表单,作为消息列表和消息浏览页面的容器载体
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.MessageBoxSelectView">
+            <summary>
+            信息中心：文件箱选择动态表单
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.AssignmentApprovalForm">
+            <summary>
+            信息中心：任务处理动态表单
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.AssignmentApprovalBatchForm">
+            <summary>
+            信息中心：批量任务处理动态表单
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.AssignmentApprovalViewForm">
+            <summary>
+            信息中心：任务处理动态表单查看视图
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.AssignmentForwardForm">
+            <summary>
+            信息中心：任务转发动态表单
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.ProcManageProcInstFrame">
+            <summary>
+            流程管理：流程实例动态表单
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.ProcManageAssignFrame">
+            <summary>
+            流程管理：待办任务动态表单
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.ProcManageAssignManage">
+            <summary>
+            流程管理：待办任务明细动态表单
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.ProcManageAssignHisManage">
+            <summary>
+            流程管理：已办流程的任务明细动态表单
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.ChartFlowWay">
+            <summary>
+            查看流程图：流程图_审批路线
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.GUIFlowChartView">
+            <summary>
+            查看流程图：GUI 流程图查看
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.CHART_FORMID">
+            <summary>
+            流程图
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.WFDynamicFormConst.INOUTMODEL">
+            <summary>
+            设计器-节点流出流入模式
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Model.BoxType">
+            <summary>
+            信息中心消息文件箱类型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.BoxType.Inbox">
+            <summary>
+            收件箱
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.BoxType.Trash">
+            <summary>
+            废件箱
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Model.BoxType.Outbox">
+            <summary>
+            发件箱
+            </summary>
+        </member>
+    </members>
+</doc>

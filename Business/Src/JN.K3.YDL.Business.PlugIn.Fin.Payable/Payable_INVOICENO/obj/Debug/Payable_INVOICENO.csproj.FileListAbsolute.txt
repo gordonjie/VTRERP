@@ -1,0 +1,5 @@
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\JN.K3.YDL.Business.PlugIn.Fin.Payable\Payable_INVOICENO\bin\Debug\JN.K3.YDL.Business.Plugin.Fin.Payable.dll
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\JN.K3.YDL.Business.PlugIn.Fin.Payable\Payable_INVOICENO\bin\Debug\JN.K3.YDL.Business.Plugin.Fin.Payable.pdb
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\JN.K3.YDL.Business.PlugIn.Fin.Payable\Payable_INVOICENO\obj\Debug\Payable_INVOICENO.csprojResolveAssemblyReference.cache
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\JN.K3.YDL.Business.PlugIn.Fin.Payable\Payable_INVOICENO\obj\Debug\JN.K3.YDL.Business.Plugin.Fin.Payable.dll
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\JN.K3.YDL.Business.PlugIn.Fin.Payable\Payable_INVOICENO\obj\Debug\JN.K3.YDL.Business.Plugin.Fin.Payable.pdb

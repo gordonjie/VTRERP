@@ -1,0 +1,536 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.ServiceFacade.KDServiceClient</name>
+    </assembly>
+    <members>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.BusinessData.BusinessDataServiceProxy.GetPermissionOrg(Kingdee.BOS.Core.Permission.BusinessObject,System.String)">
+            <summary>
+            返回当前用户拥有某个权限的所有组织信息
+            </summary>
+            <param name="bizObj">业务对象信息</param>
+            <param name="strPerItemId">权限项标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.BusinessData.BusinessDataServiceProxy.DoNothing(Kingdee.BOS.Core.Metadata.BusinessInfo,System.Object[],System.String,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            空操作调用
+            </summary>
+            <param name="info"></param>
+            <param name="objID"></param>
+            <param name="operationNumber"></param>
+            <param name="option"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataCenterServiceProxy.GetDataCenterContextByNum(System.String)">
+            <summary>
+            根据数据中心Num获取数据中心上下文
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.GetInstance">
+            <summary>
+            返回实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.GetFormMetadata(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取元数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.Load(Kingdee.BOS.Context,System.Object,Kingdee.BOS.Orm.Metadata.DataEntity.DynamicObjectType)">
+            <summary>
+            加载对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="pkArray"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.LoadEntityList(Kingdee.BOS.Context,Kingdee.BOS.Orm.Metadata.DataEntity.DynamicObjectType,Kingdee.BOS.Core.SqlBuilder.QueryBuilderParemeter)">
+            <summary>
+            加载对象列表
+            </summary>
+            <param name="ctx"></param>
+            <param name="type"></param>
+            <param name="queryParemeter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.LoadTemplateWithDefault(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取对象的默认值
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.ClearDataMigrationTempTable(Kingdee.BOS.Context)">
+            <summary>
+            清除数据迁移相关的临时表
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.Save(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject[])">
+            <summary>
+            保存集合
+            </summary>
+            <param name="ctx"></param>
+            <param name="dataObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.Delete(Kingdee.BOS.Context,System.Object[],Kingdee.BOS.Orm.Metadata.DataEntity.DynamicObjectType)">
+            <summary>
+            删除对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="ids"></param>
+            <param name="type"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.BuildTempTable(Kingdee.BOS.Context,Kingdee.BOS.Orm.DataEntity.DynamicObject[],Kingdee.BOS.Core.Metadata.FormMetadata,System.Int32,System.Int32)">
+            <summary>
+            根据Excel建立临时表，并将数据存入临时表
+            </summary>
+            <param name="ctx"></param>
+            <param name="entityDatas">数据</param>
+            <param name="busienssInfo">业务对象</param>
+            <param name="pageCount">总页数,默认为一页</param>
+            <param name="pageIndex">当前页索引,从0开始</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.ImportDataFromTempTable(Kingdee.BOS.Context,Kingdee.BOS.Core.InputOutput.ImportDataFromTempTableEventArg)">
+             <summary>
+             将临时表中的数据存入到正式业务表中
+             </summary>
+             <param name="ctx">上下文</param>
+            <param name="e">参数包</param>
+             <param name="result"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.LoadDataSet(Kingdee.BOS.Context,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            获取DataSet
+            </summary>
+            <param name="ctx"></param>
+            <param name="commandText"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.GetMaxASSISTANTDATASeq(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取辅助资料类别的最大显示序号
+            </summary>
+            <param name="ctx"></param>
+            <param name="categoryNumber">类别编号</param>
+            <returns>仅当反回值大于0时表示有意义</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.GetBillTypeInfos(Kingdee.BOS.Context,System.String,System.String,System.String,System.String)">
+            <summary>
+             根据formID和单据类型参数值获取对应的单据类型列表
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId">单据本身的formID,如应付单就用AP_payable</param>
+            <param name="fieldName">参数的字段名</param>
+            <param name="fieldvalue">参数值</param>
+            <param name="paraFormID">参数的FormID,动态表单的那个(继承于BOS_BILLTYPEPARAMODEL）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.GetBillTypeIDs(Kingdee.BOS.Context,System.String,System.String,System.String,System.String)">
+            <summary>
+             根据formID和单据类型参数值获取对应的单据类型ID列表
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId">单据本身的formID,如应付单就用AP_payable</param>
+            <param name="fieldName">参数的字段名</param>
+            <param name="fieldvalue">参数值</param>
+            <param name="paraFormID">参数的FormID,动态表单的那个(继承于BOS_BILLTYPEPARAMODEL）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.BuildDynamicFromDataSet(Kingdee.BOS.Context,System.Int32,Kingdee.BOS.Core.Metadata.FormMetadata,System.Data.DataSet)">
+            <summary>
+            构建实体
+            </summary>
+            <param name="dataSet">Excel中获取到的数据</param>
+            <param name="businessInfo">业务元数据</param>
+            <param name="buildType">引入类型，0为追加，1为覆盖</param>
+            <param name="oset">源数据集</param>
+            <param name="ctx">上下文</param>
+            <returns>返回构造出来的扩展实体，增加了与Excel中序号的映射关系</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.CheckDataTable(System.Data.DataSet,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Core.DynamicForm.IOperationResult@,Kingdee.BOS.Context)">
+            <summary>
+            校验模板中获取的数据的合法性 
+            </summary>
+            <param name="dataSet">获取到的数据</param>
+            <param name="businessInfo">业务元数据</param>
+            <param name="result">校验的结果集</param>
+            <returns>校验结果</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.CheckDynamicObject(Kingdee.BOS.Core.ExtendedDataEntitySet,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Core.DynamicForm.IOperationResult@,Kingdee.BOS.Context)">
+            <summary>
+            校验构造出来的实体合法性
+            </summary>
+            <param name="extendedDataEntitySet">构造出来的实体</param>
+            <param name="businessInfo">业务元数据</param>
+            <param name="result">加盐的结果集</param>
+            <returns>校验结果</returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.ImportData(Kingdee.BOS.Core.ExtendedDataEntitySet,Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Context,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            导入数据
+            </summary>
+            <param name="dataEntitySet"></param>
+            <param name="businessInfo"></param>
+            <param name="ctx"></param>
+            <param name="option"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.GetImportTemplateData(Kingdee.BOS.Context,Kingdee.BOS.Core.Metadata.BusinessInfo)">
+            <summary>
+            获取模板
+            </summary>
+            <param name="ctx"></param>
+            <param name="businessInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DataMigration.DataMigrationServiceProxy.CustomUpgradeData(Kingdee.BOS.Context,Kingdee.BOS.Context,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+             自定义升级数据
+            </summary>
+            <param name="ctx"></param>
+            <param name="source"></param>
+            <param name="plugName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.ClienterServiceProxy.GetClickOnceUrl(Kingdee.BOS.ServiceFacade.KDServiceEntity.ClickOnceType)">
+            <summary>
+            Get Client Url
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DevReportServiceProxy.GetReportDetail(System.String)">
+            <summary>
+            万能报表元数据存储表明细
+            </summary>
+            <param name="reportID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DevReportServiceProxy.GetReports(System.String[],Kingdee.BOS.Core.Enums.BOSEnums.Enu_DevReportType)">
+            <summary>
+            获取万能报表记录
+            </summary>
+            <param name="SubSystemIDs">子系统</param>
+            <param name="ReporType">报表类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DevReportServiceProxy.SaveReport(System.Data.DataSet)">
+            <summary>
+            保存万能报表
+            </summary>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DevReportServiceProxy.DeleteReport(System.String)">
+            <summary>
+            删除万能报表
+            </summary>
+            <param name="reportId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DevReportServiceProxy.GetBusinessObjectData(Kingdee.BOS.Core.Metadata.BusinessInfo,System.Object)">
+            <summary>
+            万能报表单据类报表数据接口
+            </summary>
+            <param name="info"></param>
+            <param name="billId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DevReportServiceProxy.GetSchemaData(System.String)">
+            <summary>
+            设计时信息-表结构、字典
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="formId">源单内码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DevReportServiceProxy.GetBillData(System.String,System.String,System.Object[])">
+            <summary>
+            单据类取数
+            </summary>
+            <param name="ctx">上下文</param>
+            <param name="formId">源单内码</param>
+            <param name="reportId">报表内码</param>
+            <param name="pkArray">单据内码列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DevReportServiceProxy.GetReportIdByBillFormId(System.String)">
+            <summary>
+            获取 单据类标准报表Id（依源单据FormId)
+            </summary>
+            <param name="BillFormId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DevReportServiceProxy.GetServerInstalledFonts">
+            <summary>
+            服务器安装的字体集
+            </summary>
+            <param name="BillFormId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.InOutDataServiceProxy.GetImportTemplateData(Kingdee.BOS.Core.Metadata.BusinessInfo)">
+            <summary>
+            获取需要导出的模板数据
+            </summary>
+            <param name="businessInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.InOutDataServiceProxy.GetImportOutData(Kingdee.BOS.Core.Metadata.BusinessInfo,Kingdee.BOS.Orm.DataEntity.DynamicObject[])">
+            <summary>
+            获取根据导入模板导入的数据
+            </summary>
+            <param name="businessInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.InOutDataServiceProxy.ImportData(Kingdee.BOS.Core.InputOutput.InputOutputParameter)">
+            <summary>
+            导入数据
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.InOutDataServiceProxy.ImportFuncPermissionData(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            导入权限数据，为excel服务
+            </summary>
+            <param name="strRoleId"></param>
+            <param name="strObjectTypeId"></param>
+            <param name="dctPermissionStatus"></param>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.ParameterServiceProxy.LoadSysParameterWithCtx(Kingdee.BOS.Context,System.Int64,System.Int64,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <param name="orgId"></param>
+            <param name="acctBookId"></param>
+            <param name="parameterObjId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.DB.DBServiceProxy.IsExistTable(System.String)">
+            <summary>
+            数据库表名是否存在
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.ConvertServiceProxy.IsExistConvertRuleID(System.String)">
+            <summary>
+            判断单据转换规则是否存在
+            </summary>
+            <param name="convertRuleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.ConvertServiceProxy.GetAllPaths">
+            <summary>
+            获取所有规则
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.ConvertServiceProxy.GetRulesByFormId(System.String,System.String)">
+            <summary>
+            获取
+            </summary>
+            <param name="sourceFormId"></param>
+            <param name="targetFormId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.MetadataServiceProxy.GetFormMetaDataVerion(System.String)">
+            <summary>
+            获得元数据版本
+            </summary>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.MetadataServiceProxy.Merge(System.String,System.String[])">
+            <summary>
+            获取指定对象合并后的元数据
+            </summary>
+            <param name="id"></param>
+            <param name="extendFormIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.MetadataServiceProxy.IsExistMetaObjectType(System.String,System.Int32)">
+            <summary>
+            当前元数据对象是否存在
+            </summary>
+            <param name="id"></param>
+            <param name="modelTypeId">模型类型，不支持工作流和弹性域模型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.MetadataServiceProxy.GetConvertFlowID(System.String,System.String)">
+            <summary>
+            根据源单和目标单ID获取流程ID
+            </summary>
+            <param name="sourceFormID"></param>
+            <param name="targetFormID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.MetadataServiceProxy.GetConvertRules(System.String,System.String)">
+            <summary>
+            根据源单和目标单ID获取启用的转换规则
+            </summary>
+            <param name="sourceFormID"></param>
+            <param name="targetFormID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.MetadataServiceProxy.GetConvertBills(Kingdee.BOS.Core.DynamicForm.FormOperationEnum,System.String)">
+            <summary>
+            根据一个单据ID获取单据转换流程中的源单或目标单
+            </summary>
+            <param name="op">操作类型，Push:下推/ Draw:上拉</param>
+            <param name="formID">源/目标单据ID，如果类型为下推，则formID为源单据，否则为目标单据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.MetadataServiceProxy.GetWebServerImageKeyList">
+            <summary>
+            获得服务器端，图标键的列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.MetadataServiceProxy.IsExistSubClass(System.String)">
+            <summary>
+            当前对象是否存在子类
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.MetadataServiceProxy.IsExistMetaObjectType(System.String)">
+            <summary>
+            当前元数据对象是否存在
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.MetadataServiceProxy.GetExtendObjectTypeId(System.String)">
+            <summary>
+            获取扩展对象的ID
+            </summary>
+            <param name="specificFormId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.SQLScriptServiceProxy.GetBusinessObjectMetaData(System.String,System.Int32[])">
+            <summary>
+            获取业务对象元数据及依赖项数据
+            </summary>
+            <param name="strBusinessObjectID"></param>
+            <param name="localeIDs">语言Id，如果为空，默认返回2052的多语言数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.SQLScriptServiceProxy.GetBusinessObjectMetaDataByDC(System.String,System.String,System.Int32[])">
+            <summary>
+            
+            </summary>
+            <param name="dataCenterID"></param>
+            <param name="strBusinessObjectID"></param>
+            <param name="localeIDs"></param>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.SQLScriptServiceProxy.CreateMenuScriptByBO(Kingdee.BOS.Context,System.Collections.Generic.List{System.String})”忽略有格式错误的 XML 注释 -->
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Metadata.SQLScriptServiceProxy.GetDataFromStoredProc(Kingdee.BOS.DatabaseType,System.String,System.Collections.Generic.List{Kingdee.BOS.SqlParam})">
+            <summary>
+            获取存储过程返回的数据集
+            </summary>
+            <param name="dbType"></param>
+            <param name="storedProcStr"></param>
+            <param name="paramList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Permission.PermissionServiceProxy.GetPermissionItemGroup">
+            <summary>
+            获取需要导出的模板数据
+            </summary>
+            <param name="businessInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Permission.PermissionServiceProxy.GetObjectType(Kingdee.BOS.Core.Permission.PermissionScope,System.Boolean)">
+            <summary>
+            获取业务对象
+            </summary>
+            <param name="ctx"></param>
+            <param name="permissionScope"></param>
+            <param name="bFieldControl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Permission.PermissionServiceProxy.GetAuthorizePermissionItems(System.Collections.Generic.List{System.String})">
+            <summary>
+            根据角色ID获取已经授权的权限项
+            </summary> 
+            <param name="roleids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Permission.PermissionServiceProxy.GetAuthorisedObjectTypes(System.String)">
+            <summary>
+            获取指定授权的业务对象
+            </summary> 
+            <param name="strPerItemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Permission.PermissionServiceProxy.AbtainUserType">
+            <summary>
+            获得用户类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Permission.PermissionServiceProxy.FuncPermissionAuth(Kingdee.BOS.Context,System.Collections.Generic.List{Kingdee.BOS.Core.Permission.BusinessObject},System.String)">
+            <summary>
+            功能权限验权
+            </summary>
+            <param name="ctx"></param>
+            <param name="lstBizObjects"></param>
+            <param name="strPermissionItemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Permission.PermissionServiceProxy.GetPermissionObjectScript(System.String)">
+            <summary>
+            权限对象及其相关的权限项转为SQL脚本 add by leo 20130725
+            </summary>
+            <param name="strPermissionObjectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Permission.PermissionServiceProxy.GetPermissionItemScript(System.String)">
+            <summary>
+            权限项转为SQL脚本 add by leo 20130729
+            </summary>
+            <param name="strPermissionItemId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.User.UserServiceProxy.Logout">
+            <summary>
+            登出
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.User.UserServiceProxy.AbtainUserType">
+            <summary>
+            获取用户类别：管理员\子管理员\普通用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.ServiceFacade.KDServiceClient.Workflow.WorkflowModelServiceProxy.GetNotePrintProcessList(System.String)">
+            <summary>
+            获取套打设计器上使用的流程图列表；
+            </summary>
+            <param name="ctx"></param>
+            <param name="formId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

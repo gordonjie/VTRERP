@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3F3319B-A5F0-4312-91F6-BF6DC6DC692B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JN.K3.YDL.App.Core</RootNamespace>
+    <AssemblyName>JN.K3.YDL.App.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <DocumentationFile>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\JN.K3.YDL.App.Core.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IronPython, Version=2.6.10920.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\IronPython.dll</HintPath>
+    </Reference>
+    <Reference Include="JN.BOS.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\JN.BOS.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="JN.K3.YDL.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\JN.K3.YDL.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.App">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.App.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.App.Core, Version=3.0.282.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.App.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.BusinessEntity">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.BusinessEntity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Contracts, Version=3.0.282.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Contracts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Core">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.DataEntity">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.DataEntity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceHelper, Version=5.0.225.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.ServiceHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Workflow, Version=6.0.736.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Workflow.Contracts, Version=6.0.736.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Workflow.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Workflow.Models, Version=6.0.736.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Workflow.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Workflow.ServiceHelper, Version=6.0.736.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Workflow.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.Contracts">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.BD.Contracts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.Core">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.App.Core, Version=2.2.66.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.FIN.App.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.Contracts">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.FIN.Contracts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.Core, Version=2.2.66.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.FIN.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.Common.BusinessEntity, Version=2.2.66.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.Common.BusinessEntity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.App">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.App.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.Contracts, Version=5.0.679.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\bin\Kingdee.K3.MFG.Contracts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.PRD.App.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.PRD.App.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.PLN.App.Core, Version=2.2.128.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.PLN.App.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.PLN.App.MrpModel, Version=2.2.106.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.PLN.App.MrpModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.PLN.Common.BusinessEntity, Version=2.2.106.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.PLN.Common.BusinessEntity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JN.K3.YDL.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\JN.K3.YDL.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.SCM.Contracts, Version=5.0.223.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.SCM.Contracts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Microsoft.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppServiceContext.cs" />
+    <Compile Include="SCM\SaleQuoteService.cs" />
+    <Compile Include="YDLCommService.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

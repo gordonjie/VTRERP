@@ -1,0 +1,4 @@
+C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\VTR.K3.YDL.App.Report.dll
+C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\VTR.K3.YDL.App.Report.pdb
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\VTR.K3.YDL.App.Report\JN.K3.YDL.App.Report\obj\Debug\VTR.K3.YDL.App.Report.dll
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\VTR.K3.YDL.App.Report\JN.K3.YDL.App.Report\obj\Debug\VTR.K3.YDL.App.Report.pdb

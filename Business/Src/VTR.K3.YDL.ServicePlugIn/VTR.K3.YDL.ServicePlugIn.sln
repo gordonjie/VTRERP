@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTR.K3.YDL.ServicePlugIn", "VTR.K3.YDL.ServicePlugIn\VTR.K3.YDL.ServicePlugIn.csproj", "{00A1636E-D7C4-4218-A08F-1D38899A2C28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00A1636E-D7C4-4218-A08F-1D38899A2C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A1636E-D7C4-4218-A08F-1D38899A2C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A1636E-D7C4-4218-A08F-1D38899A2C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A1636E-D7C4-4218-A08F-1D38899A2C28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1695 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.OrmEngine</name>
+    </assembly>
+    <members>
+        <member name="T:Kingdee.BOS.Orm.DataManager.BatchOrmAction`2">
+            <summary>
+            接受批量的ID并执行
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.DataManager.DataManagerImplement">
+            <summary>
+            Delete 部分 
+            </summary>
+            
+            <summary>
+            Maping 部分 
+            </summary>
+            
+            <summary>
+            //Save 部分 
+            </summary>
+            
+            <summary>
+            数据管理器具体实现类,返回IDataManager操作接口,实现对实体的读写等操作。
+            一、数据管理器工作过程(读取)
+            1.设置数据库驱动,连接串信息
+            2.根据传进的动态实体类型构造DataEntityTypeMap(实体结构的Map,描述字段及字段关系),供构造SQL使用. 此处使用缓存.
+            3.构造ReadWhere,有三种参数类型object id,object[] ids,whereSql,分别对应单记录,多记录,查询条件。
+              同时提供OperateOption参数进行控制，现未有任何实现
+            4.读取数据到表模型上ReadToDataSet,根据2的Map构造Sql,查询后一次性返回数据(包含事务、锁定等优化),
+              根据返回数据reader,填充到QuickDataSet中。此步骤因连接多实际上有性能问题，不使用并行技术。
+            5.把表模型转化为对象模型DataSetToEntities,表数据DataSet根据Map使用最基本的DynamicProperty.setValue(DynamicObject,value)
+              给object赋值最终转换成Entities数组。对于复杂属性及集合属性，实际上是创建了另外的Entities数组并引用到其上，
+              这里需要递归调用DataSetToEntities.另外此步骤填充实体时当列多，使用列并行技术。
+            6.返回动态实体对象数组
+            二、数据管理器工作过程(保存)
+            1、
+            2、
+            三、数据管理器工作过程(删除)
+            1、
+            2、
+            </summary>
+            <example>
+            <code>
+            SqlServerDbDriver driver = new SqlServerDbDriver();
+            driver.ConnectionString = TestConnectionString;
+            IDataManager manager = DataManagerUtils.GetDataManager(Order.OrderType, driver);
+            object order = manager.Read(1);
+            DynamicObject dynamicObject = (DynamicObject)order[0];
+            </code>
+            </example>
+            <summary>
+            //Read 部分 
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.IDataManager">
+            <summary>
+            实体操作的非泛型版本
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Create(Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            创建一个实体实例
+            </summary>
+            <param name="option">此操作的选项</param>
+            <returns>新的实体实例</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Read(System.Object,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回指定编号的实体数据
+            </summary>
+            <param name="oid">要检索的实体编号</param>
+            <param name="option">此操作的选项</param>
+            <returns>如果找到将返回此实体，否则抛出异常。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Read(System.Collections.IEnumerable,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回指定一批编号的实体数据数组
+            </summary>
+            <param name="oids">一批编号数组</param>
+            <param name="option">此操作的选项</param>
+            <returns>能够找到的实体数组，没有找到的不会出现错误</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Read(Kingdee.BOS.Orm.Drivers.ReadWhere,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回指定一批编号的实体数据数组
+            </summary>
+            <param name="oids">一批编号数组</param>
+            <param name="option">此操作的选项</param>
+            <returns>能够找到的实体数组，没有找到的不会出现错误</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Select(System.String,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            指定一个条件，按此条件返回一批数据。
+            </summary>
+            <param name="where">条件字符串，默认情况下条件中的字段使用属性表示，而是不使用原生的字段名称。</param>
+            <param name="option">如果希望使用原生的字段名称，那么可以设置DonotAutoMapWhere为true</param>
+            <returns>查询结果，此结果集支持再保存，即对集合的Add、Remove后，再调用保存方法可以还原。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Select(System.Collections.IEnumerable,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回指定一批编号的实体数据数组并返回可重新保存的数组形式
+            </summary>
+            <param name="oids">一批编号数组</param>
+            <param name="option">此操作的选项</param>
+            <returns>能够找到的实体集合，没有找到的不会出现错误</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Contains(System.Object,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回指定编号的实体是否存在
+            </summary>
+            <param name="oid">要查询的实体编号</param>
+            <param name="option">此操作的选项</param>
+            <returns>如果存在此实体编号将返回true，否则返回false</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Contains(System.Collections.IEnumerable,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回一批编号的实体是否存在
+            </summary>
+            <param name="oids">要查询的一批实体</param>
+            <param name="option">此操作的选项</param>
+            <returns>返回最终找到的实体编号列表</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.GetSaveDataSet(System.Object[],System.Boolean)">
+            <summary>
+            分析实体数据包，哪些是Insert哪些是Update哪些是Delete
+            </summary>
+            <param name="dataEntities"></param>
+            <param name="includeDefaultValue">是否包含默认值修改的数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Save(System.Object,Kingdee.BOS.Orm.Drivers.IOrmTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            保存指定的实体
+            </summary>
+            <param name="dataEntity">要保存的实体</param>
+            <param name="ormTransaction">此操作参与的事务对象，null表示没有事务</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Save(System.Collections.IEnumerable,Kingdee.BOS.Orm.Drivers.IOrmTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            保存一批实体数据
+            </summary>
+            <param name="dataEntities">要保存的一批实体</param>
+            <param name="ormTransaction">此操作参与的事务对象，null表示没有事务</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.CommitSnapData(System.Collections.IEnumerable)">
+            <summary>
+            快照更新
+            </summary>
+            <param name="dataEntities"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Delete(System.Object,Kingdee.BOS.Orm.Drivers.IOrmTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            删除指定编号的实体
+            </summary>
+            <param name="oid">要删除的实体编号</param>
+            <param name="ormTransaction">此操作参与的事务对象，null表示没有事务</param>
+            <param name="option">此操作的选项</param>
+            <returns>如果删除成功，返回true，如果系统没有找到此记录，返回false</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.Delete(System.Collections.IEnumerable,Kingdee.BOS.Orm.Drivers.IOrmTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            删除一批编号的实体
+            </summary>
+            <param name="oids">要删除的实体编号列表</param>
+            <param name="ormTransaction">此操作参与的事务对象，null表示没有事务</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.UpdateMetadata(Kingdee.BOS.Orm.Drivers.IOrmTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            按照当前实体的结构构建数据库
+            </summary>
+            <param name="ormTransaction">此操作参与的事务对象，null表示没有事务</param>
+            <param name="option">操作的可选项 </param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.TryGetTableMaping(System.String,Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable@,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="table"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager.TryGetColumnMaping(System.String,Kingdee.BOS.Orm.Metadata.Database.DbMetadataColumn@,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="column"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.IDataManager.Option">
+            <summary>
+            为系统提供额外的选项
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.TryGetTableMaping(System.String,Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable@,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="table"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.TryGetColumnMaping(System.String,Kingdee.BOS.Orm.Metadata.Database.DbMetadataColumn@,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="column"></param>
+            <param name="errorMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.CommitSnapData(System.Collections.IEnumerable)">
+            <summary>
+            快照更新
+            </summary>
+            <param name="dataEntities"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.EntitiesToDataSetForSimpleProperty(Kingdee.BOS.Orm.DataManager.SaveDataTable,System.Object[],Kingdee.BOS.Orm.DataManager.SaveDataSet,Kingdee.BOS.Orm.Metadata.Database.DataEntityTypeMap,System.Boolean)">
+            <summary>将实体中脏数据填充到表格中。</summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.GetOutputList(Kingdee.BOS.Orm.Metadata.Database.DataEntityTypeMap)">
+            <summary>寻找输出列</summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.ClearEntityDirty(System.Object[],Kingdee.BOS.Orm.Metadata.Database.DataEntityTypeMap,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            清除实体脏标志
+            </summary>
+            <param name="dataEntities"></param>
+            <param name="dataEntityTypeMap"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.UpdateMetadata(Kingdee.BOS.Orm.Drivers.IOrmTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            按照当前实体的结构构建数据库
+            </summary>
+            <param name="ormTransaction">事务</param>
+            <param name="option">操作的可选项 </param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.AutoBatchExecute(System.Collections.IEnumerable,Kingdee.BOS.Orm.OperateOption,System.Func{System.Object[],System.Object[]})">
+            <summary>
+            分析一批编号，根据数据量的大小进行批量处理
+            </summary>
+            <param name="ids">编号列表</param>
+            <param name="option">选项</param>
+            <param name="func">实际执行的方法</param>
+            <returns>执行的最终的结果</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.GetSaveDataSet(System.Object[],System.Boolean)">
+            <summary>
+            获取实体数据分析结果，哪些行是Insert，哪些是Update，哪些是Delete的
+            </summary>
+            <param name="dataEntities"></param>
+            <param name="includeDefaultValue">是否强制更新含默认值的列</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.Select(System.String,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            指定一个条件，按此条件返回一批数据。
+            </summary>
+            <param name="where">条件字符串，默认情况下条件中的字段使用属性表示，而是不使用原生的字段名称。</param>
+            <param name="option">如果希望使用原生的字段名称，那么可以设置DonotAutoMapWhere为true</param>
+            <returns>查询结果，此结果集支持再保存，即对集合的Add、Remove后，再调用保存方法可以还原。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.Select(System.Collections.IEnumerable,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回指定一批编号的实体数据数组并返回可重新保存的数组形式
+            </summary>
+            <param name="oids">一批编号数组</param>
+            <param name="option">此操作的选项</param>
+            <returns>能够找到的实体集合，没有找到的不会出现错误</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataManagerImplement.SetEntitySnapshotEx(Kingdee.BOS.Orm.DataManager.QuickDataSet,Kingdee.BOS.Orm.DataManager.QuickDataTable,System.Collections.Generic.Dictionary{System.Object,Kingdee.BOS.Orm.DataManager.RuntimePkSnapshotSet})">
+            <summary>
+            递归创建快照对象，通过外键直接定位到根实体的快照集对象。
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchema">
+            <summary>
+            描述了实体引用属性的定义情况
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchema.Add(Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchemaItem)">
+            <summary>
+            添加一个扫描的结果
+            </summary>
+            <param name="item">新的结果</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchema.GetItemsByPropertyPath(System.String,System.Boolean)">
+            <summary>
+            获取某个属性路径下所有的引用定义
+            </summary>
+            <param name="propertyPath">引用属性路径</param>
+            <param name="mustHaveReferenceObjectProperty">是否尽搜索包含ReferenceObjectProperty属性定义的引用属性</param>
+            <returns>所有的引用定义</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchema.GetReferenceSchema(Kingdee.BOS.Orm.Metadata.DataEntity.IDataEntityType,System.Boolean)">
+            <summary>
+            通过分析一个指定的数据结构，获取其引用定义
+            </summary>
+            <param name="dt">要分析的数据结构</param>
+            <param name="onlyDbProperty">是否仅处理有物理字段的属性</param>
+            <returns>分析后的数据结构，此结构描述了所有的引用属性定义情况</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchema.SearchDataEntityReferenceSchema(Kingdee.BOS.Orm.Metadata.DataEntity.IDataEntityType,Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchema,Kingdee.BOS.Orm.DataEntity.PropertyStockNode,System.Boolean)">
+            <summary>
+            扫描指定实体类型，获取引用属性定义情况
+            </summary>
+            <param name="dt">实体类型</param>
+            <param name="schema">引用属性定义情况</param>
+            <param name="stock"></param>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchemaItem">
+            <summary>
+            描述了实体应用属性的单个定义情况
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchemaItem.PropertyPath">
+            <summary>
+            返回/设置引用属性所在的路径
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchemaItem.ReferenceOidProperty">
+            <summary>
+            返回/设置引用属性
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchemaItem.ReferenceTo">
+            <summary>
+            返回/设置此引用属性指向的路径
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.DataManager.DataEntityReferenceSchemaItem.ReferenceObjectProperty">
+            <summary>
+            返回/设置引用属性最终填充到哪个引用对象属性
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.DataManagerUtils">
+            <summary>
+            工具类,创建一个数据管理器
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManagerUtils.GetDataManager``2">
+            <summary>
+            创建一个数据管理器，以便获取CRUD的能力
+            </summary>
+            <returns>一个数据管理器实例</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManagerUtils.GetDataManager(Kingdee.BOS.Orm.Metadata.DataEntity.IDataEntityType,Kingdee.BOS.Orm.Drivers.IDbDriver,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            创建一个数据管理器，以便获取CRUD的能力
+            </summary>
+            <param name="dt">数据类型</param>
+            <param name="driver">驱动程序实例</param>
+            <param name="option">管理器的整体选项。</param>
+            <returns>一个数据管理器实例</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManagerUtils.ToArray``1(System.Collections.IEnumerable)">
+            <summary>
+            将IEnumerable类型的数据转换为数组
+            </summary>
+            <param name="col">要转换的集合</param>
+            <returns>结果数组</returns>
+            <typeparam name="T">数组的类型</typeparam>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManagerUtils.GetBatchSize(Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            获取大数据量处理时，一批提交的数据量，默认5000。（内部变量名：BatchSize）
+            </summary>
+            <param name="option">提供选项的对象</param>
+            <returns>当前选项对象中此设置的值</returns>
+            <remarks>
+            引擎在操作大型数据时，不能一次性执行SQL，可很可能造成数据库的超时，所以引擎在发现
+            数据量很大时，会内部分批执行SQL。此参数设置一次批量处理的数量。
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManagerUtils.GetAlwaysReturnArray(Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            是否在读取操作时，不论数据大小都是返回数组。默认是true（内部变量名：AlwaysReturnArray）
+            </summary>
+            <param name="option">提供选项的对象</param>
+            <returns>当前选项的值</returns>
+            <remarks>
+            如果是true表示无论多大的数据，总是返回数组，这可能造成巨大的内存占用。如果为false，当引擎发现数据量很大时（大于BatchSize)
+            返回的将是一个延迟读取的对象，直到Foreach结果集时，才会分批读取数据，这非常适合读取巨大的数据量。但是需要注意的是：
+            基于执行效率和内存占用的考虑，结果集不支持多次Foreach操作。
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManagerUtils.GetCacheMetadata(Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            是否缓存已处理过的元数据结果,默认值是true（内部变量名：CacheMetadata）
+            </summary>
+            <param name="option">提供选项的对象</param>
+            <returns>当前选项的值</returns>
+            <remarks>
+            引擎在对实体进行CRUD操作前，需要分析实体的元数据信息已产生映射关系，为提高效率，引擎默认
+            会缓存分析后的结果，以便后面操作相同类型的实体时不再重新分析。但是，如果你的实体类型仅使用一次
+            且可能产生很多此类的临时类型，会造成缓存命中率下降。当对此情况请设置参数为false，以通知引擎不再
+            缓存分析结果。
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManagerUtils.GetThrowExceptionWhenNotFind(Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            是否在没有找到指定编号的数据时，触发异常，默认为true。（内部变量名：ThrowExceptionWhenNotFind）
+            </summary>
+            <param name="option">提供选项的对象</param>
+            <returns>是否触发异常。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManagerUtils.GetBulkCopy(Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            是否启用BulkCopy模式的批量插入机制，默认为false。（内部变量名：BulkCopy）
+            注意：只用数据库驱动程序支持BulkCopy，此选项才能真正有效。
+            </summary>
+            <param name="option">提供选项的对象</param>
+            <returns>是否启用BulkCopy模式批量插入数据。。</returns>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.LoadReferenceObjectManager">
+            <summary>
+            延迟读取所有未填充的引用属性对象的值
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.LoadReferenceObjectManager.#ctor(Kingdee.BOS.Orm.Metadata.DataEntity.IDataEntityType)">
+            <summary>
+            创建 LoadReferenceObjectManager 实例
+            </summary>
+            <param name="dt">数据的实体</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.LoadReferenceObjectManager.#ctor(Kingdee.BOS.Orm.Metadata.DataEntity.IDataEntityType,Kingdee.BOS.Orm.Drivers.IDbDriver,System.Boolean)">
+            <summary>
+            创建 LoadReferenceObjectManager 实例
+            </summary>
+            <param name="dt">数据的实体</param>
+            <param name="driver">当自动填充数据时，默认的驱动</param>
+            <param name="onlyDbProperty">是否仅处理有物理字段的属性</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.LoadReferenceObjectManager.Load(System.Object[])">
+            <summary>
+            延迟读取所有未填充的引用属性对象的值
+            </summary>
+            <param name="dataEntities">要扫描更新的实体集合</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.LoadReferenceObjectManager.Load(System.Object[],System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            延迟读取所有未填充的引用属性对象的值
+            </summary>
+            <param name="dataEntities">要扫描更新的实体集合</param>
+            <param name="dict">引用属性where集合</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.LoadReferenceObjectManager.GetTasks(System.Object[])">
+            <summary>
+            获取所有的读取任务
+            </summary>
+            <returns>所有需要读取引用数据的任务</returns>
+            <param name="dataEntities">要扫描更新的实体集合</param>
+            <remarks>
+            可以重载此方法，例如缓存系统可以检测创建后的任务，在进行下一步（到数据库读取数据）之前，
+            在缓存中检索并填充这些数据。
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.LoadReferenceObjectManager.DoTasks(System.Collections.Generic.ICollection{Kingdee.BOS.Orm.DataEntity.DataEntityReferenceList})">
+            <summary>
+            继续完成GetFillReferenceObjectsTasks返回的参数中，未填充的任务
+            </summary>
+            <param name="tasks">要继续完成的任务，如果有未读取的数据，那么将自动从数据库中检索</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.LoadReferenceObjectManager.DoTasks(System.Collections.Generic.ICollection{Kingdee.BOS.Orm.DataEntity.DataEntityReferenceList},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            继续完成GetFillReferenceObjectsTasks返回的参数中，未填充的任务
+            </summary>
+            <param name="tasks">要继续完成的任务，如果有未读取的数据，那么将自动从数据库中检索</param>
+            <param name="dict">引用属性where集合</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.LoadReferenceObjectManager.Read(Kingdee.BOS.Orm.Metadata.DataEntity.IDataEntityType,System.Object[])">
+            <summary>
+            可以重载此方法完全控制数据的读取
+            </summary>
+            <param name="dt">要读取的数据类型</param>
+            <param name="oids">要读取的键</param>
+            <returns>结果</returns>
+            <remarks>
+            如果需要复杂的读取逻辑，例如使用不同的驱动程序读取数据，请重载此方法。
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.LoadReferenceObjectManager.Read(Kingdee.BOS.Orm.Metadata.DataEntity.IDataEntityType,Kingdee.BOS.Orm.Drivers.ReadWhere)">
+            <summary>
+            可以重载此方法完全控制数据的读取
+            </summary>
+            <param name="dt">要读取的数据类型</param>
+            <param name="where">取数条件</param>
+            <returns>结果</returns>
+            <remarks>
+            如果需要复杂的读取逻辑，例如使用不同的驱动程序读取数据，请重载此方法。
+            </remarks>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.LoadReferenceObjectManager.DbDriver">
+            <summary>
+            返回由构造函数传入的驱动程序实例。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.LoadReferenceObjectManager.OnlyDbProperty">
+            <summary>
+            返回/设置 是否仅数据库有效的属性参与计算。默认值为true.
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.IDataManager`2">
+            <summary>
+            数据操作接口类
+            包含对实体的创建、查询、保存、删除操作
+            </summary>
+            <typeparam name="DataT">实体类型</typeparam>
+            <typeparam name="OidT">数据标示类型</typeparam>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Create(Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            创建一个实体实例
+            </summary>
+            <returns>新的实体实例</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Read(`1,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回指定编号的实体数据
+            </summary>
+            <param name="oid">要检索的实体编号</param>
+            <param name="option">此操作的选项</param>
+            <returns>如果找到将返回此实体，否则抛出异常。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Read(System.Collections.Generic.IEnumerable{`1},Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回指定一批编号的实体数据数组
+            </summary>
+            <param name="oids">一批编号数组</param>
+            <param name="option">此操作的选项</param>
+            <returns>能够找到的实体数组，没有找到的不会出现错误</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Select(System.String,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            指定一个条件，按此条件返回一批数据。
+            </summary>
+            <param name="where">条件字符串，默认情况下条件中的字段使用属性表示，而是不使用原生的字段名称。</param>
+            <param name="option">如果希望使用原生的字段名称，那么可以设置DonotAutoMapWhere为true</param>
+            <returns>查询结果，此结果集支持再保存，即对集合的Add、Remove后，再调用保存方法可以还原。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Select(System.Collections.Generic.IEnumerable{`1},Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回指定一批编号的实体数据数组并返回可重新保存的数组形式
+            </summary>
+            <param name="oids">一批编号数组</param>
+            <param name="option">此操作的选项</param>
+            <returns>能够找到的实体集合，没有找到的不会出现错误</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Contains(`1,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回指定编号的实体是否存在
+            </summary>
+            <param name="oid">要查询的实体编号</param>
+            <param name="option">此操作的选项</param>
+            <returns>如果存在此实体编号将返回true，否则返回false</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Contains(System.Collections.Generic.IEnumerable{`1},Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            返回一批编号的实体是否存在
+            </summary>
+            <param name="oids">要查询的一批实体</param>
+            <param name="option">此操作的选项</param>
+            <returns>返回最终找到的实体编号列表</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Save(`0,System.Data.IDbTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            保存指定的实体
+            </summary>
+            <param name="dataEntity">要保存的实体</param>
+            <param name="dbTransaction">此操作参与的事务对象，null表示没有事务</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Save(System.Collections.Generic.IEnumerable{`0},System.Data.IDbTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            保存一批实体数据
+            </summary>
+            <param name="dataEntities">要保存的一批实体</param>
+            <param name="dbTransaction">此操作参与的事务对象，null表示没有事务</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.CommitSnapData(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            快照更新
+            </summary>
+            <param name="dataEntities"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Delete(`1,System.Data.IDbTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            删除指定编号的实体
+            </summary>
+            <param name="oid">要删除的实体编号</param>
+            <param name="dbTransaction">此操作参与的事务对象，null表示没有事务</param>
+            <param name="option">此操作的选项</param>
+            <returns>如果删除成功，返回true，如果系统没有找到此记录，返回false</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.Delete(System.Collections.Generic.IEnumerable{`1},System.Data.IDbTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            删除一批编号的实体
+            </summary>
+            <param name="oids">要删除的实体编号列表</param>
+            <param name="dbTransaction">此操作参与的事务对象，null表示没有事务</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.IDataManager`2.UpdateMetadata(System.Data.IDbTransaction,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            按照当前实体的结构构建数据库
+            </summary>
+            <param name="dbTransaction">此操作参与的事务对象，null表示没有事务</param>
+            <param name="option">操作的可选项 </param>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.IDataManager`2.Option">
+            <summary>
+            为系统提供额外的选项
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.ObjectCache`2.GetOrAdd(`0,System.Func{`0,`1})">
+            <summary>
+            基于弱引用字典的实现。
+            </summary>
+            <param name="key">The key of the element to add.</param>
+            <param name="valueFactory">The function used to generate a dataEntity for the key</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.DataManager.SaveDataTable.AnalyseRows(Kingdee.BOS.Orm.DataEntity.PkSnapshot)">
+            <summary>
+            通过传入的快照，分析当前表的所有记录决定何种操作：(Insert\Update\Delete\None)
+            </summary>
+            <param name="pkSnapshot">此表的原始快照，目前实现的快照来自实体读取时备份的，以后还可以实现从数据库中取快照</param>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.DataManager.SimpleColumnValuePair">
+            <summary>
+            简单实现的列值对，给一个固定的值
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.DataManager.SimpleColumnValuePair.Column">
+            <summary>
+            返回列对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.DataManager.SimpleColumnValuePair.Value">
+            <summary>
+            返回值对象,不允许设置值
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.DataManager.SyncColumnValuePair">
+            <summary>
+            提供数据同步功能支持的列值对
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.DataManager.SyncColumnValuePair.Column">
+            <summary>
+            返回列对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.DataManager.SyncColumnValuePair.Value">
+            <summary>
+            返回、设置值，并同步到实体
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.DataManager.ParentOidColumnValuePair">
+            <summary>
+            为父子关系的外键特殊设计的列值对。区别是Get是从父表延迟读取，而Set和SyncColumnValuePair相同。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.DataManager.ParentOidColumnValuePair.Column">
+            <summary>
+            返回列对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.DataManager.ParentOidColumnValuePair.Value">
+            <summary>
+            返回、设置值，并同步到实体
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.AccessDbDriver">
+            <summary>
+            为Access数据库编写的ORM驱动程序
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.DbDriverBase">
+            <summary>
+            参考实现的驱动程序，提供通用的实现
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.IDbDriver">
+            <summary>
+            ORM的驱动程序
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.IDbDriver.Select(Kingdee.BOS.Orm.Drivers.SelectCallback,System.Collections.Generic.IEnumerable{Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable},Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,Kingdee.BOS.Orm.Drivers.ReadWhere,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            读取指定表的数据
+            </summary>
+            <param name="callback">读取数据后发生的回调</param>
+            <param name="tablesSchema">所有要读取的表的Schema</param>
+            <param name="rootTable">根表对象</param>
+            <param name="where">条件对象</param>
+            <param name="option">此操作的选项。</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.IDbDriver.UpdateMetadata(Kingdee.BOS.Orm.Metadata.Database.DbMetadataDatabase,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            按照指定参数的定义，更新当前数据库的表结构
+            </summary>
+            <param name="dbMetadata">指定的数据库结构，注意，已经屏蔽了TableGroup的概念</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.IDbDriver.BeginTransaction(System.Data.IDbTransaction)">
+            <summary>
+            启动事务
+            </summary>
+            <param name="dbTransaction"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.IDbDriver.ConnectionString">
+            <summary>
+            当前的数据库连接字符串
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.DbDriverBase.GetSelectSQL(Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable)">
+            <summary>
+            创建Select表的SQL语句
+            </summary>
+            <param name="tableSchema">要Select操作的表Schema</param>
+            <returns>对应的SQL语句</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.DbDriverBase.Select(Kingdee.BOS.Orm.Drivers.SelectCallback,System.Collections.Generic.IEnumerable{Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable},Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,Kingdee.BOS.Orm.Drivers.ReadWhere,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            读取指定表的数据
+            </summary>
+            <param name="callback">读取数据后发生的回调</param>
+            <param name="tablesSchema">所有要读取的表的Schema</param>
+            <param name="rootTable">根表对象</param>
+            <param name="where">条件对象</param>
+            <param name="option">此操作的选项。</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.DbDriverBase.ExecuteReader(Kingdee.BOS.Orm.Drivers.SelectCallback,System.Collections.Generic.IEnumerable{Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable},Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,System.Collections.Generic.IList{System.Text.StringBuilder},Kingdee.BOS.Orm.Drivers.ReadWhere,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            指定指定SQL语句列表并处理读取回调
+            </summary>
+            <param name="callback">要进行读取处理的回调</param>
+            <param name="tablesSchema">要读取的所有表的Schema</param>
+            <param name="rootTable">根表对象的Schema</param>
+            <param name="selectSqls">所有表的Select语句</param>
+            <param name="where">条件对象</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.DbDriverBase.UpdateMetadata(Kingdee.BOS.Orm.Metadata.Database.DbMetadataDatabase,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            按照指定参数的定义，更新当前数据库的表结构
+            </summary>
+            <param name="dbMetadata">指定的数据库结构，注意，已经屏蔽了TableGroup的概念</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.DbDriverBase.BeginTransaction(System.Data.IDbTransaction)">
+            <summary>
+            启动事务
+            </summary>
+            <param name="dbTransaction"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.DbDriverBase.ConnectionString">
+            <summary>
+            当前的数据库连接字符串
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.AccessDbDriver.ExecuteReader(Kingdee.BOS.Orm.Drivers.SelectCallback,System.Collections.Generic.IEnumerable{Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable},Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,System.Collections.Generic.IList{System.Text.StringBuilder},Kingdee.BOS.Orm.Drivers.ReadWhere,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            指定指定SQL语句列表并处理读取回调
+            </summary>
+            <param name="callback">要进行读取处理的回调</param>
+            <param name="tablesSchema">要读取的所有表的Schema</param>
+            <param name="rootTable">根表对象的Schema</param>
+            <param name="selectSqls">所有表的Select语句</param>
+            <param name="where">条件对象</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.AccessDbDriver.UpdateMetadata(Kingdee.BOS.Orm.Metadata.Database.DbMetadataDatabase,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            按照指定参数的定义，更新当前数据库的表结构
+            </summary>
+            <param name="dbMetadata">指定的数据库结构，注意，已经屏蔽了TableGroup的概念</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.AccessDbDriver.BeginTransaction(System.Data.IDbTransaction)">
+            <summary>
+            启动事务
+            </summary>
+            <param name="dbTransaction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.OrmTransactionBase">
+            <summary>
+            通用实现的事务处理基类
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.IOrmTransaction">
+            <summary>
+            ORM操作事务类
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.IOrmTransaction.Insert(Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            向数据库插入一笔记录
+            </summary>
+            <param name="table">要插入操作的表对象</param>
+            <param name="inputValues">输入值数组</param>
+            <param name="outputValues">输出值数组</param>
+            <param name="oid">主键编号</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.IOrmTransaction.Update(Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair,Kingdee.BOS.Orm.Drivers.IColumnValuePair,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            更新指定表的数据
+            </summary>
+            <param name="table">要更新数据的表</param>
+            <param name="inputValues">输入值数组</param>
+            <param name="outputValues">输出值数组</param>
+            <param name="oid">要更新的行的主键值</param>
+            <param name="originalVersion">原始版本号</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.IOrmTransaction.Delete(Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,System.Object[],System.Object[],Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            删除指定表的数据
+            </summary>
+            <param name="table">要删除数据的表</param>
+            <param name="oids">删除数据的编号列表</param>
+            <param name="originalVersions">原始版本列表</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.IOrmTransaction.Delete(System.Collections.Generic.IEnumerable{Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable},Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,System.Object[],Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            删除指定一批表的数据，这些表具有父子关系
+            </summary>
+            <param name="tablesSchema">所有表的Schema</param>
+            <param name="rootTable">根表对象</param>
+            <param name="rootOids">根表的编号列表</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.IOrmTransaction.CommitSqlTask">
+            <summary>
+            提交SQL
+            </summary>
+        </member>
+        <member name="E:Kingdee.BOS.Orm.Drivers.IOrmTransaction.CommitAfter">
+            <summary>
+            当提交事务时，执行自定义的操作.
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.#ctor">
+            <summary>
+            当派生类不支持 F （DbProviderFactory）泛型参数时使用此构造函数
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.#ctor(System.Data.IDbConnection,System.Data.IDbTransaction)">
+            <summary>
+            当派生类支持 F （DbProviderFactory）泛型参数时使用此参数
+            </summary>
+            <param name="con">当前可用的数据库连接</param>
+            <param name="tran"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.CreateSqlTask">
+            <summary>
+            创建一个SQL任务实例
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.Insert(Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            向数据库插入一笔记录
+            </summary>
+            <param name="table">要插入操作的表对象</param>
+            <param name="inputValues">输入值数组</param>
+            <param name="outputValues">输出值数组</param>
+            <param name="oid">主键编号</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.Update(Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair,Kingdee.BOS.Orm.Drivers.IColumnValuePair,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            更新指定表的数据
+            </summary>
+            <param name="table">要更新数据的表</param>
+            <param name="inputValues">输入值数组</param>
+            <param name="outputValues">输出值数组</param>
+            <param name="oid">要更新的行的主键值</param>
+            <param name="originalVersion">原始版本号</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.getPkTable(System.Object[],System.Data.DbType,System.String@)">
+            <summary>
+            获取删除表是主表的KEY值列表函数
+            </summary>
+            <param name="oids">主键KEY，>=1条记录</param>
+            <param name="dbtype">数据类型，字符或者数字</param>
+            <returns>返回EXISTS (select 1 from  table(fn_StrSplit(@FID, ',','1/2')) where fid={0})</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.getPkFileter(System.Object[],System.Data.DbType,System.String@)">
+            <summary>
+            获取删除表是主表的KEY值列表，并生成Exists子句
+            </summary>
+            <param name="oids">主键KEY，>=1条记录</param>
+            <param name="dbtype">数据类型，字符或者数字</param>
+            <returns>返回EXISTS (select 1 from  table(fn_StrSplit(@FID, ',','1/2')) where fid={0})</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.Delete(Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,System.Object[],System.Object[],Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            删除指定表的数据
+            </summary>
+            <param name="table">要删除数据的表</param>
+            <param name="oids">删除数据的编号列表</param>
+            <param name="originalVersions">原始版本列表</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.Delete(System.Collections.Generic.IEnumerable{Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable},Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,System.Object[],Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            删除指定一批表的数据，这些表具有父子关系
+            </summary>
+            <param name="tablesSchema">所有表的Schema</param>
+            <param name="rootTable">根表对象</param>
+            <param name="rootOids">根表的编号列表</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.GetDeleteWhere4DBType(Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,System.String,System.String)">
+            <summary>
+            默认SLQ库获取删除SQL:使用Exists查询
+            </summary>
+            <param name="rootTable"></param>
+            <param name="currentTable"></param>
+            <param name="pkTable"></param>
+            <param name="currentTableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.CreateBulkCopyTask(System.String,System.Collections.ObjectModel.ReadOnlyCollection{Kingdee.BOS.Orm.Metadata.Database.DbMetadataColumn},System.Data.IDataReader,System.Int32)">
+            <summary>
+             如果驱动程序支持批量处理，需要重载此方法。
+            </summary>
+            <param name="tableName">插入的表名称</param>
+            <param name="columns">列集合</param>
+            <param name="dataReader">数据读取器</param>
+            <param name="level">任务的层级。</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.Commit">
+            <summary>
+            提交所有任务
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.ExecuteSqlTasks(System.Collections.Generic.IList{Kingdee.BOS.Orm.Drivers.IDatabaseTask})">
+            <summary>
+            执行所有批量的任务
+            </summary>
+            <param name="tasks">所有要执行的任务</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.Rollback">
+            <summary>
+            回滚当前事务
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.CreateAndOpenConnection">
+            <summary>
+            当使用并行处理时，必须重载此方法用于创建很多的连接
+            </summary>
+            <returns>新的连接对象</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.GetConverter(Kingdee.BOS.Orm.Metadata.Database.DbMetadataColumn)">
+            <summary>
+            允许派生类为指定的列定义转换器函数
+            </summary>
+            <param name="col">列对象</param>
+            <returns>一个转换器对象，可以将实体中的值转换为数据库希望保存的类型。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.Dispose">
+            <summary>
+            释放事务的资源
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.TryAddColumnValuePair(Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair)">
+            <summary>如果要添加的列不在数组中，向数组中添加一列</summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.DbProviderFactory">
+            <summary>
+            返回对应的数据库对象提供者
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.ExTableHaveRelitionField">
+            <summary>
+            返回在非根表的扩展表中，是否需要一个外键来关联上级表。
+            </summary>
+            <remarks>
+            通常的，非根表的扩展表仅需要主键关联主表，然后关联上级表即可，但是根据
+            利军的意见，他希望提供外键冗余这种外键。在OLEDBDriver中重载了此属性。
+            </remarks>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.SupportsBulkCopy">
+            <summary>
+            返回驱动是否支持批量处理功能。
+            </summary>
+        </member>
+        <member name="E:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.CommitAfter">
+            <summary>
+            当提交事务时，执行自定义的操作.
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.UseParallel">
+            <summary>
+            是否可以启用并行执行，默认不启用
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.Connection">
+            <summary>
+            返回对应的数据库连接对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmTransactionBase.IsolationLevel">
+            <summary>
+            返回当前的事务级别
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.SqlTask">
+            <summary>
+            定义了一个SQL执行任务
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.IDatabaseTask">
+            <summary>
+            数据库驱动在一个事务任务。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.IDatabaseTask.Execute(System.Data.IDbConnection,System.Data.IDbTransaction)">
+            <summary>
+            执行当前任务。
+            </summary>
+            <param name="con">当前可用的连接对象</param>
+            <param name="tran">数据库事务。</param>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.IDatabaseTask.Level">
+            <summary>
+            返回 表的层级，决定执行顺序
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlTask.#ctor">
+            <summary>
+            派生类需要自定义行为用
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlTask.#ctor(System.Data.IDbCommand)">
+            <summary>
+            通过传入命令对象构建任务
+            </summary>
+            <param name="cmd">命令对象</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlTask.AddParamter(System.String,System.Data.DbType,System.Object,System.String@)">
+            <summary>
+            向任务中添加参数
+            </summary>
+            <param name="name">参数名称</param>
+            <param name="dbType">数据类型</param>
+            <param name="value">值</param>
+            <param name="paramterName">返回此参数的表示形式</param>
+            <returns>参数对象</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlTask.BuildParamterName(System.String)">
+            <summary>
+            为命令定义一个参数名称
+            </summary>
+            <param name="name">参数原始名称</param>
+            <returns>新名称，默认是加  @ </returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlTask.AddParamters(System.Object[])">
+            <summary>
+            一次性添加很多参数
+            </summary>
+            <param name="paramters">要添加的参数列表</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlTask.Execute(System.Data.IDbConnection,System.Data.IDbTransaction)">
+            <summary>
+            执行当前任务。
+            </summary>
+            <param name="con">当前可用的连接对象</param>
+            <param name="tran">数据库事务。</param>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.SqlTask.Level">
+            <summary>
+            返回 表的层级，决定执行顺序
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.SqlTask.Command">
+            <summary>
+            返回与任务关联的命令
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.SqlTask.SQL">
+            <summary>
+            返回要执行的 SQL 
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.SqlTask.ExpectedAffectedCount">
+            <summary>
+            期望被影响的行数目,默认为不检查期望值(-1)
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.SqlTask.ShouldCheckAffectedCount">
+            <summary>
+            是否需要检查任务执行后的影响行数
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.BulkCopyDataReader">
+            <summary>
+            为BulkCopy提供一个读取器，使之从这里读取要插入的数据。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.BulkCopyDataReader.TableName">
+            <summary>
+            返回物理表名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.BulkCopyDataReader.Columns">
+            <summary>
+            返回所有的列对象。
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.BulkCopyData">
+            <summary>
+            为驱动程序实现BulkCopy功能设计。
+            </summary>
+            <remarks>
+            <para> 在一个事务中，同一个逻辑表中多个插入行任务，其共享一个BulkCopyTask,因为他们需要最后统一提交。</para>
+            <para> 在内部，所有插入的数据存储到数组中，最后可以作为一个IDataReader返回数据。</para>
+            <para> 当把 SqlDateTime 类型的 DataTable 列批量加载到类型为 SQL Server 2008 中新增的日期/时间类型的 SQL Server 列时，SqlBulkCopy 将失败</para>
+            <para> 受制于BulkCopy机制，我无法找到如何使用数据库的默认值，只能使用CLR的默认值。这样做的话可能会出现不一致的问题。</para>
+            </remarks>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.BulkCopyData.#ctor(Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable)">
+            <summary>
+            派生类调用此构造创建实例。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.BulkCopyData.Insert(Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            向当前表登记插入信息。
+            </summary>
+            <param name="inputValues">输入数据。</param>
+            <param name="oid">主键</param>
+            <param name="option">选项。</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.BulkCopyData.ConvertData(Kingdee.BOS.Orm.Drivers.TableColumnConverterContainer)">
+            <summary>在提交前，将必要的字段值进行转换。</summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.BulkCopyData.CreateDataReader(System.String,Kingdee.BOS.Orm.Metadata.Database.DbMetadataColumn[])">
+            <summary>
+            从当前任务中提取数据，它使用IDataReader方式返回。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.BulkCopyData.Table">
+            <summary>
+            返回当前任务关联的表
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.BulkCopyTaskBase">
+            <summary>
+            为批量处理建立的任务。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.BulkCopyTaskBase.#ctor(System.String,System.Collections.ObjectModel.ReadOnlyCollection{Kingdee.BOS.Orm.Metadata.Database.DbMetadataColumn},System.Data.IDataReader,System.Int32)">
+            <summary>
+            派生类调用此方法构建实例。
+            </summary>
+            <param name="tableName">表名称</param>
+            <param name="columns">列集合</param>
+            <param name="dataReader">数据读取器。</param>
+            <param name="level">任务的优先级别</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.BulkCopyTaskBase.Execute(System.Data.IDbConnection,System.Data.IDbTransaction)">
+            <summary>
+            执行当前任务。
+            </summary>
+            <param name="con">当前可用的连接对象</param>
+            <param name="tran">数据库事务。</param>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.BulkCopyTaskBase.TableName">
+            <summary>
+            返回物理表名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.BulkCopyTaskBase.DataReader">
+            <summary>
+            返回对应的数据读取器
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.BulkCopyTaskBase.Columns">
+            <summary>
+            返回所有的列对象。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.BulkCopyTaskBase.Level">
+            <summary>
+            返回 表的层级，决定执行顺序
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.BulkCopyTaskContainer">
+            <summary>
+            存放BulkCopy任务的专用容器，驱动程序可以在事务中持有此容器，并在提交时统一提交。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.BulkCopyTaskContainer.#ctor">
+            <summary>
+            创建实例
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.BulkCopyTaskContainer.Insert(Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,Kingdee.BOS.Orm.Drivers.IColumnValuePair[],Kingdee.BOS.Orm.Drivers.IColumnValuePair,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            向指定的表登记插入信息。
+            </summary>
+            <param name="table">表对象的元数据</param>
+            <param name="inputValues">输入数据。</param>
+            <param name="oid">主键</param>
+            <param name="option">选项。</param>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.TableColumnConverterContainer">
+            <summary>
+            为特定数据库指定特定的转换器。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.TableColumnConverterContainer.TryGetConverter(Kingdee.BOS.Orm.Metadata.Database.DbMetadataColumn,System.Func{System.Object,System.Object}@)">
+            <summary>
+            尝试检索某个列的转换器。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.TableColumnConverterContainer.GetColumnDbValue(Kingdee.BOS.Orm.Drivers.IColumnValuePair)">
+            <summary>
+            返回一个列值对所对应的数据库值，此值根据当前驱动程序的要求进行了转换。
+            </summary>
+            <param name="pair">列值对</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.SelectCallback">
+            <summary>
+            在数据库获取到读取器后发生的回调
+            </summary>
+            <param name="reader"></param>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase">
+            <summary>
+            抽象的数据读取类，用于辅助将数据库读取出的数据转换为正确的实体类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ChangeParent(System.Data.IDataReader,Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable)">
+            <summary>
+            切换当前的真正读取器
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetValues(System.Object[])">
+            <summary>
+            获取当前记录的集合中的全部属性字段。
+            </summary>
+            <param name="values">要将属性字段复制到的 Object 的数组。</param>
+            <returns>数组中 Object 的实例的数目。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetConverter(Kingdee.BOS.Orm.Metadata.Database.DbMetadataColumn)">
+            <summary>
+            允许派生类为指定的列定义转换器函数
+            </summary>
+            <param name="col">列对象</param>
+            <returns>一个转换器对象，可以将数据库中读取出来的值转换为你想要的值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ToInt16(System.Object)">
+            <summary>
+            转换对象的值到Int16
+            </summary>
+            <param name="value">要转换的值</param>
+            <returns>如果是DbNull将仍然返回DbNull，否则将尝试转换。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ToInt32(System.Object)">
+            <summary>
+            转换对象的值到Int32
+            </summary>
+            <param name="value">要转换的值</param>
+            <returns>如果是DbNull将仍然返回DbNull，否则将尝试转换。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ToDecimal(System.Object)">
+            <summary>
+            转换对象的值到Decimal
+            </summary>
+            <param name="value">要转换的值</param>
+            <returns>如果是DbNull将仍然返回DbNull，否则将尝试转换。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ToInt64(System.Object)">
+            <summary>
+            转换对象的值到Int64
+            </summary>
+            <param name="value">要转换的值</param>
+            <returns>如果是DbNull将仍然返回DbNull，否则将尝试转换。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ToBoolean(System.Object)">
+            <summary>
+            转换对象的值到Boolean
+            </summary>
+            <param name="value">要转换的值</param>
+            <returns>如果是DbNull将仍然返回DbNull，否则将尝试转换。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ToChar(System.Object)">
+            <summary>
+            转换对象的值到Char
+            </summary>
+            <param name="value">要转换的值</param>
+            <returns>如果是DbNull将仍然返回DbNull，否则将尝试转换。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ToByte(System.Object)">
+            <summary>
+            转换对象的值到Byte
+            </summary>
+            <param name="value">要转换的值</param>
+            <returns>如果是DbNull将仍然返回DbNull，否则将尝试转换。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ToGuid(System.Object)">
+            <summary>
+            转换对象的值到Guid
+            </summary>
+            <param name="value">要转换的值，支持byte、string转换到guid</param>
+            <returns>如果是DbNull将仍然返回DbNull，否则将尝试转换。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ToDouble(System.Object)">
+            <summary>
+            转换对象的值到Double
+            </summary>
+            <param name="value">要转换的值</param>
+            <returns>如果是DbNull将仍然返回DbNull，否则将尝试转换。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.ToSingle(System.Object)">
+            <summary>
+            转换对象的值到Single
+            </summary>
+            <param name="value">要转换的值</param>
+            <returns>如果是DbNull将仍然返回DbNull，否则将尝试转换。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.Close">
+            <summary>
+            关闭 IDataReader Object。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetSchemaTable">
+            <summary>
+            返回一个 DataTable，它描述 IDataReader 的列元数据。
+            </summary>
+            <returns>一个描述列元数据的 DataTable。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.NextResult">
+            <summary>
+            当读取批处理 SQL 语句的结果时，使数据读取器前进到下一个结果。
+            </summary>
+            <returns>如果存在多个行，则为 true；否则为 false。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.Read">
+            <summary>
+            使 IDataReader 前进到下一条记录。
+            </summary>
+            <returns>如果存在多个行，则为 true；否则为 false。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.Dispose">
+            <summary>
+            关闭 IDataReader Object。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetBoolean(System.Int32)">
+            <summary>
+            获取指定列的布尔值形式的值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>列的值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetByte(System.Int32)">
+            <summary>
+            获取指定列的 8 位无符号整数值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定列的 8 位无符号整数值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            从指定的列偏移量将字节流作为数组从给定的缓冲区偏移量开始读入缓冲区。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <param name="fieldOffset">字段中的索引，从该索引位置开始读取操作。</param>
+            <param name="buffer">要将字节流读入的缓冲区。</param>
+            <param name="bufferoffset">开始读取操作的 buffer 索引。</param>
+            <param name="length">要读取的字节数。</param>
+            <returns>读取的实际字节数。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetChar(System.Int32)">
+            <summary>
+            获取指定列的字符值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定列的字符值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">
+            <summary>
+            从指定的列偏移量将字符流作为数组从给定的缓冲区偏移量开始读入缓冲区。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <param name="fieldoffset">行中的索引，从该索引位置开始读取操作。</param>
+            <param name="buffer">要将字节流读入的缓冲区。</param>
+            <param name="bufferoffset">开始读取操作的 buffer 索引。</param>
+            <param name="length">要读取的字节数。</param>
+            <returns>读取的实际字符数。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetData(System.Int32)">
+            <summary>
+            获取将在字段指向更多的远程结构化数据时使用的 IDataReader。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>将在字段指向更多的远程结构化数据时使用的 IDataReader。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetDataTypeName(System.Int32)">
+            <summary>
+            获取指定字段的数据类型信息。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定字段的数据类型信息。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetDateTime(System.Int32)">
+            <summary>
+            获取指定字段的日期和时间数据值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定字段的日期和时间数据值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetDecimal(System.Int32)">
+            <summary>
+            获取指定字段的固定位置的数值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定字段的固定位置的数值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetDouble(System.Int32)">
+            <summary>
+            获取指定字段的双精度浮点数。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定字段的双精度浮点数。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetFieldType(System.Int32)">
+            <summary>
+            获取与从 GetValue 返回的 Object 类型对应的 Type 信息。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>与从 GetValue 返回的 Object 类型对应的 Type 信息。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetFloat(System.Int32)">
+            <summary>
+            获取指定字段的单精度浮点数。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定字段的单精度浮点数。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetGuid(System.Int32)">
+            <summary>
+            返回指定字段的 GUID 值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定字段的 GUID 值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetInt16(System.Int32)">
+            <summary>
+            获取指定字段的 16 位有符号整数值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定字段的 16 位有符号整数值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetInt32(System.Int32)">
+            <summary>
+            获取指定字段的 32 位有符号整数值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定字段的 32 位有符号整数值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetInt64(System.Int32)">
+            <summary>
+            获取指定字段的 64 位有符号整数值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定字段的 64 位有符号整数值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetName(System.Int32)">
+            <summary>
+            获取要查找的字段的名称。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>字段名称或空字符串 ("")（如果没有返回值）。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetOrdinal(System.String)">
+            <summary>
+            返回命名字段的索引。
+            </summary>
+            <param name="name">要查找的字段的名称。</param>
+            <returns>命名字段的索引。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetString(System.Int32)">
+            <summary>
+            获取指定字段的字符串值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>指定字段的字符串值。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.GetValue(System.Int32)">
+            <summary>
+            返回指定字段的值。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>返回时将包含字段值的 Object。</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.IsDBNull(System.Int32)">
+            <summary>
+            返回是否将指定字段设置为空。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>如果将指定的字段设置为 空，则为 true。否则为 false。</returns>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.Parent">
+            <summary>
+            返回真正的数据库读取程序
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.TableSchema">
+            <summary>
+            返回当前读取器对应的表结构
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.Depth">
+            <summary>
+            获取一个值，该值指示当前行的嵌套深度。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.IsClosed">
+            <summary>
+            获取一个值，该值指示数据读取器是否已关闭。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.RecordsAffected">
+            <summary>
+            通过执行 SQL 语句获取更改、插入或删除的行数。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.FieldCount">
+            <summary>
+            获取当前行中的列数。
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.Item(System.String)">
+            <summary>
+            获取具有指定名称的列。
+            </summary>
+            <param name="name">要查找的列的名称。</param>
+            <returns>名称指定为 Object 的列。</returns>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.OrmDataReaderBase.Item(System.Int32)">
+            <summary>
+            获取位于指定索引处的列。
+            </summary>
+            <param name="i">要查找的字段的索引。</param>
+            <returns>作为 Object 位于指定索引处的列。</returns>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.ReadWhere">
+            <summary>
+            在查询数据时的条件对象
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.ReadWhere.#ctor(System.Object[])">
+            <summary>
+            通过编号列表构建条件
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.ReadWhere.#ctor(System.String)">
+            <summary>
+            通过Where子句构建条件对象
+            </summary>
+            <param name="where"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.ReadWhere.#ctor(System.String,System.Collections.Generic.List{Kingdee.BOS.Orm.Metadata.ISqlParam})">
+            <summary>
+            通过Where子句构建条件对象
+            </summary>
+            <param name="where"></param>
+            <param name="where"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.ReadWhere.IsSingleValue">
+            <summary>
+            返回条件是否是单编号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.ReadWhere.ReadOids">
+            <summary>
+            条件中编号列表
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Orm.Drivers.ReadWhere.WhereSql">
+            <summary>
+            条件中自定义的Where子句
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.SqlCeDriver">
+            <summary>
+            为 SQL Server CE编写的驱动
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlCeDriver.ExecuteReader(Kingdee.BOS.Orm.Drivers.SelectCallback,System.Collections.Generic.IEnumerable{Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable},Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,System.Collections.Generic.IList{System.Text.StringBuilder},Kingdee.BOS.Orm.Drivers.ReadWhere,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            指定指定SQL语句列表并处理读取回调
+            </summary>
+            <param name="callback">要进行读取处理的回调</param>
+            <param name="tablesSchema">要读取的所有表的Schema</param>
+            <param name="rootTable">根表对象的Schema</param>
+            <param name="selectSqls">所有表的Select语句</param>
+            <param name="where">条件对象</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlCeDriver.UpdateMetadata(Kingdee.BOS.Orm.Metadata.Database.DbMetadataDatabase,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            按照指定参数的定义，更新当前数据库的表结构
+            </summary>
+            <param name="dbMetadata">指定的数据库结构，注意，已经屏蔽了TableGroup的概念</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlCeDriver.BeginTransaction(System.Data.IDbTransaction)">
+            <summary>
+            启动事务
+            </summary>
+            <param name="dbTransaction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.SqlServerBulkCopyTask">
+            <summary>
+            定义了一个SQL Server实现的批量任务。
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlServerBulkCopyTask.#ctor(System.String,System.Collections.ObjectModel.ReadOnlyCollection{Kingdee.BOS.Orm.Metadata.Database.DbMetadataColumn},System.Data.IDataReader,System.Int32)">
+            <summary>
+            构建SqlServerBulkCopyTask实例。
+            </summary>
+            <param name="tableName">表名称</param>
+            <param name="columns">列集合</param>
+            <param name="dataReader">数据读取器。</param>
+            <param name="level">任务的优先级别</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlServerBulkCopyTask.Execute(System.Data.IDbConnection,System.Data.IDbTransaction)">
+            <summary>
+            执行当前任务。
+            </summary>
+            <param name="con">当前可用的连接对象</param>
+            <param name="tran">数据库事务。</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlServerBulkCopyTask.GetColumnsFromDatabase(System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.String)">
+            <summary>
+            获取某个表的所有列名称。
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Orm.Drivers.SqlServerDbDriver">
+            <summary>
+            为SQL Server编写的驱动程序
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlServerDbDriver.ExecuteReader(Kingdee.BOS.Orm.Drivers.SelectCallback,System.Collections.Generic.IEnumerable{Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable},Kingdee.BOS.Orm.Metadata.Database.DbMetadataTable,System.Collections.Generic.IList{System.Text.StringBuilder},Kingdee.BOS.Orm.Drivers.ReadWhere,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            指定指定SQL语句列表并处理读取回调
+            </summary>
+            <param name="callback">要进行读取处理的回调</param>
+            <param name="tablesSchema">要读取的所有表的Schema</param>
+            <param name="rootTable">根表对象的Schema</param>
+            <param name="selectSqls">所有表的Select语句</param>
+            <param name="where">条件对象</param>
+            <param name="option">此操作的选项</param>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlServerDbDriver.BeginTransaction(System.Data.IDbTransaction)">
+            <summary>
+            启动事务
+            </summary>
+            <param name="dbTransaction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Orm.Drivers.SqlServerDbDriver.UpdateMetadata(Kingdee.BOS.Orm.Metadata.Database.DbMetadataDatabase,Kingdee.BOS.Orm.OperateOption)">
+            <summary>
+            按照指定参数的定义，更新当前数据库的表结构
+            </summary>
+            <param name="dbMetadata">指定的数据库结构，注意，已经屏蔽了TableGroup的概念</param>
+            <param name="option">此操作的选项</param>
+        </member>
+    </members>
+</doc>

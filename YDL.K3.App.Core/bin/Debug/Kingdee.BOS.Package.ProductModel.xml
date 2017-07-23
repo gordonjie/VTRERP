@@ -1,0 +1,2303 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.Package.ProductModel</name>
+    </assembly>
+    <members>
+        <!-- 对于成员“T:Kingdee.BOS.Package.ProductModel.BasePackage”忽略有格式错误的 XML 注释 -->
+        <member name="M:Kingdee.BOS.Package.ProductModel.BaseModule.ToString">
+            <summary>
+            Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BaseModule.MasterId">
+            <summary>
+            主Id, 同产品不同版本Id一致
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.IComponentContainer">
+            <summary>
+            资源容器
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.IComponentContainer.GetAllComponentItem">
+            <summary>
+            获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.IComponentContainer.PreSave">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.BasePackage.Save(System.String)">
+            <summary>
+            保存
+            </summary>
+            <param name="xmlfile"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.BasePackage.SaveCheck(System.String)">
+            <summary>
+            保存前检测
+            </summary>
+            <param name="xmlfile"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.BasePackage.ReadFrom``1(System.String)">
+            <summary>
+            读取扩展包定义文件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="xmlfile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.BasePackage.ReadFrom(System.Type,System.String)">
+            <summary>
+             读取扩展包定义文件
+            </summary>
+            <param name="type"></param>
+            <param name="xmlfile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.BasePackage.FixHistoryData(Kingdee.BOS.Package.ProductModel.BasePackage)">
+            <summary>
+            历史数据修复
+            1.针对母盘3的历史数据修复
+            </summary>
+            <param name="pkg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.BasePackage.ReadFrom(System.String)">
+            <summary>
+            读取包定义文件（在未知其类型的情况下)
+            </summary>
+            <param name="xmlfile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.BasePackage.GetAllResourceItems">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.BasePackage.GetAllComponentItem">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.BasePackage.PreSave">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.BOSVersion">
+            <summary>
+            基于BOS的版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.CodeBase">
+            <summary>
+            可以通过Internet下载的地址
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.RequiredPackages">
+            <summary>
+            依赖包
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.DependentPackages">
+            <summary>
+            依赖包此方法已废除，请使用RequiredPackages
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.ExclusivePackages">
+            <summary>
+            互斥包
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.ExtendedPackageId">
+            <summary>
+            基于哪个包进行扩展的
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.IncludedExtended">
+            <summary>
+            是否合并扩展包发布
+            合并后：
+            1.扩展的包将于该包互斥；
+            2.扩展包的互斥包为该包的互斥包子集
+            3.扩展包的依赖包为该包的依赖包子集
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.DevPhase">
+            <summary>
+            开发阶段
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.CanBeStopped">
+            <summary>
+            是否允许停止
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.Deploy">
+            <summary>
+            部署类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.PackageCategory">
+            <summary>
+            扩展包类别(FuncPackage,PatchPackage,LanguagePackage)
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.IsReplace">
+            <summary>
+            是否允许重复执行
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.LocaleId">
+            <summary>
+            语言编号(1033,3076)
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.Issues">
+            <summary>
+            仅适用于PackageCategory=PackageCategory.PatchPackage
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.Links">
+            <summary>
+            链接(仅适用于包定义，在构建时将转换为resourceitem）
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BasePackage.ConfigPath">
+            <summary>
+            当前包定义所在位置
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.AssemblyModel.GetAllComponents">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.AssemblyModel.GetAllComponentItem">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ClickOnceComponent">
+            <summary>
+            用于构建Click Once 
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent">
+             <summary>
+             组件,
+             合并了工程对象
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.KDComponent">
+            <summary>
+            组件,
+            合并了工程对象
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.IComponentItem">
+            <summary>
+            包定义中的资源
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.IComponentItem.PreSave">
+            <summary>
+            预保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.IComponentItem.Name">
+            <summary>
+            资源名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.IComponentItem.ComponentPath">
+            <summary>
+            资源文件路径，含文件名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.IComponentItem.Target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.IComponentItem.SccComponentPath">
+            <summary>
+            改资源如果存在tfs上，其对应的相对应路径（基准点是组合包定义）
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.KDComponent.outputPath">
+            <summary>
+            构建时输出的相对路径，不含文件名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDComponent.Target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDComponent.Name">
+            <summary>
+            组件名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDComponent.ComponentPath">
+            <summary>
+            组件文件路径，含文件名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDComponent.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDComponent.OpeType">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDComponent.CompilerOutput">
+            <summary>
+            编译输出专用名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDComponent.CopyToPaths">
+            <summary>
+            编译结束后需要复制胡目标路径
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDComponent.IsProject">
+            <summary>
+            是否是DotNet工程
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDComponent.Condition">
+            <summary>
+            条件
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.GetAllResourceItemsInternal">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.AssemblyVersion">
+            <summary>
+            程序集版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.FileVersion">
+            <summary>
+            文件版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.XmlDocFile">
+            <summary>
+            XML帮助文档输出
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.OutputAssemblyFile">
+            <summary>
+            输出程序集名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.GenerateManifests">
+            <summary>
+            是否创建程序清单
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.ReferencePaths">
+            <summary>
+            引用路径列表
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.SupportAnyCpu">
+            <summary>
+            是否支持AnyCPU编译模式
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.OtherOutputResources">
+            <summary>
+            除工程输出的PDB，XML 文件和程序集之外的内容，比如配置或其他内容资源
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.SmartAssembly">
+            <summary>
+            是否混笑代码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DotNetProjectComponent.ProjectType">
+            <summary>
+            工程类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="projectfile"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.GetAllResourceItemsInternal">
+            <summary>
+            获取资源
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.CustomAfterMicrosoftCommonTargets">
+            <summary>
+            CustomAfterMicrosoftCommonTargets
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.BootstrapperEnabled">
+            <summary>
+            BootstrapperEnabled
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.MergeProjectFile">
+             <summary>
+            MergeProjectFile Project
+             </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.DynamicObject">
+             <summary>
+            MergeProjectFile Project
+             </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.PublishFile">
+             <summary>
+            MergeProjectFile Project
+             </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.ApplicationVersion">
+            <summary>
+            应用程序版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.PublisherName">
+            <summary>
+            发布者
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.SuiteName">
+            <summary>
+            SuiteName
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.ProductName">
+            <summary>
+            产品名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.BaseApplication">
+            <summary>
+            基准ClickOnce Application
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ClickOnceComponent.ClickOncePath">
+            <summary>
+            Click Once 目标(默认以工程文件名）
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ConentComponent">
+            <summary>
+            组件,
+            合并了工程对象
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ConentComponent.GetAllResourceItemsInternal">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.AssemblyComponent">
+            <summary>
+            组件,
+            合并了工程对象
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ConentProjectComponent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ConentProjectComponent.GetAllResourceItemsInternal">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ConentProjectComponent.IsProject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.SilverlightProjectComponent">
+             <summary>
+            DotNetSilverlight组件
+             </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SilverlightProjectComponent.OnlyOutputXap">
+            <summary>
+            仅输出XAP包
+            正式发布时，该参数为True
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SilverlightProjectComponent.IsMainApp">
+            <summary>
+            Silverlight应用工程
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SilverlightProjectComponent.XapFile">
+            <summary>
+            输出的XAP包
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.AbstractExtPkgItem">
+            <summary>
+            子包定义
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.AbstractExtPkgItem.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.AbstractExtPkgItem.PreSave">
+            <summary>
+            预保存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.AbstractExtPkgItem.CompareTo(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.AbstractExtPkgItem.Target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.AbstractExtPkgItem.OutDir">
+            <summary>
+            包输出目录
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.AbstractExtPkgItem.Seq">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.AbstractExtPkgItem.Name">
+            <summary>
+            标识
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.AbstractExtPkgItem.ComponentPath">
+            <summary>
+            包定义文件目录及文件名:Cod\xx.pkgdef
+            当为Link时，可以是*.kdpkg
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ChildExtPkgItem">
+            <summary>
+            子包定义
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ChildExtPkgItem.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ChildExtPkgItem._type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ChildExtPkgItem.Type">
+            <summary>
+            包的类型名称
+            AssemblyModel
+            DataModel
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ChildExtPkgItem.TypeInstance">
+            <summary>
+            类型实例（非序列化）
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ChildExtPkgItem.Package">
+            <summary>
+            包定义
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.LicenseModel">
+            <summary>
+            许可模型
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.IResourceItemable">
+            <summary>
+            可转化为REsourceItem接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.LicenseModel.ToResourceItem">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.LicenseModel.GetAllResourceItems">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.LicenseModel.GetAllComponentItem">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicenseModel.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicenseModel.Target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicenseModel.ComponentPath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicenseModel.TemplateFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicenseModel.MapFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicenseModel.ProductModelMapFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.LicTemplateFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicTemplateFile.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicTemplateFile.Target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicTemplateFile.ComponentPath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.LicMapFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicMapFile.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicMapFile.Target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.LicMapFile.ComponentPath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ProductModelMapFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ProductModelMapFile.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ProductModelMapFile.Target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ProductModelMapFile.ComponentPath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.LinkExtPkgItem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.LinkExtPkgItem.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ResourceObject">
+            <summary>
+            普通xml对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ResourceObject.ComponentPath">
+            <summary>
+            路径(相对于包定义文件的路径），含文件名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ResourceObject.SubComponentPaths">
+            <summary>
+            子项的路径
+            </summary>
+            <typeparam name="?"></typeparam>
+            <param name="?"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ResourceObject.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ResourceObject.FullPath">
+            <summary>
+            全路径（不持久化）
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ResourceObjectType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceObjectType.Xml">
+            <summary>
+            Xml(预插数据,流程定义，单据转换规则）
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceObjectType.ConvertRule">
+            <summary>
+            转换规则
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceObjectType.WorkFlow">
+            <summary>
+            工作流
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceObjectType.BusinessFlow">
+            <summary>
+            业务流
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceObjectType.WriteBack">
+            <summary>
+            反写规则
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceObjectType.SysParameter">
+            <summary>
+            系统参数预插
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceObjectType.BizPreData">
+            <summary>
+            系统参数预插
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ItemTarget">
+            <summary>
+            Item Target
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ItemTarget.Compile">
+            <summary>
+            编译
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ItemTarget.Package">
+            <summary>
+            打包
+            </summary>
+        </member>
+        <!-- 对于成员“F:Kingdee.BOS.Package.ProductModel.ItemTarget.CompileAndPackage”忽略有格式错误的 XML 注释 -->
+        <member name="T:Kingdee.BOS.Package.ProductModel.PreSaveResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.PreSaveResult.Item">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.PreSaveResult.Result">
+            <summary>
+            结果
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.PreSaveType">
+            <summary>
+            预保存
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PreSaveType.None">
+            <summary>
+            什么也不用做
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PreSaveType.Add">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PreSaveType.Update">
+            <summary>
+            更新
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PreSaveType.Delete">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.PersistenceObject.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.PersistenceObject.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.PersistenceObject.PrimaryKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDDetailFunc.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.PersistenceObject_L.FLOCALEID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.PersistenceObject_L.FNAME">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDDetailFunc_L.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDFunction.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.KDFunction_L">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.FieldAttribute.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.FieldAttribute.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="propertyName"></param>
+            <param name="fieldName"></param>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.DevViewType">
+            <summary>
+            本为按位标记类型，但
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DevViewType.Standard">
+            <summary>
+            标准(按伙伴开发模式）
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DevViewType.Complex">
+            <summary>
+             标准(按内部开发模式）
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SCCCfg.Configure">
+            <summary>
+            链接配置信息，类似数据库连接串，e.g:provider=TFS;c=HSZC1006-2190;tp=K3Cloud V1.0;tfs=192.168.16.93\K3Cloud;wp=HSZC1006-2190;o=kim_gong
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SCCCfg.LocalRootPath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DCInfo.ServerUri">
+            <summary>
+            服务Uri
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DCInfo.Id">
+            <summary>
+            数据中心Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DCInfo.User">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DCInfo.Pwd">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DCInfo.LocalId">
+            <summary>
+            语言
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DCInfo.AuthModel">
+            <summary>
+            认证方式
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DCInfo.CompanyNumber">
+            <summary>
+            公司代码
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.KDSolution">
+            <summary>
+            方案核心类，读写保存方案的核心方法在这里
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDSolution.ReadFrom(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="path"></param>
+            <param name="recur"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDSolution.LoadUserFile(System.String,Kingdee.BOS.Package.ProductModel.KDSolution)">
+            <summary>
+            装载用户定义文件的内容
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDSolution.SaveUserFile(System.String,Kingdee.BOS.Package.ProductModel.KDSolution)">
+            <summary>
+            保存客户方案自定义内容
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDSolution.CreateTemplate">
+            <summary>
+            创建模版
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDSolution.Save(System.String,System.Boolean)">
+            <summary>
+            保存
+            </summary>
+            <param name="path"></param>
+            <param name="recur"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDSolution.GetAllComponentItem">
+            <summary>
+            获取包内置文件，不包括包定义文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDSolution.PreSave">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDSolution.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDSolution.TopClassIds">
+            <summary>
+            包含的topclasses
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDSolution.DevView">
+            <summary>
+            开发视图
+            默认为标准
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDSolution.OutTargetBaseDir">
+            <summary>
+            编译输出目录(本地）
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDSolution.PkgOutput">
+            <summary>
+            包输出目录(本地）
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDSolution.CompositePackageDef">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDSolution.CPDef">
+            <summary>
+            组合包定义
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDSolution.DCInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDSolution.SCCCfg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.BusinessObject">
+            <summary>
+            业务对象
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BusinessObject.ComponentPath">
+            <summary>
+            路径(相对于包定义文件的路径），含文件名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BusinessObject.SubComponentPaths">
+            <summary>
+            子项的路径
+            </summary>
+            <typeparam name="?"></typeparam>
+            <param name="?"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BusinessObject.Type">
+            <summary>
+            类型(Meta,LanguageRes,Xml)
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.BusinessObject.FullPath">
+            <summary>
+            全路径（不持久化）
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.BusinessObjectType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.BusinessObjectType.Meta">
+            <summary>
+            单据对象(.dym)
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.BusinessObjectType.LanguageRes">
+            <summary>
+            语言资源(.dmyx)
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.BusinessObjectType.Xml">
+            <summary>
+            Xml(预插数据,流程定义，单据转换规则）
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.BusinessObjectType.ConvertRule">
+            <summary>
+            转换规则
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.BusinessObjectType.WorkFlow">
+            <summary>
+            工作流
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.BusinessObjectType.BusinessFlow">
+            <summary>
+            业务流
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.BusinessObjectType.WriteBack">
+            <summary>
+            反写规则
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.CompositePackage">
+            <summary>
+            组合包
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.CompositePackage.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.CompositePackage.GetChildrenPackage">
+            <summary>
+            Get Children Package(s)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.CompositePackage.AddOrUpdate(Kingdee.BOS.Package.ProductModel.BasePackage)">
+            <summary>
+            Add or Update Package
+            </summary>
+            <param name="package"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.CompositePackage.AddResourceItem(Kingdee.BOS.Package.ProductModel.ResourceItem,Kingdee.BOS.Package.ProductModel.BasePackage)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+            <param name="pkg"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.CompositePackage.RemoveResourceItem(Kingdee.BOS.Package.ProductModel.ResourceItem)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.CompositePackage.GetAllResourceItems">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.CompositePackage.GetAllComponentItem">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.CompositePackage.PreSave">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.CompositePackage.ReadFrom``1(System.String,System.Boolean)">
+            <summary>
+            读组合包以及子包
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.CompositePackage.Save(System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="file"></param>
+            <param name="recur"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.CompositePackage.ChildPkgDefs">
+            <summary>
+            子包定义/供序列化
+            仅序列化记录相对目录
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.CompositePackage.LinkPkgDefs">
+            <summary>
+            链接的子包
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.CompositePackage.Children">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.CompositePackage.ProductPkgId">
+            <summary>
+            所属产品包
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.CompositePackage.LicenseModel">
+            <summary>
+            许可模型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.CompositePackage.InstallPlugIns">
+            <summary>
+            安装运行时插件
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.RequiredPackage">
+            <summary>
+            Require Pacakge
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.RequiredPackage.Id">
+            <summary>
+            包ID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.RequiredPackage.Version">
+            <summary>
+            版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.RequiredPackage.AutoInstall">
+            <summary>
+            是否自动启用该包
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.RequiredPackage.Name">
+            <summary>
+            包描描
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.DeployType">
+            <summary>
+            扩展包的部署名
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DeployType.Business">
+            <summary>
+            业务站点
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DeployType.Management">
+            <summary>
+            管理站点
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DeployType.BizAndMgt">
+            <summary>
+            业务站点及管理站点
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DeployType.ClickOnce">
+            <summary>
+            ClickOnce
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DeployType.K3Cloud">
+            <summary>
+            以安装目录为基准目录的部署
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DeployType.Client">
+            <summary>
+            桌面程序(备用)
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DeployType.Mangement">
+            <summary>
+            管理站点(仅为兼容旧版错误数据）
+            新定义一定不能用
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.CommonScript">
+            <summary>
+            用于描述公共函数库的脚本
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.Issue">
+            <summary>
+            问题
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Issue.Number">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Issue.BelongTo">
+            <summary>
+            所属产品
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Issue.BelongDomain">
+            <summary>
+            领域
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Issue.Feature">
+            <summary>
+            功能点
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Issue.Case">
+            <summary>
+            应用场景
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Issue.Symptoms">
+            <summary>
+            症状
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Issue.Solution">
+            <summary>
+            解决方案
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Issue.Memo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.Manifest">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.PackageId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.Version">
+            <summary>
+            当前版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.CompatibleVersions">
+            <summary>
+            兼容版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.NonCompatibleVersions">
+            <summary>
+            不兼容版本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.ISVId">
+            <summary>
+            ISV编号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.RequiredPackages">
+            <summary>
+            依赖包
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.DependentPackageIds">
+            <summary>
+            依赖包集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.ExclusivePackageIds">
+            <summary>
+            互斥包集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.ExtendedPackageId">
+            <summary>
+            扩展自...
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.PackageCategory">
+            <summary>
+            扩展包类别
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.PackageType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.ExtendedPackageList">
+            <summary>
+            历史版本的扩展路径
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.IsReplace">
+            <summary>
+            是否允许重复执行
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.Names">
+            <summary>
+            支持语言的名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.Manifest.Descriptions">
+            <summary>
+            支持语言的描述
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ManifestExt.GetInstallSequence(System.Collections.Generic.IEnumerable{Kingdee.BOS.Package.ProductModel.Manifest})">
+            <summary>
+            获取安装顺序
+            </summary>
+            <param name="pkgs">拉平后的所有待安装的包</param>
+            <returns></returns>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PackageType.AssemblyModel">
+            <summary>
+            组件包
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PackageType.DataModel">
+            <summary>
+            数据库脚本包
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PackageType.CompositePackage">
+            <summary>
+            组合包
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.PackageCategory">
+            <summary>
+            包类别
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PackageCategory.FuncPackage">
+            <summary>
+            功能包
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PackageCategory.PatchPackage">
+            <summary>
+            补丁包
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PackageCategory.LanguagePackage">
+            <summary>
+            语言包
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.PackageStatus">
+            <summary>
+            包状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PackageStatus.Started">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PackageStatus.Stoped">
+            <summary>
+            停用
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DynamicLinkComponent.SetInternalResources(System.Collections.Generic.IList{Kingdee.BOS.Package.ProductModel.ResourceItem})">
+            <summary>
+            
+            </summary>
+            <param name="list"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DynamicLinkComponent.SetInternalConents(System.Collections.Generic.IList{Kingdee.BOS.Package.ProductModel.ConentComponent})">
+            <summary>
+            
+            </summary>
+            <param name="list"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DynamicLinkComponent.GetAllResourceItemsInternal">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DynamicLinkComponent.IsProject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DynamicLinkComponent.Filter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DynamicLinkComponent.InternalResources">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DynamicLinkComponent.InternalConents">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.AbstractDynamicLink">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.AbstractDynamicLink.PreSave">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.AbstractDynamicLink.Name">
+            <summary>
+            路径，含文件名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.AbstractDynamicLink.Filter">
+            <summary>
+            过滤
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.AbstractDynamicLink.ComponentPath">
+            <summary>
+            路径，含文件名
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.DynamicLinkBusinessObject">
+            <summary>
+            动态链接MetaData目录构造BusinessObject
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DynamicLinkBusinessObject.GetComponentItems">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DynamicLinkBusinessObject.GetResourceItem">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DynamicLinkBusinessObject.LoadBusinessObj(System.Collections.Generic.Dictionary{System.String,Kingdee.BOS.Package.ProductModel.BusinessObject},System.Collections.Generic.List{Kingdee.BOS.Package.ProductModel.BusinessObject},System.Collections.Generic.IEnumerable{System.IO.FileInfo},Kingdee.BOS.Package.ProductModel.BusinessObjectType)">
+            <summary>
+            
+            </summary>
+            <param name="dctId"></param>
+            <param name="objects"></param>
+            <param name="files"></param>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.DynamicLinkXml">
+            <summary>
+            Xml链接
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DynamicLinkXml.GetResourceItem">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DynamicLinkXml.LoadBusinessObj(System.Collections.Generic.Dictionary{System.String,Kingdee.BOS.Package.ProductModel.BusinessObject},System.Collections.Generic.List{Kingdee.BOS.Package.ProductModel.BusinessObject},System.Collections.Generic.IEnumerable{System.IO.FileInfo})">
+            <summary>
+            
+            </summary>
+            <param name="dctId"></param>
+            <param name="objects"></param>
+            <param name="files"></param>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.Assembly">
+            <summary>
+            程序集
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.Configuration">
+            <summary>
+            配置文件(如果是补丁则采用merge方法来更新）
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.SqlScript">
+            <summary>
+            脚本
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.Metadata">
+            <summary>
+            元数据
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.PDB">
+            <summary>
+            PDB
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.XmlHelpDoc">
+            <summary>
+            帮助文件
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.ContentFile">
+            <summary>
+            内容文件
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.Other">
+            <summary>
+            其它
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.LicenseFile">
+            <summary>
+            许可文件
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.XAP">
+            <summary>
+            Xap
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.Package">
+            <summary>
+            扩展包
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.ClickOnceCab">
+            <summary>
+            ClickOnce压缩文件
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.LicenseModel">
+            <summary>
+            许可模型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.ConvertRule">
+            <summary>
+            转换规则
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.WorkFlow">
+            <summary>
+            工作流
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.BusinessFlow">
+            <summary>
+            业务流
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.WriteBack">
+            <summary>
+            反写规则
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ResourceType.PreDataInXML">
+            <summary>
+            XML形式的预插数据，以适应从一个数据库向另一个数据库迁移（以FNumber作为识别）
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ActionType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ActionType.AddOrUpdate">
+            <summary>
+            新增或更新
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ActionType.Merge">
+            <summary>
+            合并
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.ActionType.Delete">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DataModel.AddResourceItem(Kingdee.BOS.Package.ProductModel.ResourceItem)">
+            <summary>
+            本方法仅适用于构建程序
+            其它场景禁止使用
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DataModel.LoadLinkBusinessObjects">
+            <summary>
+            装载动态对象
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DataModel.AddBusinessObjects(System.Collections.Generic.IEnumerable{Kingdee.BOS.Package.ProductModel.BusinessObject})">
+            <summary>
+            
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DataModel.GetAllComponentItem">
+            <summary>
+            获取所有ComponentItem
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DataModel.BasedBOSPackageId">
+            <summary>
+            基于哪个BOS包进行开发的
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DataModel.CommonScript">
+            <summary>
+            公共函数库
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DataModel.LinkBusinessObjects">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DataModel.BusinessObjects">
+            <summary>
+            业务对象元数据
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DataModel.ResourceObject">
+            <summary>
+            资源对象集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DataModel.StartScript">
+            <summary>
+            包启用时执行的脚本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DataModel.AutoUpdateTable">
+            <summary>
+            是否自动刷新表结构
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DataModel.StopScript">
+            <summary>
+            包停用时执行的脚本
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.StopScript">
+            <summary>
+            用于描述包停用时所要执行的脚本
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.StartScript">
+            <summary>
+            用于描述包启用时所要执行的脚本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.StartScript.SchemaScript">
+            <summary>
+            用于描述数据库结构的脚本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.StartScript.ConsoleMenuScript">
+            <summary>
+            用于描述主控菜单数据的脚本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.StartScript.SimpleDataScript">
+            <summary>
+            用于描述简单预置数据的脚本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.StartScript.DependentDataScript">
+            <summary>
+            用于描述业务数据升级的脚本，其对其他包的基本数据由依赖
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.StartScript.PrepareDatas">
+            <summary>
+            预插数据
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.DbScript">
+            <summary>
+            用于描述要执行的一组脚本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DbScript.Scripts">
+            <summary>
+            sql脚本执行链表
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DbScript.Seq">
+            <summary>
+            执行顺序
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.DDLScript">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.DMLScript">
+            <summary>
+            DML Script
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DMLScript.#ctor(System.Collections.Generic.IEnumerable{Kingdee.BOS.Package.ProductModel.SqlScript})">
+            <summary>
+            
+            </summary>
+            <param name="collection"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.DMLScript.Datas">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ConsleMenuDbScript">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ConsleMenuDbScript.#ctor(System.Collections.Generic.IEnumerable{Kingdee.BOS.Package.ProductModel.SqlScript})">
+            <summary>
+            
+            </summary>
+            <param name="collection"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ConsleMenuDbScript.TopClass">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.DbScriptEx">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.DbScriptEx.ToList(Kingdee.BOS.Package.ProductModel.DbScript)">
+            <summary>
+            
+            </summary>
+            <param name="script"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.AssertionType">
+            <summary>
+            断言类型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.AssertionType.Semicolon">
+            <summary>
+            分号
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.AssertionType.GO">
+            <summary>
+            GO
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.SqlScript">
+            <summary>
+            sql脚本
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.Target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.ScriptFileName">
+            <summary>
+            sql脚本名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.ComponentPath">
+            <summary>
+            源
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.SqlSyntaxType">
+            <summary>
+            Sql语法类型
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.Assertion">
+            <summary>
+            断言
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.Seq">
+            <summary>
+            执行顺序
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.Id">
+            <summary>
+            主标示【只是用于主控台菜单，当前菜单的主Id】
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.SqlContent">
+            <summary>
+            临时使用的sql内容装载器
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.UniqueScope">
+            <summary>
+            唯一性范围
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.VerRule">
+            <summary>
+            版本规则
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.SqlScript.Level">
+            <summary>
+            分级
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.Scope">
+            <summary>
+            范围
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.Scope.ISV">
+            <summary>
+            开发商级
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.Scope.Package">
+            <summary>
+            包级
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.Scope.Global">
+            <summary>
+            全局
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.Scope.Always">
+            <summary>
+            总是执行
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.VerRule">
+            <summary>
+            版本规则
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.VerRule.ByContent">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.VerRule.ByModifyDate">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.VerRule.ByName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.SqlSyntaxType">
+            <summary>
+            Sql语法类型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.SqlSyntaxType.KSQL">
+            <summary>
+            KSQL语法
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.SqlSyntaxType.SQLSERVER">
+            <summary>
+            SqlServer语法
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.SqlSyntaxType.ORACLE">
+            <summary>
+            Oracle语法
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDServices.Resources">
+            <summary>
+            引用第三方组件（而不是跨领域组件）和其他组件，资源
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PlugInKind.RunTime">
+            <summary>
+            运行时
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.PlugInKind.InstallTime">
+            <summary>
+            安装时
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ISV">
+            <summary>
+            开发商，含金蝶
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ISV.DevCode">
+            <summary>
+            开发商代码
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.DevPhases">
+            <summary>
+            所处的开发阶段
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DevPhases.Unknown">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DevPhases.Prototype">
+            <summary>
+            原型
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DevPhases.Development">
+            <summary>
+            开发
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DevPhases.GoldenRelease">
+            <summary>
+            金盘
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DevPhases.Beta">
+            <summary>
+            Beta
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Package.ProductModel.DevPhases.Released">
+            <summary>
+            发布
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ProjectType">
+            <summary>
+            工程类型
+            Silverlight，Asp.net, ect
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ResourceItem.CopyToPackage(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="dest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ResourceItem.CopyToSetup(System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="dest"></param>
+            <param name="onlyToSetupDir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ResourceItem.InternalCopy(System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="fullPath"></param>
+            <param name="destfilepath"></param>
+            <param name="isWritetted"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ResourceItem.UnInstall(System.String)">
+            <summary>
+            卸载资源
+            </summary>
+            <param name="installPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ResourceItem.DeleteFile(System.String)">
+            <summary>
+            Delete File
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ResourceItem.MergeXml(System.String,System.String)">
+            <summary>
+            Merge File
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ResourceItem.FilePath">
+            <summary>
+            资源项文件名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ResourceItem.Name">
+            <summary>
+            编译输出专用名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ResourceItem.SetupDirectory">
+            <summary>
+            打包时拷贝的目录
+            存在打包时多个目标目录
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ResourceItem.Condition">
+            <summary>
+            部署条件
+            e.g: '$(Platform}'='X86'
+            e.g: '$(Platform}'='X64'
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.ResourceItem.OpeType">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDSubSystem.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDSubSystem.SubSystem_Ls">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.KDSubSystem_L">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDSubSystem_L.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.KDTopClass">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.KDTopClass.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDTopClass.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.KDTopClass.KDTopClass_Ls">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.KDTopClass_L">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.ConditionHelper">
+            <summary>
+            条件工具
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ConditionHelper.ExecuteCondition(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <param name="vals"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ConditionHelper.IISVer(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.ConditionHelper.GetIISVer">
+            <summary>
+            
+            </summary>
+            <param name="major"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.PathExt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.PathExt.Subtract(System.String,System.String,System.Char)">
+            <summary>
+            获取相对目录
+            e.g: 
+                basePath=D:\TEMP\ABCD
+                targetPath=D:\TEMP\ABCD\Meta
+                返回:Meta
+            e.g: 
+                basePath=D:\TEMP\ABCD
+                targetPath=D:\TEMP\DDDD\Meta
+                返回:..\Meta
+            </summary>
+            <param name="basePath">基目录</param>
+            <param name="targetPath">日志目录</param>
+            <param name="pathSplit">目录分隔符，本地“\",远程"/"</param>
+            <returns>返回[targetPath]相对于[basePath]的目录</returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.PathExt.Subtract(System.String,System.String,System.Int32,System.Char)">
+            <summary>
+            
+            </summary>
+            <param name="targetPath"></param>
+            <param name="basePath"></param>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.RegistryHelper">
+            <summary>
+            注册表访问帮助器
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.Serializer.SerializeToXml(System.Object)">
+            <summary>
+            将对象实例序列化为XML
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.Serializer.DeserializeFromXml``1(System.String)">
+            <summary>
+            将XML反序列化为对象
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.Serializer.DeserializeFromXml``1(System.Type,System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T">返回类型</typeparam>
+            <param name="type">反序列化器需要的类型</param>
+            <param name="value">xml</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.Serializer.ReadXmlToObject(System.Type,System.IO.Stream)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.Serializer.MergeXml(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.Serializer.DeleteNode(System.Xml.XmlDocument,Kingdee.BOS.Package.ProductModel.MergeItemInfor)">
+            <summary>
+            
+            </summary>
+            <param name="doca"></param>
+            <param name="docb"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.Serializer.FindNode(System.Xml.XmlDocument,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="doc"></param>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.Serializer.MergeNodeAttribute(System.Xml.XmlNode,System.Xml.XmlNode,System.Xml.XmlDocument)">
+            <summary>
+            
+            </summary>
+            <param name="s"></param>
+            <param name="t"></param>
+        </member>
+        <member name="T:Kingdee.BOS.Package.ProductModel.MergeItemInfor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.MergeItemInfor.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Package.ProductModel.MergeItemInfor.Parse(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="xml"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.MergeItemInfor.Condition">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.MergeItemInfor.ParentNode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Package.ProductModel.MergeItemInfor.OpeType">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

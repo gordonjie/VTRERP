@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FBBF6A0B-7F9C-4202-A4A6-E21BF160122A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JN.K3.YDL.Business.PlugIn</RootNamespace>
+    <AssemblyName>JN.K3.YDL.Business.PlugIn</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\..\..\..\..\JNApp\K3CloudServer\bin\JN.K3.YDL.Business.PlugIn.XML</DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="JN.BOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\JN.BOS.dll</HintPath>
+    </Reference>
+    <Reference Include="JN.BOS.Business.BillHelper, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\bin\JN.BOS.Business.BillHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="JN.BOS.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\JN.BOS.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="JN.K3.YDL.App.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\JN.K3.YDL.App.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="JN.K3.YDL.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\JN.K3.YDL.Contracts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JN.K3.YDL.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\JN.K3.YDL.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JN.K3.YDL.ServiceHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\JN.K3.YDL.ServiceHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.App, Version=3.0.327.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.App.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Business.PlugIn, Version=6.0.736.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.BusinessEntity, Version=2.2.66.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.BusinessEntity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Contracts, Version=3.0.205.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\东药\CODE\东药专项\Code\DY\Website\bin\Kingdee.BOS.Contracts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Core">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.DataEntity">
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.DataEntity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceHelper, Version=2.2.66.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.ServiceHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Workflow, Version=6.0.736.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Workflow.Models, Version=6.0.736.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Workflow.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Workflow.ServiceHelper, Version=6.0.736.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.BOS.Workflow.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.ServiceHelper, Version=2.2.106.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.BD.ServiceHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.Core, Version=2.2.106.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.Core, Version=2.2.66.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.FIN.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.ER.Business.PlugIn, Version=6.0.735.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.ER.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.ER.ServiceHelper, Version=6.0.735.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.ER.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.GL.Business.PlugIn, Version=2.2.66.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.FIN.GL.Business.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.GL.Common.Core, Version=2.2.66.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.FIN.GL.Common.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.IV.Business.PlugIn, Version=6.0.735.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.IV.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.ServiceHelper, Version=2.2.66.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.FIN.ServiceHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.WB.Business.PlugIn, Version=6.0.735.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.WB.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.WB.Common.Core, Version=5.1.394.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.WB.Common.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.WB.ServiceHelper, Version=5.1.394.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.WB.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.BusinessCommon, Version=2.2.106.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.BusinessCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.DependencyCore, Version=2.0.283.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.DependencyCore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.PLN.Business.PlugIn, Version=2.2.106.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.PLN.Business.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.PLN.Common.BusinessEntity, Version=2.2.106.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.PLN.Common.BusinessEntity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.QM.App.ServicePlugIn, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.QM.App.ServicePlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.ServiceHelper, Version=2.2.128.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.MFG.ServiceHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.SCM.Business, Version=5.1.249.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.SCM.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.SCM.Sal.Business.PlugIn, Version=5.0.679.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\bin\Kingdee.K3.SCM.Sal.Business.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Kingdee.K3.SCM.ServiceHelper, Version=5.0.679.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\bin\Kingdee.K3.SCM.ServiceHelper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Json, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Microsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BD\JN_QM_QCSchemeEdit.cs" />
+    <Compile Include="BD\Material\JN_YDL_MaterialEditPlugIn.cs" />
+    <Compile Include="CommonBillEdit.cs" />
+    <Compile Include="GZL\ReportEdit.cs" />
+    <Compile Include="GZL\ReportList.cs" />
+    <Compile Include="JN_ConsoleMyTabWorkBuilderPlugIn.cs" />
+    <Compile Include="JN_ConsoleMyTabWorkPlugIn.cs" />
+    <Compile Include="JN_Empinfolist.cs" />
+    <Compile Include="JN_StaffList.cs" />
+    <Compile Include="JN_YDL_CommonBillEdit.cs" />
+    <Compile Include="MFG\EnzymeMaintainEdit.cs" />
+    <Compile Include="MFG\JN_YDL_PRD_INSTOCK.cs" />
+    <Compile Include="MFG\JN_YDL_PRD_ReturnMtrl.cs" />
+    <Compile Include="MFG\PrdMoEdit.cs" />
+    <Compile Include="MFG\FeedMtrlEdit.cs" />
+    <Compile Include="MFG\InspectBillList.cs" />
+    <Compile Include="MFG\PlanOrderEdit.cs" />
+    <Compile Include="MFG\UseFormEdit.cs" />
+    <Compile Include="MFG\PickMtrlEdit.cs" />
+    <Compile Include="QTYConversion\AssembledAppQTYConversion.cs" />
+    <Compile Include="QTYConversion\PRDPickMtrlQTYConversion.cs" />
+    <Compile Include="QTYConversion\MOBillQTYConversion.cs" />
+    <Compile Include="QTYConversion\PROOperationRptQTYConversion.cs" />
+    <Compile Include="QTYConversion\MORPTQTYConversion.cs" />
+    <Compile Include="QTYConversion\UseFormQTYConversion.cs" />
+    <Compile Include="QTYConversion\InspectBillQTYConversion.cs" />
+    <Compile Include="QTYConversion\InStockQTYConversion.cs" />
+    <Compile Include="QTYConversion\JDInStockQTYConversion.cs" />
+    <Compile Include="QTYConversion\MISCELLANEOUSQTYConversion.cs" />
+    <Compile Include="QTYConversion\MisDeliveryQTYConversion.cs" />
+    <Compile Include="QTYConversion\MRBQTYConversion.cs" />
+    <Compile Include="QTYConversion\OrderOutStkQTYConversion.cs" />
+    <Compile Include="QTYConversion\InvInitQTYConversion.cs" />
+    <Compile Include="QTYConversion\JNQTYConversion.cs" />
+    <Compile Include="MFG\BOM\JN_YDL_BomBillEditPlugIn.cs" />
+    <Compile Include="MFG\JN_YDL_InspectBill.cs" />
+    <Compile Include="QTYConversion\RETURNSTOCKConversion.cs" />
+    <Compile Include="QTYConversion\PickMtrlQTYConversion.cs" />
+    <Compile Include="QTYConversion\ReceiveBillQTYConversion.cs" />
+    <Compile Include="QTYConversion\ReturnMtrlQTYConversion.cs" />
+    <Compile Include="QTYConversion\TransferDirectQTYConversion.cs" />
+    <Compile Include="QTYConversion\TRANSFERINQTYConversion.cs" />
+    <Compile Include="QTYConversion\TRANSFEROUTQTYConversion.cs" />
+    <Compile Include="SCM\CustomerWhereUserIDList.cs" />
+    <Compile Include="SCM\FIN\ExpenseRequestOrderEdit.cs" />
+    <Compile Include="SCM\FIN\JN_AR_RECEIVEBILLEdit.cs" />
+    <Compile Include="SCM\FIN\JN_BANDPAYSET.cs" />
+    <Compile Include="SCM\FIN\JN_CN_PAYAPPLY.cs" />
+    <Compile Include="SCM\FIN\JN_CN_PAYBILLEDIT.cs" />
+    <Compile Include="SCM\FIN\JN_ER_ExpenseReimbEdit.cs" />
+    <Compile Include="SCM\FIN\JN_ER_ExpenseRequest.cs" />
+    <Compile Include="SCM\FIN\JN_YDL_ERODescription.cs" />
+    <Compile Include="SCM\FIN\JN_YDL_ExpReimbursementEdit.cs" />
+    <Compile Include="SCM\FIN\JN_YDL_FA_CARD.cs" />
+    <Compile Include="SCM\FIN\JN_YDL_IV_SALEList.cs" />
+    <Compile Include="SCM\FIN\VoucherEdit.cs" />
+    <Compile Include="SCM\FIN\VTRIVedit.cs" />
+    <Compile Include="SCM\JN_SalePriceItemList.cs" />
+    <Compile Include="SCM\JN_SAL_RETURNNOTICE.cs" />
+    <Compile Include="SCM\JN_SAL_RETURNSTOCK_Extend.cs" />
+    <Compile Include="SCM\JN_SAL_RETURNSTOCK_ExtendList.cs" />
+    <Compile Include="SCM\JN_SampleOrderList.cs" />
+    <Compile Include="SCM\JN_YDL_SAL_ForecastEdit.cs" />
+    <Compile Include="SCM\JN_YDL_SAL_OUTSTOCK.cs" />
+    <Compile Include="SCM\JN_YDL_SCM_AllotApplyFor.cs" />
+    <Compile Include="SCM\JN_YDL_SCM_SaleOrderApproval.cs" />
+    <Compile Include="SCM\JN_YDL_SCM_SaleOrderEdit.cs" />
+    <Compile Include="SCM\JN_YDL_SCM_SampleOrder.cs" />
+    <Compile Include="SCM\JN_YDL_SCM_YDLAllotApplyForList.cs" />
+    <Compile Include="SCM\JN_YDL_STK_MISCELLANEOUS.cs" />
+    <Compile Include="SCM\MisDeliveryEdit.cs" />
+    <Compile Include="SCM\OutStockDateValidator.cs" />
+    <Compile Include="SCM\PUR\JN_YDL_PurchaseOrderEdit.cs" />
+    <Compile Include="SCM\PUR\JN_YDL_PUR_Requisition.cs" />
+    <Compile Include="SCM\PUR_ReceiveBill.cs" />
+    <Compile Include="SCM\SaleOrderEdit.cs" />
+    <Compile Include="SCM\SaleQuote\JN_YDL_SaleQuoteBillEditPlugIn.cs" />
+    <Compile Include="SCM\SAL\ForecastBalanceEdit.cs" />
+    <Compile Include="SCM\SAL\ForecastChangeBillEdit.cs" />
+    <Compile Include="SCM\SAL\SCM_ChangePackageedit.cs" />
+    <Compile Include="SCM\STKMisDeliveryEdit.cs" />
+    <Compile Include="SCM\STK\JN_SKT_InStockEdit.cs" />
+    <Compile Include="SCM\STK\JN_STK_InvSumQuery.cs" />
+    <Compile Include="SCM\STK\JN_STK_InStock.cs" />
+    <Compile Include="SCM\STK\JN_STK_Inventory.cs" />
+    <Compile Include="SCM\STK\JN_STK_TRANSFEROUT.cs" />
+    <Compile Include="SCM\JN_SAL_QuotationList.cs" />
+    <Compile Include="VTR_MainConsole.cs" />
+    <Compile Include="VTR_WorkflowChartFlowWay.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BD\CRMCustContactEdit.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

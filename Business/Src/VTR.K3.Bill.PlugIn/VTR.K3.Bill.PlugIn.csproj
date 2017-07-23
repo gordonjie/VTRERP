@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF63BEE1-FD29-4730-9165-E14DD9B1E012}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VTR.K3.Bill.PlugIn</RootNamespace>
+    <AssemblyName>VTR.K3.Bill.PlugIn</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\VTR.K3.Bill.PlugIn.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Kingdee.BOS">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.App, Version=5.1.268.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.App.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.BusinessEntity, Version=5.1.268.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.BusinessEntity.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Contracts, Version=5.1.268.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Core">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.DataEntity, Version=5.1.268.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.DataEntity.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceHelper">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.BD.ServiceHelper, Version=5.1.267.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.BD.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.Core, Version=5.1.267.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.Core, Version=5.1.394.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\JNApp\K3CloudServer\Bin\Kingdee.K3.FIN.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.ER.ServiceHelper, Version=5.1.267.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.ER.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.ServiceHelper, Version=5.1.394.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.WB.Business.PlugIn, Version=5.1.394.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.WB.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.WB.Common.Core, Version=5.1.394.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.WB.Common.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.WB.ServiceHelper, Version=5.1.394.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.WB.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.BusinessCommon, Version=6.0.735.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.MFG.BusinessCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.Common.BusinessEntity, Version=6.0.735.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.MFG.Common.BusinessEntity.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.ServiceHelper, Version=5.1.267.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.MFG.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.MFG.SFC.Business.PlugIn, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.MFG.SFC.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.SCM.Contracts, Version=5.1.267.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.SCM.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.SCM.Core, Version=5.1.267.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.SCM.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.SCM.Purchase.Business.PlugIn, Version=5.1.267.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.SCM.Purchase.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.SCM.ServiceHelper, Version=5.1.267.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.SCM.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="band\JN_BankRecAccountEdit.cs" />
+    <Compile Include="band\JN_BillBandTrans.cs" />
+    <Compile Include="GetVOUCHER.cs" />
+    <Compile Include="MFG\VTROperationPlanningEdit.cs" />
+    <Compile Include="RefundbillCOMMENT.cs" />
+    <Compile Include="QCListSplitBill.cs" />
+    <Compile Include="MyRequestList.cs" />
+    <Compile Include="EntitySelectManyRow.cs" />
+    <Compile Include="IsspanDepartment.cs" />
+    <Compile Include="GetMaterialsClass.cs" />
+    <Compile Include="CostApTemplateBill.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdatePayoderCOMMENT.cs" />
+    <Compile Include="SOApplyEditPlugIn.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Src\JN.K3.YDL.ServiceHelper\JN.K3.YDL.ServiceHelper.csproj">
+      <Project>{E784C9BF-F0B8-47D7-ABF3-FC3C5D4E3724}</Project>
+      <Name>JN.K3.YDL.ServiceHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,4 @@
+C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\JN.K3.YDL.Print.dll
+C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\JN.K3.YDL.Print.pdb
+E:\YDL\JN\JNCode\K3\Other\YDL\Print\Src\JN.K3.YDL.Print\JN.K3.YDL.Print\obj\Debug\JN.K3.YDL.Print.dll
+E:\YDL\JN\JNCode\K3\Other\YDL\Print\Src\JN.K3.YDL.Print\JN.K3.YDL.Print\obj\Debug\JN.K3.YDL.Print.pdb

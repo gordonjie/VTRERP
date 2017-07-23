@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3B62171-37DF-4DF5-9FC2-C71DE28A406B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VTR.K3.YDL.BillPlugIn</RootNamespace>
+    <AssemblyName>VTR.K3.YDL.BillPlugIn</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>C:\Program Files %28x86%29\Kingdee\K3Cloud\WebSite\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Kingdee.BOS">
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.App">
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.App.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Contracts">
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.Core">
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.DataEntity">
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.DataEntity.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.ServiceHelper">
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.BOS.ServiceHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.Core">
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.Business.PlugIn, Version=5.1.328.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.CN.Business.PlugIn, Version=5.1.328.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.CN.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.FIN.IV.Business.PlugIn, Version=5.1.328.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.FIN.IV.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.K3.SCM.Purchase.Business.PlugIn, Version=5.1.328.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Kingdee\K3Cloud\WebSite\Bin\Kingdee.K3.SCM.Purchase.Business.PlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VTR.K3.YDL.COMMAND, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Kingdee\K3Cloud\WebSite\Bin\VTR.K3.YDL.COMMAND.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FIN\PayableListNoInvoice.cs" />
+    <Compile Include="FIN\VTRIVedit.cs" />
+    <Compile Include="VTR_YDL_GETSALPRICE.cs" />
+    <Compile Include="SCM\VTR_YDL_STK_MisDeliveryGetVOUCHER.cs" />
+    <Compile Include="SCM\VTR_YDL_InspectBillReAccept.cs" />
+    <Compile Include="VTR_YDL_Paybilledit.cs" />
+    <Compile Include="VTR_YDL_PUR_Requisition.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Command\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

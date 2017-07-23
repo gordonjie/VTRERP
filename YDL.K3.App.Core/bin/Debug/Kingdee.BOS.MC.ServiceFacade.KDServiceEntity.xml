@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.MC.ServiceFacade.KDServiceEntity</name>
+    </assembly>
+    <members>
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.AppPoolIdentityType">
+            <summary>
+            应用程序池的预定义用户类型
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.BindingInfor">
+            <summary>
+            绑定信息
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.BindingInfor.Protocol">
+            <summary>
+            Ftp/Http/https
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.BindingInfor.Port">
+            <summary>
+            端口号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.BindingInfor.Channnel">
+            <summary>
+            绑定的IP/主机名
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.BindingInfor.HostName">
+            <summary>
+            描述(主机名）
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.HostInfo.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.SiteInfor">
+            <summary>
+            站点信息
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.SiteInfor.CompareTo(Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.SiteInfor)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.SiteInfor.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.SiteInfor.PhysicalPath">
+            <summary>
+            物理路径
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.SiteInfor.Type">
+            <summary>
+            业务
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.SiteInfor.BindingInfors">
+            <summary>
+            绑定信息
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.VirtualDirectoryInfo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.VirtualDirectoryInfo.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.VirtualDirectoryInfo.PhysicalPath">
+            <summary>
+            物理路径
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.VirtualDirectoryInfo.Type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.VDType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.VDType.None">
+            <summary>
+            其它类站点（不可部署产品)
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.VDType.Business">
+            <summary>
+            业务站点
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.VDType.Management">
+            <summary>
+            管理中心
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.MC.ServiceFacade.KDServiceEntity.VDType.ClickOnce">
+            <summary>
+            ClickOnce
+            </summary>
+        </member>
+    </members>
+</doc>

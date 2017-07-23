@@ -1,0 +1,1144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.Workflow.Kernel</name>
+    </assembly>
+    <members>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.MapTransitor">
+            <summary>
+            流程推进者
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapTransitor._mapContext">
+            <summary>
+            流程实例上下文
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.#ctor(Kingdee.BOS.Workflow.Kernel.ITransitionMap)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="map">流程图</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.#ctor(Kingdee.BOS.Workflow.Kernel.MapContext)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="ctx">流程实例上下文</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.Transit">
+            <summary>
+            流程发起
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.Transit(Kingdee.BOS.Workflow.Kernel.IMapInstance)">
+            <summary>
+            流程扭转
+            </summary>
+            <param name="mapInstance">流程实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.PreTransitFromIdle(Kingdee.BOS.Workflow.Kernel.IMapInstance,System.String)">
+            <summary>
+            流程预执行（为了审批流计算下一个节点的处理人）
+            </summary>
+            <param name="mapInstance">流程实例</param>
+            <param name="idledInstanceKey">挂起状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.TransitFromIdle(Kingdee.BOS.Workflow.Kernel.IMapInstance,System.String)">
+            <summary>
+            流程唤醒后扭转
+            </summary>
+            <param name="mapInstance">流程实例</param>
+            <param name="idledInstanceKey">挂起状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.JumpFromIdle(Kingdee.BOS.Workflow.Kernel.IMapInstance,System.String,System.Int32)">
+            <summary>
+            流程跳转
+            </summary>
+            <param name="mapInstance">流程实例</param>
+            <param name="idledInstanceKey">挂起状态</param>
+            <param name="targetStateKey">目标状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.PreJumpFromIdle(Kingdee.BOS.Workflow.Kernel.IMapInstance,System.String,System.Int32)">
+            <summary>
+            流程跳转
+            </summary>
+            <param name="mapInstance">流程实例</param>
+            <param name="idledInstanceKey">挂起状态</param>
+            <param name="targetStateKey">目标状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.JumpFromDiscard(Kingdee.BOS.Workflow.Kernel.IMapInstance,System.Collections.Generic.List{System.String},System.Int32)">
+            <summary>
+            舍弃当前状态并跳转
+            </summary>
+            <param name="mapInstance">流程实例</param>
+            <param name="stateInstanceKeys">将要舍弃的当前待办状态</param>
+            <param name="targetStateKey">跳转到的目标状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.JumpFromFailure(Kingdee.BOS.Workflow.Kernel.IMapInstance,System.Int32)">
+            <summary>
+            流程失败后跳转（暂时未用）
+            </summary>
+            <param name="mapInstance">流程实例</param>
+            <param name="targetStateKey">目标状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapTransitor.CheckArgumentForDiscard(Kingdee.BOS.Workflow.Kernel.IMapInstance,System.Collections.Generic.List{System.String})">
+            <summary>
+            检查将要被舍弃的节点是否为当前待办节点
+            </summary>
+            <param name="mapInstance"></param>
+            <param name="stateInstanceKeys"></param>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.MapContext">
+            <summary>
+            流程实例上下文
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapContext.#ctor(Kingdee.BOS.Workflow.Kernel.ITransitionMap)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="map">流程图</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapContext.TryGetValue(System.String,System.Object@)">
+            <summary>
+            读取变量值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapContext.TrySetValue(System.String,System.Object)">
+            <summary>
+            设置变量值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapContext.GetExtendExpressionVariables(Kingdee.BOS.Workflow.Kernel.MapStateContext)">
+            <summary>
+            获取流程变量字典
+            </summary>
+            <param name="stateContext"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapContext.Tracker">
+            <summary>
+            跟踪服务
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapContext.MapInstance">
+            <summary>
+            流程实例
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapContext.CompiledMap">
+            <summary>
+            已编译的流程图
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapContext.Schedular">
+            <summary>
+            流程计划表
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.CompiledMapState">
+            <summary>
+            编译后的状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.CompiledMapState.MapState">
+            <summary>
+            未编译前的原始状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.CompiledMapState.ForwardStates">
+            <summary>
+            下游状态及其路线
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.CompiledMapState.BackwardStates">
+            <summary>
+            来源状态及其路线
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.CompiledMapState.#ctor(Kingdee.BOS.Workflow.Kernel.IMapState,System.Collections.Generic.KeyValuePair{Kingdee.BOS.Workflow.Kernel.IMapState,Kingdee.BOS.Workflow.Kernel.ITransition}[],System.Collections.Generic.KeyValuePair{Kingdee.BOS.Workflow.Kernel.IMapState,Kingdee.BOS.Workflow.Kernel.ITransition}[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="mapState">原始状态</param>
+            <param name="forwards">下游状态及其路线</param>
+            <param name="backwards">来源状态及其路线</param>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap">
+            <summary>
+            编译后的流程图
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap.#ctor(Kingdee.BOS.Workflow.Kernel.ITransitionMap)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="map">未编译的流程图</param>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap.dic_CompiledMapStates">
+            <summary>
+            编译后的流程图状态字典
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap.m_transitionMap">
+            <summary>
+            未编译前的流程图
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap.Contains(System.Int32)">
+            <summary>
+            是否包含指定的状态
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap.Compile(Kingdee.BOS.Workflow.Kernel.ITransitionMap)">
+            <summary>
+            编译流程图，输出编译后的状态到字典；编译后的状态包含了其前后关系
+            </summary>
+            <param name="map"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap.Map">
+            <summary>
+            未编译的原始流程图
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap.Item(System.Int32)">
+            <summary>
+            获取状态
+            </summary>
+            <param name="key">状态序号</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.IActionEvent">
+            <summary>
+            动作定义接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.IActionEvent.PreExecute(Kingdee.BOS.Workflow.Kernel.MapStateContext)">
+            <summary>
+            预执行动作
+            </summary>
+            <param name="ctx">状态实例上下文</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.IActionEvent.Execute(Kingdee.BOS.Workflow.Kernel.MapStateContext)">
+            <summary>
+            执行动作
+            </summary>
+            <param name="ctx">状态实例上下文</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.IActionEvent.ExecuteAfterIdled(Kingdee.BOS.Workflow.Kernel.MapStateContext)">
+            <summary>
+            空闲(Idle)后执行动作
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IActionEvent.ActionEventId">
+            <summary>
+            动作序号：全流程图唯一
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.IExpressionBinder">
+            <summary>
+            条件执行接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.IExpressionBinder.TryGetMember(System.String,System.Object@)">
+            <summary>
+            获取变量值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.IExpressionBinder.TrySetMember(System.String,System.Object)">
+            <summary>
+            设置变量值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.MapResult">
+            <summary>
+            流程实例进度
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapResult.Ready">
+            <summary>
+            准备
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapResult.Completed">
+            <summary>
+            完成
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapResult.Idled">
+            <summary>
+            空闲/挂起
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapResult.Failed">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapResult.Terminate">
+            <summary>
+            强制终止
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapResult.Suspend">
+            <summary>
+            暂停
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.IMapInstance">
+            <summary>
+            流程实例定义接口
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapInstance.MapInstanceId">
+            <summary>
+            流程实例内码：GUID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapInstance.FailureItem">
+            <summary>
+            引起失败的状态（待确认）
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapInstance.FailureMessage">
+            <summary>
+            失败原因
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapInstance.FailureOutInfo">
+            <summary>
+            失败输出的详细信息
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapInstance.Result">
+            <summary>
+            进度
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapInstance.Entries">
+            <summary>
+            待办状态(待确认)
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapInstance.Pendings">
+            <summary>
+            挂起的状态
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.IMapState">
+            <summary>
+            流程图状态定义接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.IMapState.CreateInstance">
+            <summary>
+            创建状态实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapState.MapStateId">
+            <summary>
+            状态序号：全流程图唯一
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapState.PreCondtion">
+            <summary>
+            进入条件
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapState.PostCondtion">
+            <summary>
+            流出条件
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapState.PreMapStates">
+            <summary>
+            聚合节点的前置状态，包括直接与隔级的：
+            只有这些前置状态均完成，才能进入本状态；为空时不用理会前置状态的执行情况
+            </summary>
+            <remarks>聚合节点为并行模式时，必须等待全部前置状态完成，才能进入本状态</remarks>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapState.PreDiscardMapStates">
+            <summary>
+            聚合节点的前置互斥状态，包括直接与隔级的：
+            当进入本状态后，这些前置状态未完成的任务必须自动舍弃；
+            舍弃的原因：避免前置互斥状态完成后，重复进入本状态
+            </summary>
+            <remarks>聚合节点为串行模式时，任一路线进入本状态后，其他路线上的前置状态需自动舍弃</remarks>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapState.FollowMapStates">
+            <summary>
+            拆分节点的后置状态，包括直接与隔级的：进入本状态后，后置状态的任务必须被舍弃，以便流出本状态后，生成新任务；
+            为空时不用理会后置状态的执行情况
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapState.ActionEvents">
+            <summary>
+            动作集合
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.MapStateResult">
+            <summary>
+            状态实例的进度
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateResult.Ready">
+            <summary>
+            准备
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateResult.Completed">
+            <summary>
+            完成
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateResult.Idled">
+            <summary>
+            空闲/挂起
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateResult.Discarded">
+            <summary>
+            被舍弃
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateResult.Failure">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.IMapStateInstance">
+            <summary>
+            状态实例定义接口
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapStateInstance.StateInstanceId">
+            <summary>
+            状态实例内码，GUID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapStateInstance.LastActionEventId">
+            <summary>
+            最后执行的动作序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapStateInstance.MapStateId">
+            <summary>
+            状态的模型序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.IMapStateInstance.Result">
+            <summary>
+            进度
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.ITransition">
+            <summary>
+            流程图连线定义接口
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.ITransition.Rule">
+            <summary>
+            跳转规则
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.ITransition.Origination">
+            <summary>
+            来源状态
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.ITransition.Destination">
+            <summary>
+            目标状态
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.ITransitionMap">
+            <summary>
+            流程图定义接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.ITransitionMap.CreateInstance">
+            <summary>
+            创建流程实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.ITransitionMap.MapId">
+            <summary>
+            流程图标识，GUID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.ITransitionMap.EntryStateId">
+            <summary>
+            开始状态的序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.ITransitionMap.MapStates">
+            <summary>
+            状态集合
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.ITransitionMap.Transitions">
+            <summary>
+            跳转连线集合
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.Runtime.MapData">
+            <summary>
+            流程实例数据
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapData.#ctor(Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap,Kingdee.BOS.Workflow.Kernel.IMapInstance,System.Collections.Generic.Stack{Kingdee.BOS.Workflow.Kernel.IMapStateInstance})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="compiledMap"></param>
+            <param name="mapInstance"></param>
+            <param name="stack"></param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.Runtime.MapData.CompiledMap">
+            <summary>
+            已编译的流程图
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.Runtime.MapData.MapInstance">
+            <summary>
+            流程实例
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.Runtime.MapData.Stack">
+            <summary>
+            流程状态实例堆栈
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.Runtime.AbstractDataHandler">
+            <summary>
+            流程实例数据管理器
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.Runtime.AbstractDataHandler.m_mapData">
+            <summary>
+            流程实例数据
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.Runtime.AbstractDataHandler.CompiledMap">
+            <summary>
+            已编译的流程图
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.Runtime.AbstractDataHandler.MapInstance">
+            <summary>
+            流程实例
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.AbstractDataHandler.#ctor(Kingdee.BOS.Workflow.Kernel.IMapInstance,Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="mapInstance">流程实例</param>
+            <param name="compiledMap">已编译流程图</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.AbstractDataHandler.PrepareStack">
+            <summary>
+            创建状态实例堆栈；构建MapData的步骤之一，可重载
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.AbstractDataHandler.PrepareMapInstance">
+            <summary>
+            对流程实例进行预处理；构建MapData的步骤之一，可重载
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.Runtime.AbstractDataHandler.MapData">
+            <summary>
+            流程实例数据
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.Runtime.DiscardDataHandler">
+            <summary>
+            舍弃节点时采用的流程数据管理器：允许同时舍弃多个当前待办节点
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.Runtime.DiscardDataHandler._entryStateInstanceKeys">
+            <summary>
+            当前待办节点，将要被舍弃...
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.Runtime.DiscardDataHandler._entryStateInstances">
+            <summary>
+            当前待办状态，将要被舍弃...
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.DiscardDataHandler.#ctor(Kingdee.BOS.Workflow.Kernel.IMapInstance,Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap,System.Collections.Generic.List{System.String})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="mapInstance">流程实例</param>
+            <param name="compiledMap">编译流程图</param>
+            <param name="stateInstanceKey">代办状态</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.DiscardDataHandler.PrepareStack">
+            <summary>
+            初始化状态堆栈；
+            重载方法：把待办状态放入堆栈
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.DiscardDataHandler.PrepareMapInstance">
+            <summary>
+            流程实例预处理；
+            重载方法：把已经入栈的状态，从待办状态中移除
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.DiscardDataHandler.GetEntryStateInstance(Kingdee.BOS.Workflow.Kernel.IMapInstance,System.Collections.Generic.List{System.String})">
+            <summary>
+            从待办状态列表中找指定状态
+            </summary>
+            <param name="mapInstance"></param>
+            <param name="stateInstanceKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.Runtime.IdleDataHandler">
+            <summary>
+            空闲流程数据管理器
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.IdleDataHandler.#ctor(Kingdee.BOS.Workflow.Kernel.IMapInstance,Kingdee.BOS.Workflow.Kernel.CompiledTransitionMap,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="mapInstance">流程实例</param>
+            <param name="compiledMap">编译流程图</param>
+            <param name="stateInstanceKey">代办状态</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.IdleDataHandler.PrepareStack">
+            <summary>
+            初始化状态堆栈；
+            重载方法：把待办状态放入堆栈
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.IdleDataHandler.PrepareMapInstance">
+            <summary>
+            流程实例预处理；
+            重载方法：移除待办任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.IdleDataHandler.GetEntryStateInstance(Kingdee.BOS.Workflow.Kernel.IMapInstance,System.String)">
+            <summary>
+            从待办状态列表中找指定状态
+            </summary>
+            <param name="mapInstance"></param>
+            <param name="stateInstanceKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.Runtime.FailureDataHandler">
+            <summary>
+            失败流程数据管理器
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.FailureDataHandler.PrepareStack">
+            <summary>
+            初始化流程状态堆栈；
+            重载方法：把挂起的状态，引发挂起的状态放入堆栈
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.FailureDataHandler.PrepareMapInstance">
+            <summary>
+            预处理流程实例；
+            重载方法：把挂起、引起失败的状态清除掉
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular">
+            <summary>
+            流程一览表：流程调度
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.#ctor(Kingdee.BOS.Workflow.Kernel.MapContext,Kingdee.BOS.Workflow.Kernel.Runtime.AbstractDataHandler)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="ctx">流程实例上下文</param>
+            <param name="dataHandler">状态数据处理器</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.Schedule(Kingdee.BOS.Workflow.Kernel.IMapState,System.Boolean)">
+            <summary>
+            创建该节点的实例，并且入栈
+            </summary>
+            <param name="state">节点</param>
+            <param name="waiting">
+            是否等待，如果需等待，则不入栈；
+            默认不用等待，即刻入栈执行
+            在节点的前置条件不成立时，需要等待
+            </param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.Run">
+            <summary>
+            流程运行
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.PreRun">
+            <summary>
+            预执行
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.JumpAndRun(System.Int32)">
+            <summary>
+            跳转并运行
+            </summary>
+            <param name="targetStateKey"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.PreJumpAndRun(System.Int32)">
+            <summary>
+            预跳转并预运行
+            </summary>
+            <param name="targetStateKey"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.DiscardAndRun(System.Int32)">
+            <summary>
+            舍弃并运行
+            </summary>
+            <param name="targetStateKey"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.Jump(System.Int32)">
+            <summary>
+            完成当前节点，并跳转
+            </summary>
+            <param name="targetStateKey"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.PerformJump(System.Int32)">
+            <summary>
+            预跳转
+            </summary>
+            <param name="targetStateKey"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.PerformDiscard(System.Int32)">
+            <summary>
+            舍弃堆栈中的当前待办状态，并把指定状态入栈
+            </summary>
+            <param name="targetStateKey"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.CheckHasPreMapStateWaiting(Kingdee.BOS.Workflow.Kernel.IMapState)">
+            <summary>
+            检查是否有前置节点在等待执行，默认为无，返回false；如果有，则返回true
+            </summary>
+            <param name="state">待检查的节点</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapSchedular.AutoDiscardMapStates(System.Collections.Generic.List{System.Int32},System.Boolean)">
+            <summary>
+            自动舍弃某些节点的待执行实例；
+            </summary>
+            <param name="discardMapStateIds">待舍弃的节点序号</param>
+            <param name="keepReadyState">
+            是否保留准备状态的节点，适用场景：
+            清除后置节点的实例时，如果后置节点为聚合节点，在等待其他路线的到达，此时不需舍弃
+            </param>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor">
+            <summary>
+            流程状态执行
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor.#ctor(Kingdee.BOS.Workflow.Kernel.MapContext,Kingdee.BOS.Workflow.Kernel.IMapStateInstance)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="ctx">流程上下文</param>
+            <param name="instance">流程状态</param>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor._mapContext">
+            <summary>
+            流程上下文
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor._compiledState">
+            <summary>
+            已编译的流程状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor._stateInstance">
+            <summary>
+            流程状态实例
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor._stateContext">
+            <summary>
+            流程状态上下文
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor.ExecuteMapState">
+            <summary>
+            执行状态，实际是执行状态中的活动；如果状态执行完成，则自动推进到下一个状态
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor.PreExecuteMapState">
+            <summary>
+            预执行状态：审批流获取下一步执行人时，需预执行
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor.ScheduleForwardStates">
+            <summary>
+            状态往后迁移：迁移的结果是改变流程上下文中的流程执行器(MapSchedular)
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor.EvaluateToBool(Kingdee.BOS.Scripting.Expression)">
+            <summary>
+            解析执行条件表达式，返回执行结果；如果执行出错，需要捕获错误，并给出比较人性的提示
+            </summary>
+            <param name="rule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor.ExecuteActionEvents">
+            <summary>
+            执行动作
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor.PreExecuteActionEvents">
+            <summary>
+            预执行动作：模拟执行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.MapStateExecutor.SetExecutionResult(Kingdee.BOS.Workflow.Kernel.IMapStateInstance,Kingdee.BOS.Workflow.Kernel.MapStateResult,System.Int32)">
+            <summary>
+            设置状态执行结果
+            </summary>
+            <param name="instance"></param>
+            <param name="result"></param>
+            <param name="lastActionEventKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.MapValidator">
+            <summary>
+            流程图校验器
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapValidator.m_validators">
+            <summary>
+            校验器集合
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapValidator.Validate(Kingdee.BOS.Workflow.Kernel.ITransitionMap,Kingdee.BOS.Workflow.Kernel.ValidationResult@)">
+            <summary>
+            执行校验
+            </summary>
+            <param name="map"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.Runtime.ReadyDataHandler">
+            <summary>
+            准备状态流程管理
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.ReadyDataHandler.PrepareStack">
+            <summary>
+            准备状态堆栈；
+            重载方法，把流程进入状态放入堆栈
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.ReadyDataHandler.PrepareMapInstance">
+            <summary>
+            流程实例预处理
+            重载方法，清除实例中已完成、待处理等状态列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.Runtime.InstanceCreator">
+            <summary>
+            实例创建器
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.InstanceCreator.CreateStateInstance(Kingdee.BOS.Workflow.Kernel.IMapState)">
+            <summary>
+            创建状态实例
+            </summary>
+            <param name="state">流程状态</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.Runtime.InstanceCreator.CreateMapInstance(Kingdee.BOS.Workflow.Kernel.ITransitionMap)">
+            <summary>
+            创建流程实例
+            </summary>
+            <param name="map">流程</param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.MapStateTrackArgs">
+            <summary>
+            服务参数：已执行状态
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapStateTrackArgs.#ctor(Kingdee.BOS.Workflow.Kernel.IMapStateInstance)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="instance">状态实例</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapStateTrackArgs.InstanceInfo">
+            <summary>
+            已执行状态的持久化信息
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.MapStateTransitingArgs">
+            <summary>
+            服务参数：将执行状态
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapStateTransitingArgs.#ctor(Kingdee.BOS.Workflow.Kernel.IMapStateInstance,Kingdee.BOS.Workflow.Kernel.IMapStateInstance)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="instance">状态实例</param>
+            <param name="lastInstance">下一状态的实例</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapStateTransitingArgs.LastInstanceInfo">
+            <summary>
+            将执行状态的持久化信息
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.ITrackingService">
+            <summary>
+            流程状态执行服务接口
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.ITrackingService.OnStateTransited(Kingdee.BOS.Workflow.Kernel.MapStateTrackArgs)">
+            <summary>
+            状态流程完毕
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.ITrackingService.OnStateTransiting(Kingdee.BOS.Workflow.Kernel.MapStateTransitingArgs)">
+            <summary>
+            状态流转中
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.MapStateSession">
+            <summary>
+            MapState在其生存期中，可以为各ActionEvent提供临时数据变量存取和交流的机制。
+            此对象的生存期和MapStateContext一致。
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.MapStateContext">
+            <summary>
+            流程状态实例上下文
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapStateContext.#ctor(Kingdee.BOS.Workflow.Kernel.MapContext,Kingdee.BOS.Workflow.Kernel.CompiledMapState,Kingdee.BOS.Workflow.Kernel.IMapStateInstance)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="mapContext">流程实例运行上下文</param>
+            <param name="compiledState">已经编译的流程图状态</param>
+            <param name="instance">状态实例</param>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateContext._session">
+            <summary>
+            各活动共享的变量交换区
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateContext._instance">
+            <summary>
+            状态实例
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateContext._expressionContext">
+            <summary>
+            表达式计算器
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateContext._mapContext">
+            <summary>
+            流程实例运行上下文
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateContext._compiledState">
+            <summary>
+            已编译的流程图状态
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateContext._idled">
+            <summary>
+            是否空闲/挂起
+            </summary>
+        </member>
+        <member name="F:Kingdee.BOS.Workflow.Kernel.MapStateContext._discarded">
+            <summary>
+            是否舍弃
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapStateContext.Sleep">
+            <summary>
+            挂起
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapStateContext.JumpTo(System.Int32)">
+            <summary>
+            舍弃本状态，跳转到...
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapStateContext.EvaluateToBool(Kingdee.BOS.Scripting.Expression)">
+            <summary>
+            判断表达式成立与否
+            </summary>
+            <param name="exp">表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapStateContext.ExecuteScript(Kingdee.BOS.Scripting.Expression)">
+            <summary>
+            返回表达式执行结果
+            </summary>
+            <param name="exp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapStateContext.Schedule(System.Int32)">
+            <summary>
+            跳转到...
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapStateContext.TryGetMember(System.String,System.Object@)">
+            <summary>
+            计算表达式时，获取变量值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.MapStateContext.TrySetMember(System.String,System.Object)">
+            <summary>
+            计算表达时时，设置变量值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapStateContext.Idled">
+            <summary>
+            是否空闲/挂起
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapStateContext.Discarded">
+            <summary>
+            是否舍弃
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapStateContext.StateInstance">
+            <summary>
+            状态实例
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapStateContext.MapState">
+            <summary>
+            状态定义
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapStateContext.MapContext">
+            <summary>
+            流程实例上下文
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.MapStateContext.Session">
+            <summary>
+            状态中，各活动共享的变量交换区
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.StateInstanceInfo">
+            <summary>
+            持久化的状态实例
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.StateInstanceInfo.#ctor(Kingdee.BOS.Workflow.Kernel.IMapStateInstance)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="instance">状态实例</param>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.StateInstanceInfo.ToString">
+            <summary>
+            格式化输出文本提示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.StateInstanceInfo.InstanceKey">
+            <summary>
+            实例内码，GUID
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.StateInstanceInfo.StateKey">
+            <summary>
+            状态在流程图中的序号
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.StateInstanceInfo.Result">
+            <summary>
+            状态进度
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.StateInstanceInfo.EventTime">
+            <summary>
+            持久化的时间
+            </summary>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.StateInstanceInfo.Data">
+            <summary>
+            实例数据
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.ValidationResult">
+            <summary>
+            流程图校验结果
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.Workflow.Kernel.ValidationResult.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="message">提示信息</param>
+        </member>
+        <member name="P:Kingdee.BOS.Workflow.Kernel.ValidationResult.Message">
+            <summary>
+            提示信息
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.Workflow.Kernel.WorkflowKernelException">
+            <summary>
+            工作流异常
+            </summary>
+        </member>
+    </members>
+</doc>

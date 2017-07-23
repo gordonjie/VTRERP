@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kingdee.BOS.MC.ServiceFacade.KDServiceClient</name>
+    </assembly>
+    <members>
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.MCUserServiceProxy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.IMCUserServiceProxy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.IMCUserServiceProxy.LoginMgtCenter(System.String,System.String,System.Int32)">
+            <summary>
+            登陆管理中心
+            string username, string password, int lcid = 2052
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="callback"></param>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.MCUserServiceProxy.OnSetServiceName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.MCUserServiceProxy.LoginMgtCenter(System.String,System.String,System.Int32)">
+            <summary>
+            登陆管理中心
+            string ServerUrl, string acctID, string username, string password, int lcid = 2052
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="callback"></param>
+        </member>
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.MCClientProxyFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.MCClientProxyFactory.RegisterService(Kingdee.BOS.ProxyContainer)">
+            <summary>
+            注册服务
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.IManagementCenterServiceProxy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.IManagementCenterServiceProxy.GetDeploySites(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取部署名站点
+            </summary>
+            <param name="ctx"></param>
+            <param name="dcId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.IManagementCenterServiceProxy.GetCurrentISV(Kingdee.BOS.Context)">
+            <summary>
+            获取当前ISV
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.IManagementCenterServiceProxy.GetISVList(Kingdee.BOS.Context)">
+            <summary>
+            获取ISV列表
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.IManagementCenterServiceProxy.SaveISV(Kingdee.BOS.Context,Kingdee.BOS.ISV)">
+            <summary>
+            保存单个ISV
+            </summary>
+            <param name="ctx"></param>
+            <param name="isv"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.IManagementCenterServiceProxy.SetCurrentISV(Kingdee.BOS.Context,Kingdee.BOS.ISV)">
+            <summary>
+            设置当前开发商
+            </summary>
+            <param name="ctx"></param>
+            <param name="isv"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy">
+            <summary>
+            站点管理代码
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy.CreateWebSite(Kingdee.BOS.Context,System.String,System.String,System.Int32,System.String,System.Int32,System.String,System.String,System.String,System.String)">
+             <summary>
+             创建Web站点
+             </summary>
+             <param name="siteName">站点名称</param>
+             <param name="port">站口号</param>
+             <param name="physicalPath">物理路径</param>
+             <param name="appPoolIdentityType">运行账号
+            internal enum AppPoolIdentityType
+            {
+            LocalSystem = 0,
+            LocalService = 1,
+            NetworkService = 2,
+            SpecificUser = 3,
+            ApplicationPoolIdentity = 4,
+            }
+             </param>
+             <param name="publishChannel">发布通道</param>
+             <param name="defaultPage">首页</param>
+             <param name="uName">账号名称</param>
+             <param name="uPwd">账号密码</param>
+             <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy.RemoveWebsite(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            删除站点
+            </summary>
+            <param name="siteName"></param>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy.SetSiteDefaultPage(Kingdee.BOS.Context,System.String,System.String,System.String,System.String)">
+            <summary>
+            指定某个页面为该站点的默认页（通过页面重定向实现）
+            e.g: 例如：要将 http://localhost/K3Cloud/Silverlgiht/Index.aspx 页设置为默认站点的默认页，则调用如下：
+                      SetSiteDefaultPage(ctx,{hostName},"{Default Site Name}",K3Cloud,Silverlgiht/Index.aspx)
+             设置后，用户输入 http://localhost/ ，会自动重定向到 上述目标页
+            </summary>
+            <param name="ctx"></param>
+            <param name="hostName"></param>
+            <param name="siteName"></param>
+            <param name="vdName"></param>
+            <param name="defaultPage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy.SetDefaultPage(Kingdee.BOS.Context,System.String,System.String,System.String,System.String)">
+            <summary>
+            通过DefaultPages配置文件实现默认页
+            </summary>
+            <param name="ctx"></param>
+            <param name="hostName"></param>
+            <param name="siteName"></param>
+            <param name="vdName"></param>
+            <param name="defaultPage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy.CreateVirtualDirectory(Kingdee.BOS.Context,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String)">
+             <summary>
+             创建虚拟目录
+             </summary>
+             <param name="siteName">站点名称</param>
+             <param name="port">站口号</param>
+             <param name="physicalPath">物理路径</param>
+             <param name="appPoolIdentityType">运行账号
+            internal enum AppPoolIdentityType
+            {
+            LocalSystem = 0,
+            LocalService = 1,
+            NetworkService = 2,
+            SpecificUser = 3,
+            ApplicationPoolIdentity = 4,
+            }
+             </param>
+             <param name="publishChannel">发布通道</param>
+             <param name="defaultPage">首页</param>
+             <param name="uName">账号名称</param>
+             <param name="uPwd">账号密码</param>
+             <param name="vdName">物拟目录名称</param>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy.RemoveVirtualDirectory(Kingdee.BOS.Context,System.String,System.String,System.String)">
+            <summary>
+            删除虚拟目录
+            </summary>
+            <param name="siteName"></param>
+            <param name="vdName"></param>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy.ApplyExtPackage(Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback,Kingdee.BOS.Context,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            安装扩展包(通过文件Uri)
+            </summary>
+            <param name="siteName"></param>
+            <param name="vdName"></param>
+            <param name="pkgId">
+            </param>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy.GetHosts(Kingdee.BOS.Context)">
+            <summary>
+            获取所管理的主机列表
+            </summary>
+            <param name="mmtx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy.GetWebSites(Kingdee.BOS.Context,System.String)">
+            <summary>
+            获取指定主机的站点列表
+            </summary>
+            <param name="mmtx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.SiteManagementServiceProxy.GetVDList(Kingdee.BOS.Context,System.String,System.String)">
+            <summary>
+            获取虚拟目录列表
+            </summary>
+            <param name="mmtx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ManagementCenterServiceProxy.ValidateKeyCode">
+            <summary>
+            检测数据库中存储的软件唯一码是否有效
+            1、如果不存在，则生成之，返回True；
+            2、如果存在，则校验，有效返回True，无效返回False；
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ManagementCenterServiceProxy.GetAllDeploySites(System.String)">
+            <summary>
+             获取所有的部署单元
+            </summary>
+            <param name="dcId">为空是表示获取所有部署单元</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ManagementCenterServiceProxy.GetDeploySites(Kingdee.BOS.Context,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <param name="dcId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ManagementCenterServiceProxy.SaveISV(Kingdee.BOS.Context,Kingdee.BOS.ISV)">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ManagementCenterServiceProxy.GetCurrentISV(Kingdee.BOS.Context)">
+            <summary>
+            获取当前开发商
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ManagementCenterServiceProxy.GetISVList(Kingdee.BOS.Context)">
+            <summary>
+             获取开发商列表
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ManagementCenterServiceProxy.SetCurrentISV(Kingdee.BOS.Context,Kingdee.BOS.ISV)">
+            <summary>
+            
+            </summary>
+            <param name="ctx"></param>
+            <param name="isv"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy">
+            <summary>
+            扩展包管理
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.CreateBusinessDC(Kingdee.BOS.DataCenterInfo.SqlServerDataCenterInfo)">
+            <summary>
+            
+            </summary>
+            <param name="dc"></param>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.GetDataCenterContextByNum(System.String)">
+            <summary>
+            根据数据中心Num获取数据中心上下文
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.DeleteBusinessDC(System.String)">
+            <summary>
+            Delete DataCenteter
+            </summary>
+            <param name="datacenterId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.InstallMCPkg(Kingdee.BOS.Context,Kingdee.BOS.Install.Core.InstallationArg,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            安装管理中心包(含导入、启用）
+            </summary>
+            <param name="mgctx"></param>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.ValidateToInstallPkg(Kingdee.BOS.Context,System.String,System.Collections.Generic.List{Kingdee.BOS.Package.ProductModel.Manifest},Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            验证拟启用的包
+            </summary>
+            <param name="mgmt"></param>
+            <param name="arg"></param>
+            <returns></returns>
+            <summary>
+             验证拟启用的包
+            </summary>
+            <param name="mgmt"></param>
+            <param name="dcId"></param>
+            <param name="manifests"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.ImportPkg(Kingdee.BOS.Context,Kingdee.BOS.Install.Core.ImportArg,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            导入包
+            </summary>
+            <param name="mgct"></param>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.GetImportedPacakges(Kingdee.BOS.Context)">
+            <summary>
+            获取已导入的包
+            </summary>
+            <param name="mgmt">管理中心上下文</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.StartPkg(Kingdee.BOS.Context,Kingdee.BOS.Install.Core.StartArg,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            启用包
+            </summary>
+            <param name="mgmt"></param>
+            <param name="ctx"></param>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.InstallMCPackage(Kingdee.BOS.Context,System.String[],System.IO.Stream[],Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            Install MC Package(Import and Apply)
+            </summary>
+            <param name="pkgName"></param>
+            <param name="mgmt"></param>
+            <param name="stream"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.ImportPackage(System.String,System.IO.Stream,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+             Import Package
+            </summary>
+            <param name="pkgName"></param>
+            <param name="stream"></param>
+            <param name="callback"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.ImportPackages(System.String[],System.IO.Stream[],Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+             Import Packages
+            </summary>
+            <param name="pkgNames"></param>
+            <param name="streams"></param>
+            <param name="callback"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.UriCanAccess(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pkgFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.ImportPackageByPkgFile(System.String,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            导入安装包
+            </summary>
+            <param name="pkgFile"></param>
+            <param name="callback"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.ApplyPackage(System.String,System.String,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            Apply Package
+            </summary>
+            <param name="datacenterId"></param>
+            <param name="packageId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.ApplyPackages(System.String,System.String[],Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            Apply Package
+            </summary>
+            <param name="datacenterId"></param>
+            <param name="packageId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.RemovePackage(System.String,System.String[])">
+            <summary>
+            Remove Pacakge
+            </summary>
+            <param name="datacenterId"></param>
+            <param name="packagesIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.ApplyPkgsInSite(Kingdee.BOS.Context,System.String,System.Boolean,System.Collections.Generic.List{System.String},Kingdee.BOS.Install.Core.InstallItem,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            
+            </summary>
+            <param name="mgmt"></param>
+            <param name="batchNum"></param>
+            <param name="runSameVer"></param>
+            <param name="pkgIds"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.ApplyInstallItem(System.String,Kingdee.BOS.Install.Core.InstallItem,Kingdee.BOS.ServiceFacade.KDServiceClient.QueryCallback)">
+            <summary>
+            
+            </summary>
+            <param name="pkgId"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.GetInstalledPackages(System.String)">
+            <summary>
+            获取指定数据中心已启用的包
+            </summary>
+            <param name="dcId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.PackageMgtServiceProxy.GetBizSites(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="dcId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ProductModelManagerProxy.GetActitityCode">
+            <summary>
+            获取激活码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ProductModelManagerProxy.GetCloudValidatePara">
+            <summary>
+            获取云验证参数信息
+            </summary>
+            <param name="dataCenters"></param>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ProductModelManagerProxy.NeedContinueSend(System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <member name="T:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ProxyAssistant">
+            <summary>
+            代理助手：负责访问当前站点的信息，为访问管理站点服务准备数据
+            </summary>
+        </member>
+        <member name="M:Kingdee.BOS.MC.ServiceFacade.KDServiceClient.ProxyAssistant.CheckIsManagementSite">
+            <summary>
+            是否为管理站点
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

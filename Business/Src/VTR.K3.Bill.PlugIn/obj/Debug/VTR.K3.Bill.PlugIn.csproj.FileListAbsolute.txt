@@ -1,0 +1,6 @@
+E:\YDL\JN\JNApp\K3CloudServer\Bin\VTR.K3.Bill.PlugIn.XML
+E:\YDL\JN\JNApp\K3CloudServer\Bin\VTR.K3.Bill.PlugIn.dll
+E:\YDL\JN\JNApp\K3CloudServer\Bin\VTR.K3.Bill.PlugIn.pdb
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\VTR.K3.Bill.PlugIn\obj\Debug\VTR.K3.Bill.PlugIn.csprojResolveAssemblyReference.cache
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\VTR.K3.Bill.PlugIn\obj\Debug\VTR.K3.Bill.PlugIn.dll
+E:\YDL\JN\JNCode\K3\Other\YDL\Business\Src\VTR.K3.Bill.PlugIn\obj\Debug\VTR.K3.Bill.PlugIn.pdb
